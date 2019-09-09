@@ -142,6 +142,7 @@ namespace Q_Tech_Bookkeeping
         private AdvancedDataGridView dgv_NoInv;
 
         private BindingSource clientsBindingSource1;
+        private IContainer components;
 
         public Home()
         {
@@ -152,6 +153,7 @@ namespace Q_Tech_Bookkeeping
         {
             btn_Home.BackColor = Color.FromArgb(19, 118, 188);
             btn_Home.ForeColor = Color.White;
+
             selected = "Home";
             pnl_Home.Visible = true;
             CurrentPanel("pnl_Home");
@@ -173,15 +175,9 @@ namespace Q_Tech_Bookkeeping
             NUM_OF_LCLIENTS = lClientDT.Rows.Count;
 
             if (NUM_OF_LCLIENTS == 0)
-            {
                 btn_LC_Edit.Enabled = false;
-            }
-            else
-            {
-                if (NUM_OF_LCLIENTS == 0 || btn_LC_Edit.Enabled)
-                    return;
+            else if (NUM_OF_LCLIENTS != 0 && !btn_LC_Edit.Enabled)
                 btn_LC_Edit.Enabled = true;
-            }
         }
 
         private void LoadIntClients()
@@ -200,43 +196,45 @@ namespace Q_Tech_Bookkeeping
             NUM_OF_ICLIENTS = iClientDT.Rows.Count;
 
             if (NUM_OF_ICLIENTS == 0)
-            {
                 btn_IC_Edit.Enabled = false;
-            }
-            else
-            {
-                if (NUM_OF_ICLIENTS == 0 || btn_IC_Edit.Enabled)
-                    return;
+            else if (NUM_OF_ICLIENTS != 0 && !btn_IC_Edit.Enabled)
                 btn_IC_Edit.Enabled = true;
-            }
         }
 
-        private void btn_Home_Close_Click(object sender, EventArgs e)
+
+        //================================================================================================================================================//
+        // CLOSE FORM                                                                                                                                     //
+        //================================================================================================================================================//
+        private void Btn_Home_Close_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void btn_Home_Close_MouseEnter(object sender, EventArgs e)
+        private void Btn_Home_Close_MouseEnter(object sender, EventArgs e)
         {
             btn_Home_Close.Image = Resources.close_white;
         }
 
-        private void btn_Home_Close_MouseLeave(object sender, EventArgs e)
+        private void Btn_Home_Close_MouseLeave(object sender, EventArgs e)
         {
             btn_Home_Close.Image = Resources.close_black;
         }
 
-        private void btn_Home_Max_MouseEnter(object sender, EventArgs e)
+
+        //================================================================================================================================================//
+        // MAXIMIZE FORM                                                                                                                                  //
+        //================================================================================================================================================//
+        private void Btn_Home_Max_MouseEnter(object sender, EventArgs e)
         {
             btn_Home_Max.Image = Resources.maximize_white;
         }
 
-        private void btn_Home_Max_MouseLeave(object sender, EventArgs e)
+        private void Btn_Home_Max_MouseLeave(object sender, EventArgs e)
         {
             btn_Home_Max.Image = Resources.maximize_black;
         }
 
-        private void btn_Home_Max_Click(object sender, EventArgs e)
+        private void Btn_Home_Max_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Maximized;
             btn_Home_Max.Visible = false;
@@ -244,17 +242,21 @@ namespace Q_Tech_Bookkeeping
             lblComing.Location = new Point((pnl_Home.Width / 2) - (lblComing.Width / 2), (pnl_Home.Height / 2) - (lblComing.Height / 2));
         }
 
-        private void btn_Home_Nor_MouseEnter(object sender, EventArgs e)
+
+        //================================================================================================================================================//
+        // NORMALIZE FORM                                                                                                                                 //
+        //================================================================================================================================================//
+        private void Btn_Home_Nor_MouseEnter(object sender, EventArgs e)
         {
             btn_Home_Nor.Image = Resources.restore_white;
         }
 
-        private void btn_Home_Nor_MouseLeave(object sender, EventArgs e)
+        private void Btn_Home_Nor_MouseLeave(object sender, EventArgs e)
         {
             btn_Home_Nor.Image = Resources.restore_black2;
         }
 
-        private void btn_Home_Nor_Click(object sender, EventArgs e)
+        private void Btn_Home_Nor_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Normal;
             btn_Home_Nor.Visible = false;
@@ -262,27 +264,35 @@ namespace Q_Tech_Bookkeeping
             lblComing.Location = new Point(416, 297);
         }
 
-        private void btn_Home_Min_MouseEnter(object sender, EventArgs e)
+
+        //================================================================================================================================================//
+        // MINIMIZE FORM                                                                                                                                  //
+        //================================================================================================================================================//
+        private void Btn_Home_Min_MouseEnter(object sender, EventArgs e)
         {
             btn_Home_Min.Image = Resources.minimize_white;
         }
 
-        private void btn_Home_Min_MouseLeave(object sender, EventArgs e)
+        private void Btn_Home_Min_MouseLeave(object sender, EventArgs e)
         {
             btn_Home_Min.Image = Resources.minimize_grey;
         }
 
-        private void btn_Home_Min_Click(object sender, EventArgs e)
+        private void Btn_Home_Min_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void btn_Home_Click(object sender, EventArgs e)
+
+        //================================================================================================================================================//
+        // DASHBOARD BUTTON                                                                                                                               //
+        //================================================================================================================================================//
+        private void Btn_Home_Click(object sender, EventArgs e)
         {
             lblComing.Visible = true;
 
-            resetButtons(selected);
-            getSelectedButton(sender);
+            ResetButtons(selected);
+            GetSelectedButton(sender);
             HidePanel();
 
             pnl_Home.Visible = true;
@@ -303,26 +313,32 @@ namespace Q_Tech_Bookkeeping
 
             btn_Home.BackColor = Color.FromArgb(19, 118, 188);
             btn_Home.ForeColor = Color.White;
-            btn_Home.Image = (Image) Resources.home_white;
+            btn_Home.Image = Resources.home_white;
         }
 
-        private void btn_Home_MouseEnter(object sender, EventArgs e)
+        private void Btn_Home_MouseEnter(object sender, EventArgs e)
         {
             btn_Home.BackColor = Color.FromArgb(73, 73, 73);
             btn_Home.ForeColor = Color.FromArgb(19, 118, 188);
-            btn_Home.Image = (Image) Resources.home_blue;
+            btn_Home.Image = Resources.home_blue;
         }
 
-        private void btn_Home_MouseLeave(object sender, EventArgs e)
+        private void Btn_Home_MouseLeave(object sender, EventArgs e)
         {
             btn_Home.BackColor = Color.FromArgb(64, 64, 64);
             btn_Home.ForeColor = Color.White;
-            btn_Home.Image = (Image) Resources.home_white;
+            btn_Home.Image = Resources.home_white;
         }
 
-        private void getSelectedButton(object sender)
+
+        //================================================================================================================================================//
+        // SETS NEW SELECTED BUTTON                                                                                                                       //
+        //================================================================================================================================================//
+        private void GetSelectedButton(object sender)
         {
-            string name = ((Control) sender).Name;
+            Button b = (Button)sender;
+            string name = b.Name;
+
             switch (name)
             {
                 case "btn_L_PettyCash":
@@ -352,569 +368,617 @@ namespace Q_Tech_Bookkeeping
                     }
                 case "btn_Projects":
                     {
-                        this.selected = "Projects";
+                        selected = "Projects";
                         break;
                     }
-                case 1572591152:
+                case "btn_I_Clients":
                     {
-
+                        selected = "iClients";
+                        break;
                     }
-          if (!(name == "btn_I_Clients"))
-            break;
-          this.selected = "iClients";
-          break;
-                case 2022576627:
+                case "btn_Local":
                     {
-
+                        selected = "Local";
+                        break;
                     }
-          if (!(name == "btn_Local"))
-            break;
-          this.selected = "Local";
-          break;
-                case 2071924013:
+                case "btn_I_Orders":
                     {
-
+                        selected = "iOrders";
+                        break;
                     }
-          if (!(name == "btn_I_Orders"))
-            break;
-          this.selected = "iOrders";
-          break;
-                case 2105268658:
+                case "btn_L_InvRec":
                     {
-
+                        selected = "lInvRec";
+                        break;
                     }
-          if (!(name == "btn_L_InvRec"))
-            break;
-          this.selected = "lInvRec";
-          break;
-                case 2454825689:
+                case "btn_Int":
                     {
-
+                        selected = "Int";
+                        break;
                     }
-          if (!(name == "btn_Int"))
-            break;
-          this.selected = "Int";
-          break;
-                case 2595377631:
+                case "btn_Home":
                     {
-
+                        selected = "Home";
+                        break;
                     }
-          if (!(name == "btn_Home"))
-            break;
-          this.selected = nameof (Home);
-          break;
-                case 2830359379:
+                case "btn_L_Clients":
                     {
-
+                        selected = "lClients";
+                        break;
                     }
-          if (!(name == "btn_L_Clients"))
-            break;
-          this.selected = "lClients";
-          break;
-                case 2999105185:
+                case "btn_I_InvSent":
                     {
-
+                        selected = "iInvSent";
+                        break;
                     }
-          if (!(name == "btn_I_InvSent"))
-            break;
-          this.selected = "iInvSent";
-          break;
-                case 3216239524:
+                case "btn_I_Invoices":
                     {
-
+                        selected = "iInvoices";
+                        break;
                     }
-          if (!(name == "btn_I_Invoices"))
-            break;
-          this.selected = "iInvoices";
-          break;
-                case 3634565802:
+                case "btn_L_InvSent":
                     {
-
+                        selected = "lInvSent";
+                        break;
                     }
-          if (!(name == "btn_L_InvSent"))
-            break;
-          this.selected = "lInvSent";
-          break;
-                case 3663618135:
+                case "btn_C_Timesheets":
                     {
-
+                        selected = "cTimesheets";
+                        break;
                     }
-          if (!(name == "btn_C_Timesheets"))
-            break;
-          this.selected = "cTimesheets";
-          break;
-                case 3731463956:
+                case "btn_C_NoInv":
                     {
-
+                        selected = "cNoInv";
+                        break;
                     }
-          if (!(name == "btn_C_NoInv"))
-            break;
-          this.selected = "cNoInv";
-          break;
-                case 3848486376:
+                case "btn_L_Orders":
                     {
-
+                        selected = "lOrders";
+                        break;
                     }
-          if (!(name == "btn_L_Orders"))
-            break;
-          this.selected = "lOrders";
-          break;
-                case 3907623993:
+                case "btn_I_Quotes":
                     {
-
+                        selected = "iQuotes";
+                        break;
                     }
-          if (!(name == "btn_I_Quotes"))
-            break;
-          this.selected = "iQuotes";
-          break;
-      }
-    }
+            }
+        }
 
-    private void resetButtons(string name)
-    {
-      string s = name;
-      switch (s)
-      {
-        case "lInvRec" : 
-          this.btn_L_InvRec.BackColor = Color.FromArgb(35, 35, 35);
-          this.btn_L_InvRec.ForeColor = Color.White;
-          break;
-        case "lQuotes":
-          this.btn_L_Quotes.BackColor = Color.FromArgb(50, 50, 50);
-          this.btn_L_Quotes.ForeColor = Color.White;
-          break;
-        case "Local":
-          this.btn_Local.BackColor = Color.FromArgb(64, 64, 64);
-          this.btn_Local.ForeColor = Color.White;
-          break;
-        case "iOrders":
-          this.btn_I_Orders.BackColor = Color.FromArgb(50, 50, 50);
-          this.btn_I_Orders.ForeColor = Color.White;
-          break;
-        case "iInvSent":
-          this.btn_I_InvSent.BackColor = Color.FromArgb(50, 50, 50);
-          this.btn_I_InvSent.ForeColor = Color.White;
-          break;
-        case "lClients":
-          this.btn_L_Clients.BackColor = Color.FromArgb(50, 50, 50);
-          this.btn_L_Clients.ForeColor = Color.White;
-          break;
-        case "Home":
-          this.btn_Home.BackColor = Color.FromArgb(64, 64, 64);
-          this.btn_Home.ForeColor = Color.White;
-          this.lblComing.Visible = false;
-          break;
-        case "iClients":
-          this.btn_I_Clients.BackColor = Color.FromArgb(50, 50, 50);
-          this.btn_I_Clients.ForeColor = Color.White;
-          break;
-        case "Projects":
-          this.btn_Projects.BackColor = Color.FromArgb(64, 64, 64);
-          this.btn_Projects.ForeColor = Color.White;
-          break;
-        case "Contractors":
-          this.btn_Contractors.BackColor = Color.FromArgb(64, 64, 64);
-          this.btn_Contractors.ForeColor = Color.White;
-          break;
-        case "iQuotes":
-          this.btn_I_Quotes.BackColor = Color.FromArgb(50, 50, 50);
-          this.btn_I_Quotes.ForeColor = Color.White;
-          break;
-        case "lInvSent":
-          this.btn_L_InvSent.BackColor = Color.FromArgb(35, 35, 35);
-          this.btn_L_InvSent.ForeColor = Color.White;
-          break;
-        case "cNoRem":
-          this.btn_C_NoRem.BackColor = Color.FromArgb(50, 50, 50);
-          this.btn_C_NoRem.ForeColor = Color.White;
-          break;
-        case "lPettyCash":
-          this.btn_L_PettyCash.BackColor = Color.FromArgb(50, 50, 50);
-          this.btn_L_PettyCash.ForeColor = Color.White;
-          break;
-        case "lOrders":
-          this.btn_L_Orders.BackColor = Color.FromArgb(50, 50, 50);
-          this.btn_L_Orders.ForeColor = Color.White;
-          break;
-        case "lInvoices":
-          this.btn_L_Invoices.BackColor = Color.FromArgb(50, 50, 50);
-          this.btn_L_Invoices.ForeColor = Color.White;
-          break;
-        case "cTimesheets":
-          this.btn_C_Timesheets.BackColor = Color.FromArgb(50, 50, 50);
-          this.btn_C_Timesheets.ForeColor = Color.White;
-          break;
-        case "cNoInv":
-          this.btn_C_NoInv.BackColor = Color.FromArgb(50, 50, 50);
-          this.btn_C_NoInv.ForeColor = Color.White;
-          break;
-        case "Int":
-          this.btn_Int.BackColor = Color.FromArgb(64, 64, 64);
-          this.btn_Int.ForeColor = Color.White;
-          break;
-      }
-    }
 
-    private void CurrentPanel(string name)
-    {
-      string s = name;
-      // ISSUE: reference to a compiler-generated method
-      switch (\u003CPrivateImplementationDetails\u003E.ComputeStringHash(s))
-      {
-        case 255025442:
-          if (!(s == "pnl_L_Quotes"))
-            break;
-          this.curVisible = "pnl_L_Quotes";
-          break;
-        case 394946480:
-          if (!(s == "pnl_L_InvSent"))
-            break;
-          this.curVisible = "pnl_L_InvSent";
-          break;
-        case 644103399:
-          if (!(s == "pnl_I_Orders"))
-            break;
-          this.curVisible = "pnl_I_Orders";
-          break;
-        case 1624435748:
-          if (!(s == "pnl_L_PettyCash"))
-            break;
-          this.curVisible = "pnl_L_PettyCash";
-          break;
-        case 1672930100:
-          if (!(s == "pnl_L_InvRec"))
-            break;
-          this.curVisible = "pnl_L_InvRec";
-          break;
-        case 1810021675:
-          if (!(s == "pnl_I_Quotes"))
-            break;
-          this.curVisible = "pnl_I_Quotes";
-          break;
-        case 1959501159:
-          if (!(s == "pnl_I_InvSent"))
-            break;
-          this.curVisible = "pnl_I_InvSent";
-          break;
-        case 2258667164:
-          if (!(s == "pnl_Projects"))
-            break;
-          this.curVisible = "pnl_Projects";
-          break;
-        case 2902009809:
-          if (!(s == "pnl_C_NoRem"))
-            break;
-          this.curVisible = "pnl_C_NoRem";
-          break;
-        case 3021685954:
-          if (!(s == "pnl_I_Clients"))
-            break;
-          this.curVisible = "pnl_I_Clients";
-          break;
-        case 3239117006:
-          if (!(s == "pnl_Contractors"))
-            break;
-          this.curVisible = "pnl_Contractors";
-          break;
-        case 3621814393:
-          if (!(s == "pnl_Home"))
-            break;
-          this.curVisible = "pnl_Home";
-          break;
-        case 3803523437:
-          if (!(s == "pnl_L_CDet"))
-            break;
-          this.curVisible = "pnl_L_CDet";
-          break;
-        case 3894939078:
-          if (!(s == "pnl_C_NoInv"))
-            break;
-          this.curVisible = "pnl_C_NoInv";
-          break;
-        case 3918914690:
-          if (!(s == "pnl_L_Orders"))
-            break;
-          this.curVisible = "pnl_L_Orders";
-          break;
-      }
-    }
+        //================================================================================================================================================//
+        // RESETS PREVIOUS SELECTED BUTTON COLOUR                                                                                                         //
+        //================================================================================================================================================//
+        private void ResetButtons(string name)
+        {
+            switch (name)
+            {
+                case "lInvRec" :
+                    {
+                        btn_L_InvRec.BackColor = Color.FromArgb(35, 35, 35);
+                        btn_L_InvRec.ForeColor = Color.White;
+                        break;
+                    }         
+                case "lQuotes":
+                    {
+                        btn_L_Quotes.BackColor = Color.FromArgb(50, 50, 50);
+                        btn_L_Quotes.ForeColor = Color.White;
+                        break;
+                    }
+                case "Local":
+                    {
+                        btn_Local.BackColor = Color.FromArgb(64, 64, 64);
+                        btn_Local.ForeColor = Color.White;
+                        break;
+                    }
+                case "iOrders":
+                    {
+                        btn_I_Orders.BackColor = Color.FromArgb(50, 50, 50);
+                        btn_I_Orders.ForeColor = Color.White;
+                        break;
+                    }
+                case "iInvSent":
+                    {
+                        btn_I_InvSent.BackColor = Color.FromArgb(50, 50, 50);
+                        btn_I_InvSent.ForeColor = Color.White;
+                        break;
+                    }
+                case "lClients":
+                    {
+                        btn_L_Clients.BackColor = Color.FromArgb(50, 50, 50);
+                        btn_L_Clients.ForeColor = Color.White;
+                        break;
+                    }
+                case "Home":
+                    {
+                        btn_Home.BackColor = Color.FromArgb(64, 64, 64);
+                        btn_Home.ForeColor = Color.White;
+                        lblComing.Visible = false;
+                        break;
+                    }
+                case "iClients":
+                    {
+                        btn_I_Clients.BackColor = Color.FromArgb(50, 50, 50);
+                        btn_I_Clients.ForeColor = Color.White;
+                        break;
+                    }
+                case "Projects":
+                    {
+                        btn_Projects.BackColor = Color.FromArgb(64, 64, 64);
+                        btn_Projects.ForeColor = Color.White;
+                        break;
+                    }
+                case "Contractors":
+                    {
+                        btn_Contractors.BackColor = Color.FromArgb(64, 64, 64);
+                        btn_Contractors.ForeColor = Color.White;
+                        break;
+                    }
+                case "iQuotes":
+                    {
+                        btn_I_Quotes.BackColor = Color.FromArgb(50, 50, 50);
+                        btn_I_Quotes.ForeColor = Color.White;
+                        break;
+                    }
+                case "lInvSent":
+                    {
+                        btn_L_InvSent.BackColor = Color.FromArgb(35, 35, 35);
+                        btn_L_InvSent.ForeColor = Color.White;
+                        break;
+                    }
+                case "cNoRem":
+                    {
+                        btn_C_NoRem.BackColor = Color.FromArgb(50, 50, 50);
+                        btn_C_NoRem.ForeColor = Color.White;
+                        break;
+                    }
+                case "lPettyCash":
+                    {
+                        btn_L_PettyCash.BackColor = Color.FromArgb(50, 50, 50);
+                        btn_L_PettyCash.ForeColor = Color.White;
+                        break;
+                    }
+                case "lOrders":
+                    {
+                        btn_L_Orders.BackColor = Color.FromArgb(50, 50, 50);
+                        btn_L_Orders.ForeColor = Color.White;
+                        break;
+                    }
+                case "lInvoices":
+                    {
+                        btn_L_Invoices.BackColor = Color.FromArgb(50, 50, 50);
+                        btn_L_Invoices.ForeColor = Color.White;
+                        break;
+                    }
+                case "cTimesheets":
+                    {
+                        btn_C_Timesheets.BackColor = Color.FromArgb(50, 50, 50);
+                        btn_C_Timesheets.ForeColor = Color.White;
+                        break;
+                    }
+                case "cNoInv":
+                    {
+                        btn_C_NoInv.BackColor = Color.FromArgb(50, 50, 50);
+                        btn_C_NoInv.ForeColor = Color.White;
+                        break;
+                    }
+                case "Int":
+                    {
+                        btn_Int.BackColor = Color.FromArgb(64, 64, 64);
+                        btn_Int.ForeColor = Color.White;
+                        break;
+                    }
+            }
+        }
 
-    private void HidePanel()
-    {
-      string curVisible = this.curVisible;
-      // ISSUE: reference to a compiler-generated method
-      switch (\u003CPrivateImplementationDetails\u003E.ComputeStringHash(curVisible))
-      {
-        case 255025442:
-          if (!(curVisible == "pnl_L_Quotes"))
-            break;
-          this.pnl_L_Quotes.Visible = false;
-          break;
-        case 394946480:
-          if (!(curVisible == "pnl_L_InvSent"))
-            break;
-          this.pnl_L_InvSent.Visible = false;
-          break;
-        case 644103399:
-          if (!(curVisible == "pnl_I_Orders"))
-            break;
-          this.pnl_I_Orders.Visible = false;
-          break;
-        case 1624435748:
-          if (!(curVisible == "pnl_L_PettyCash"))
-            break;
-          this.pnl_L_PettyCash.Visible = false;
-          break;
-        case 1672930100:
-          if (!(curVisible == "pnl_L_InvRec"))
-            break;
-          this.pnl_L_InvRec.Visible = false;
-          break;
-        case 1810021675:
-          if (!(curVisible == "pnl_I_Quotes"))
-            break;
-          this.pnl_I_Quotes.Visible = false;
-          break;
-        case 1959501159:
-          if (!(curVisible == "pnl_I_InvSent"))
-            break;
-          this.pnl_I_InvSent.Visible = false;
-          break;
-        case 2258667164:
-          if (!(curVisible == "pnl_Projects"))
-            break;
-          this.pnl_Projects.Visible = false;
-          break;
-        case 2902009809:
-          if (!(curVisible == "pnl_C_NoRem"))
-            break;
-          this.pnl_C_NoRem.Visible = false;
-          break;
-        case 3021685954:
-          if (!(curVisible == "pnl_I_Clients"))
-            break;
-          this.pnl_I_Clients.Visible = false;
-          break;
-        case 3239117006:
-          if (!(curVisible == "pnl_Contractors"))
-            break;
-          this.pnl_Contractors.Visible = false;
-          break;
-        case 3621814393:
-          if (!(curVisible == "pnl_Home"))
-            break;
-          this.pnl_Home.Visible = false;
-          break;
-        case 3803523437:
-          if (!(curVisible == "pnl_L_CDet"))
-            break;
-          this.pnl_L_CDet.Visible = false;
-          break;
-        case 3894939078:
-          if (!(curVisible == "pnl_C_NoInv"))
-            break;
-          this.pnl_C_NoInv.Visible = false;
-          break;
-        case 3918914690:
-          if (!(curVisible == "pnl_L_Orders"))
-            break;
-          this.pnl_L_Orders.Visible = false;
-          break;
-      }
-    }
 
-    public string getCurPanel()
-    {
-      return this.curVisible;
-    }
+        //================================================================================================================================================//
+        // SETS NEW VISIBLE PANEL                                                                                                                         //
+        //================================================================================================================================================//
+        private void CurrentPanel(string name)
+        {
+            switch (name)
+            {
+                case "pnl_L_Quotes":
+                    {
+                        curVisible = "pnl_L_Quotes";
+                        break;
+                    }
+                case "pnl_L_InvSent":
+                    {
+                        curVisible = "pnl_L_InvSent";
+                        break;
+                    }
+                case "pnl_I_Orders":
+                    {
+                        curVisible = "pnl_I_Orders";
+                        break;
+                    }
+                case "pnl_L_PettyCash":
+                    {
+                        curVisible = "pnl_L_PettyCash";
+                        break;
+                    }
+                case "pnl_L_InvRec":
+                    {
+                        curVisible = "pnl_L_InvRec";
+                        break;
+                    }
+                case "pnl_I_Quotes":
+                    {
+                        curVisible = "pnl_I_Quotes";
+                        break;
+                    }
+                case "pnl_I_InvSent":
+                    {
+                        curVisible = "pnl_I_InvSent";
+                        break;
+                    }
+                case "pnl_Projects":
+                    {
+                        curVisible = "pnl_Projects";
+                        break;
+                    }
+                case "pnl_C_NoRem":
+                    {
+                        curVisible = "pnl_C_NoRem";
+                        break;
+                    }
+                case "pnl_I_Clients":
+                    {
+                        curVisible = "pnl_I_Clients";
+                        break;
+                    }
+                case "pnl_Contractors":
+                    {
+                        curVisible = "pnl_Contractors";
+                        break;
+                    }
+                case "pnl_Home":
+                    {
+                        curVisible = "pnl_Home";
+                        break;
+                    }
+                case "pnl_L_CDet":
+                    {
+                        curVisible = "pnl_L_CDet";
+                        break;
+                    }
+                case "pnl_C_NoInv":
+                    {
+                        curVisible = "pnl_C_NoInv";
+                        break;
+                    }
+                case "pnl_L_Orders":
+                    {
+                        curVisible = "pnl_L_Orders";
+                        break;
+                    }
+            }
+        }
 
-    public object getCurForm()
-    {
-      return this.curForm;
-    }
 
-    private void btn_Local_MouseEnter(object sender, EventArgs e)
-    {
-      if (!(this.selected != "Local"))
-        return;
-      this.btn_Local.BackColor = Color.FromArgb(73, 73, 73);
-      this.btn_Local.ForeColor = Color.FromArgb(19, 118, 188);
-      this.btn_Local.Image = (Image) Resources.local_blue;
-    }
+        //================================================================================================================================================//
+        // HIDE CURRENTLY VISIBLE PANEL                                                                                                                   //
+        //================================================================================================================================================//
+        private void HidePanel()
+        {
+            switch (curVisible)
+            {
+                case "pnl_L_Quotes":
+                    {
+                        pnl_L_Quotes.Visible = false;
+                        break;
+                    }
+                case "pnl_L_InvSent":
+                    {
+                        pnl_L_InvSent.Visible = false;
+                        break;
+                    }
+                case "pnl_I_Orders":
+                    {
+                        pnl_I_Orders.Visible = false;
+                        break;
+                    }
+                case "pnl_L_PettyCash":
+                    {
+                        pnl_L_PettyCash.Visible = false;
+                        break;
+                    }
+                case "pnl_L_InvRec":
+                    {
+                        pnl_L_InvRec.Visible = false;
+                        break;
+                    }
+                case "pnl_I_Quotes":
+                    {
+                        pnl_I_Quotes.Visible = false;
+                        break;
+                    }
+                case "pnl_I_InvSent":
+                    {
+                        pnl_I_InvSent.Visible = false;
+                        break;
+                    }
+                case "pnl_Projects":
+                    {
+                        pnl_Projects.Visible = false;
+                        break;
+                    }
+                case "pnl_C_NoRem":
+                    {
+                        pnl_C_NoRem.Visible = false;
+                        break;
+                    }
+                case "pnl_I_Clients":
+                    {
+                        pnl_I_Clients.Visible = false;
+                        break;
+                    }
+                case "pnl_Contractors":
+                    {
+                        pnl_Contractors.Visible = false;
+                        break;
+                    }
+                case "pnl_Home":
+                    {
+                        pnl_Home.Visible = false;
+                        break;
+                    }
+                case "pnl_L_CDet":
+                    {
+                        pnl_L_CDet.Visible = false;
+                        break;
+                    }
+                case "pnl_C_NoInv":
+                    {
+                        pnl_C_NoInv.Visible = false;
+                        break;
+                    }
+                case "pnl_L_Orders":
+                    {
+                        pnl_L_Orders.Visible = false;
+                        break;
+                    }
+            }
+        }
 
-    private void btn_Local_MouseLeave(object sender, EventArgs e)
-    {
-      if (!(this.selected != "Local"))
-        return;
-      this.btn_Local.BackColor = Color.FromArgb(64, 64, 64);
-      this.btn_Local.ForeColor = Color.White;
-      this.btn_Local.Image = (Image) Resources.local_white;
-    }
+        public string GetCurPanel() {   return curVisible;  }
 
-    private void btn_Local_Click(object sender, EventArgs e)
-    {
-      this.resetButtons(this.selected);
-      this.getSelectedButton((object) this.btn_L_Clients);
-      this.HidePanel();
-      if (this.isIntOpen)
-        this.tmr_Int.Start();
-      if (this.isConOpen)
-        this.tmr_Con.Start();
-      this.btn_Local.BackColor = Color.FromArgb(19, 118, 188);
-      this.btn_Local.ForeColor = Color.White;
-      this.btn_Local.Image = (Image) Resources.local_white;
-      if (this.isLInvOpen && this.isLocalOpen)
-        this.tmr_L_Inv.Start();
-      this.btn_L_Clients.BackColor = Color.FromArgb(15, 91, 142);
-      this.btn_L_Clients.ForeColor = Color.White;
-      this.pnl_L_CDet.Visible = true;
-      this.tmr_Local.Start();
-    }
+        public object GetCurForm() {   return curForm;  }
 
-    private void btn_L_Clients_Click(object sender, EventArgs e)
-    {
-      this.resetButtons(this.selected);
-      this.getSelectedButton(sender);
-      this.HidePanel();
-      this.btn_L_Clients.BackColor = Color.FromArgb(15, 91, 142);
-      this.btn_L_Clients.ForeColor = Color.White;
-      this.pnl_L_CDet.Visible = true;
-    }
 
-    private void btn_L_Clients_MouseEnter(object sender, EventArgs e)
-    {
-      if (!(this.selected != "lClients"))
-        return;
-      this.btn_L_Clients.BackColor = Color.FromArgb(73, 73, 73);
-      this.btn_L_Clients.ForeColor = Color.FromArgb(19, 118, 188);
-    }
+        //================================================================================================================================================//
+        // LOCAL BUTTON                                                                                                                                   //
+        //================================================================================================================================================//
+        private void Btn_Local_MouseEnter(object sender, EventArgs e)
+        {
+            if (selected != "Local")
+            {
+                btn_Local.BackColor = Color.FromArgb(73, 73, 73);
+                btn_Local.ForeColor = Color.FromArgb(19, 118, 188);
+                btn_Local.Image = Resources.local_blue;
+            }
+        }
 
-    private void btn_L_Clients_MouseLeave(object sender, EventArgs e)
-    {
-      if (!(this.selected != "lClients"))
-        return;
-      this.btn_L_Clients.BackColor = Color.FromArgb(50, 50, 50);
-      this.btn_L_Clients.ForeColor = Color.White;
-    }
+        private void Btn_Local_MouseLeave(object sender, EventArgs e)
+        {
+            if (selected != "Local")
+            {
+                btn_Local.BackColor = Color.FromArgb(64, 64, 64);
+                btn_Local.ForeColor = Color.White;
+                btn_Local.Image = Resources.local_white;
+            }
+        }
 
-    private void btn_L_Orders_MouseEnter(object sender, EventArgs e)
-    {
-      if (!(this.selected != "lOrders"))
-        return;
-      this.btn_L_Orders.BackColor = Color.FromArgb(73, 73, 73);
-      this.btn_L_Orders.ForeColor = Color.FromArgb(19, 118, 188);
-    }
+        private void Btn_Local_Click(object sender, EventArgs e)
+        {
+            ResetButtons(selected);
+            GetSelectedButton(btn_L_Clients);
+            HidePanel();
 
-    private void btn_L_Orders_MouseLeave(object sender, EventArgs e)
-    {
-      if (!(this.selected != "lOrders"))
-        return;
-      this.btn_L_Orders.BackColor = Color.FromArgb(50, 50, 50);
-      this.btn_L_Orders.ForeColor = Color.White;
-    }
+            if (isIntOpen)
+                tmr_Int.Start();
+            if (isConOpen)
+                tmr_Con.Start();
 
-    private void btn_L_Orders_Click(object sender, EventArgs e)
-    {
-      this.resetButtons(this.selected);
-      this.getSelectedButton(sender);
-      this.HidePanel();
-      this.pnl_L_Orders.Visible = true;
-      this.CurrentPanel("pnl_L_Orders");
-      this.btn_L_Orders.BackColor = Color.FromArgb(15, 91, 142);
-      this.btn_L_Orders.ForeColor = Color.White;
-      this.frmOrder = new Orders();
-      this.curForm = (object) this.frmOrder;
-      this.frmOrder.TopLevel = false;
-      this.frmOrder.TopMost = true;
-      this.pnl_L_Orders.Controls.Add((Control) this.frmOrder);
-      this.frmOrder.Show();
-    }
+            btn_Local.BackColor = Color.FromArgb(19, 118, 188);
+            btn_Local.ForeColor = Color.White;
+            btn_Local.Image = Resources.local_white;
 
-    private void btn_L_Quotes_MouseEnter(object sender, EventArgs e)
-    {
-      if (!(this.selected != "lQuotes"))
-        return;
-      this.btn_L_Quotes.BackColor = Color.FromArgb(73, 73, 73);
-      this.btn_L_Quotes.ForeColor = Color.FromArgb(19, 118, 188);
-    }
+            if (isLInvOpen && isLocalOpen)
+                tmr_L_Inv.Start();
 
-    private void btn_L_Quotes_MouseLeave(object sender, EventArgs e)
-    {
-      if (!(this.selected != "lQuotes"))
-        return;
-      this.btn_L_Quotes.BackColor = Color.FromArgb(50, 50, 50);
-      this.btn_L_Quotes.ForeColor = Color.White;
-    }
+            btn_L_Clients.BackColor = Color.FromArgb(15, 91, 142);
+            btn_L_Clients.ForeColor = Color.White;
+            pnl_L_CDet.Visible = true;
+            tmr_Local.Start();
+        }
 
-    private void btn_L_Quotes_Click(object sender, EventArgs e)
-    {
-      this.resetButtons(this.selected);
-      this.getSelectedButton(sender);
-      this.HidePanel();
-      this.pnl_L_Quotes.Visible = true;
-      this.CurrentPanel("pnl_L_Quotes");
-      this.btn_L_Quotes.BackColor = Color.FromArgb(15, 91, 142);
-      this.btn_L_Quotes.ForeColor = Color.White;
-      this.frmQuote = new Quotes();
-      this.curForm = (object) this.frmQuote;
-      this.frmQuote.TopLevel = false;
-      this.frmQuote.TopMost = true;
-      this.pnl_L_Quotes.Controls.Add((Control) this.frmQuote);
-      this.frmQuote.Show();
-    }
 
-    private void btn_L_Invoices_MouseEnter(object sender, EventArgs e)
-    {
-      if (!(this.selected != "lInvoices"))
-        return;
-      this.btn_L_Invoices.BackColor = Color.FromArgb(73, 73, 73);
-      this.btn_L_Invoices.ForeColor = Color.FromArgb(19, 118, 188);
-    }
+        //================================================================================================================================================//
+        // LOCAL CLIENTS BUTTON                                                                                                                           //
+        //================================================================================================================================================//
+        private void Btn_L_Clients_Click(object sender, EventArgs e)
+        {
+            ResetButtons(selected);
+            GetSelectedButton(sender);
+            HidePanel();
 
-    private void btn_L_Invoices_MouseLeave(object sender, EventArgs e)
-    {
-      if (!(this.selected != "lInvoices"))
-        return;
-      this.btn_L_Invoices.BackColor = Color.FromArgb(50, 50, 50);
-      this.btn_L_Invoices.ForeColor = Color.White;
-    }
+            btn_L_Clients.BackColor = Color.FromArgb(15, 91, 142);
+            btn_L_Clients.ForeColor = Color.White;
+            pnl_L_CDet.Visible = true;
+        }
 
-    private void btn_L_Invoices_Click(object sender, EventArgs e)
-    {
-      this.resetButtons(this.selected);
-      this.getSelectedButton(sender);
-      this.btn_L_Invoices.BackColor = Color.FromArgb(15, 91, 142);
-      this.btn_L_Invoices.ForeColor = Color.White;
-      this.tmr_L_Inv.Start();
-    }
+        private void Btn_L_Clients_MouseEnter(object sender, EventArgs e)
+        {
+            if (selected != "lClients")
+            {
+                btn_L_Clients.BackColor = Color.FromArgb(73, 73, 73);
+                btn_L_Clients.ForeColor = Color.FromArgb(19, 118, 188);
+            }
+        }
 
-    private void btn_L_InvSent_Click(object sender, EventArgs e)
-    {
-      this.resetButtons(this.selected);
-      this.getSelectedButton(sender);
-      this.HidePanel();
-      this.pnl_L_InvSent.Visible = true;
-      this.CurrentPanel("pnl_L_InvSent");
-      this.btn_L_InvSent.BackColor = Color.FromArgb(13, 77, 119);
-      this.btn_L_InvSent.ForeColor = Color.White;
-      this.frmInvSent = new Invoices_Send();
-      this.curForm = (object) this.frmInvSent;
-      this.frmInvSent.TopLevel = false;
-      this.frmInvSent.TopMost = true;
-      this.pnl_L_InvSent.Controls.Add((Control) this.frmInvSent);
-      this.frmInvSent.Show();
-    }
+        private void Btn_L_Clients_MouseLeave(object sender, EventArgs e)
+        {
+            if (selected != "lClients")
+            {
+                btn_L_Clients.BackColor = Color.FromArgb(50, 50, 50);
+                btn_L_Clients.ForeColor = Color.White;
+            } 
+        }
 
-    private void btn_L_InvSent_MouseEnter(object sender, EventArgs e)
-    {
-      if (!(this.selected != "lInvSent"))
-        return;
-      this.btn_L_InvSent.BackColor = Color.FromArgb(73, 73, 73);
-      this.btn_L_InvSent.ForeColor = Color.FromArgb(19, 118, 188);
-    }
+        private void Btn_L_Orders_MouseEnter(object sender, EventArgs e)
+        {
+            if (selected != "lOrders")
+            {
+                btn_L_Orders.BackColor = Color.FromArgb(73, 73, 73);
+                btn_L_Orders.ForeColor = Color.FromArgb(19, 118, 188);
+            }
+        }
 
-    private void btn_L_InvSent_MouseLeave(object sender, EventArgs e)
-    {
+
+        //================================================================================================================================================//
+        // LOCAL ORDERS BUTTON                                                                                                                            //
+        //================================================================================================================================================//
+        private void Btn_L_Orders_MouseLeave(object sender, EventArgs e)
+        {
+            if (selected != "lOrders")
+            {
+                btn_L_Orders.BackColor = Color.FromArgb(50, 50, 50);
+                btn_L_Orders.ForeColor = Color.White;
+            }
+        }
+
+        private void Btn_L_Orders_Click(object sender, EventArgs e)
+        {
+            ResetButtons(selected);
+            GetSelectedButton(sender);
+            HidePanel();
+
+            pnl_L_Orders.Visible = true;
+            CurrentPanel("pnl_L_Orders");
+
+            btn_L_Orders.BackColor = Color.FromArgb(15, 91, 142);
+            btn_L_Orders.ForeColor = Color.White;
+
+            frmOrder = new Orders();
+            curForm = frmOrder;
+            frmOrder.TopLevel = false;
+            frmOrder.TopMost = true;
+            pnl_L_Orders.Controls.Add(frmOrder);
+            frmOrder.Show();
+        }
+
+
+        //================================================================================================================================================//
+        // LOCAL QUOTES BUTTON                                                                                                                            //
+        //================================================================================================================================================//
+        private void Btn_L_Quotes_MouseEnter(object sender, EventArgs e)
+        {
+            if (selected != "lQuotes")
+            {
+                btn_L_Quotes.BackColor = Color.FromArgb(73, 73, 73);
+                btn_L_Quotes.ForeColor = Color.FromArgb(19, 118, 188);
+            }
+        }
+
+        private void Btn_L_Quotes_MouseLeave(object sender, EventArgs e)
+        {
+            if (selected != "lQuotes")
+            {
+                btn_L_Quotes.BackColor = Color.FromArgb(50, 50, 50);
+                btn_L_Quotes.ForeColor = Color.White;
+            }
+        }
+
+        private void Btn_L_Quotes_Click(object sender, EventArgs e)
+        {
+            ResetButtons(selected);
+            GetSelectedButton(sender);
+            HidePanel();
+
+            pnl_L_Quotes.Visible = true;
+            CurrentPanel("pnl_L_Quotes");
+
+            btn_L_Quotes.BackColor = Color.FromArgb(15, 91, 142);
+            btn_L_Quotes.ForeColor = Color.White;
+
+            frmQuote = new Quotes();
+            curForm = frmQuote;
+            frmQuote.TopLevel = false;
+            frmQuote.TopMost = true;
+            pnl_L_Quotes.Controls.Add(frmQuote);
+            frmQuote.Show();
+        }
+
+
+        //================================================================================================================================================//
+        // LOCAL INVOICES BUTTON                                                                                                                          //
+        //================================================================================================================================================//
+        private void Btn_L_Invoices_MouseEnter(object sender, EventArgs e)
+        {
+            if (selected != "lInvoices")
+            {
+                btn_L_Invoices.BackColor = Color.FromArgb(73, 73, 73);
+                btn_L_Invoices.ForeColor = Color.FromArgb(19, 118, 188);
+            }
+        }
+
+        private void Btn_L_Invoices_MouseLeave(object sender, EventArgs e)
+        {
+            if (selected != "lInvoices")
+            {
+                btn_L_Invoices.BackColor = Color.FromArgb(50, 50, 50);
+                btn_L_Invoices.ForeColor = Color.White;
+            }
+        }
+
+        private void Btn_L_Invoices_Click(object sender, EventArgs e)
+        {
+            ResetButtons(selected);
+            GetSelectedButton(sender);
+
+            btn_L_Invoices.BackColor = Color.FromArgb(15, 91, 142);
+            btn_L_Invoices.ForeColor = Color.White;
+
+            tmr_L_Inv.Start();
+        }
+
+
+        //================================================================================================================================================//
+        // LOCAL INVOICES SENT BUTTON                                                                                                                     //
+        //================================================================================================================================================//
+        private void Btn_L_InvSent_Click(object sender, EventArgs e)
+        {
+            ResetButtons(selected);
+            GetSelectedButton(sender);
+            HidePanel();
+
+            pnl_L_InvSent.Visible = true;
+            CurrentPanel("pnl_L_InvSent");
+
+            btn_L_InvSent.BackColor = Color.FromArgb(13, 77, 119);
+            btn_L_InvSent.ForeColor = Color.White;
+
+            frmInvSent = new Invoices_Send();
+            curForm = frmInvSent;
+            frmInvSent.TopLevel = false;
+            frmInvSent.TopMost = true;
+            pnl_L_InvSent.Controls.Add(frmInvSent);
+            frmInvSent.Show();
+        }
+
+        private void Btn_L_InvSent_MouseEnter(object sender, EventArgs e)
+        {
+            if (selected != "lInvSent")
+            {
+                btn_L_InvSent.BackColor = Color.FromArgb(73, 73, 73);
+                btn_L_InvSent.ForeColor = Color.FromArgb(19, 118, 188);
+            }
+        }
+
+        private void Btn_L_InvSent_MouseLeave(object sender, EventArgs e)
+        {
       if (!(this.selected != "lInvSent"))
         return;
       this.btn_L_InvSent.BackColor = Color.FromArgb(35, 35, 35);
@@ -923,8 +987,8 @@ namespace Q_Tech_Bookkeeping
 
     private void btn_L_InvRec_Click(object sender, EventArgs e)
     {
-      this.resetButtons(this.selected);
-      this.getSelectedButton(sender);
+      ResetButtons(this.selected);
+      GetSelectedButton(sender);
       this.HidePanel();
       this.pnl_L_InvRec.Visible = true;
       this.CurrentPanel("pnl_L_InvRec");
@@ -956,8 +1020,8 @@ namespace Q_Tech_Bookkeeping
 
     private void btn_L_PettyCash_Click(object sender, EventArgs e)
     {
-      this.resetButtons(this.selected);
-      this.getSelectedButton(sender);
+      ResetButtons(this.selected);
+      GetSelectedButton(sender);
       this.HidePanel();
       this.pnl_L_PettyCash.Visible = true;
       this.CurrentPanel("pnl_L_PettyCash");
@@ -989,8 +1053,8 @@ namespace Q_Tech_Bookkeeping
 
     private void btn_Int_Click(object sender, EventArgs e)
     {
-      this.resetButtons(this.selected);
-      this.getSelectedButton(sender);
+      ResetButtons(this.selected);
+      GetSelectedButton(sender);
       this.HidePanel();
       if (this.isLocalOpen && !this.isLInvOpen)
         this.tmr_Local.Start();
@@ -1030,8 +1094,8 @@ namespace Q_Tech_Bookkeeping
 
     private void btn_I_Clients_Click(object sender, EventArgs e)
     {
-      this.resetButtons(this.selected);
-      this.getSelectedButton(sender);
+      ResetButtons(this.selected);
+      GetSelectedButton(sender);
       this.HidePanel();
       this.btn_I_Clients.BackColor = Color.FromArgb(15, 91, 142);
       this.btn_I_Clients.ForeColor = Color.White;
@@ -1056,8 +1120,8 @@ namespace Q_Tech_Bookkeeping
 
     private void btn_I_Orders_Click(object sender, EventArgs e)
     {
-      this.resetButtons(this.selected);
-      this.getSelectedButton(sender);
+      ResetButtons(this.selected);
+      GetSelectedButton(sender);
       this.HidePanel();
       this.pnl_I_Orders.Visible = true;
       this.CurrentPanel("pnl_I_Orders");
@@ -1089,8 +1153,8 @@ namespace Q_Tech_Bookkeeping
 
     private void btn_I_Quotes_Click(object sender, EventArgs e)
     {
-      this.resetButtons(this.selected);
-      this.getSelectedButton(sender);
+      ResetButtons(this.selected);
+      GetSelectedButton(sender);
       this.HidePanel();
       this.pnl_I_Quotes.Visible = true;
       this.CurrentPanel("pnl_I_Quotes");
@@ -1122,8 +1186,8 @@ namespace Q_Tech_Bookkeeping
 
     private void btn_I_InvSent_Click(object sender, EventArgs e)
     {
-      this.resetButtons(this.selected);
-      this.getSelectedButton(sender);
+      ResetButtons(this.selected);
+      GetSelectedButton(sender);
       this.HidePanel();
       this.pnl_I_InvSent.Visible = true;
       this.CurrentPanel("pnl_I_InvSent");
@@ -1155,8 +1219,8 @@ namespace Q_Tech_Bookkeeping
 
     private void btn_Contractors_Click(object sender, EventArgs e)
     {
-      this.resetButtons(this.selected);
-      this.getSelectedButton(sender);
+      ResetButtons(this.selected);
+      GetSelectedButton(sender);
       this.HidePanel();
       if (this.isLocalOpen && !this.isLInvOpen)
         this.tmr_Local.Start();
@@ -1203,8 +1267,8 @@ namespace Q_Tech_Bookkeeping
 
     private void btn_C_Timesheets_Click(object sender, EventArgs e)
     {
-      this.resetButtons(this.selected);
-      this.getSelectedButton(sender);
+      ResetButtons(this.selected);
+      GetSelectedButton(sender);
       this.HidePanel();
       this.pnl_Contractors.Visible = true;
       this.CurrentPanel("pnl_Contractors");
@@ -1236,8 +1300,8 @@ namespace Q_Tech_Bookkeeping
 
     private void btn_C_NoRem_Click(object sender, EventArgs e)
     {
-      this.resetButtons(this.selected);
-      this.getSelectedButton(sender);
+      ResetButtons(this.selected);
+      GetSelectedButton(sender);
       this.HidePanel();
       this.pnl_C_NoRem.Visible = true;
       this.CurrentPanel("pnl_C_NoRem");
@@ -1287,8 +1351,8 @@ namespace Q_Tech_Bookkeeping
 
     private void btn_C_NoInv_Click(object sender, EventArgs e)
     {
-      this.resetButtons(this.selected);
-      this.getSelectedButton(sender);
+      ResetButtons(this.selected);
+      GetSelectedButton(sender);
       this.HidePanel();
       this.pnl_C_NoInv.Visible = true;
       this.CurrentPanel("pnl_C_NoInv");
@@ -1338,8 +1402,8 @@ namespace Q_Tech_Bookkeeping
 
     private void btn_Projects_Click(object sender, EventArgs e)
     {
-      this.resetButtons(this.selected);
-      this.getSelectedButton(sender);
+      ResetButtons(this.selected);
+      GetSelectedButton(sender);
       this.HidePanel();
       this.pnl_Projects.Visible = true;
       this.CurrentPanel("pnl_Projects");
@@ -2324,12 +2388,12 @@ namespace Q_Tech_Bookkeeping
       this.iClientsBS.Sort = this.dgv_IClients.SortString;
     }
 
-    protected override void Dispose(bool disposing)
+    /*protected override void Dispose(bool disposing)
     {
       if (disposing && this.components != null)
         this.components.Dispose();
       base.Dispose(disposing);
-    }
+    }*/
 
     private void InitializeComponent()
     {
@@ -2649,9 +2713,9 @@ namespace Q_Tech_Bookkeeping
       this.btn_Home.Text = "Dashboard";
       this.btn_Home.TextImageRelation = TextImageRelation.ImageBeforeText;
       this.btn_Home.UseVisualStyleBackColor = false;
-      this.btn_Home.Click += new EventHandler(this.btn_Home_Click);
-      this.btn_Home.MouseEnter += new EventHandler(this.btn_Home_MouseEnter);
-      this.btn_Home.MouseLeave += new EventHandler(this.btn_Home_MouseLeave);
+      this.btn_Home.Click += new EventHandler(this.Btn_Home_Click);
+      this.btn_Home.MouseEnter += new EventHandler(this.Btn_Home_MouseEnter);
+      this.btn_Home.MouseLeave += new EventHandler(this.Btn_Home_MouseLeave);
       this.pnl_Local.Controls.Add((Control) this.btn_L_PettyCash);
       this.pnl_Local.Controls.Add((Control) this.pnl_L_Inv);
       this.pnl_Local.Controls.Add((Control) this.btn_L_Clients);
@@ -2711,9 +2775,9 @@ namespace Q_Tech_Bookkeeping
       this.btn_L_InvSent.TabIndex = 9;
       this.btn_L_InvSent.Text = "Sent";
       this.btn_L_InvSent.UseVisualStyleBackColor = false;
-      this.btn_L_InvSent.Click += new EventHandler(this.btn_L_InvSent_Click);
-      this.btn_L_InvSent.MouseEnter += new EventHandler(this.btn_L_InvSent_MouseEnter);
-      this.btn_L_InvSent.MouseLeave += new EventHandler(this.btn_L_InvSent_MouseLeave);
+      this.btn_L_InvSent.Click += new EventHandler(this.Btn_L_InvSent_Click);
+      this.btn_L_InvSent.MouseEnter += new EventHandler(this.Btn_L_InvSent_MouseEnter);
+      this.btn_L_InvSent.MouseLeave += new EventHandler(this.Btn_L_InvSent_MouseLeave);
       this.btn_L_Invoices.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
       this.btn_L_Invoices.BackColor = Color.FromArgb(50, 50, 50);
       this.btn_L_Invoices.FlatAppearance.BorderSize = 0;
@@ -2726,9 +2790,9 @@ namespace Q_Tech_Bookkeeping
       this.btn_L_Invoices.TabIndex = 8;
       this.btn_L_Invoices.Text = "Invoices";
       this.btn_L_Invoices.UseVisualStyleBackColor = false;
-      this.btn_L_Invoices.Click += new EventHandler(this.btn_L_Invoices_Click);
-      this.btn_L_Invoices.MouseEnter += new EventHandler(this.btn_L_Invoices_MouseEnter);
-      this.btn_L_Invoices.MouseLeave += new EventHandler(this.btn_L_Invoices_MouseLeave);
+      this.btn_L_Invoices.Click += new EventHandler(this.Btn_L_Invoices_Click);
+      this.btn_L_Invoices.MouseEnter += new EventHandler(this.Btn_L_Invoices_MouseEnter);
+      this.btn_L_Invoices.MouseLeave += new EventHandler(this.Btn_L_Invoices_MouseLeave);
       this.btn_L_Clients.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
       this.btn_L_Clients.BackColor = Color.FromArgb(50, 50, 50);
       this.btn_L_Clients.FlatAppearance.BorderSize = 0;
@@ -2741,9 +2805,9 @@ namespace Q_Tech_Bookkeeping
       this.btn_L_Clients.TabIndex = 6;
       this.btn_L_Clients.Text = "Clients";
       this.btn_L_Clients.UseVisualStyleBackColor = false;
-      this.btn_L_Clients.Click += new EventHandler(this.btn_L_Clients_Click);
-      this.btn_L_Clients.MouseEnter += new EventHandler(this.btn_L_Clients_MouseEnter);
-      this.btn_L_Clients.MouseLeave += new EventHandler(this.btn_L_Clients_MouseLeave);
+      this.btn_L_Clients.Click += new EventHandler(this.Btn_L_Clients_Click);
+      this.btn_L_Clients.MouseEnter += new EventHandler(this.Btn_L_Clients_MouseEnter);
+      this.btn_L_Clients.MouseLeave += new EventHandler(this.Btn_L_Clients_MouseLeave);
       this.btn_L_Quotes.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
       this.btn_L_Quotes.BackColor = Color.FromArgb(50, 50, 50);
       this.btn_L_Quotes.FlatAppearance.BorderSize = 0;
@@ -2756,9 +2820,9 @@ namespace Q_Tech_Bookkeeping
       this.btn_L_Quotes.TabIndex = 7;
       this.btn_L_Quotes.Text = "Quotes";
       this.btn_L_Quotes.UseVisualStyleBackColor = false;
-      this.btn_L_Quotes.Click += new EventHandler(this.btn_L_Quotes_Click);
-      this.btn_L_Quotes.MouseEnter += new EventHandler(this.btn_L_Quotes_MouseEnter);
-      this.btn_L_Quotes.MouseLeave += new EventHandler(this.btn_L_Quotes_MouseLeave);
+      this.btn_L_Quotes.Click += new EventHandler(this.Btn_L_Quotes_Click);
+      this.btn_L_Quotes.MouseEnter += new EventHandler(this.Btn_L_Quotes_MouseEnter);
+      this.btn_L_Quotes.MouseLeave += new EventHandler(this.Btn_L_Quotes_MouseLeave);
       this.btn_L_Orders.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
       this.btn_L_Orders.BackColor = Color.FromArgb(50, 50, 50);
       this.btn_L_Orders.FlatAppearance.BorderSize = 0;
@@ -2771,9 +2835,9 @@ namespace Q_Tech_Bookkeeping
       this.btn_L_Orders.TabIndex = 6;
       this.btn_L_Orders.Text = "Orders";
       this.btn_L_Orders.UseVisualStyleBackColor = false;
-      this.btn_L_Orders.Click += new EventHandler(this.btn_L_Orders_Click);
-      this.btn_L_Orders.MouseEnter += new EventHandler(this.btn_L_Orders_MouseEnter);
-      this.btn_L_Orders.MouseLeave += new EventHandler(this.btn_L_Orders_MouseLeave);
+      this.btn_L_Orders.Click += new EventHandler(this.Btn_L_Orders_Click);
+      this.btn_L_Orders.MouseEnter += new EventHandler(this.Btn_L_Orders_MouseEnter);
+      this.btn_L_Orders.MouseLeave += new EventHandler(this.Btn_L_Orders_MouseLeave);
       this.btn_Local.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
       this.btn_Local.BackColor = Color.FromArgb(64, 64, 64);
       this.btn_Local.FlatAppearance.BorderSize = 0;
@@ -2789,9 +2853,9 @@ namespace Q_Tech_Bookkeeping
       this.btn_Local.TextAlign = ContentAlignment.MiddleLeft;
       this.btn_Local.TextImageRelation = TextImageRelation.ImageBeforeText;
       this.btn_Local.UseVisualStyleBackColor = false;
-      this.btn_Local.Click += new EventHandler(this.btn_Local_Click);
-      this.btn_Local.MouseEnter += new EventHandler(this.btn_Local_MouseEnter);
-      this.btn_Local.MouseLeave += new EventHandler(this.btn_Local_MouseLeave);
+      this.btn_Local.Click += new EventHandler(this.Btn_Local_Click);
+      this.btn_Local.MouseEnter += new EventHandler(this.Btn_Local_MouseEnter);
+      this.btn_Local.MouseLeave += new EventHandler(this.Btn_Local_MouseLeave);
       this.pictureBox1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
       this.pictureBox1.Image = (Image) componentResourceManager.GetObject("pictureBox1.Image");
       this.pictureBox1.Location = new Point(0, 550);
@@ -3429,9 +3493,9 @@ namespace Q_Tech_Bookkeeping
       this.btn_Home_Min.Size = new Size(31, 29);
       this.btn_Home_Min.TabIndex = 11;
       this.btn_Home_Min.UseVisualStyleBackColor = false;
-      this.btn_Home_Min.Click += new EventHandler(this.btn_Home_Min_Click);
-      this.btn_Home_Min.MouseEnter += new EventHandler(this.btn_Home_Min_MouseEnter);
-      this.btn_Home_Min.MouseLeave += new EventHandler(this.btn_Home_Min_MouseLeave);
+      this.btn_Home_Min.Click += new EventHandler(this.Btn_Home_Min_Click);
+      this.btn_Home_Min.MouseEnter += new EventHandler(this.Btn_Home_Min_MouseEnter);
+      this.btn_Home_Min.MouseLeave += new EventHandler(this.Btn_Home_Min_MouseLeave);
       this.btn_Home_Nor.Anchor = AnchorStyles.Top | AnchorStyles.Right;
       this.btn_Home_Nor.BackColor = Color.LightGray;
       this.btn_Home_Nor.FlatAppearance.BorderSize = 0;
@@ -3446,9 +3510,9 @@ namespace Q_Tech_Bookkeeping
       this.btn_Home_Nor.TabIndex = 8;
       this.btn_Home_Nor.UseVisualStyleBackColor = false;
       this.btn_Home_Nor.Visible = false;
-      this.btn_Home_Nor.Click += new EventHandler(this.btn_Home_Nor_Click);
-      this.btn_Home_Nor.MouseEnter += new EventHandler(this.btn_Home_Nor_MouseEnter);
-      this.btn_Home_Nor.MouseLeave += new EventHandler(this.btn_Home_Nor_MouseLeave);
+      this.btn_Home_Nor.Click += new EventHandler(this.Btn_Home_Nor_Click);
+      this.btn_Home_Nor.MouseEnter += new EventHandler(this.Btn_Home_Nor_MouseEnter);
+      this.btn_Home_Nor.MouseLeave += new EventHandler(this.Btn_Home_Nor_MouseLeave);
       this.btn_Home_Max.Anchor = AnchorStyles.Top | AnchorStyles.Right;
       this.btn_Home_Max.BackColor = Color.LightGray;
       this.btn_Home_Max.FlatAppearance.BorderSize = 0;
@@ -3462,9 +3526,9 @@ namespace Q_Tech_Bookkeeping
       this.btn_Home_Max.Size = new Size(31, 29);
       this.btn_Home_Max.TabIndex = 7;
       this.btn_Home_Max.UseVisualStyleBackColor = false;
-      this.btn_Home_Max.Click += new EventHandler(this.btn_Home_Max_Click);
-      this.btn_Home_Max.MouseEnter += new EventHandler(this.btn_Home_Max_MouseEnter);
-      this.btn_Home_Max.MouseLeave += new EventHandler(this.btn_Home_Max_MouseLeave);
+      this.btn_Home_Max.Click += new EventHandler(this.Btn_Home_Max_Click);
+      this.btn_Home_Max.MouseEnter += new EventHandler(this.Btn_Home_Max_MouseEnter);
+      this.btn_Home_Max.MouseLeave += new EventHandler(this.Btn_Home_Max_MouseLeave);
       this.btn_Home_Close.Anchor = AnchorStyles.Top | AnchorStyles.Right;
       this.btn_Home_Close.BackColor = Color.LightGray;
       this.btn_Home_Close.FlatAppearance.BorderSize = 0;
@@ -3478,9 +3542,9 @@ namespace Q_Tech_Bookkeeping
       this.btn_Home_Close.Size = new Size(31, 29);
       this.btn_Home_Close.TabIndex = 6;
       this.btn_Home_Close.UseVisualStyleBackColor = false;
-      this.btn_Home_Close.Click += new EventHandler(this.btn_Home_Close_Click);
-      this.btn_Home_Close.MouseEnter += new EventHandler(this.btn_Home_Close_MouseEnter);
-      this.btn_Home_Close.MouseLeave += new EventHandler(this.btn_Home_Close_MouseLeave);
+      this.btn_Home_Close.Click += new EventHandler(this.Btn_Home_Close_Click);
+      this.btn_Home_Close.MouseEnter += new EventHandler(this.Btn_Home_Close_MouseEnter);
+      this.btn_Home_Close.MouseLeave += new EventHandler(this.Btn_Home_Close_MouseLeave);
       this.clientsBindingSource1.DataMember = "Clients";
       this.BackColor = Color.LightGray;
       this.BackgroundImageLayout = ImageLayout.Center;
