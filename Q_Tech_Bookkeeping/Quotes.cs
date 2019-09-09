@@ -152,7 +152,7 @@ namespace Q_Tech_Bookkeeping
 
     private void btn_LQ_SelCli_Click(object sender, EventArgs e)
     {
-      using (Client_list clientList = new Client_list())
+      using (Client_listOld clientList = new Client_listOld())
       {
         int num = (int) clientList.ShowDialog((IWin32Window) this);
       }

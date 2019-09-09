@@ -16,7 +16,7 @@ using System.Windows.Forms;
 
 namespace Q_Tech_Bookkeeping
 {
-  public class Client_list : Form
+  public class Client_listOld : Form
   {
     private BindingSource bs = new BindingSource();
     private bool isInter = false;
@@ -31,7 +31,7 @@ namespace Q_Tech_Bookkeeping
     private Button btn_SelCon_Close;
     private BunifuCustomLabel lbl_Header;
 
-    public Client_list()
+    public Client_listOld()
     {
       this.InitializeComponent();
     }
@@ -127,7 +127,7 @@ namespace Q_Tech_Bookkeeping
       DataGridViewCellStyle gridViewCellStyle1 = new DataGridViewCellStyle();
       DataGridViewCellStyle gridViewCellStyle2 = new DataGridViewCellStyle();
       DataGridViewCellStyle gridViewCellStyle3 = new DataGridViewCellStyle();
-      ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof (Client_list));
+      ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof (Client_listOld));
       this.dgv_CL = new AdvancedDataGridView();
       this.btn_SelCon_Close = new Button();
       this.lbl_Header = new BunifuCustomLabel();
@@ -207,7 +207,7 @@ namespace Q_Tech_Bookkeeping
       this.MaximumSize = new Size(390, 680);
       this.MinimizeBox = false;
       this.MinimumSize = new Size(390, 680);
-      this.Name = nameof (Client_list);
+      this.Name = nameof (Client_listOld);
       this.StartPosition = FormStartPosition.CenterParent;
       this.Text = "Client List";
       this.Load += new EventHandler(this.Client_list_Load);

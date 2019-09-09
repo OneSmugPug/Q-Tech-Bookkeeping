@@ -31,13 +31,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AdvancedDataGridView, Version=0.1.0.10, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\ADGV.0.1.0.10\lib\net40\AdvancedDataGridView.dll</HintPath>
+    </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Data" />
     <Reference Include="System" />
-    <Reference Include="AdvancedDataGridView">
-      <HintPath>lib\AdvancedDataGridView.dll</HintPath>
-    </Reference>
     <Reference Include="Bunifu_UI_v1.5.3">
       <HintPath>lib\Bunifu_UI_v1.5.3.dll</HintPath>
     </Reference>
@@ -75,6 +75,17 @@
     <Compile Include="Microsoft\Office\Interop\Word\Selection.cs" />
     <Compile Include="Microsoft\Office\Interop\Word\_Application.cs" />
     <Compile Include="Microsoft\Office\Interop\Word\_Document.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Q_Tech_Bookkeeping\ClientList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Q_Tech_Bookkeeping\ClientList.Designer.cs">
+      <DependentUpon>ClientList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Q_Tech_Bookkeeping\Home.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,7 +93,7 @@
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
     <Compile Include="Q_Tech_Bookkeeping\ImageResize.cs" />
-    <Compile Include="Q_Tech_Bookkeeping\Client_list.cs">
+    <Compile Include="Q_Tech_Bookkeeping\Client_listOld.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Q_Tech_Bookkeeping\Contractors.cs">
@@ -168,9 +179,19 @@
     <Compile Include="AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Q_Tech_Bookkeeping\ClientList.resx">
+      <DependentUpon>ClientList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Q_Tech_Bookkeeping\Client_list.resx" />
     <EmbeddedResource Include="Q_Tech_Bookkeeping\Con_List.resx" />
     <EmbeddedResource Include="Q_Tech_Bookkeeping\Contractors.resx" />
+    <EmbeddedResource Include="Q_Tech_Bookkeeping\Home.resx">
+      <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Q_Tech_Bookkeeping\Hours_Add.resx" />
     <EmbeddedResource Include="Q_Tech_Bookkeeping\Int_Invoices_Send.resx" />
     <EmbeddedResource Include="Q_Tech_Bookkeeping\Int_Orders.resx" />
@@ -195,6 +216,24 @@
     <EmbeddedResource Include="Q_Tech_Bookkeeping\Q_Add.resx" />
     <EmbeddedResource Include="Q_Tech_Bookkeeping\Q_Edit_Del.resx" />
     <EmbeddedResource Include="Q_Tech_Bookkeeping\Quotes.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close_black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\QTech_Logo.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\local_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\globe_white.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

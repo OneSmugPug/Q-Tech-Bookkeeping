@@ -159,7 +159,7 @@ namespace Q_Tech_Bookkeeping
 
     private void btn_Order_CBrowse_Click(object sender, EventArgs e)
     {
-      int num = (int) new Client_list().ShowDialog((IWin32Window) this);
+      int num = (int) new Client_listOld().ShowDialog((IWin32Window) this);
     }
 
     public void setNewClient(int rowIdx)
