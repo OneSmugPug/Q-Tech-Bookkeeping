@@ -54,7 +54,7 @@ namespace Q_Tech_Bookkeeping
 
     private void Proj_Edit_Del_Load(object sender, EventArgs e)
     {
-      Projects curForm = (Projects) ((Home) this.Owner).getCurForm();
+      Projects curForm = (Projects) ((HomeOld) this.Owner).getCurForm();
       this.dt = curForm.getProjects();
       Proj_Edit_Del.SELECTED_PROJECT = curForm.getSelectedProj();
       this.loadProject();

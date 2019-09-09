@@ -16,7 +16,7 @@ namespace Q_Tech_Bookkeeping
     {
       Application.EnableVisualStyles();
       Application.SetCompatibleTextRenderingDefault(false);
-      Application.Run((Form) new Home());
+      Application.Run((Form) new HomeOld());
     }
   }
 }

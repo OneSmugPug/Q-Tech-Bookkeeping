@@ -23,7 +23,7 @@ namespace Q_Tech_Bookkeeping
     private IContainer components = (IContainer) null;
     private DataTable dt;
     private string Proj_ID;
-    private Home frmHome;
+    private HomeOld frmHome;
     private bool isFiltered;
     private Button btn_MP_NewLine;
     private Button btn_MP_ClearFilter;

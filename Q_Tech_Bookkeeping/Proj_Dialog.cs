@@ -41,7 +41,7 @@ namespace Q_Tech_Bookkeeping
 
     private void btn_PD_ManProject_Click(object sender, EventArgs e)
     {
-      Home owner = (Home) this.Owner;
+      HomeOld owner = (HomeOld) this.Owner;
       Manage_Proj frmMP = new Manage_Proj();
       owner.setManageProjects(frmMP, owner);
       this.Close();

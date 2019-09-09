@@ -43,6 +43,7 @@
     </Reference>
     <Reference Include="System.Core" />
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Microsoft\Office\Interop\Excel\AppEvents.cs" />
@@ -74,6 +75,12 @@
     <Compile Include="Microsoft\Office\Interop\Word\Selection.cs" />
     <Compile Include="Microsoft\Office\Interop\Word\_Application.cs" />
     <Compile Include="Microsoft\Office\Interop\Word\_Document.cs" />
+    <Compile Include="Q_Tech_Bookkeeping\Home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Q_Tech_Bookkeeping\Home.Designer.cs">
+      <DependentUpon>Home.cs</DependentUpon>
+    </Compile>
     <Compile Include="Q_Tech_Bookkeeping\ImageResize.cs" />
     <Compile Include="Q_Tech_Bookkeeping\Client_list.cs">
       <SubType>Form</SubType>
@@ -86,9 +93,6 @@
     </Compile>
     <Compile Include="Q_Tech_Bookkeeping\DBUtils.cs" />
     <Compile Include="Q_Tech_Bookkeeping\DBConnection.cs" />
-    <Compile Include="Q_Tech_Bookkeeping\Home.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Q_Tech_Bookkeeping\Hours_Add.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -167,7 +171,6 @@
     <EmbeddedResource Include="Q_Tech_Bookkeeping\Client_list.resx" />
     <EmbeddedResource Include="Q_Tech_Bookkeeping\Con_List.resx" />
     <EmbeddedResource Include="Q_Tech_Bookkeeping\Contractors.resx" />
-    <EmbeddedResource Include="Q_Tech_Bookkeeping\Home.resx" />
     <EmbeddedResource Include="Q_Tech_Bookkeeping\Hours_Add.resx" />
     <EmbeddedResource Include="Q_Tech_Bookkeeping\Int_Invoices_Send.resx" />
     <EmbeddedResource Include="Q_Tech_Bookkeeping\Int_Orders.resx" />

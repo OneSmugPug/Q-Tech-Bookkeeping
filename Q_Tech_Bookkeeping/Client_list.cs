@@ -26,7 +26,7 @@ namespace Q_Tech_Bookkeeping
     private DataTable dt;
     private Point lastLocation;
     private string curVisible;
-    private Home frmHome;
+    private HomeOld frmHome;
     private AdvancedDataGridView dgv_CL;
     private Button btn_SelCon_Close;
     private BunifuCustomLabel lbl_Header;
@@ -38,7 +38,7 @@ namespace Q_Tech_Bookkeeping
 
     private void Client_list_Load(object sender, EventArgs e)
     {
-      this.frmHome = (Home) this.Owner;
+      this.frmHome = (HomeOld) this.Owner;
       this.curVisible = this.frmHome.getCurPanel();
       if (this.curVisible == "pnl_I_Orders" || this.curVisible == "pnl_I_Quotes" || this.curVisible == "pnl_I_InvSend")
         this.isInter = true;

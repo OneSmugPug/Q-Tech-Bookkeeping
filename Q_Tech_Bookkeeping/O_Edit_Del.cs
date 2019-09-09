@@ -72,7 +72,7 @@ namespace Q_Tech_Bookkeeping
 
     private void O_Edit_Del_Load(object sender, EventArgs e)
     {
-      Home owner = (Home) this.Owner;
+      HomeOld owner = (HomeOld) this.Owner;
       if (owner.getCurPanel() == "pnl_L_Orders")
       {
         Orders curForm = (Orders) owner.getCurForm();

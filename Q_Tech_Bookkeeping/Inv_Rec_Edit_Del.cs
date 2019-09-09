@@ -63,7 +63,7 @@ namespace Q_Tech_Bookkeeping
     private void Inv_Rec_Edit_Del_Load(object sender, EventArgs e)
     {
       this.txt_IRED_SuppName.Focus();
-      Inv_Rec curForm = (Inv_Rec) ((Home) this.Owner).getCurForm();
+      Inv_Rec curForm = (Inv_Rec) ((HomeOld) this.Owner).getCurForm();
       this.dt = curForm.getInvRec();
       this.SELECTED_INVOICE = curForm.getSelectedInv();
       this.loadInvRec();

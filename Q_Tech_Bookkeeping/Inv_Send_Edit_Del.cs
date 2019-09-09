@@ -70,7 +70,7 @@ namespace Q_Tech_Bookkeeping
 
     private void Inv_Send_Edit_Del_Load(object sender, EventArgs e)
     {
-      Home owner = (Home) this.Owner;
+      HomeOld owner = (HomeOld) this.Owner;
       if (owner.getCurPanel() == "pnl_L_InvSent")
       {
         Invoices_Send curForm = (Invoices_Send) owner.getCurForm();

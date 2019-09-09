@@ -52,7 +52,7 @@ namespace Q_Tech_Bookkeeping
 
     private void Q_Edit_Del_Load(object sender, EventArgs e)
     {
-      Home owner = (Home) this.Owner;
+      HomeOld owner = (HomeOld) this.Owner;
       if (owner.getCurPanel() == "pnl_L_Quotes")
       {
         Quotes curForm = (Quotes) owner.getCurForm();

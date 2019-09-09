@@ -113,7 +113,7 @@ namespace Q_Tech_Bookkeeping
 
     private void O_Add_Load(object sender, EventArgs e)
     {
-      Home owner = (Home) this.Owner;
+      HomeOld owner = (HomeOld) this.Owner;
       this.txt_OA_PercInv.Text = "0%";
       this.txt_OA_PercRec.Text = "0%";
       if (owner.getCurPanel() == "pnl_L_Orders")
