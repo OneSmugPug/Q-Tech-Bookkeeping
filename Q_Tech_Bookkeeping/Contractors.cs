@@ -207,7 +207,7 @@ namespace Q_Tech_Bookkeeping
 
     private void btn_C_SelCon_Click(object sender, EventArgs e)
     {
-      using (Con_List conList = new Con_List())
+      using (Con_ListOld conList = new Con_ListOld())
       {
         int num = (int) conList.ShowDialog((IWin32Window) this);
       }

@@ -16,7 +16,7 @@ using System.Windows.Forms;
 
 namespace Q_Tech_Bookkeeping
 {
-  public class Con_List : Form
+  public class Con_ListOld : Form
   {
     private BindingSource bs = new BindingSource();
     private bool mouseDown = false;
@@ -29,7 +29,7 @@ namespace Q_Tech_Bookkeeping
     private BunifuCustomLabel bunifuCustomLabel4;
     private Button btn_SelCon_Close;
 
-    public Con_List()
+    public Con_ListOld()
     {
       this.InitializeComponent();
     }
@@ -115,7 +115,7 @@ namespace Q_Tech_Bookkeeping
 
     private void InitializeComponent()
     {
-      ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof (Con_List));
+      ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof (Con_ListOld));
       this.panel1 = new Panel();
       this.dgv_SelCon = new AdvancedDataGridView();
       this.bunifuCustomLabel4 = new BunifuCustomLabel();
@@ -179,7 +179,7 @@ namespace Q_Tech_Bookkeeping
       this.MaximumSize = new Size(650, 570);
       this.MinimizeBox = false;
       this.MinimumSize = new Size(650, 570);
-      this.Name = nameof (Con_List);
+      this.Name = nameof (Con_ListOld);
       this.StartPosition = FormStartPosition.CenterScreen;
       this.Text = "Contractor List";
       this.Load += new EventHandler(this.Con_List_Load);

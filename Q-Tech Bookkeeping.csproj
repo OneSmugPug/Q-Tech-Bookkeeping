@@ -99,7 +99,7 @@
     <Compile Include="Q_Tech_Bookkeeping\Contractors.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Q_Tech_Bookkeeping\Con_List.cs">
+    <Compile Include="Q_Tech_Bookkeeping\Con_ListOld.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Q_Tech_Bookkeeping\DBUtils.cs" />
