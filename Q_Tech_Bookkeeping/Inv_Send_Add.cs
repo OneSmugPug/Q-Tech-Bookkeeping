@@ -22,7 +22,7 @@ namespace Q_Tech_Bookkeeping
     private DataTable dt = new DataTable();
     private bool isInter = false;
     private Invoices_Send parent = (Invoices_Send) null;
-    private Int_Invoices_Send intParent = (Int_Invoices_Send) null;
+    private Int_Invoices_SendOld intParent = (Int_Invoices_SendOld) null;
     private bool mouseDown = false;
     private IContainer components = (IContainer) null;
     private Point lastLocation;
@@ -85,7 +85,7 @@ namespace Q_Tech_Bookkeeping
       else
       {
         this.isInter = true;
-        this.intParent = (Int_Invoices_Send) owner.getCurForm();
+        this.intParent = (Int_Invoices_SendOld) owner.getCurForm();
         this.txt_ISA_CCode.Text = this.intParent.getCCode();
         this.txt_ISA_CName.Text = this.intParent.getCName();
         this.txt_ISA_Amt.Text = "$0.00";

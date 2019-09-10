@@ -82,7 +82,7 @@ namespace Q_Tech_Bookkeeping
       else
       {
         this.isInter = true;
-        Int_Invoices_Send curForm = (Int_Invoices_Send) owner.getCurForm();
+        Int_Invoices_SendOld curForm = (Int_Invoices_SendOld) owner.getCurForm();
         this.dt = curForm.getInvoices();
         this.txt_ISED_CCode.Text = curForm.getCCode();
         this.txt_ISED_CName.Text = curForm.getCName();

@@ -18,7 +18,7 @@ using System.Windows.Forms;
 
 namespace Q_Tech_Bookkeeping
 {
-  public class Int_Invoices_Send : Form
+  public class Int_Invoices_SendOld : Form
   {
     private int CUR_CLIENT = 0;
     private BindingSource bs = new BindingSource();
@@ -48,7 +48,7 @@ namespace Q_Tech_Bookkeeping
     private BunifuCustomLabel bunifuCustomLabel4;
     private Button btn_IIS_Prev;
 
-    public Int_Invoices_Send()
+    public Int_Invoices_SendOld()
     {
       this.InitializeComponent();
     }
@@ -380,7 +380,7 @@ namespace Q_Tech_Bookkeeping
       DataGridViewCellStyle gridViewCellStyle1 = new DataGridViewCellStyle();
       DataGridViewCellStyle gridViewCellStyle2 = new DataGridViewCellStyle();
       DataGridViewCellStyle gridViewCellStyle3 = new DataGridViewCellStyle();
-      ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof (Int_Invoices_Send));
+      ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof (Int_Invoices_SendOld));
       this.btn_IIS_ClearFilter = new Button();
       this.dtp_IIS_From = new BunifuDatepicker();
       this.dgv_IInvSent = new AdvancedDataGridView();
@@ -658,7 +658,7 @@ namespace Q_Tech_Bookkeeping
       this.FormBorderStyle = FormBorderStyle.None;
       this.Icon = (Icon) componentResourceManager.GetObject("$this.Icon");
       this.MinimumSize = new Size(963, 618);
-      this.Name = nameof (Int_Invoices_Send);
+      this.Name = nameof (Int_Invoices_SendOld);
       this.Text = "International Invoices Send";
       this.WindowState = FormWindowState.Maximized;
       this.Load += new EventHandler(this.Invoices_Send_Load);

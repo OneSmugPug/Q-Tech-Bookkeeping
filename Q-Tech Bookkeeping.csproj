@@ -113,7 +113,7 @@
     <Compile Include="Q_Tech_Bookkeeping\Hours_AddOld.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Q_Tech_Bookkeeping\Int_Invoices_Send.cs">
+    <Compile Include="Q_Tech_Bookkeeping\Int_Invoices_SendOld.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Q_Tech_Bookkeeping\Invoices_Send.cs">
