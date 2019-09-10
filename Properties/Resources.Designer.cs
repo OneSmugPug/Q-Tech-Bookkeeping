@@ -63,6 +63,36 @@ namespace Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap add_grey {
+            get {
+                object obj = ResourceManager.GetObject("add_grey", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap add_grey1 {
+            get {
+                object obj = ResourceManager.GetObject("add_grey1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap back_black {
+            get {
+                object obj = ResourceManager.GetObject("back_black", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap close_black {
             get {
                 object obj = ResourceManager.GetObject("close_black", resourceCulture);
@@ -76,6 +106,36 @@ namespace Properties {
         internal static System.Drawing.Bitmap close_black1 {
             get {
                 object obj = ResourceManager.GetObject("close_black1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap edit_grey {
+            get {
+                object obj = ResourceManager.GetObject("edit_grey", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap filter_grey {
+            get {
+                object obj = ResourceManager.GetObject("filter_grey", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap forawrd_black {
+            get {
+                object obj = ResourceManager.GetObject("forawrd_black", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -116,6 +176,16 @@ namespace Properties {
         internal static System.Drawing.Bitmap QTech_Logo {
             get {
                 object obj = ResourceManager.GetObject("QTech_Logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap user_list {
+            get {
+                object obj = ResourceManager.GetObject("user_list", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

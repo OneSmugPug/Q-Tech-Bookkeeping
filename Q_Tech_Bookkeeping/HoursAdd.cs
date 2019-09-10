@@ -34,7 +34,7 @@ namespace Q_Tech_Bookkeeping
 
         private void HoursAdd_Load(object sender, EventArgs e)
         {
-            Contractors curForm = (Contractors)((Home)this.Owner).getCurForm();
+            ContractorsOld curForm = (ContractorsOld)((Home)this.Owner).getCurForm();
             this.txt_HA_CCode.Text = curForm.getCCode();
             this.txt_HA_Name.Text = curForm.getCName();
             this.txt_HA_Surname.Text = curForm.getCSurname();

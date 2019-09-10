@@ -48,7 +48,7 @@ namespace Q_Tech_Bookkeeping
 
         private void Dgv_SelCon_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            ((Contractors)((Home)this.Owner).GetCurForm()).setNewCon(e.RowIndex);
+            ((ContractorsOld)((Home)this.Owner).GetCurForm()).setNewCon(e.RowIndex);
             this.Close();
         }
 

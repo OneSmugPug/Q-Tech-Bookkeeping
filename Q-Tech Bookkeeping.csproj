@@ -86,6 +86,12 @@
     <Compile Include="Q_Tech_Bookkeeping\ClientList.Designer.cs">
       <DependentUpon>ClientList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Q_Tech_Bookkeeping\Contractors.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Q_Tech_Bookkeeping\Contractors.Designer.cs">
+      <DependentUpon>Contractors.cs</DependentUpon>
+    </Compile>
     <Compile Include="Q_Tech_Bookkeeping\Con_List.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,7 +114,7 @@
     <Compile Include="Q_Tech_Bookkeeping\Client_listOld.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Q_Tech_Bookkeeping\Contractors.cs">
+    <Compile Include="Q_Tech_Bookkeeping\ContractorsOld.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Q_Tech_Bookkeeping\DBUtils.cs" />
@@ -195,6 +201,9 @@
     <EmbeddedResource Include="Q_Tech_Bookkeeping\ClientList.resx">
       <DependentUpon>ClientList.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Q_Tech_Bookkeeping\Contractors.resx">
+      <DependentUpon>Contractors.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Q_Tech_Bookkeeping\Con_List.resx">
       <DependentUpon>Con_List.cs</DependentUpon>
     </EmbeddedResource>
@@ -224,6 +233,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\close_black1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_grey.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\filter_grey.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_list.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\forawrd_black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back_black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_grey.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_grey1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

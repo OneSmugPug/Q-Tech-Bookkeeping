@@ -47,7 +47,7 @@ namespace Q_Tech_Bookkeeping
         private Int_Orders frmIntOrders;
         private Int_Quotes frmIntQuotes;
         private Int_Invoices_SendOld frmIntInvSent;
-        private Contractors frmContr;
+        private ContractorsOld frmContr;
         private PettyCash frmPetty;
         private Projects frmProj;
 
@@ -1216,7 +1216,7 @@ namespace Q_Tech_Bookkeeping
             btn_C_Timesheets.BackColor = Color.FromArgb(13, 77, 119);
             btn_C_Timesheets.ForeColor = Color.White;
 
-            frmContr = new Contractors();
+            frmContr = new ContractorsOld();
             curForm = frmContr;
             frmContr.TopLevel = false;
             frmContr.TopMost = true;
@@ -1259,7 +1259,7 @@ namespace Q_Tech_Bookkeeping
 
             btn_C_Timesheets.BackColor = Color.FromArgb(13, 77, 119);
             btn_C_Timesheets.ForeColor = Color.White;
-            frmContr = new Contractors();
+            frmContr = new ContractorsOld();
             curForm = frmContr;
             frmContr.TopLevel = false;
             frmContr.TopMost = true;
