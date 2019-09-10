@@ -86,6 +86,12 @@
     <Compile Include="Q_Tech_Bookkeeping\ClientList.Designer.cs">
       <DependentUpon>ClientList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Q_Tech_Bookkeeping\Con_List.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Q_Tech_Bookkeeping\Con_List.Designer.cs">
+      <DependentUpon>Con_List.cs</DependentUpon>
+    </Compile>
     <Compile Include="Q_Tech_Bookkeeping\Home.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,9 +109,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Q_Tech_Bookkeeping\Contractors.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Q_Tech_Bookkeeping\Con_ListOld.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Q_Tech_Bookkeeping\DBUtils.cs" />
@@ -192,6 +195,9 @@
     <EmbeddedResource Include="Q_Tech_Bookkeeping\ClientList.resx">
       <DependentUpon>ClientList.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Q_Tech_Bookkeeping\Con_List.resx">
+      <DependentUpon>Con_List.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Q_Tech_Bookkeeping\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
@@ -202,8 +208,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\close_black.png" />
   </ItemGroup>
   <ItemGroup>
@@ -217,6 +221,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\globe_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close_black1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
