@@ -20,7 +20,7 @@ using System.Windows.Forms;
 
 namespace Q_Tech_Bookkeeping
 {
-  public class Hours_Add : Form
+  public class Hours_AddOld : Form
   {
     private DataTable dt = new DataTable();
     private Microsoft.Office.Interop.Word.Application app = (Microsoft.Office.Interop.Word.Application) null;
@@ -99,7 +99,7 @@ namespace Q_Tech_Bookkeeping
     private BunifuCustomLabel bunifuCustomLabel17;
     private Button btn_HA_Close;
 
-    public Hours_Add()
+    public Hours_AddOld()
     {
       this.InitializeComponent();
     }
@@ -1154,7 +1154,7 @@ namespace Q_Tech_Bookkeeping
 
     private void InitializeComponent()
     {
-      ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof (Hours_Add));
+      ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof (Hours_AddOld));
       this.groupBox1 = new GroupBox();
       this.panel12 = new Panel();
       this.txt_HA_Surname = new TextBox();
@@ -1902,7 +1902,7 @@ namespace Q_Tech_Bookkeeping
       this.MaximizeBox = false;
       this.MinimizeBox = false;
       this.MinimumSize = new Size(600, 465);
-      this.Name = nameof (Hours_Add);
+      this.Name = nameof (Hours_AddOld);
       this.StartPosition = FormStartPosition.CenterScreen;
       this.Text = "Add Hours";
       this.Load += new EventHandler(this.Hours_Add_Load);

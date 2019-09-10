@@ -366,7 +366,7 @@ namespace Q_Tech_Bookkeeping
       if (this.isFiltered)
         this.RemoveFilter();
       this.send = sender;
-      using (Hours_Add hoursAdd = new Hours_Add())
+      using (Hours_AddOld hoursAdd = new Hours_AddOld())
       {
         int num = (int) hoursAdd.ShowDialog((IWin32Window) this);
       }
@@ -379,7 +379,7 @@ namespace Q_Tech_Bookkeeping
         this.RemoveFilter();
       this.send = sender;
       this.SELECTED_HOUR = e.RowIndex;
-      using (Hours_Add hoursAdd = new Hours_Add())
+      using (Hours_AddOld hoursAdd = new Hours_AddOld())
       {
         int num = (int) hoursAdd.ShowDialog((IWin32Window) this);
       }

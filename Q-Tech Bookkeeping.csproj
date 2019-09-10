@@ -92,6 +92,12 @@
     <Compile Include="Q_Tech_Bookkeeping\Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
+    <Compile Include="Q_Tech_Bookkeeping\HoursAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Q_Tech_Bookkeeping\HoursAdd.Designer.cs">
+      <DependentUpon>HoursAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Q_Tech_Bookkeeping\ImageResize.cs" />
     <Compile Include="Q_Tech_Bookkeeping\Client_listOld.cs">
       <SubType>Form</SubType>
@@ -104,7 +110,7 @@
     </Compile>
     <Compile Include="Q_Tech_Bookkeeping\DBUtils.cs" />
     <Compile Include="Q_Tech_Bookkeeping\DBConnection.cs" />
-    <Compile Include="Q_Tech_Bookkeeping\Hours_Add.cs">
+    <Compile Include="Q_Tech_Bookkeeping\Hours_AddOld.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Q_Tech_Bookkeeping\Int_Invoices_Send.cs">
@@ -186,36 +192,13 @@
     <EmbeddedResource Include="Q_Tech_Bookkeeping\ClientList.resx">
       <DependentUpon>ClientList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Q_Tech_Bookkeeping\Client_list.resx" />
-    <EmbeddedResource Include="Q_Tech_Bookkeeping\Con_List.resx" />
-    <EmbeddedResource Include="Q_Tech_Bookkeeping\Contractors.resx" />
     <EmbeddedResource Include="Q_Tech_Bookkeeping\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Q_Tech_Bookkeeping\Hours_Add.resx" />
-    <EmbeddedResource Include="Q_Tech_Bookkeeping\Int_Invoices_Send.resx" />
-    <EmbeddedResource Include="Q_Tech_Bookkeeping\Int_Orders.resx" />
-    <EmbeddedResource Include="Q_Tech_Bookkeeping\Int_Quotes.resx" />
-    <EmbeddedResource Include="Q_Tech_Bookkeeping\Inv_Rec.resx" />
-    <EmbeddedResource Include="Q_Tech_Bookkeeping\Inv_Rec_Add.resx" />
-    <EmbeddedResource Include="Q_Tech_Bookkeeping\Inv_Rec_Edit_Del.resx" />
-    <EmbeddedResource Include="Q_Tech_Bookkeeping\Inv_Send_Add.resx" />
-    <EmbeddedResource Include="Q_Tech_Bookkeeping\Inv_Send_Edit_Del.resx" />
-    <EmbeddedResource Include="Q_Tech_Bookkeeping\Invoices_Send.resx" />
-    <EmbeddedResource Include="Q_Tech_Bookkeeping\Manage_Proj.resx" />
-    <EmbeddedResource Include="Q_Tech_Bookkeeping\New_Proj_Line.resx" />
-    <EmbeddedResource Include="Q_Tech_Bookkeeping\O_Add.resx" />
-    <EmbeddedResource Include="Q_Tech_Bookkeeping\O_Edit_Del.resx" />
-    <EmbeddedResource Include="Q_Tech_Bookkeeping\Orders.resx" />
-    <EmbeddedResource Include="Q_Tech_Bookkeeping\PettyCash.resx" />
-    <EmbeddedResource Include="Q_Tech_Bookkeeping\Proj_Add.resx" />
-    <EmbeddedResource Include="Q_Tech_Bookkeeping\Proj_Dialog.resx" />
-    <EmbeddedResource Include="Q_Tech_Bookkeeping\Proj_Edit_Del.resx" />
-    <EmbeddedResource Include="Q_Tech_Bookkeeping\Projects.resx" />
+    <EmbeddedResource Include="Q_Tech_Bookkeeping\HoursAdd.resx">
+      <DependentUpon>HoursAdd.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Q_Tech_Bookkeeping\Properties\Resources.resx" />
-    <EmbeddedResource Include="Q_Tech_Bookkeeping\Q_Add.resx" />
-    <EmbeddedResource Include="Q_Tech_Bookkeeping\Q_Edit_Del.resx" />
-    <EmbeddedResource Include="Q_Tech_Bookkeeping\Quotes.resx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
