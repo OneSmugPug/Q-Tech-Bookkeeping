@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Q_Tech_Bookkeeping\Int_Orders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Q_Tech_Bookkeeping\Int_Orders.Designer.cs">
+      <DependentUpon>Int_Orders.cs</DependentUpon>
+    </Compile>
     <Compile Include="Microsoft\Office\Interop\Excel\AppEvents.cs" />
     <Compile Include="Microsoft\Office\Interop\Excel\AppEvents_Event.cs" />
     <Compile Include="Microsoft\Office\Interop\Excel\Application.cs" />
@@ -194,6 +200,9 @@
     <Compile Include="AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Q_Tech_Bookkeeping\Int_Orders.resx">
+      <DependentUpon>Int_Orders.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
