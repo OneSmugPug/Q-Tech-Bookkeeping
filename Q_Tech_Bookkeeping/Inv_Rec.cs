@@ -17,14 +17,6 @@ namespace Q_Tech_Bookkeeping
         private IContainer components = (IContainer)null;
         private int SELECTED_INVOICE;
         private DataTable dt;
-        //private Button btn_LIR_ClearFilter;
-        //private BunifuDatepicker dtp_LIR_From;
-        //private AdvancedDataGridView dgv_LInvRec;
-        //private Button btn_LIR_Filter;
-        //private BunifuDatepicker dtp_LIR_To;
-        //private BunifuCustomLabel bunifuCustomLabel6;
-        //private BunifuCustomLabel bunifuCustomLabel5;
-        //private Button btn_LIR_NewIR;
 
         public Inv_Rec()
         {
