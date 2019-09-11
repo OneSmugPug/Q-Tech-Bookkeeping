@@ -16,7 +16,7 @@ namespace Q_Tech_Bookkeeping
         private int CUR_CLIENT = 0;
         private BindingSource bs = new BindingSource();
         private bool isFiltered = false;
-        private IContainer components = (IContainer)null;
+        //private IContainer components = (IContainer)null;            <------- Gee 'n error, delete as dit nie hier moet wees nie
         private int NUM_OF_CLIENTS;
         private int SELECTED_ORDER;
         private string CNAME;

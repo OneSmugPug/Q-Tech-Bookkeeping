@@ -14,7 +14,7 @@ namespace Q_Tech_Bookkeeping
     {
         private BindingSource bs = new BindingSource();
         private bool mouseDown = false;
-        private IContainer components = (IContainer)null;
+        //private IContainer components = (IContainer)null;            <------- Gee 'n error, delete as dit nie hier moet wees nie
         private SqlDataAdapter da;
         private DataTable dt;
         private Point lastLocation;
@@ -48,7 +48,7 @@ namespace Q_Tech_Bookkeeping
 
         private void Dgv_SelCon_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            ((ContractorsOld)((Home)this.Owner).GetCurForm()).setNewCon(e.RowIndex);
+            ((Contractors)((Home)this.Owner).GetCurForm()).SetNewCon(e.RowIndex);
             this.Close();
         }
 

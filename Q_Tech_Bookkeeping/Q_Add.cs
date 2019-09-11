@@ -62,7 +62,7 @@ namespace Q_Tech_Bookkeeping
       }
       else
       {
-        Int_Quotes curForm = (Int_Quotes) owner.getCurForm();
+        Int_QuotesOld curForm = (Int_QuotesOld) owner.getCurForm();
         this.txt_QA_CCode.Text = curForm.getCCode();
         this.txt_QA_CName.Text = curForm.getCName();
         this.dt = curForm.getQuotes();

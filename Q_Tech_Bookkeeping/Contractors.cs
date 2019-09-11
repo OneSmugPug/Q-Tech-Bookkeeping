@@ -19,7 +19,7 @@ namespace Q_Tech_Bookkeeping
         private string CODE = string.Empty;
         private bool isFiltered = false;
         private bool isReadOnly = true;
-        private IContainer components = (IContainer)null;
+        //private IContainer components = (IContainer)null;            <------- Gee 'n error, delete as dit nie hier moet wees nie
         private DataTable conDT;
         private DataTable dt;
         private int NUM_OF_CON;
@@ -330,7 +330,7 @@ namespace Q_Tech_Bookkeeping
             if (isFiltered)
                 RemoveFilter();
             send = sender;
-            using (Hours_AddOld hoursAdd = new Hours_AddOld())
+            using (HoursAdd hoursAdd = new HoursAdd())
             {
                 int num = (int)hoursAdd.ShowDialog((IWin32Window)this);
             }
@@ -343,7 +343,7 @@ namespace Q_Tech_Bookkeeping
                 RemoveFilter();
             send = sender;
             SELECTED_HOUR = e.RowIndex;
-            using (Hours_AddOld hoursAdd = new Hours_AddOld())
+            using (HoursAdd hoursAdd = new HoursAdd())
             {
                 int num = (int)hoursAdd.ShowDialog((IWin32Window)this);
             }

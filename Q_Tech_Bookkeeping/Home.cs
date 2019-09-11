@@ -45,7 +45,7 @@ namespace Q_Tech_Bookkeeping
         private Invoices_Send frmInvSent;
         private Inv_Rec frmInvRec;
         private Int_OrdersOld frmIntOrders;
-        private Int_Quotes frmIntQuotes;
+        private Int_QuotesOld frmIntQuotes;
         private Int_Invoices_SendOld frmIntInvSent;
         private ContractorsOld frmContr;
         private PettyCash frmPetty;
@@ -1118,7 +1118,7 @@ namespace Q_Tech_Bookkeeping
             btn_I_Quotes.BackColor = Color.FromArgb(15, 91, 142);
             btn_I_Quotes.ForeColor = Color.White;
 
-            frmIntQuotes = new Int_Quotes();
+            frmIntQuotes = new Int_QuotesOld();
             curForm = frmIntQuotes;
             frmIntQuotes.TopLevel = false;
             frmIntQuotes.TopMost = true;

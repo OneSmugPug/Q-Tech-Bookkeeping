@@ -117,19 +117,16 @@
       <DependentUpon>HoursAdd.cs</DependentUpon>
     </Compile>
     <Compile Include="Q_Tech_Bookkeeping\ImageResize.cs" />
-    <Compile Include="Q_Tech_Bookkeeping\Client_listOld.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Q_Tech_Bookkeeping\ContractorsOld.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Q_Tech_Bookkeeping\DBUtils.cs" />
     <Compile Include="Q_Tech_Bookkeeping\DBConnection.cs" />
-    <Compile Include="Q_Tech_Bookkeeping\Hours_AddOld.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Q_Tech_Bookkeeping\Int_Invoices_SendOld.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Q_Tech_Bookkeeping\Int_Quotes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Q_Tech_Bookkeeping\Int_Quotes.Designer.cs">
+      <DependentUpon>Int_Quotes.cs</DependentUpon>
     </Compile>
     <Compile Include="Q_Tech_Bookkeeping\Invoices_Send.cs">
       <SubType>Form</SubType>
@@ -147,9 +144,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Q_Tech_Bookkeeping\Inv_Send_Edit_Del.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Q_Tech_Bookkeeping\Int_OrdersOld.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Q_Tech_Bookkeeping\Manage_Proj.cs">
@@ -181,9 +175,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Q_Tech_Bookkeeping\Proj_Edit_Del.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Q_Tech_Bookkeeping\Int_Quotes.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Q_Tech_Bookkeeping\Quotes.cs">
@@ -221,6 +212,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Q_Tech_Bookkeeping\HoursAdd.resx">
       <DependentUpon>HoursAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Q_Tech_Bookkeeping\Int_Quotes.resx">
+      <DependentUpon>Int_Quotes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Q_Tech_Bookkeeping\Properties\Resources.resx" />
   </ItemGroup>

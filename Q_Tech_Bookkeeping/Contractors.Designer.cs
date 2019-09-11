@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Contractors));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txt_C_TotPaid = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_C_TotHours = new System.Windows.Forms.TextBox();
@@ -61,6 +62,7 @@
             this.dgv_Contractors = new ADGV.AdvancedDataGridView();
             this.txt_C_CCode = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.bunifuCustomLabel7 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.dtp_C_From = new Bunifu.Framework.UI.BunifuDatepicker();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Contractors)).BeginInit();
             this.SuspendLayout();
             // 
@@ -123,9 +125,9 @@
             this.btn_C_ClearFilter.Text = "Clear Filter";
             this.btn_C_ClearFilter.UseVisualStyleBackColor = true;
             this.btn_C_ClearFilter.Visible = false;
-            this.btn_C_ClearFilter.Click += new System.EventHandler(this.btn_C_ClearF_Click);
-            this.btn_C_ClearFilter.MouseEnter += new System.EventHandler(this.btn_C_ClearFilter_MouseEnter);
-            this.btn_C_ClearFilter.MouseLeave += new System.EventHandler(this.btn_C_ClearFilter_MouseLeave);
+            this.btn_C_ClearFilter.Click += new System.EventHandler(this.Btn_C_ClearF_Click);
+            this.btn_C_ClearFilter.MouseEnter += new System.EventHandler(this.Btn_C_ClearFilter_MouseEnter);
+            this.btn_C_ClearFilter.MouseLeave += new System.EventHandler(this.Btn_C_ClearFilter_MouseLeave);
             // 
             // dtp_C_To
             // 
@@ -195,8 +197,8 @@
             this.txt_C_Surname.TabIndex = 77;
             this.txt_C_Surname.Text = "bunifuMaterialTextbox1";
             this.txt_C_Surname.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txt_C_Surname.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_C_Surname_KeyDown);
-            this.txt_C_Surname.Leave += new System.EventHandler(this.txt_C_Surname_Leave);
+            this.txt_C_Surname.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Txt_C_Surname_KeyDown);
+            this.txt_C_Surname.Leave += new System.EventHandler(this.Txt_C_Surname_Leave);
             // 
             // txt_C_Name
             // 
@@ -218,8 +220,8 @@
             this.txt_C_Name.TabIndex = 76;
             this.txt_C_Name.Text = "bunifuMaterialTextbox1";
             this.txt_C_Name.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txt_C_Name.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_C_Name_KeyDown);
-            this.txt_C_Name.Leave += new System.EventHandler(this.txt_C_Name_Leave);
+            this.txt_C_Name.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Txt_C_Name_KeyDown);
+            this.txt_C_Name.Leave += new System.EventHandler(this.Txt_C_Name_Leave);
             // 
             // bunifuCustomLabel3
             // 
@@ -258,9 +260,9 @@
             this.btn_C_Cancel.Text = "Cancel";
             this.btn_C_Cancel.UseVisualStyleBackColor = true;
             this.btn_C_Cancel.Visible = false;
-            this.btn_C_Cancel.Click += new System.EventHandler(this.btn_C_Cancel_Click);
-            this.btn_C_Cancel.MouseEnter += new System.EventHandler(this.btn_C_Cancel_MouseEnter);
-            this.btn_C_Cancel.MouseLeave += new System.EventHandler(this.btn_C_Cancel_MouseLeave);
+            this.btn_C_Cancel.Click += new System.EventHandler(this.Btn_C_Cancel_Click);
+            this.btn_C_Cancel.MouseEnter += new System.EventHandler(this.Btn_C_Cancel_MouseEnter);
+            this.btn_C_Cancel.MouseLeave += new System.EventHandler(this.Btn_C_Cancel_MouseLeave);
             // 
             // btn_C_DoneAdd
             // 
@@ -277,9 +279,9 @@
             this.btn_C_DoneAdd.Text = "Done";
             this.btn_C_DoneAdd.UseVisualStyleBackColor = true;
             this.btn_C_DoneAdd.Visible = false;
-            this.btn_C_DoneAdd.Click += new System.EventHandler(this.btn_C_DoneAdd_Click);
-            this.btn_C_DoneAdd.MouseEnter += new System.EventHandler(this.btn_C_DoneAdd_MouseEnter);
-            this.btn_C_DoneAdd.MouseLeave += new System.EventHandler(this.btn_C_DoneAdd_MouseLeave);
+            this.btn_C_DoneAdd.Click += new System.EventHandler(this.Btn_C_DoneAdd_Click);
+            this.btn_C_DoneAdd.MouseEnter += new System.EventHandler(this.Btn_C_DoneAdd_MouseEnter);
+            this.btn_C_DoneAdd.MouseLeave += new System.EventHandler(this.Btn_C_DoneAdd_MouseLeave);
             // 
             // btn_C_DoneEdit
             // 
@@ -296,9 +298,9 @@
             this.btn_C_DoneEdit.Text = "Done";
             this.btn_C_DoneEdit.UseVisualStyleBackColor = true;
             this.btn_C_DoneEdit.Visible = false;
-            this.btn_C_DoneEdit.Click += new System.EventHandler(this.btn_C_DoneEdit_Click);
-            this.btn_C_DoneEdit.MouseEnter += new System.EventHandler(this.btn_C_DoneEdit_MouseEnter);
-            this.btn_C_DoneEdit.MouseLeave += new System.EventHandler(this.btn_C_DoneEdit_MouseLeave);
+            this.btn_C_DoneEdit.Click += new System.EventHandler(this.Btn_C_DoneEdit_Click);
+            this.btn_C_DoneEdit.MouseEnter += new System.EventHandler(this.Btn_C_DoneEdit_MouseEnter);
+            this.btn_C_DoneEdit.MouseLeave += new System.EventHandler(this.Btn_C_DoneEdit_MouseLeave);
             // 
             // btn_C_Add
             // 
@@ -317,9 +319,9 @@
             this.btn_C_Add.Text = "Add Contractor";
             this.btn_C_Add.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_C_Add.UseVisualStyleBackColor = true;
-            this.btn_C_Add.Click += new System.EventHandler(this.btn_C_Add_Click);
-            this.btn_C_Add.MouseEnter += new System.EventHandler(this.btn_C_Add_MouseEnter);
-            this.btn_C_Add.MouseLeave += new System.EventHandler(this.btn_C_Add_MouseLeave);
+            this.btn_C_Add.Click += new System.EventHandler(this.Btn_C_Add_Click);
+            this.btn_C_Add.MouseEnter += new System.EventHandler(this.Btn_C_Add_MouseEnter);
+            this.btn_C_Add.MouseLeave += new System.EventHandler(this.Btn_C_Add_MouseLeave);
             // 
             // btn_C_Edit
             // 
@@ -329,7 +331,7 @@
             this.btn_C_Edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_C_Edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_C_Edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btn_C_Edit.Image = global::Q_Tech_Bookkeeping.Properties.Resources.edit_grey;
+            this.btn_C_Edit.Image = ((System.Drawing.Image)(resources.GetObject("btn_C_Edit.Image")));
             this.btn_C_Edit.Location = new System.Drawing.Point(261, 161);
             this.btn_C_Edit.Name = "btn_C_Edit";
             this.btn_C_Edit.Size = new System.Drawing.Size(149, 40);
@@ -338,9 +340,9 @@
             this.btn_C_Edit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_C_Edit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_C_Edit.UseVisualStyleBackColor = true;
-            this.btn_C_Edit.Click += new System.EventHandler(this.btn_C_Edit_Click);
-            this.btn_C_Edit.MouseEnter += new System.EventHandler(this.btn_C_Edit_MouseEnter);
-            this.btn_C_Edit.MouseLeave += new System.EventHandler(this.btn_C_Edit_MouseLeave);
+            this.btn_C_Edit.Click += new System.EventHandler(this.Btn_C_Edit_Click);
+            this.btn_C_Edit.MouseEnter += new System.EventHandler(this.Btn_C_Edit_MouseEnter);
+            this.btn_C_Edit.MouseLeave += new System.EventHandler(this.Btn_C_Edit_MouseLeave);
             // 
             // btn_C_Prev
             // 
@@ -351,15 +353,15 @@
             this.btn_C_Prev.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_C_Prev.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_C_Prev.ForeColor = System.Drawing.Color.White;
-            this.btn_C_Prev.Image = global::Q_Tech_Bookkeeping.Properties.Resources.back_black;
+            this.btn_C_Prev.Image = ((System.Drawing.Image)(resources.GetObject("btn_C_Prev.Image")));
             this.btn_C_Prev.Location = new System.Drawing.Point(18, 21);
             this.btn_C_Prev.Name = "btn_C_Prev";
             this.btn_C_Prev.Size = new System.Drawing.Size(49, 149);
             this.btn_C_Prev.TabIndex = 72;
             this.btn_C_Prev.UseVisualStyleBackColor = true;
-            this.btn_C_Prev.Click += new System.EventHandler(this.btn_C_Prev_Click);
-            this.btn_C_Prev.MouseEnter += new System.EventHandler(this.btn_C_Prev_MouseEnter);
-            this.btn_C_Prev.MouseLeave += new System.EventHandler(this.btn_C_Prev_MouseLeave);
+            this.btn_C_Prev.Click += new System.EventHandler(this.Btn_C_Prev_Click);
+            this.btn_C_Prev.MouseEnter += new System.EventHandler(this.Btn_C_Prev_MouseEnter);
+            this.btn_C_Prev.MouseLeave += new System.EventHandler(this.Btn_C_Prev_MouseLeave);
             // 
             // btn_C_Next
             // 
@@ -370,15 +372,15 @@
             this.btn_C_Next.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_C_Next.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_C_Next.ForeColor = System.Drawing.Color.White;
-            this.btn_C_Next.Image = global::Q_Tech_Bookkeeping.Properties.Resources.forawrd_black;
+            this.btn_C_Next.Image = ((System.Drawing.Image)(resources.GetObject("btn_C_Next.Image")));
             this.btn_C_Next.Location = new System.Drawing.Point(898, 21);
             this.btn_C_Next.Name = "btn_C_Next";
             this.btn_C_Next.Size = new System.Drawing.Size(49, 149);
             this.btn_C_Next.TabIndex = 75;
             this.btn_C_Next.UseVisualStyleBackColor = true;
-            this.btn_C_Next.Click += new System.EventHandler(this.btn_C_Next_Click);
-            this.btn_C_Next.MouseEnter += new System.EventHandler(this.btn_C_Next_MouseEnter);
-            this.btn_C_Next.MouseLeave += new System.EventHandler(this.btn_C_Next_MouseLeave);
+            this.btn_C_Next.Click += new System.EventHandler(this.Btn_C_Next_Click);
+            this.btn_C_Next.MouseEnter += new System.EventHandler(this.Btn_C_Next_MouseEnter);
+            this.btn_C_Next.MouseLeave += new System.EventHandler(this.Btn_C_Next_MouseLeave);
             // 
             // btn_C_SelCon
             // 
@@ -388,7 +390,7 @@
             this.btn_C_SelCon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_C_SelCon.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_C_SelCon.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btn_C_SelCon.Image = global::Q_Tech_Bookkeeping.Properties.Resources.user_list;
+            this.btn_C_SelCon.Image = ((System.Drawing.Image)(resources.GetObject("btn_C_SelCon.Image")));
             this.btn_C_SelCon.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_C_SelCon.Location = new System.Drawing.Point(722, 161);
             this.btn_C_SelCon.Name = "btn_C_SelCon";
@@ -397,9 +399,9 @@
             this.btn_C_SelCon.Text = "Contractor List";
             this.btn_C_SelCon.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_C_SelCon.UseVisualStyleBackColor = true;
-            this.btn_C_SelCon.Click += new System.EventHandler(this.btn_C_SelCon_Click);
-            this.btn_C_SelCon.MouseEnter += new System.EventHandler(this.btn_C_SelCon_MouseEnter);
-            this.btn_C_SelCon.MouseLeave += new System.EventHandler(this.btn_C_SelCon_MouseLeave);
+            this.btn_C_SelCon.Click += new System.EventHandler(this.Btn_C_SelCon_Click);
+            this.btn_C_SelCon.MouseEnter += new System.EventHandler(this.Btn_C_SelCon_MouseEnter);
+            this.btn_C_SelCon.MouseLeave += new System.EventHandler(this.Btn_C_SelCon_MouseLeave);
             // 
             // btn_C_Filter
             // 
@@ -409,7 +411,7 @@
             this.btn_C_Filter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_C_Filter.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_C_Filter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btn_C_Filter.Image = global::Q_Tech_Bookkeeping.Properties.Resources.filter_grey;
+            this.btn_C_Filter.Image = ((System.Drawing.Image)(resources.GetObject("btn_C_Filter.Image")));
             this.btn_C_Filter.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_C_Filter.Location = new System.Drawing.Point(554, 232);
             this.btn_C_Filter.Name = "btn_C_Filter";
@@ -418,9 +420,9 @@
             this.btn_C_Filter.Text = "Filter";
             this.btn_C_Filter.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_C_Filter.UseVisualStyleBackColor = true;
-            this.btn_C_Filter.Click += new System.EventHandler(this.btn_C_Filter_Click);
-            this.btn_C_Filter.MouseEnter += new System.EventHandler(this.btn_C_Filter_MouseEnter);
-            this.btn_C_Filter.MouseLeave += new System.EventHandler(this.btn_C_Filter_MouseLeave);
+            this.btn_C_Filter.Click += new System.EventHandler(this.Btn_C_Filter_Click);
+            this.btn_C_Filter.MouseEnter += new System.EventHandler(this.Btn_C_Filter_MouseEnter);
+            this.btn_C_Filter.MouseLeave += new System.EventHandler(this.Btn_C_Filter_MouseLeave);
             // 
             // btn_C_NewWW
             // 
@@ -440,9 +442,9 @@
             this.btn_C_NewWW.Text = "New Work Week";
             this.btn_C_NewWW.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_C_NewWW.UseVisualStyleBackColor = true;
-            this.btn_C_NewWW.Click += new System.EventHandler(this.btn_C_NewWW_Click);
-            this.btn_C_NewWW.MouseEnter += new System.EventHandler(this.btn_C_NewWW_MouseEnter);
-            this.btn_C_NewWW.MouseLeave += new System.EventHandler(this.btn_C_NewWW_MouseLeave);
+            this.btn_C_NewWW.Click += new System.EventHandler(this.Btn_C_NewWW_Click);
+            this.btn_C_NewWW.MouseEnter += new System.EventHandler(this.Btn_C_NewWW_MouseEnter);
+            this.btn_C_NewWW.MouseLeave += new System.EventHandler(this.Btn_C_NewWW_MouseLeave);
             // 
             // txt_C_EName
             // 
@@ -463,7 +465,7 @@
             this.txt_C_EName.TabIndex = 93;
             this.txt_C_EName.Text = "bunifuMaterialTextbox1";
             this.txt_C_EName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txt_C_EName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_C_EName_KeyDown);
+            this.txt_C_EName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Txt_C_EName_KeyDown);
             // 
             // bunifuCustomLabel5
             // 
@@ -495,7 +497,7 @@
             this.txt_C_EVN.TabIndex = 95;
             this.txt_C_EVN.Text = "bunifuMaterialTextbox1";
             this.txt_C_EVN.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txt_C_EVN.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_C_EVN_KeyDown);
+            this.txt_C_EVN.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Txt_C_EVN_KeyDown);
             // 
             // bunifuCustomLabel6
             // 
@@ -513,8 +515,8 @@
             this.dgv_Contractors.AllowUserToAddRows = false;
             this.dgv_Contractors.AllowUserToDeleteRows = false;
             this.dgv_Contractors.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.LightGray;
-            this.dgv_Contractors.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGray;
+            this.dgv_Contractors.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_Contractors.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -523,14 +525,14 @@
             this.dgv_Contractors.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv_Contractors.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.dgv_Contractors.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_Contractors.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_Contractors.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_Contractors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Contractors.DateWithTime = false;
             this.dgv_Contractors.EnableHeadersVisualStyles = false;
@@ -539,15 +541,15 @@
             this.dgv_Contractors.ReadOnly = true;
             this.dgv_Contractors.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgv_Contractors.RowHeadersVisible = false;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.dgv_Contractors.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
+            this.dgv_Contractors.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_Contractors.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_Contractors.Size = new System.Drawing.Size(963, 286);
             this.dgv_Contractors.TabIndex = 96;
             this.dgv_Contractors.TimeFilter = false;
-            this.dgv_Contractors.SortStringChanged += new System.EventHandler(this.dgv_Contractors_SortStringChanged);
-            this.dgv_Contractors.FilterStringChanged += new System.EventHandler(this.dgv_Contractors_FilterStringChanged);
-            this.dgv_Contractors.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Contractors_CellDoubleClick);
+            this.dgv_Contractors.SortStringChanged += new System.EventHandler(this.Dgv_Contractors_SortStringChanged);
+            this.dgv_Contractors.FilterStringChanged += new System.EventHandler(this.Dgv_Contractors_FilterStringChanged);
+            this.dgv_Contractors.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_Contractors_CellDoubleClick);
             // 
             // txt_C_CCode
             // 
@@ -568,7 +570,7 @@
             this.txt_C_CCode.TabIndex = 99;
             this.txt_C_CCode.Text = "bunifuMaterialTextbox1";
             this.txt_C_CCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txt_C_CCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_C_CCode_KeyDown);
+            this.txt_C_CCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Txt_C_CCode_KeyDown);
             // 
             // bunifuCustomLabel7
             // 
@@ -581,12 +583,26 @@
             this.bunifuCustomLabel7.TabIndex = 98;
             this.bunifuCustomLabel7.Text = "Code:";
             // 
+            // dtp_C_From
+            // 
+            this.dtp_C_From.BackColor = System.Drawing.Color.Silver;
+            this.dtp_C_From.BorderRadius = 0;
+            this.dtp_C_From.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
+            this.dtp_C_From.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtp_C_From.FormatCustom = null;
+            this.dtp_C_From.Location = new System.Drawing.Point(69, 236);
+            this.dtp_C_From.Name = "dtp_C_From";
+            this.dtp_C_From.Size = new System.Drawing.Size(208, 36);
+            this.dtp_C_From.TabIndex = 100;
+            this.dtp_C_From.Value = new System.DateTime(2019, 9, 11, 15, 4, 3, 235);
+            // 
             // Contractors
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(963, 618);
+            this.Controls.Add(this.dtp_C_From);
             this.Controls.Add(this.bunifuCustomLabel7);
             this.Controls.Add(this.txt_C_CCode);
             this.Controls.Add(this.dgv_Contractors);
@@ -661,5 +677,6 @@
         private ADGV.AdvancedDataGridView dgv_Contractors;
         private Bunifu.Framework.UI.BunifuMaterialTextbox txt_C_CCode;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel7;
+        private Bunifu.Framework.UI.BunifuDatepicker dtp_C_From;
     }
 }
