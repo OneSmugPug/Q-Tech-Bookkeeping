@@ -126,7 +126,7 @@ namespace Q_Tech_Bookkeeping
       else
       {
         this.isInter = true;
-        Int_Orders curForm = (Int_Orders) owner.getCurForm();
+        Int_OrdersOld curForm = (Int_OrdersOld) owner.getCurForm();
         this.txt_OA_CCode.Text = curForm.getCCode();
         this.txt_OA_CName.Text = curForm.getCName();
         this.txt_OA_Amt.Text = "$0.00";

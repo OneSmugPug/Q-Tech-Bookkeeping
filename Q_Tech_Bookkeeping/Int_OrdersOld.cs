@@ -17,7 +17,7 @@ using System.Windows.Forms;
 
 namespace Q_Tech_Bookkeeping
 {
-  public class Int_Orders : Form
+  public class Int_OrdersOld : Form
   {
     private int CUR_CLIENT = 0;
     private BindingSource bs = new BindingSource();
@@ -45,7 +45,7 @@ namespace Q_Tech_Bookkeeping
     private BunifuCustomLabel bunifuCustomLabel4;
     private Button btn_IO_Prev;
 
-    public Int_Orders()
+    public Int_OrdersOld()
     {
       this.InitializeComponent();
     }
@@ -351,7 +351,7 @@ namespace Q_Tech_Bookkeeping
       DataGridViewCellStyle gridViewCellStyle1 = new DataGridViewCellStyle();
       DataGridViewCellStyle gridViewCellStyle2 = new DataGridViewCellStyle();
       DataGridViewCellStyle gridViewCellStyle3 = new DataGridViewCellStyle();
-      ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof (Int_Orders));
+      ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof (Int_OrdersOld));
       this.btn_IO_ClearFilter = new Button();
       this.dtp_IO_From = new BunifuDatepicker();
       this.dgv_IOrders = new AdvancedDataGridView();
@@ -629,7 +629,7 @@ namespace Q_Tech_Bookkeeping
       this.FormBorderStyle = FormBorderStyle.None;
       this.Icon = (Icon) componentResourceManager.GetObject("$this.Icon");
       this.MinimumSize = new Size(625, 510);
-      this.Name = nameof (Int_Orders);
+      this.Name = nameof (Int_OrdersOld);
       this.Text = "International Orders";
       this.WindowState = FormWindowState.Maximized;
       this.Load += new EventHandler(this.Orders_Load);

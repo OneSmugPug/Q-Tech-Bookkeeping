@@ -84,7 +84,7 @@ namespace Q_Tech_Bookkeeping
       else
       {
         this.isInter = true;
-        Int_Orders curForm = (Int_Orders) owner.getCurForm();
+        Int_OrdersOld curForm = (Int_OrdersOld) owner.getCurForm();
         this.dt = curForm.getOrders();
         this.SELECTED_ORDER = curForm.getSelectedOrder();
         this.txt_OED_CCode.Text = curForm.getCCode();

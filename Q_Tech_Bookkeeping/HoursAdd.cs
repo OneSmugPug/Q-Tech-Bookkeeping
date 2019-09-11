@@ -27,71 +27,71 @@ namespace Q_Tech_Bookkeeping
         private int SELECTED_WW;
         private Document doc;
         private Point lastLocation;
-        private GroupBox groupBox1;
-        private BackgroundWorker backgroundWorker1;
-        private ProgressBar pb_CreateRem;
-        private GroupBox gb_OA_ODetails;
-        private BunifuCustomLabel bunifuCustomLabel15;
-        private BunifuCheckbox cb_HA_Paid;
-        private Panel panel8;
-        private TextBox txt_HA_FTotal;
-        private BunifuSeparator ln_HA_FTotal;
-        private BunifuCustomLabel bunifuCustomLabel14;
-        private Panel panel7;
-        private TextBox txt_HA_QTCut;
-        private BunifuSeparator ln_HA_QTCut;
-        private BunifuCustomLabel bunifuCustomLabel13;
-        private BunifuDatepicker dtp_HA_To;
-        private BunifuCustomLabel bunifuCustomLabel12;
-        private BunifuDatepicker dtp_HA_From;
-        private BunifuCustomLabel bunifuCustomLabel11;
-        private Panel panel6;
-        private TextBox txt_HA_TotAE;
-        private BunifuSeparator ln_HA_TotAE;
-        private Panel panel5;
-        private TextBox txt_HA_ExcRate;
-        private BunifuSeparator ln_HA_ExcRate;
-        private Panel panel4;
-        private TextBox txt_HA_TotBE;
-        private BunifuSeparator ln_HA_TotBE;
-        private Panel panel3;
-        private TextBox txt_HA_DolPH;
-        private BunifuSeparator ln_HA_DolPH;
-        private Panel panel2;
-        private TextBox txt_HA_HW;
-        private BunifuSeparator ln_HA_HW;
-        private Panel panel1;
-        private TextBox txt_HA_Code;
-        private BunifuSeparator ln_HA_Code;
-        private BunifuCustomLabel bunifuCustomLabel8;
-        private BunifuCustomLabel bunifuCustomLabel9;
-        private BunifuCustomLabel bunifuCustomLabel7;
-        private BunifuCustomLabel bunifuCustomLabel6;
-        private BunifuCustomLabel bunifuCustomLabel5;
-        private BunifuDatepicker dtp_HA_DatePaid;
-        private BunifuCustomLabel bunifuCustomLabel2;
-        private BunifuCustomLabel bunifuCustomLabel1;
-        private Panel panel12;
-        private TextBox txt_HA_Surname;
-        private BunifuSeparator btn_HA_Surname;
-        private BunifuCustomLabel bunifuCustomLabel16;
-        private Panel panel11;
-        private TextBox txt_HA_EName;
-        private BunifuSeparator ln_HA_EName;
-        private BunifuCustomLabel label;
-        private Panel panel10;
-        private TextBox txt_HA_Name;
-        private BunifuSeparator ln_HA_Name;
-        private BunifuCustomLabel bunifuCustomLabel4;
-        private Panel panel9;
-        private TextBox txt_HA_CCode;
-        private BunifuSeparator ln_HA_CCode;
-        private BunifuCustomLabel bunifuCustomLabel3;
-        private Button btn_HA_Cancel;
-        private Button btn_HA_Done;
-        private Button btn_HA_CreateRem;
-        private BunifuCustomLabel bunifuCustomLabel17;
-        private Button btn_HA_Close;
+        //private GroupBox groupBox1;
+        //private BackgroundWorker backgroundWorker1;
+        //private ProgressBar pb_CreateRem;
+        //private GroupBox gb_OA_ODetails;
+        //private BunifuCustomLabel bunifuCustomLabel15;
+        //private BunifuCheckbox cb_HA_Paid;
+        //private Panel panel8;
+        //private TextBox txt_HA_FTotal;
+        //private BunifuSeparator ln_HA_FTotal;
+        //private BunifuCustomLabel bunifuCustomLabel14;
+        //private Panel panel7;
+        //private TextBox txt_HA_QTCut;
+        //private BunifuSeparator ln_HA_QTCut;
+        //private BunifuCustomLabel bunifuCustomLabel13;
+        //private BunifuDatepicker dtp_HA_To;
+        //private BunifuCustomLabel bunifuCustomLabel12;
+        //private BunifuDatepicker dtp_HA_From;
+        //private BunifuCustomLabel bunifuCustomLabel11;
+        //private Panel panel6;
+        //private TextBox txt_HA_TotAE;
+        //private BunifuSeparator ln_HA_TotAE;
+        //private Panel panel5;
+        //private TextBox txt_HA_ExcRate;
+        //private BunifuSeparator ln_HA_ExcRate;
+        //private Panel panel4;
+        //private TextBox txt_HA_TotBE;
+        //private BunifuSeparator ln_HA_TotBE;
+        //private Panel panel3;
+        //private TextBox txt_HA_DolPH;
+        //private BunifuSeparator ln_HA_DolPH;
+        //private Panel panel2;
+        //private TextBox txt_HA_HW;
+        //private BunifuSeparator ln_HA_HW;
+        //private Panel panel1;
+        //private TextBox txt_HA_Code;
+        //private BunifuSeparator ln_HA_Code;
+        //private BunifuCustomLabel bunifuCustomLabel8;
+        //private BunifuCustomLabel bunifuCustomLabel9;
+        //private BunifuCustomLabel bunifuCustomLabel7;
+        //private BunifuCustomLabel bunifuCustomLabel6;
+        //private BunifuCustomLabel bunifuCustomLabel5;
+        //private BunifuDatepicker dtp_HA_DatePaid;
+        //private BunifuCustomLabel bunifuCustomLabel2;
+        //private BunifuCustomLabel bunifuCustomLabel1;
+        //private Panel panel12;
+        //private TextBox txt_HA_Surname;
+        //private BunifuSeparator btn_HA_Surname;
+        //private BunifuCustomLabel bunifuCustomLabel16;
+        //private Panel panel11;
+        //private TextBox txt_HA_EName;
+        //private BunifuSeparator ln_HA_EName;
+        //private BunifuCustomLabel label;
+        //private Panel panel10;
+        //private TextBox txt_HA_Name;
+        //private BunifuSeparator ln_HA_Name;
+        //private BunifuCustomLabel bunifuCustomLabel4;
+        //private Panel panel9;
+        //private TextBox txt_HA_CCode;
+        //private BunifuSeparator ln_HA_CCode;
+        //private BunifuCustomLabel bunifuCustomLabel3;
+        //private Button btn_HA_Cancel;
+        //private Button btn_HA_Done;
+        //private Button btn_HA_CreateRem;
+        //private BunifuCustomLabel bunifuCustomLabel17;
+        //private Button btn_HA_Close;
 
         public HoursAdd()
         {
@@ -151,12 +151,12 @@ namespace Q_Tech_Bookkeeping
             {
                 Text = "Edit Work Week";
                 SELECTED_WW = curForm.getSelectedHour();
-                loadHours();
+                LoadHours();
                 btn_HA_CreateRem.Visible = true;
             }
         }
 
-        private void loadHours()
+        private void LoadHours()
         {
             txt_HA_Code.Text = dt.Rows[SELECTED_WW]["Code"].ToString().Trim();
             dtp_HA_From.Value = !(dt.Rows[SELECTED_WW]["Date_Start"].ToString() != string.Empty) ? DateTime.Now : Convert.ToDateTime(dt.Rows[SELECTED_WW]["Date_Start"].ToString());
@@ -195,7 +195,7 @@ namespace Q_Tech_Bookkeeping
             dtp_HA_DatePaid.Value = !(dt.Rows[SELECTED_WW]["Date_Paid"].ToString() != string.Empty) ? DateTime.Now : Convert.ToDateTime(dt.Rows[SELECTED_WW]["Date_Paid"].ToString());
         }
 
-        private void btn_HA_Done_Click(object sender, EventArgs e)
+        private void Btn_HA_Done_Click(object sender, EventArgs e)
         {
             string text = txt_HA_Code.Text;
             if (send is ToolStripButton)
@@ -251,10 +251,10 @@ namespace Q_Tech_Bookkeeping
                 }
             }
             else if (MessageBox.Show(new StringBuilder().Append("Are you sure you want to update work week with Code: ").Append(text).Append("?").ToString(), "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                doUpdate();
+                DoUpdate();
         }
 
-        private void doUpdate()
+        private void DoUpdate()
         {
             using (SqlConnection dbConnection = DBUtils.GetDBConnection())
             {
@@ -302,20 +302,20 @@ namespace Q_Tech_Bookkeeping
             }
         }
 
-        private void btn_HA_Cancel_Click(object sender, EventArgs e)
+        private void Btn_HA_Cancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void txt_HA_PerHour_TextChanged(object sender, EventArgs e)
+        private void Txt_HA_PerHour_TextChanged(object sender, EventArgs e)
         {
             Decimal result;
             if (Decimal.TryParse(txt_HA_DolPH.Text.Replace(",", string.Empty).Replace("$", string.Empty).Replace(".", string.Empty).TrimStart('0'), out result))
             {
                 Decimal num = result / new Decimal(100);
-                txt_HA_DolPH.TextChanged -= new EventHandler(txt_HA_PerHour_TextChanged);
+                txt_HA_DolPH.TextChanged -= new EventHandler(Txt_HA_PerHour_TextChanged);
                 txt_HA_DolPH.Text = string.Format((IFormatProvider)CultureInfo.CreateSpecificCulture("en-US"), "{0:C2}", (object)num);
-                txt_HA_DolPH.TextChanged += new EventHandler(txt_HA_PerHour_TextChanged);
+                txt_HA_DolPH.TextChanged += new EventHandler(Txt_HA_PerHour_TextChanged);
                 txt_HA_DolPH.Select(txt_HA_DolPH.Text.Length, 0);
             }
             if (TextisValid(txt_HA_DolPH.Text))
@@ -324,15 +324,15 @@ namespace Q_Tech_Bookkeeping
             txt_HA_DolPH.Select(txt_HA_DolPH.Text.Length, 0);
         }
 
-        private void txt_HA_TotalBE_TextChanged(object sender, EventArgs e)
+        private void Txt_HA_TotalBE_TextChanged(object sender, EventArgs e)
         {
             Decimal result;
             if (Decimal.TryParse(txt_HA_TotBE.Text.Replace(",", string.Empty).Replace("$", string.Empty).Replace(".", string.Empty).TrimStart('0'), out result))
             {
                 Decimal num = result / new Decimal(100);
-                txt_HA_TotBE.TextChanged -= new EventHandler(txt_HA_TotalBE_TextChanged);
+                txt_HA_TotBE.TextChanged -= new EventHandler(Txt_HA_TotalBE_TextChanged);
                 txt_HA_TotBE.Text = string.Format((IFormatProvider)CultureInfo.CreateSpecificCulture("en-US"), "{0:C2}", (object)num);
-                txt_HA_TotBE.TextChanged += new EventHandler(txt_HA_TotalBE_TextChanged);
+                txt_HA_TotBE.TextChanged += new EventHandler(Txt_HA_TotalBE_TextChanged);
                 txt_HA_TotBE.Select(txt_HA_TotBE.Text.Length, 0);
             }
             if (TextisValid(txt_HA_TotBE.Text))
@@ -341,15 +341,15 @@ namespace Q_Tech_Bookkeeping
             txt_HA_TotBE.Select(txt_HA_TotBE.Text.Length, 0);
         }
 
-        private void txt_HA_QTCut_TextChanged(object sender, EventArgs e)
+        private void Txt_HA_QTCut_TextChanged(object sender, EventArgs e)
         {
             Decimal result;
             if (Decimal.TryParse(txt_HA_QTCut.Text.Replace(",", string.Empty).Replace("R", string.Empty).Replace(".", string.Empty).TrimStart('0'), out result))
             {
                 Decimal num = result / new Decimal(100);
-                txt_HA_QTCut.TextChanged -= new EventHandler(txt_HA_QTCut_TextChanged);
+                txt_HA_QTCut.TextChanged -= new EventHandler(Txt_HA_QTCut_TextChanged);
                 txt_HA_QTCut.Text = string.Format((IFormatProvider)CultureInfo.CreateSpecificCulture("en-ZA"), "{0:C2}", (object)num);
-                txt_HA_QTCut.TextChanged += new EventHandler(txt_HA_QTCut_TextChanged);
+                txt_HA_QTCut.TextChanged += new EventHandler(Txt_HA_QTCut_TextChanged);
                 txt_HA_QTCut.Select(txt_HA_QTCut.Text.Length, 0);
             }
             if (TextisValid(txt_HA_QTCut.Text))
@@ -358,15 +358,15 @@ namespace Q_Tech_Bookkeeping
             txt_HA_QTCut.Select(txt_HA_QTCut.Text.Length, 0);
         }
 
-        private void txt_HA_TotalAE_TextChanged(object sender, EventArgs e)
+        private void Txt_HA_TotalAE_TextChanged(object sender, EventArgs e)
         {
             Decimal result;
             if (Decimal.TryParse(txt_HA_TotAE.Text.Replace(",", string.Empty).Replace("R", string.Empty).Replace(".", string.Empty).TrimStart('0'), out result))
             {
                 Decimal num = result / new Decimal(100);
-                txt_HA_TotAE.TextChanged -= new EventHandler(txt_HA_TotalAE_TextChanged);
+                txt_HA_TotAE.TextChanged -= new EventHandler(Txt_HA_TotalAE_TextChanged);
                 txt_HA_TotAE.Text = string.Format((IFormatProvider)CultureInfo.CreateSpecificCulture("en-ZA"), "{0:C2}", (object)num);
-                txt_HA_TotAE.TextChanged += new EventHandler(txt_HA_TotalAE_TextChanged);
+                txt_HA_TotAE.TextChanged += new EventHandler(Txt_HA_TotalAE_TextChanged);
                 txt_HA_TotAE.Select(txt_HA_TotAE.Text.Length, 0);
             }
             if (TextisValid(txt_HA_TotAE.Text))
@@ -375,15 +375,15 @@ namespace Q_Tech_Bookkeeping
             txt_HA_TotAE.Select(txt_HA_TotAE.Text.Length, 0);
         }
 
-        private void txt_HA_FTotal_TextChanged(object sender, EventArgs e)
+        private void Txt_HA_FTotal_TextChanged(object sender, EventArgs e)
         {
             Decimal result;
             if (Decimal.TryParse(txt_HA_FTotal.Text.Replace(",", string.Empty).Replace("R", string.Empty).Replace(".", string.Empty).TrimStart('0'), out result))
             {
                 Decimal num = result / new Decimal(100);
-                txt_HA_FTotal.TextChanged -= new EventHandler(txt_HA_FTotal_TextChanged);
+                txt_HA_FTotal.TextChanged -= new EventHandler(Txt_HA_FTotal_TextChanged);
                 txt_HA_FTotal.Text = string.Format((IFormatProvider)CultureInfo.CreateSpecificCulture("en-ZA"), "{0:C2}", (object)num);
-                txt_HA_FTotal.TextChanged += new EventHandler(txt_HA_FTotal_TextChanged);
+                txt_HA_FTotal.TextChanged += new EventHandler(Txt_HA_FTotal_TextChanged);
                 txt_HA_FTotal.Select(txt_HA_FTotal.Text.Length, 0);
             }
             if (TextisValid(txt_HA_FTotal.Text))
@@ -397,25 +397,25 @@ namespace Q_Tech_Bookkeeping
             return new Regex("[^0-9]").IsMatch(text);
         }
 
-        private void txt_HA_HW_Leave(object sender, EventArgs e)
+        private void Txt_HA_HW_Leave(object sender, EventArgs e)
         {
             ln_HA_HW.LineColor = Color.Gray;
             CalculateTotBE();
         }
 
-        private void txt_HA_DolPH_Leave(object sender, EventArgs e)
+        private void Txt_HA_DolPH_Leave(object sender, EventArgs e)
         {
             ln_HA_DolPH.LineColor = Color.Gray;
             CalculateTotBE();
         }
 
-        private void txt_HA_ExcRate_Leave(object sender, EventArgs e)
+        private void Txt_HA_ExcRate_Leave(object sender, EventArgs e)
         {
             ln_HA_ExcRate.LineColor = Color.Gray;
             CalculateTotAE();
         }
 
-        private void txt_HA_QTCut_Leave(object sender, EventArgs e)
+        private void Txt_HA_QTCut_Leave(object sender, EventArgs e)
         {
             ln_HA_TotAE.LineColor = Color.Gray;
             CalculateFinalTot();
@@ -439,7 +439,7 @@ namespace Q_Tech_Bookkeeping
             txt_HA_FTotal.Text = (Decimal.Parse(txt_HA_TotAE.Text.Replace("R", string.Empty), (IFormatProvider)CultureInfo.GetCultureInfo("en-ZA")) - (!txt_HA_QTCut.Text.Contains(".") ? (!txt_HA_QTCut.Text.Contains("R") ? new Decimal(0, 0, 0, false, (byte)2) : Decimal.Parse(txt_HA_QTCut.Text.Replace("R", string.Empty), (IFormatProvider)CultureInfo.GetCultureInfo("en-ZA"))) : (!txt_HA_QTCut.Text.Contains("R") ? new Decimal(0, 0, 0, false, (byte)2) : Decimal.Parse(txt_HA_QTCut.Text.Replace("R", string.Empty).Replace(".", ","), (IFormatProvider)CultureInfo.GetCultureInfo("en-ZA"))))).ToString("c");
         }
 
-        private void cb_HA_Paid_CheckedChanged(object sender, EventArgs e)
+        private void Cb_HA_Paid_CheckedChanged(object sender, EventArgs e)
         {
             if (cb_HA_Paid.Checked)
                 dtp_HA_DatePaid.Enabled = true;
@@ -447,7 +447,7 @@ namespace Q_Tech_Bookkeeping
                 dtp_HA_DatePaid.Enabled = false;
         }
 
-        private void btn_HA_CRem_Click(object sender, EventArgs e)
+        private void Btn_HA_CRem_Click(object sender, EventArgs e)
         {
             if (backgroundWorker1.IsBusy || MessageBox.Show(new StringBuilder().Append("Are you sure you want to create remittance document for work week: ").Append(txt_HA_Code.Text.Trim()).Append("?").ToString(), "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
                 return;
@@ -458,7 +458,7 @@ namespace Q_Tech_Bookkeeping
             backgroundWorker1.RunWorkerAsync();
         }
 
-        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        private void BackgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
             try
             {
@@ -915,13 +915,13 @@ namespace Q_Tech_Bookkeeping
             }
         }
 
-        private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        private void BackgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             this.pb_CreateRem.Value = e.ProgressPercentage;
             this.pb_CreateRem.Update();
         }
 
-        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        private void BackgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             if (!this.isError)
             {
@@ -952,166 +952,166 @@ namespace Q_Tech_Bookkeeping
             // ISSUE: reference to a compiler-generated method
             app.Quit(ref local4, ref local5, ref local6);
             Marshal.ReleaseComObject((object)this.app);
-            this.doUpdate();
+            this.DoUpdate();
         }
 
-        private void txt_HA_Code_MouseEnter(object sender, EventArgs e)
+        private void Txt_HA_Code_MouseEnter(object sender, EventArgs e)
         {
             this.ln_HA_Code.LineColor = Color.FromArgb(19, 118, 188);
         }
 
-        private void txt_HA_Code_Leave(object sender, EventArgs e)
+        private void Txt_HA_Code_Leave(object sender, EventArgs e)
         {
             this.ln_HA_Code.LineColor = Color.Gray;
         }
 
-        private void txt_HA_Code_MouseLeave(object sender, EventArgs e)
+        private void Txt_HA_Code_MouseLeave(object sender, EventArgs e)
         {
             if (this.txt_HA_Code.Focused)
                 return;
             this.ln_HA_Code.LineColor = Color.Gray;
         }
 
-        private void txt_HA_HW_MouseEnter(object sender, EventArgs e)
+        private void Txt_HA_HW_MouseEnter(object sender, EventArgs e)
         {
             this.ln_HA_HW.LineColor = Color.FromArgb(19, 118, 188);
         }
 
-        private void txt_HA_HW_MouseLeave(object sender, EventArgs e)
+        private void Txt_HA_HW_MouseLeave(object sender, EventArgs e)
         {
             if (this.txt_HA_HW.Focused)
                 return;
             this.ln_HA_HW.LineColor = Color.Gray;
         }
 
-        private void txt_HA_DolPH_MouseEnter(object sender, EventArgs e)
+        private void Txt_HA_DolPH_MouseEnter(object sender, EventArgs e)
         {
             this.ln_HA_DolPH.LineColor = Color.FromArgb(19, 118, 188);
         }
 
-        private void txt_HA_DolPH_MouseLeave(object sender, EventArgs e)
+        private void Txt_HA_DolPH_MouseLeave(object sender, EventArgs e)
         {
             if (this.txt_HA_DolPH.Focused)
                 return;
             this.ln_HA_DolPH.LineColor = Color.Gray;
         }
 
-        private void txt_HA_TotBE_Leave(object sender, EventArgs e)
+        private void Txt_HA_TotBE_Leave(object sender, EventArgs e)
         {
             this.ln_HA_TotBE.LineColor = Color.Gray;
         }
 
-        private void txt_HA_TotBE_MouseEnter(object sender, EventArgs e)
+        private void Txt_HA_TotBE_MouseEnter(object sender, EventArgs e)
         {
             this.ln_HA_TotBE.LineColor = Color.FromArgb(19, 118, 188);
         }
 
-        private void txt_HA_TotBE_MouseLeave(object sender, EventArgs e)
+        private void Txt_HA_TotBE_MouseLeave(object sender, EventArgs e)
         {
             if (this.txt_HA_ExcRate.Focused)
                 return;
             this.ln_HA_ExcRate.LineColor = Color.Gray;
         }
 
-        private void txt_HA_ExcRate_MouseEnter(object sender, EventArgs e)
+        private void Txt_HA_ExcRate_MouseEnter(object sender, EventArgs e)
         {
             this.ln_HA_ExcRate.LineColor = Color.FromArgb(19, 118, 188);
         }
 
-        private void txt_HA_ExcRate_MouseLeave(object sender, EventArgs e)
+        private void Txt_HA_ExcRate_MouseLeave(object sender, EventArgs e)
         {
             if (this.txt_HA_ExcRate.Focused)
                 return;
             this.ln_HA_ExcRate.LineColor = Color.Gray;
         }
 
-        private void txt_HA_TotAE_Leave(object sender, EventArgs e)
+        private void Txt_HA_TotAE_Leave(object sender, EventArgs e)
         {
             this.ln_HA_TotAE.LineColor = Color.Gray;
         }
 
-        private void txt_HA_TotAE_MouseEnter(object sender, EventArgs e)
+        private void Txt_HA_TotAE_MouseEnter(object sender, EventArgs e)
         {
             this.ln_HA_TotAE.LineColor = Color.FromArgb(19, 118, 188);
         }
 
-        private void txt_HA_TotAE_MouseLeave(object sender, EventArgs e)
+        private void Txt_HA_TotAE_MouseLeave(object sender, EventArgs e)
         {
             if (this.txt_HA_TotAE.Focused)
                 return;
             this.ln_HA_TotAE.LineColor = Color.Gray;
         }
 
-        private void txt_HA_QTCut_MouseEnter(object sender, EventArgs e)
+        private void Txt_HA_QTCut_MouseEnter(object sender, EventArgs e)
         {
             this.ln_HA_QTCut.LineColor = Color.FromArgb(19, 118, 188);
         }
 
-        private void txt_HA_QTCut_MouseLeave(object sender, EventArgs e)
+        private void Txt_HA_QTCut_MouseLeave(object sender, EventArgs e)
         {
             if (this.txt_HA_QTCut.Focused)
                 return;
             this.ln_HA_QTCut.LineColor = Color.Gray;
         }
 
-        private void txt_HA_FTotal_Leave(object sender, EventArgs e)
+        private void Txt_HA_FTotal_Leave(object sender, EventArgs e)
         {
             this.ln_HA_FTotal.LineColor = Color.Gray;
         }
 
-        private void txt_HA_FTotal_MouseEnter(object sender, EventArgs e)
+        private void Txt_HA_FTotal_MouseEnter(object sender, EventArgs e)
         {
             this.ln_HA_FTotal.LineColor = Color.FromArgb(19, 118, 188);
         }
 
-        private void txt_HA_FTotal_MouseLeave(object sender, EventArgs e)
+        private void Txt_HA_FTotal_MouseLeave(object sender, EventArgs e)
         {
             if (this.txt_HA_FTotal.Focused)
                 return;
             this.ln_HA_FTotal.LineColor = Color.Gray;
         }
 
-        private void btn_HA_Close_Click(object sender, EventArgs e)
+        private void Btn_HA_Close_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void btn_HA_Close_MouseEnter(object sender, EventArgs e)
+        private void Btn_HA_Close_MouseEnter(object sender, EventArgs e)
         {
             this.btn_HA_Close.Image = (Image)Resources.close_white;
         }
 
-        private void btn_HA_Close_MouseLeave(object sender, EventArgs e)
+        private void Btn_HA_Close_MouseLeave(object sender, EventArgs e)
         {
             this.btn_HA_Close.Image = (Image)Resources.close_black;
         }
 
-        private void btn_HA_Done_MouseEnter(object sender, EventArgs e)
+        private void Btn_HA_Done_MouseEnter(object sender, EventArgs e)
         {
             this.btn_HA_Done.ForeColor = Color.White;
         }
 
-        private void btn_HA_Done_MouseLeave(object sender, EventArgs e)
+        private void Btn_HA_Done_MouseLeave(object sender, EventArgs e)
         {
             this.btn_HA_Done.ForeColor = Color.FromArgb(64, 64, 64);
         }
 
-        private void btn_HA_Cancel_MouseEnter(object sender, EventArgs e)
+        private void Btn_HA_Cancel_MouseEnter(object sender, EventArgs e)
         {
             this.btn_HA_Cancel.ForeColor = Color.White;
         }
 
-        private void btn_HA_Cancel_MouseLeave(object sender, EventArgs e)
+        private void Btn_HA_Cancel_MouseLeave(object sender, EventArgs e)
         {
             this.btn_HA_Cancel.ForeColor = Color.FromArgb(64, 64, 64);
         }
 
-        private void btn_HA_CreateRem_MouseEnter(object sender, EventArgs e)
+        private void Btn_HA_CreateRem_MouseEnter(object sender, EventArgs e)
         {
             this.btn_HA_CreateRem.ForeColor = Color.White;
         }
 
-        private void btn_HA_CreateRem_MouseLeave(object sender, EventArgs e)
+        private void Btn_HA_CreateRem_MouseLeave(object sender, EventArgs e)
         {
             this.btn_HA_CreateRem.ForeColor = Color.FromArgb(64, 64, 64);
         }
@@ -1137,11 +1137,6 @@ namespace Q_Tech_Bookkeeping
         private void O_Add_MouseUp(object sender, MouseEventArgs e)
         {
             this.mouseDown = false;
-        }
-
-        private void HoursAdd_Load_1(object sender, EventArgs e)
-        {
-
         }
     }
 }
