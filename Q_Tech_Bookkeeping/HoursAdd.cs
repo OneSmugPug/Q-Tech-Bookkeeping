@@ -1,11 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Bunifu.Framework.UI;
+using Microsoft.Office.Interop.Word;
+using Q_Tech_Bookkeeping.Properties;
+using System;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
+using System.Globalization;
+using System.Runtime.InteropServices;
 using System.Text;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace Q_Tech_Bookkeeping
@@ -18,6 +22,7 @@ namespace Q_Tech_Bookkeeping
         private string error = "";
         private bool isError = false;
         private bool mouseDown = false;
+        private IContainer components = (IContainer)null;
         private object send;
         private int SELECTED_WW;
         private Document doc;
@@ -26,7 +31,68 @@ namespace Q_Tech_Bookkeeping
         private BackgroundWorker backgroundWorker1;
         private ProgressBar pb_CreateRem;
         private GroupBox gb_OA_ODetails;
-       
+        private BunifuCustomLabel bunifuCustomLabel15;
+        private BunifuCheckbox cb_HA_Paid;
+        private Panel panel8;
+        private TextBox txt_HA_FTotal;
+        private BunifuSeparator ln_HA_FTotal;
+        private BunifuCustomLabel bunifuCustomLabel14;
+        private Panel panel7;
+        private TextBox txt_HA_QTCut;
+        private BunifuSeparator ln_HA_QTCut;
+        private BunifuCustomLabel bunifuCustomLabel13;
+        private BunifuDatepicker dtp_HA_To;
+        private BunifuCustomLabel bunifuCustomLabel12;
+        private BunifuDatepicker dtp_HA_From;
+        private BunifuCustomLabel bunifuCustomLabel11;
+        private Panel panel6;
+        private TextBox txt_HA_TotAE;
+        private BunifuSeparator ln_HA_TotAE;
+        private Panel panel5;
+        private TextBox txt_HA_ExcRate;
+        private BunifuSeparator ln_HA_ExcRate;
+        private Panel panel4;
+        private TextBox txt_HA_TotBE;
+        private BunifuSeparator ln_HA_TotBE;
+        private Panel panel3;
+        private TextBox txt_HA_DolPH;
+        private BunifuSeparator ln_HA_DolPH;
+        private Panel panel2;
+        private TextBox txt_HA_HW;
+        private BunifuSeparator ln_HA_HW;
+        private Panel panel1;
+        private TextBox txt_HA_Code;
+        private BunifuSeparator ln_HA_Code;
+        private BunifuCustomLabel bunifuCustomLabel8;
+        private BunifuCustomLabel bunifuCustomLabel9;
+        private BunifuCustomLabel bunifuCustomLabel7;
+        private BunifuCustomLabel bunifuCustomLabel6;
+        private BunifuCustomLabel bunifuCustomLabel5;
+        private BunifuDatepicker dtp_HA_DatePaid;
+        private BunifuCustomLabel bunifuCustomLabel2;
+        private BunifuCustomLabel bunifuCustomLabel1;
+        private Panel panel12;
+        private TextBox txt_HA_Surname;
+        private BunifuSeparator btn_HA_Surname;
+        private BunifuCustomLabel bunifuCustomLabel16;
+        private Panel panel11;
+        private TextBox txt_HA_EName;
+        private BunifuSeparator ln_HA_EName;
+        private BunifuCustomLabel label;
+        private Panel panel10;
+        private TextBox txt_HA_Name;
+        private BunifuSeparator ln_HA_Name;
+        private BunifuCustomLabel bunifuCustomLabel4;
+        private Panel panel9;
+        private TextBox txt_HA_CCode;
+        private BunifuSeparator ln_HA_CCode;
+        private BunifuCustomLabel bunifuCustomLabel3;
+        private Button btn_HA_Cancel;
+        private Button btn_HA_Done;
+        private Button btn_HA_CreateRem;
+        private BunifuCustomLabel bunifuCustomLabel17;
+        private Button btn_HA_Close;
+
         public HoursAdd()
         {
             InitializeComponent();
@@ -34,33 +100,33 @@ namespace Q_Tech_Bookkeeping
 
         private void HoursAdd_Load(object sender, EventArgs e)
         {
-            ContractorsOld curForm = (ContractorsOld)((Home)this.Owner).getCurForm();
-            this.txt_HA_CCode.Text = curForm.getCCode();
-            this.txt_HA_Name.Text = curForm.getCName();
-            this.txt_HA_Surname.Text = curForm.getCSurname();
-            this.txt_HA_EName.Text = curForm.getEName();
-            this.send = curForm.getSender();
-            this.dt = curForm.getHours();
-            if (this.send is Button)
+            ContractorsOld curForm = (ContractorsOld)((Home)Owner).GetCurForm();
+            txt_HA_CCode.Text = curForm.getCCode();
+            txt_HA_Name.Text = curForm.getCName();
+            txt_HA_Surname.Text = curForm.getCSurname();
+            txt_HA_EName.Text = curForm.getEName();
+            send = curForm.getSender();
+            dt = curForm.getHours();
+            if (send is Button)
             {
-                this.btn_HA_CreateRem.Visible = false;
-                this.txt_HA_ExcRate.Text = "0.00000";
-                this.txt_HA_ExcRate.SelectionStart = this.txt_HA_ExcRate.Text.Length;
-                this.txt_HA_DolPH.Text = "$0.00";
-                this.txt_HA_DolPH.SelectionStart = this.txt_HA_DolPH.Text.Length;
-                this.txt_HA_TotBE.Text = "$0.00";
-                this.txt_HA_TotBE.SelectionStart = this.txt_HA_TotBE.Text.Length;
-                this.txt_HA_QTCut.Text = "R0.00";
-                this.txt_HA_QTCut.SelectionStart = this.txt_HA_QTCut.Text.Length;
-                this.txt_HA_TotAE.Text = "R0.00";
-                this.txt_HA_TotAE.SelectionStart = this.txt_HA_TotAE.Text.Length;
-                this.txt_HA_FTotal.Text = "R0.00";
-                this.txt_HA_FTotal.SelectionStart = this.txt_HA_FTotal.Text.Length;
-                this.dtp_HA_From.Value = DateTime.Now;
-                this.dtp_HA_To.Value = this.dtp_HA_From.Value.AddDays(6.0);
-                this.dtp_HA_DatePaid.Value = DateTime.Now;
+                btn_HA_CreateRem.Visible = false;
+                txt_HA_ExcRate.Text = "0.00000";
+                txt_HA_ExcRate.SelectionStart = txt_HA_ExcRate.Text.Length;
+                txt_HA_DolPH.Text = "$0.00";
+                txt_HA_DolPH.SelectionStart = txt_HA_DolPH.Text.Length;
+                txt_HA_TotBE.Text = "$0.00";
+                txt_HA_TotBE.SelectionStart = txt_HA_TotBE.Text.Length;
+                txt_HA_QTCut.Text = "R0.00";
+                txt_HA_QTCut.SelectionStart = txt_HA_QTCut.Text.Length;
+                txt_HA_TotAE.Text = "R0.00";
+                txt_HA_TotAE.SelectionStart = txt_HA_TotAE.Text.Length;
+                txt_HA_FTotal.Text = "R0.00";
+                txt_HA_FTotal.SelectionStart = txt_HA_FTotal.Text.Length;
+                dtp_HA_From.Value = DateTime.Now;
+                dtp_HA_To.Value = dtp_HA_From.Value.AddDays(6.0);
+                dtp_HA_DatePaid.Value = DateTime.Now;
                 int num1 = 0;
-                foreach (DataRow row in (InternalDataCollectionBase)this.dt.Rows)
+                foreach (DataRow row in (InternalDataCollectionBase)dt.Rows)
                 {
                     if (row.RowState == DataRowState.Deleted)
                     {
@@ -79,60 +145,60 @@ namespace Q_Tech_Bookkeeping
                             num1 = int32;
                     }
                 }
-                this.txt_HA_Code.Text = this.txt_HA_CCode.Text.Split('_')[1] + "_" + (num1 + 1).ToString("0000");
+                txt_HA_Code.Text = txt_HA_CCode.Text.Split('_')[1] + "_" + (num1 + 1).ToString("0000");
             }
             else
             {
-                this.Text = "Edit Work Week";
-                this.SELECTED_WW = curForm.getSelectedHour();
-                this.loadHours();
-                this.btn_HA_CreateRem.Visible = true;
+                Text = "Edit Work Week";
+                SELECTED_WW = curForm.getSelectedHour();
+                loadHours();
+                btn_HA_CreateRem.Visible = true;
             }
         }
 
         private void loadHours()
         {
-            this.txt_HA_Code.Text = this.dt.Rows[this.SELECTED_WW]["Code"].ToString().Trim();
-            this.dtp_HA_From.Value = !(this.dt.Rows[this.SELECTED_WW]["Date_Start"].ToString() != string.Empty) ? DateTime.Now : Convert.ToDateTime(this.dt.Rows[this.SELECTED_WW]["Date_Start"].ToString());
-            this.dtp_HA_To.Value = !(this.dt.Rows[this.SELECTED_WW]["Date_End"].ToString() != string.Empty) ? this.dtp_HA_From.Value.AddDays(6.0) : Convert.ToDateTime(this.dt.Rows[this.SELECTED_WW]["Date_End"].ToString());
-            this.txt_HA_HW.Text = this.dt.Rows[this.SELECTED_WW]["Hours"].ToString().Trim();
-            if (this.dt.Rows[this.SELECTED_WW]["Rate_Per_Hour"].ToString() != string.Empty)
-                this.txt_HA_DolPH.Text = Convert.ToDecimal(this.dt.Rows[this.SELECTED_WW]["Rate_Per_Hour"].ToString().Trim()).ToString("c", (IFormatProvider)CultureInfo.GetCultureInfo("en-US"));
+            txt_HA_Code.Text = dt.Rows[SELECTED_WW]["Code"].ToString().Trim();
+            dtp_HA_From.Value = !(dt.Rows[SELECTED_WW]["Date_Start"].ToString() != string.Empty) ? DateTime.Now : Convert.ToDateTime(dt.Rows[SELECTED_WW]["Date_Start"].ToString());
+            dtp_HA_To.Value = !(dt.Rows[SELECTED_WW]["Date_End"].ToString() != string.Empty) ? dtp_HA_From.Value.AddDays(6.0) : Convert.ToDateTime(dt.Rows[SELECTED_WW]["Date_End"].ToString());
+            txt_HA_HW.Text = dt.Rows[SELECTED_WW]["Hours"].ToString().Trim();
+            if (dt.Rows[SELECTED_WW]["Rate_Per_Hour"].ToString() != string.Empty)
+                txt_HA_DolPH.Text = Convert.ToDecimal(dt.Rows[SELECTED_WW]["Rate_Per_Hour"].ToString().Trim()).ToString("c", (IFormatProvider)CultureInfo.GetCultureInfo("en-US"));
             else
-                this.txt_HA_DolPH.Text = "$0.00";
-            if (this.dt.Rows[this.SELECTED_WW]["Total_$"].ToString() != string.Empty)
-                this.txt_HA_TotBE.Text = Convert.ToDecimal(this.dt.Rows[this.SELECTED_WW]["Total_$"].ToString().Trim()).ToString("c", (IFormatProvider)CultureInfo.GetCultureInfo("en-US"));
+                txt_HA_DolPH.Text = "$0.00";
+            if (dt.Rows[SELECTED_WW]["Total_$"].ToString() != string.Empty)
+                txt_HA_TotBE.Text = Convert.ToDecimal(dt.Rows[SELECTED_WW]["Total_$"].ToString().Trim()).ToString("c", (IFormatProvider)CultureInfo.GetCultureInfo("en-US"));
             else
-                this.txt_HA_TotBE.Text = "$0.00";
-            if (this.dt.Rows[this.SELECTED_WW]["Exchange_Rate"].ToString() != string.Empty)
-                this.txt_HA_ExcRate.Text = Convert.ToDecimal(this.dt.Rows[this.SELECTED_WW]["Exchange_Rate"].ToString().Trim()).ToString();
+                txt_HA_TotBE.Text = "$0.00";
+            if (dt.Rows[SELECTED_WW]["Exchange_Rate"].ToString() != string.Empty)
+                txt_HA_ExcRate.Text = Convert.ToDecimal(dt.Rows[SELECTED_WW]["Exchange_Rate"].ToString().Trim()).ToString();
             else
-                this.txt_HA_ExcRate.Text = "0.00000";
-            if (this.dt.Rows[this.SELECTED_WW]["Total_R"].ToString() != string.Empty)
-                this.txt_HA_TotAE.Text = Convert.ToDecimal(this.dt.Rows[this.SELECTED_WW]["Total_R"].ToString().Trim()).ToString("c");
+                txt_HA_ExcRate.Text = "0.00000";
+            if (dt.Rows[SELECTED_WW]["Total_R"].ToString() != string.Empty)
+                txt_HA_TotAE.Text = Convert.ToDecimal(dt.Rows[SELECTED_WW]["Total_R"].ToString().Trim()).ToString("c");
             else
-                this.txt_HA_TotAE.Text = "R0.00";
-            if (this.dt.Rows[this.SELECTED_WW]["QTech_Cut"].ToString() != string.Empty)
-                this.txt_HA_QTCut.Text = Convert.ToDecimal(this.dt.Rows[this.SELECTED_WW]["QTech_Cut"].ToString().Trim()).ToString("c");
+                txt_HA_TotAE.Text = "R0.00";
+            if (dt.Rows[SELECTED_WW]["QTech_Cut"].ToString() != string.Empty)
+                txt_HA_QTCut.Text = Convert.ToDecimal(dt.Rows[SELECTED_WW]["QTech_Cut"].ToString().Trim()).ToString("c");
             else
-                this.txt_HA_QTCut.Text = "R0.00";
-            if (this.dt.Rows[this.SELECTED_WW]["Final_Total"].ToString() != string.Empty)
-                this.txt_HA_FTotal.Text = Convert.ToDecimal(this.dt.Rows[this.SELECTED_WW]["Final_Total"].ToString().Trim()).ToString("c");
+                txt_HA_QTCut.Text = "R0.00";
+            if (dt.Rows[SELECTED_WW]["Final_Total"].ToString() != string.Empty)
+                txt_HA_FTotal.Text = Convert.ToDecimal(dt.Rows[SELECTED_WW]["Final_Total"].ToString().Trim()).ToString("c");
             else
-                this.txt_HA_FTotal.Text = "R0.00";
-            if (this.dt.Rows[this.SELECTED_WW]["Remittance"].ToString() == "Yes")
-                this.btn_HA_CreateRem.Enabled = false;
-            if (!(this.dt.Rows[this.SELECTED_WW]["Paid"].ToString() == "Yes"))
+                txt_HA_FTotal.Text = "R0.00";
+            if (dt.Rows[SELECTED_WW]["Remittance"].ToString() == "Yes")
+                btn_HA_CreateRem.Enabled = false;
+            if (!(dt.Rows[SELECTED_WW]["Paid"].ToString() == "Yes"))
                 return;
-            this.cb_HA_Paid.Checked = true;
-            this.dtp_HA_DatePaid.Enabled = true;
-            this.dtp_HA_DatePaid.Value = !(this.dt.Rows[this.SELECTED_WW]["Date_Paid"].ToString() != string.Empty) ? DateTime.Now : Convert.ToDateTime(this.dt.Rows[this.SELECTED_WW]["Date_Paid"].ToString());
+            cb_HA_Paid.Checked = true;
+            dtp_HA_DatePaid.Enabled = true;
+            dtp_HA_DatePaid.Value = !(dt.Rows[SELECTED_WW]["Date_Paid"].ToString() != string.Empty) ? DateTime.Now : Convert.ToDateTime(dt.Rows[SELECTED_WW]["Date_Paid"].ToString());
         }
 
         private void btn_HA_Done_Click(object sender, EventArgs e)
         {
-            string text = this.txt_HA_Code.Text;
-            if (this.send is ToolStripButton)
+            string text = txt_HA_Code.Text;
+            if (send is ToolStripButton)
             {
                 if (MessageBox.Show(new StringBuilder().Append("Are you sure you want to add work week with Code: ").Append(text).Append("?").ToString(), "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
                     return;
@@ -143,16 +209,16 @@ namespace Q_Tech_Bookkeeping
                     {
                         using (SqlCommand sqlCommand = new SqlCommand("INSERT INTO Contractor_Hours VALUES (@Code, @Date_Start, @Date_End, @Hours, @RPHour, @TotBE, @ERate, @TotAE, @QTCut, @FTot, @Rem, @Inv, @Paid, @DPaid, @CCode)", dbConnection))
                         {
-                            Decimal num1 = !(this.txt_HA_ExcRate.Text == "0.00000") ? Decimal.Parse(this.txt_HA_ExcRate.Text) : new Decimal(0, 0, 0, false, (byte)5);
-                            Decimal num2 = !this.txt_HA_DolPH.Text.Contains("$") ? new Decimal(0, 0, 0, false, (byte)2) : (!(this.txt_HA_DolPH.Text.Replace("$", string.Empty) == "0.00") ? Decimal.Parse(this.txt_HA_DolPH.Text.Replace("$", string.Empty), (IFormatProvider)CultureInfo.GetCultureInfo("en-US")) : new Decimal(0, 0, 0, false, (byte)2));
-                            Decimal num3 = !(this.txt_HA_TotBE.Text.Replace("$", string.Empty) == "0.00") ? Decimal.Parse(this.txt_HA_TotBE.Text.Replace("$", string.Empty), (IFormatProvider)CultureInfo.GetCultureInfo("en-US")) : new Decimal(0, 0, 0, false, (byte)2);
-                            Decimal num4 = !this.txt_HA_QTCut.Text.Contains("R") ? new Decimal(0, 0, 0, false, (byte)2) : (!(this.txt_HA_QTCut.Text.Replace("R", string.Empty) == "0.00") ? Decimal.Parse(this.txt_HA_QTCut.Text.Replace("R", string.Empty), (IFormatProvider)CultureInfo.GetCultureInfo("en-ZA")) : new Decimal(0, 0, 0, false, (byte)2));
-                            Decimal num5 = !(this.txt_HA_TotAE.Text.Replace("R", string.Empty) == "0.00") ? Decimal.Parse(this.txt_HA_TotAE.Text.Replace("R", string.Empty), (IFormatProvider)CultureInfo.GetCultureInfo("en-ZA")) : new Decimal(0, 0, 0, false, (byte)2);
-                            Decimal num6 = !(this.txt_HA_FTotal.Text.Replace("R", string.Empty) == "0.00") ? Decimal.Parse(this.txt_HA_FTotal.Text.Replace("R", string.Empty), (IFormatProvider)CultureInfo.GetCultureInfo("en-ZA")) : new Decimal(0, 0, 0, false, (byte)2);
-                            Decimal num7 = !(this.txt_HA_HW.Text == string.Empty) ? (!this.txt_HA_HW.Text.Contains(".") ? Decimal.Parse(this.txt_HA_HW.Text) : Decimal.Parse(this.txt_HA_HW.Text.Replace(".", ","))) : new Decimal(0, 0, 0, false, (byte)2);
-                            sqlCommand.Parameters.AddWithValue("@Code", (object)this.txt_HA_Code.Text.Trim());
-                            sqlCommand.Parameters.AddWithValue("@Date_Start", (object)this.dtp_HA_From.Value);
-                            sqlCommand.Parameters.AddWithValue("@Date_End", (object)this.dtp_HA_To.Value);
+                            Decimal num1 = !(txt_HA_ExcRate.Text == "0.00000") ? Decimal.Parse(txt_HA_ExcRate.Text) : new Decimal(0, 0, 0, false, (byte)5);
+                            Decimal num2 = !txt_HA_DolPH.Text.Contains("$") ? new Decimal(0, 0, 0, false, (byte)2) : (!(txt_HA_DolPH.Text.Replace("$", string.Empty) == "0.00") ? Decimal.Parse(txt_HA_DolPH.Text.Replace("$", string.Empty), (IFormatProvider)CultureInfo.GetCultureInfo("en-US")) : new Decimal(0, 0, 0, false, (byte)2));
+                            Decimal num3 = !(txt_HA_TotBE.Text.Replace("$", string.Empty) == "0.00") ? Decimal.Parse(txt_HA_TotBE.Text.Replace("$", string.Empty), (IFormatProvider)CultureInfo.GetCultureInfo("en-US")) : new Decimal(0, 0, 0, false, (byte)2);
+                            Decimal num4 = !txt_HA_QTCut.Text.Contains("R") ? new Decimal(0, 0, 0, false, (byte)2) : (!(txt_HA_QTCut.Text.Replace("R", string.Empty) == "0.00") ? Decimal.Parse(txt_HA_QTCut.Text.Replace("R", string.Empty), (IFormatProvider)CultureInfo.GetCultureInfo("en-ZA")) : new Decimal(0, 0, 0, false, (byte)2));
+                            Decimal num5 = !(txt_HA_TotAE.Text.Replace("R", string.Empty) == "0.00") ? Decimal.Parse(txt_HA_TotAE.Text.Replace("R", string.Empty), (IFormatProvider)CultureInfo.GetCultureInfo("en-ZA")) : new Decimal(0, 0, 0, false, (byte)2);
+                            Decimal num6 = !(txt_HA_FTotal.Text.Replace("R", string.Empty) == "0.00") ? Decimal.Parse(txt_HA_FTotal.Text.Replace("R", string.Empty), (IFormatProvider)CultureInfo.GetCultureInfo("en-ZA")) : new Decimal(0, 0, 0, false, (byte)2);
+                            Decimal num7 = !(txt_HA_HW.Text == string.Empty) ? (!txt_HA_HW.Text.Contains(".") ? Decimal.Parse(txt_HA_HW.Text) : Decimal.Parse(txt_HA_HW.Text.Replace(".", ","))) : new Decimal(0, 0, 0, false, (byte)2);
+                            sqlCommand.Parameters.AddWithValue("@Code", (object)txt_HA_Code.Text.Trim());
+                            sqlCommand.Parameters.AddWithValue("@Date_Start", (object)dtp_HA_From.Value);
+                            sqlCommand.Parameters.AddWithValue("@Date_End", (object)dtp_HA_To.Value);
                             sqlCommand.Parameters.AddWithValue("@Hours", (object)num7);
                             sqlCommand.Parameters.AddWithValue("@RPHour", (object)num2);
                             sqlCommand.Parameters.AddWithValue("@TotBE", (object)num3);
@@ -162,17 +228,17 @@ namespace Q_Tech_Bookkeeping
                             sqlCommand.Parameters.AddWithValue("@FTot", (object)num6);
                             sqlCommand.Parameters.AddWithValue("@Rem", (object)"No");
                             sqlCommand.Parameters.AddWithValue("@Inv", (object)"No");
-                            if (this.cb_HA_Paid.Checked)
+                            if (cb_HA_Paid.Checked)
                             {
                                 sqlCommand.Parameters.AddWithValue("@Paid", (object)"Yes");
-                                sqlCommand.Parameters.AddWithValue("@DPaid", (object)this.dtp_HA_DatePaid.Value);
+                                sqlCommand.Parameters.AddWithValue("@DPaid", (object)dtp_HA_DatePaid.Value);
                             }
                             else
                             {
                                 sqlCommand.Parameters.AddWithValue("@Paid", (object)"No");
                                 sqlCommand.Parameters.AddWithValue("@DPaid", (object)DBNull.Value);
                             }
-                            sqlCommand.Parameters.AddWithValue("@CCode", (object)this.txt_HA_CCode.Text.Trim());
+                            sqlCommand.Parameters.AddWithValue("@CCode", (object)txt_HA_CCode.Text.Trim());
                             sqlCommand.ExecuteNonQuery();
                             int num8 = (int)MessageBox.Show("New work week successfully added.", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                             this.Close();
@@ -185,7 +251,7 @@ namespace Q_Tech_Bookkeeping
                 }
             }
             else if (MessageBox.Show(new StringBuilder().Append("Are you sure you want to update work week with Code: ").Append(text).Append("?").ToString(), "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                this.doUpdate();
+                doUpdate();
         }
 
         private void doUpdate()
@@ -197,16 +263,16 @@ namespace Q_Tech_Bookkeeping
                 {
                     using (SqlCommand sqlCommand = new SqlCommand("UPDATE Contractor_Hours SET Date_Start = @DateS, Date_End = @DateE, Hours = @Hours, Rate_Per_Hour = @RPH, Total_$ = @TotBE, Exchange_Rate = @ER, Total_R = @TotAE, QTech_Cut = @QTC, Final_Total = @FTot, Paid = @P, Date_Paid = @DP WHERE Code = @Code", dbConnection))
                     {
-                        Decimal num1 = !(this.txt_HA_ExcRate.Text == "0,00000") && !(this.txt_HA_ExcRate.Text == "0.00000") ? Decimal.Parse(this.txt_HA_ExcRate.Text.Replace(".", ","), (IFormatProvider)CultureInfo.GetCultureInfo("en-ZA")) : new Decimal(0, 0, 0, false, (byte)5);
-                        Decimal num2 = !this.txt_HA_DolPH.Text.Contains("$") ? new Decimal(0, 0, 0, false, (byte)2) : (!(this.txt_HA_DolPH.Text.Replace("$", string.Empty) == "0.00") ? Decimal.Parse(this.txt_HA_DolPH.Text.Replace("$", string.Empty), (IFormatProvider)CultureInfo.GetCultureInfo("en-US")) : new Decimal(0, 0, 0, false, (byte)2));
-                        Decimal num3 = !(this.txt_HA_TotBE.Text.Replace("$", string.Empty) == "0.00") ? Decimal.Parse(this.txt_HA_TotBE.Text.Replace("$", string.Empty), (IFormatProvider)CultureInfo.GetCultureInfo("en-US")) : new Decimal(0, 0, 0, false, (byte)2);
-                        Decimal num4 = !this.txt_HA_QTCut.Text.Contains("R") ? new Decimal(0, 0, 0, false, (byte)2) : (!(this.txt_HA_QTCut.Text.Replace("R", string.Empty) == "0,00") && !(this.txt_HA_QTCut.Text.Replace("R", string.Empty) == "0.00") ? Decimal.Parse(this.txt_HA_QTCut.Text.Replace("R", string.Empty), (IFormatProvider)CultureInfo.GetCultureInfo("en-ZA")) : new Decimal(0, 0, 0, false, (byte)2));
-                        Decimal num5 = !(this.txt_HA_TotAE.Text.Replace("R", string.Empty) == "0,00") && !(this.txt_HA_TotAE.Text.Replace("R", string.Empty) == "0.00") ? Decimal.Parse(this.txt_HA_TotAE.Text.Replace("R", string.Empty), (IFormatProvider)CultureInfo.GetCultureInfo("en-ZA")) : new Decimal(0, 0, 0, false, (byte)2);
-                        Decimal num6 = !(this.txt_HA_FTotal.Text.Replace("R", string.Empty) == "0,00") && !(this.txt_HA_FTotal.Text.Replace("R", string.Empty) == "0.00") ? Decimal.Parse(this.txt_HA_FTotal.Text.Replace("R", string.Empty), (IFormatProvider)CultureInfo.GetCultureInfo("en-ZA")) : new Decimal(0, 0, 0, false, (byte)2);
-                        Decimal num7 = !(this.txt_HA_HW.Text == string.Empty) ? (!this.txt_HA_HW.Text.Contains(".") ? Decimal.Parse(this.txt_HA_HW.Text) : Decimal.Parse(this.txt_HA_HW.Text.Replace(".", ","))) : new Decimal(0, 0, 0, false, (byte)2);
-                        sqlCommand.Parameters.AddWithValue("@Code", (object)this.txt_HA_Code.Text.Trim());
-                        sqlCommand.Parameters.AddWithValue("@DateS", (object)this.dtp_HA_From.Value);
-                        sqlCommand.Parameters.AddWithValue("@DateE", (object)this.dtp_HA_To.Value);
+                        Decimal num1 = !(txt_HA_ExcRate.Text == "0,00000") && !(txt_HA_ExcRate.Text == "0.00000") ? Decimal.Parse(txt_HA_ExcRate.Text.Replace(".", ","), (IFormatProvider)CultureInfo.GetCultureInfo("en-ZA")) : new Decimal(0, 0, 0, false, (byte)5);
+                        Decimal num2 = !txt_HA_DolPH.Text.Contains("$") ? new Decimal(0, 0, 0, false, (byte)2) : (!(txt_HA_DolPH.Text.Replace("$", string.Empty) == "0.00") ? Decimal.Parse(txt_HA_DolPH.Text.Replace("$", string.Empty), (IFormatProvider)CultureInfo.GetCultureInfo("en-US")) : new Decimal(0, 0, 0, false, (byte)2));
+                        Decimal num3 = !(txt_HA_TotBE.Text.Replace("$", string.Empty) == "0.00") ? Decimal.Parse(txt_HA_TotBE.Text.Replace("$", string.Empty), (IFormatProvider)CultureInfo.GetCultureInfo("en-US")) : new Decimal(0, 0, 0, false, (byte)2);
+                        Decimal num4 = !txt_HA_QTCut.Text.Contains("R") ? new Decimal(0, 0, 0, false, (byte)2) : (!(txt_HA_QTCut.Text.Replace("R", string.Empty) == "0,00") && !(txt_HA_QTCut.Text.Replace("R", string.Empty) == "0.00") ? Decimal.Parse(txt_HA_QTCut.Text.Replace("R", string.Empty), (IFormatProvider)CultureInfo.GetCultureInfo("en-ZA")) : new Decimal(0, 0, 0, false, (byte)2));
+                        Decimal num5 = !(txt_HA_TotAE.Text.Replace("R", string.Empty) == "0,00") && !(txt_HA_TotAE.Text.Replace("R", string.Empty) == "0.00") ? Decimal.Parse(txt_HA_TotAE.Text.Replace("R", string.Empty), (IFormatProvider)CultureInfo.GetCultureInfo("en-ZA")) : new Decimal(0, 0, 0, false, (byte)2);
+                        Decimal num6 = !(txt_HA_FTotal.Text.Replace("R", string.Empty) == "0,00") && !(txt_HA_FTotal.Text.Replace("R", string.Empty) == "0.00") ? Decimal.Parse(txt_HA_FTotal.Text.Replace("R", string.Empty), (IFormatProvider)CultureInfo.GetCultureInfo("en-ZA")) : new Decimal(0, 0, 0, false, (byte)2);
+                        Decimal num7 = !(txt_HA_HW.Text == string.Empty) ? (!txt_HA_HW.Text.Contains(".") ? Decimal.Parse(txt_HA_HW.Text) : Decimal.Parse(txt_HA_HW.Text.Replace(".", ","))) : new Decimal(0, 0, 0, false, (byte)2);
+                        sqlCommand.Parameters.AddWithValue("@Code", (object)txt_HA_Code.Text.Trim());
+                        sqlCommand.Parameters.AddWithValue("@DateS", (object)dtp_HA_From.Value);
+                        sqlCommand.Parameters.AddWithValue("@DateE", (object)dtp_HA_To.Value);
                         sqlCommand.Parameters.AddWithValue("@Hours", (object)num7);
                         sqlCommand.Parameters.AddWithValue("@RPH", (object)num2);
                         sqlCommand.Parameters.AddWithValue("@TotBE", (object)num3);
@@ -214,10 +280,10 @@ namespace Q_Tech_Bookkeeping
                         sqlCommand.Parameters.AddWithValue("@TotAE", (object)num5);
                         sqlCommand.Parameters.AddWithValue("@QTC", (object)num4);
                         sqlCommand.Parameters.AddWithValue("@FTot", (object)num6);
-                        if (this.cb_HA_Paid.Checked)
+                        if (cb_HA_Paid.Checked)
                         {
                             sqlCommand.Parameters.AddWithValue("@P", (object)"Yes");
-                            sqlCommand.Parameters.AddWithValue("@DP", (object)this.dtp_HA_DatePaid.Value);
+                            sqlCommand.Parameters.AddWithValue("@DP", (object)dtp_HA_DatePaid.Value);
                         }
                         else
                         {
@@ -244,86 +310,86 @@ namespace Q_Tech_Bookkeeping
         private void txt_HA_PerHour_TextChanged(object sender, EventArgs e)
         {
             Decimal result;
-            if (Decimal.TryParse(this.txt_HA_DolPH.Text.Replace(",", string.Empty).Replace("$", string.Empty).Replace(".", string.Empty).TrimStart('0'), out result))
+            if (Decimal.TryParse(txt_HA_DolPH.Text.Replace(",", string.Empty).Replace("$", string.Empty).Replace(".", string.Empty).TrimStart('0'), out result))
             {
                 Decimal num = result / new Decimal(100);
-                this.txt_HA_DolPH.TextChanged -= new EventHandler(this.txt_HA_PerHour_TextChanged);
-                this.txt_HA_DolPH.Text = string.Format((IFormatProvider)CultureInfo.CreateSpecificCulture("en-US"), "{0:C2}", (object)num);
-                this.txt_HA_DolPH.TextChanged += new EventHandler(this.txt_HA_PerHour_TextChanged);
-                this.txt_HA_DolPH.Select(this.txt_HA_DolPH.Text.Length, 0);
+                txt_HA_DolPH.TextChanged -= new EventHandler(txt_HA_PerHour_TextChanged);
+                txt_HA_DolPH.Text = string.Format((IFormatProvider)CultureInfo.CreateSpecificCulture("en-US"), "{0:C2}", (object)num);
+                txt_HA_DolPH.TextChanged += new EventHandler(txt_HA_PerHour_TextChanged);
+                txt_HA_DolPH.Select(txt_HA_DolPH.Text.Length, 0);
             }
-            if (this.TextisValid(this.txt_HA_DolPH.Text))
+            if (TextisValid(txt_HA_DolPH.Text))
                 return;
-            this.txt_HA_DolPH.Text = "$0.00";
-            this.txt_HA_DolPH.Select(this.txt_HA_DolPH.Text.Length, 0);
+            txt_HA_DolPH.Text = "$0.00";
+            txt_HA_DolPH.Select(txt_HA_DolPH.Text.Length, 0);
         }
 
         private void txt_HA_TotalBE_TextChanged(object sender, EventArgs e)
         {
             Decimal result;
-            if (Decimal.TryParse(this.txt_HA_TotBE.Text.Replace(",", string.Empty).Replace("$", string.Empty).Replace(".", string.Empty).TrimStart('0'), out result))
+            if (Decimal.TryParse(txt_HA_TotBE.Text.Replace(",", string.Empty).Replace("$", string.Empty).Replace(".", string.Empty).TrimStart('0'), out result))
             {
                 Decimal num = result / new Decimal(100);
-                this.txt_HA_TotBE.TextChanged -= new EventHandler(this.txt_HA_TotalBE_TextChanged);
-                this.txt_HA_TotBE.Text = string.Format((IFormatProvider)CultureInfo.CreateSpecificCulture("en-US"), "{0:C2}", (object)num);
-                this.txt_HA_TotBE.TextChanged += new EventHandler(this.txt_HA_TotalBE_TextChanged);
-                this.txt_HA_TotBE.Select(this.txt_HA_TotBE.Text.Length, 0);
+                txt_HA_TotBE.TextChanged -= new EventHandler(txt_HA_TotalBE_TextChanged);
+                txt_HA_TotBE.Text = string.Format((IFormatProvider)CultureInfo.CreateSpecificCulture("en-US"), "{0:C2}", (object)num);
+                txt_HA_TotBE.TextChanged += new EventHandler(txt_HA_TotalBE_TextChanged);
+                txt_HA_TotBE.Select(txt_HA_TotBE.Text.Length, 0);
             }
-            if (this.TextisValid(this.txt_HA_TotBE.Text))
+            if (TextisValid(txt_HA_TotBE.Text))
                 return;
-            this.txt_HA_TotBE.Text = "$0.00";
-            this.txt_HA_TotBE.Select(this.txt_HA_TotBE.Text.Length, 0);
+            txt_HA_TotBE.Text = "$0.00";
+            txt_HA_TotBE.Select(txt_HA_TotBE.Text.Length, 0);
         }
 
         private void txt_HA_QTCut_TextChanged(object sender, EventArgs e)
         {
             Decimal result;
-            if (Decimal.TryParse(this.txt_HA_QTCut.Text.Replace(",", string.Empty).Replace("R", string.Empty).Replace(".", string.Empty).TrimStart('0'), out result))
+            if (Decimal.TryParse(txt_HA_QTCut.Text.Replace(",", string.Empty).Replace("R", string.Empty).Replace(".", string.Empty).TrimStart('0'), out result))
             {
                 Decimal num = result / new Decimal(100);
-                this.txt_HA_QTCut.TextChanged -= new EventHandler(this.txt_HA_QTCut_TextChanged);
-                this.txt_HA_QTCut.Text = string.Format((IFormatProvider)CultureInfo.CreateSpecificCulture("en-ZA"), "{0:C2}", (object)num);
-                this.txt_HA_QTCut.TextChanged += new EventHandler(this.txt_HA_QTCut_TextChanged);
-                this.txt_HA_QTCut.Select(this.txt_HA_QTCut.Text.Length, 0);
+                txt_HA_QTCut.TextChanged -= new EventHandler(txt_HA_QTCut_TextChanged);
+                txt_HA_QTCut.Text = string.Format((IFormatProvider)CultureInfo.CreateSpecificCulture("en-ZA"), "{0:C2}", (object)num);
+                txt_HA_QTCut.TextChanged += new EventHandler(txt_HA_QTCut_TextChanged);
+                txt_HA_QTCut.Select(txt_HA_QTCut.Text.Length, 0);
             }
-            if (this.TextisValid(this.txt_HA_QTCut.Text))
+            if (TextisValid(txt_HA_QTCut.Text))
                 return;
-            this.txt_HA_QTCut.Text = "R0.00";
-            this.txt_HA_QTCut.Select(this.txt_HA_QTCut.Text.Length, 0);
+            txt_HA_QTCut.Text = "R0.00";
+            txt_HA_QTCut.Select(txt_HA_QTCut.Text.Length, 0);
         }
 
         private void txt_HA_TotalAE_TextChanged(object sender, EventArgs e)
         {
             Decimal result;
-            if (Decimal.TryParse(this.txt_HA_TotAE.Text.Replace(",", string.Empty).Replace("R", string.Empty).Replace(".", string.Empty).TrimStart('0'), out result))
+            if (Decimal.TryParse(txt_HA_TotAE.Text.Replace(",", string.Empty).Replace("R", string.Empty).Replace(".", string.Empty).TrimStart('0'), out result))
             {
                 Decimal num = result / new Decimal(100);
-                this.txt_HA_TotAE.TextChanged -= new EventHandler(this.txt_HA_TotalAE_TextChanged);
-                this.txt_HA_TotAE.Text = string.Format((IFormatProvider)CultureInfo.CreateSpecificCulture("en-ZA"), "{0:C2}", (object)num);
-                this.txt_HA_TotAE.TextChanged += new EventHandler(this.txt_HA_TotalAE_TextChanged);
-                this.txt_HA_TotAE.Select(this.txt_HA_TotAE.Text.Length, 0);
+                txt_HA_TotAE.TextChanged -= new EventHandler(txt_HA_TotalAE_TextChanged);
+                txt_HA_TotAE.Text = string.Format((IFormatProvider)CultureInfo.CreateSpecificCulture("en-ZA"), "{0:C2}", (object)num);
+                txt_HA_TotAE.TextChanged += new EventHandler(txt_HA_TotalAE_TextChanged);
+                txt_HA_TotAE.Select(txt_HA_TotAE.Text.Length, 0);
             }
-            if (this.TextisValid(this.txt_HA_TotAE.Text))
+            if (TextisValid(txt_HA_TotAE.Text))
                 return;
-            this.txt_HA_TotAE.Text = "R0.00";
-            this.txt_HA_TotAE.Select(this.txt_HA_TotAE.Text.Length, 0);
+            txt_HA_TotAE.Text = "R0.00";
+            txt_HA_TotAE.Select(txt_HA_TotAE.Text.Length, 0);
         }
 
         private void txt_HA_FTotal_TextChanged(object sender, EventArgs e)
         {
             Decimal result;
-            if (Decimal.TryParse(this.txt_HA_FTotal.Text.Replace(",", string.Empty).Replace("R", string.Empty).Replace(".", string.Empty).TrimStart('0'), out result))
+            if (Decimal.TryParse(txt_HA_FTotal.Text.Replace(",", string.Empty).Replace("R", string.Empty).Replace(".", string.Empty).TrimStart('0'), out result))
             {
                 Decimal num = result / new Decimal(100);
-                this.txt_HA_FTotal.TextChanged -= new EventHandler(this.txt_HA_FTotal_TextChanged);
-                this.txt_HA_FTotal.Text = string.Format((IFormatProvider)CultureInfo.CreateSpecificCulture("en-ZA"), "{0:C2}", (object)num);
-                this.txt_HA_FTotal.TextChanged += new EventHandler(this.txt_HA_FTotal_TextChanged);
-                this.txt_HA_FTotal.Select(this.txt_HA_FTotal.Text.Length, 0);
+                txt_HA_FTotal.TextChanged -= new EventHandler(txt_HA_FTotal_TextChanged);
+                txt_HA_FTotal.Text = string.Format((IFormatProvider)CultureInfo.CreateSpecificCulture("en-ZA"), "{0:C2}", (object)num);
+                txt_HA_FTotal.TextChanged += new EventHandler(txt_HA_FTotal_TextChanged);
+                txt_HA_FTotal.Select(txt_HA_FTotal.Text.Length, 0);
             }
-            if (this.TextisValid(this.txt_HA_FTotal.Text))
+            if (TextisValid(txt_HA_FTotal.Text))
                 return;
-            this.txt_HA_FTotal.Text = "R0.00";
-            this.txt_HA_FTotal.Select(this.txt_HA_FTotal.Text.Length, 0);
+            txt_HA_FTotal.Text = "R0.00";
+            txt_HA_FTotal.Select(txt_HA_FTotal.Text.Length, 0);
         }
 
         private bool TextisValid(string text)
@@ -333,82 +399,82 @@ namespace Q_Tech_Bookkeeping
 
         private void txt_HA_HW_Leave(object sender, EventArgs e)
         {
-            this.ln_HA_HW.LineColor = Color.Gray;
-            this.CalculateTotBE();
+            ln_HA_HW.LineColor = Color.Gray;
+            CalculateTotBE();
         }
 
         private void txt_HA_DolPH_Leave(object sender, EventArgs e)
         {
-            this.ln_HA_DolPH.LineColor = Color.Gray;
-            this.CalculateTotBE();
+            ln_HA_DolPH.LineColor = Color.Gray;
+            CalculateTotBE();
         }
 
         private void txt_HA_ExcRate_Leave(object sender, EventArgs e)
         {
-            this.ln_HA_ExcRate.LineColor = Color.Gray;
-            this.CalculateTotAE();
+            ln_HA_ExcRate.LineColor = Color.Gray;
+            CalculateTotAE();
         }
 
         private void txt_HA_QTCut_Leave(object sender, EventArgs e)
         {
-            this.ln_HA_TotAE.LineColor = Color.Gray;
-            this.CalculateFinalTot();
+            ln_HA_TotAE.LineColor = Color.Gray;
+            CalculateFinalTot();
         }
 
         private void CalculateTotBE()
         {
-            if (!(this.txt_HA_HW.Text != string.Empty))
+            if (!(txt_HA_HW.Text != string.Empty))
                 return;
-            this.txt_HA_TotBE.Text = ((!this.txt_HA_HW.Text.Contains(".") ? Decimal.Parse(this.txt_HA_HW.Text) : Decimal.Parse(this.txt_HA_HW.Text.Replace(".", ","), (IFormatProvider)CultureInfo.GetCultureInfo("en-ZA"))) * (!this.txt_HA_DolPH.Text.Contains("$") ? new Decimal(0, 0, 0, false, (byte)2) : Decimal.Parse(this.txt_HA_DolPH.Text.Replace("$", string.Empty), (IFormatProvider)CultureInfo.GetCultureInfo("en-US")))).ToString("c", (IFormatProvider)CultureInfo.GetCultureInfo("en-US"));
+            txt_HA_TotBE.Text = ((!txt_HA_HW.Text.Contains(".") ? Decimal.Parse(txt_HA_HW.Text) : Decimal.Parse(txt_HA_HW.Text.Replace(".", ","), (IFormatProvider)CultureInfo.GetCultureInfo("en-ZA"))) * (!txt_HA_DolPH.Text.Contains("$") ? new Decimal(0, 0, 0, false, (byte)2) : Decimal.Parse(txt_HA_DolPH.Text.Replace("$", string.Empty), (IFormatProvider)CultureInfo.GetCultureInfo("en-US")))).ToString("c", (IFormatProvider)CultureInfo.GetCultureInfo("en-US"));
         }
 
         private void CalculateTotAE()
         {
-            Decimal num = !this.txt_HA_ExcRate.Text.Contains(".") ? Decimal.Parse(this.txt_HA_ExcRate.Text) : Decimal.Parse(this.txt_HA_ExcRate.Text.Replace(".", ","), (IFormatProvider)CultureInfo.GetCultureInfo("en-ZA"));
-            this.txt_HA_TotAE.Text = (Decimal.Parse(this.txt_HA_TotBE.Text.Replace("$", string.Empty), (IFormatProvider)CultureInfo.GetCultureInfo("en-US")) * num).ToString("c");
+            Decimal num = !txt_HA_ExcRate.Text.Contains(".") ? Decimal.Parse(txt_HA_ExcRate.Text) : Decimal.Parse(txt_HA_ExcRate.Text.Replace(".", ","), (IFormatProvider)CultureInfo.GetCultureInfo("en-ZA"));
+            txt_HA_TotAE.Text = (Decimal.Parse(txt_HA_TotBE.Text.Replace("$", string.Empty), (IFormatProvider)CultureInfo.GetCultureInfo("en-US")) * num).ToString("c");
         }
 
         private void CalculateFinalTot()
         {
-            this.txt_HA_FTotal.Text = (Decimal.Parse(this.txt_HA_TotAE.Text.Replace("R", string.Empty), (IFormatProvider)CultureInfo.GetCultureInfo("en-ZA")) - (!this.txt_HA_QTCut.Text.Contains(".") ? (!this.txt_HA_QTCut.Text.Contains("R") ? new Decimal(0, 0, 0, false, (byte)2) : Decimal.Parse(this.txt_HA_QTCut.Text.Replace("R", string.Empty), (IFormatProvider)CultureInfo.GetCultureInfo("en-ZA"))) : (!this.txt_HA_QTCut.Text.Contains("R") ? new Decimal(0, 0, 0, false, (byte)2) : Decimal.Parse(this.txt_HA_QTCut.Text.Replace("R", string.Empty).Replace(".", ","), (IFormatProvider)CultureInfo.GetCultureInfo("en-ZA"))))).ToString("c");
+            txt_HA_FTotal.Text = (Decimal.Parse(txt_HA_TotAE.Text.Replace("R", string.Empty), (IFormatProvider)CultureInfo.GetCultureInfo("en-ZA")) - (!txt_HA_QTCut.Text.Contains(".") ? (!txt_HA_QTCut.Text.Contains("R") ? new Decimal(0, 0, 0, false, (byte)2) : Decimal.Parse(txt_HA_QTCut.Text.Replace("R", string.Empty), (IFormatProvider)CultureInfo.GetCultureInfo("en-ZA"))) : (!txt_HA_QTCut.Text.Contains("R") ? new Decimal(0, 0, 0, false, (byte)2) : Decimal.Parse(txt_HA_QTCut.Text.Replace("R", string.Empty).Replace(".", ","), (IFormatProvider)CultureInfo.GetCultureInfo("en-ZA"))))).ToString("c");
         }
 
         private void cb_HA_Paid_CheckedChanged(object sender, EventArgs e)
         {
-            if (this.cb_HA_Paid.Checked)
-                this.dtp_HA_DatePaid.Enabled = true;
+            if (cb_HA_Paid.Checked)
+                dtp_HA_DatePaid.Enabled = true;
             else
-                this.dtp_HA_DatePaid.Enabled = false;
+                dtp_HA_DatePaid.Enabled = false;
         }
 
         private void btn_HA_CRem_Click(object sender, EventArgs e)
         {
-            if (this.backgroundWorker1.IsBusy || MessageBox.Show(new StringBuilder().Append("Are you sure you want to create remittance document for work week: ").Append(this.txt_HA_Code.Text.Trim()).Append("?").ToString(), "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+            if (backgroundWorker1.IsBusy || MessageBox.Show(new StringBuilder().Append("Are you sure you want to create remittance document for work week: ").Append(txt_HA_Code.Text.Trim()).Append("?").ToString(), "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
                 return;
-            this.btn_HA_Done.Enabled = false;
-            this.btn_HA_Cancel.Enabled = false;
-            this.btn_HA_CreateRem.Enabled = false;
-            this.pb_CreateRem.Visible = true;
-            this.backgroundWorker1.RunWorkerAsync();
+            btn_HA_Done.Enabled = false;
+            btn_HA_Cancel.Enabled = false;
+            btn_HA_CreateRem.Enabled = false;
+            pb_CreateRem.Visible = true;
+            backgroundWorker1.RunWorkerAsync();
         }
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
             try
             {
-                this.app = (Microsoft.Office.Interop.Word.Application)Activator.CreateInstance(Marshal.GetTypeFromCLSID(new Guid("000209FF-0000-0000-C000-000000000046")));
-                this.doc = (Document)null;
-                this.backgroundWorker1.ReportProgress(10);
+                app = (Microsoft.Office.Interop.Word.Application)Activator.CreateInstance(Marshal.GetTypeFromCLSID(new Guid("000209FF-0000-0000-C000-000000000046")));
+                doc = (Document)null;
+                backgroundWorker1.ReportProgress(10);
                 object obj1 = (object)"\\\\192.168.8.121\\Contractors\\Remittances\\Remittance_Template.docx";
-                this.missing = System.Type.Missing;
-                this.backgroundWorker1.ReportProgress(20);
+                missing = System.Type.Missing;
+                backgroundWorker1.ReportProgress(20);
                 // ISSUE: variable of a compiler-generated type
-                Documents documents = this.app.Documents;
+                Documents documents = app.Documents;
                 object obj2 = obj1;
                 ref object local1 = ref obj2;
-                object missing1 = this.missing;
+                object missing1 = missing;
                 ref object local2 = ref missing1;
-                object missing2 = this.missing;
+                object missing2 = missing;
                 ref object local3 = ref missing2;
                 object missing3 = System.Type.Missing;
                 ref object local4 = ref missing3;
@@ -1071,6 +1137,11 @@ namespace Q_Tech_Bookkeeping
         private void O_Add_MouseUp(object sender, MouseEventArgs e)
         {
             this.mouseDown = false;
+        }
+
+        private void HoursAdd_Load_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
