@@ -113,6 +113,16 @@ namespace Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap contr_white {
+            get {
+                object obj = ResourceManager.GetObject("contr_white", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap edit_grey {
             get {
                 object obj = ResourceManager.GetObject("edit_grey", resourceCulture);
@@ -166,6 +176,16 @@ namespace Properties {
         internal static System.Drawing.Bitmap local_white {
             get {
                 object obj = ResourceManager.GetObject("local_white", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap project_white {
+            get {
+                object obj = ResourceManager.GetObject("project_white", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

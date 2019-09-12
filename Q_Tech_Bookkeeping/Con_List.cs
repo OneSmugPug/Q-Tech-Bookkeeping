@@ -14,13 +14,10 @@ namespace Q_Tech_Bookkeeping
     {
         private BindingSource bs = new BindingSource();
         private bool mouseDown = false;
-        //private IContainer components = (IContainer)null;            <------- Gee 'n error, delete as dit nie hier moet wees nie
         private SqlDataAdapter da;
         private DataTable dt;
         private Point lastLocation;
-        private Panel panel1;
         private AdvancedDataGridView dgv_SelCon;
-        private BunifuCustomLabel bunifuCustomLabel4;
         private Button btn_SelCon_Close;
 
         public Con_List()
@@ -85,14 +82,11 @@ namespace Q_Tech_Bookkeeping
 
         private void CL_MouseMove(object sender, MouseEventArgs e)
         {
-            if (!mouseDown)
-                return;
-            Point location = Location;
-            int x = location.X - lastLocation.X + e.X;
-            location = Location;
-            int y = location.Y - lastLocation.Y + e.Y;
-            Location = new Point(x, y);
-            this.Update();
+            if (mouseDown)
+            {
+                this.Location = new Point(this.Location.X - (lastLocation.X + e.X), this.Location.Y - (lastLocation.Y + e.Y));
+                this.Update();
+            }            
         }
 
         private void CL_MouseUp(object sender, MouseEventArgs e)

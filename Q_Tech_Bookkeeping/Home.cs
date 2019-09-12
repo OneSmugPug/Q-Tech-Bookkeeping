@@ -623,7 +623,7 @@ namespace Q_Tech_Bookkeeping
                     }
                 case "pnl_Contractors":
                     {
-                        pnl_Contractors.Visible = false;
+                        pnl_Con.Visible = false;
                         break;
                     }
                 case "pnl_Home":
@@ -1210,7 +1210,7 @@ namespace Q_Tech_Bookkeeping
             btn_Contractors.Image = Resources.contr_white;
             tmr_Con.Start();
 
-            pnl_Contractors.Visible = true;
+            pnl_Con.Visible = true;
             CurrentPanel("pnl_Contractors");
 
             btn_C_Timesheets.BackColor = Color.FromArgb(13, 77, 119);
@@ -1220,7 +1220,7 @@ namespace Q_Tech_Bookkeeping
             curForm = frmContr;
             frmContr.TopLevel = false;
             frmContr.TopMost = true;
-            pnl_Contractors.Controls.Add(frmContr);
+            pnl_Con.Controls.Add(frmContr);
             frmContr.Show();
         }
 
@@ -1254,7 +1254,7 @@ namespace Q_Tech_Bookkeeping
             GetSelectedButton(sender);
             HidePanel();
 
-            pnl_Contractors.Visible = true;
+            pnl_Con.Visible = true;
             CurrentPanel("pnl_Contractors");
 
             btn_C_Timesheets.BackColor = Color.FromArgb(13, 77, 119);
@@ -1263,7 +1263,7 @@ namespace Q_Tech_Bookkeeping
             curForm = frmContr;
             frmContr.TopLevel = false;
             frmContr.TopMost = true;
-            pnl_Contractors.Controls.Add(frmContr);
+            pnl_Con.Controls.Add(frmContr);
             frmContr.Show();
         }
 

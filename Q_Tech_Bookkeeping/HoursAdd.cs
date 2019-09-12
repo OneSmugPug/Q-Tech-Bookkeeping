@@ -805,12 +805,12 @@ namespace Q_Tech_Bookkeeping
 
         private void Btn_HA_Close_MouseEnter(object sender, EventArgs e)
         {
-            btn_HA_Close.Image = (Image)Resources.close_white;
+            btn_HA_Close.Image = Resources.close_white;
         }
 
         private void Btn_HA_Close_MouseLeave(object sender, EventArgs e)
         {
-            btn_HA_Close.Image = (Image)Resources.close_black;
+            btn_HA_Close.Image = Resources.close_black;
         }
 
         private void Btn_HA_Done_MouseEnter(object sender, EventArgs e)
