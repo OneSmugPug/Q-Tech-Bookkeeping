@@ -49,7 +49,7 @@ namespace Q_Tech_Bookkeeping
         private Int_Invoices_SendOld frmIntInvSent;
         private ContractorsOld frmContr;
         private PettyCash frmPetty;
-        private Projects frmProj;
+        private ProjectsOld frmProj;
 
         public Home()
         {
@@ -1463,7 +1463,7 @@ namespace Q_Tech_Bookkeeping
             btn_Projects.ForeColor = Color.White;
             btn_Projects.Image = Resources.project_white;
 
-            frmProj = new Projects();
+            frmProj = new ProjectsOld();
             curForm = frmProj;
             frmProj.TopLevel = false;
             frmProj.TopMost = true;

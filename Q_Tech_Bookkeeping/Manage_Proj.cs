@@ -50,7 +50,7 @@ namespace Q_Tech_Bookkeeping
     private void Manage_Proj_Load(object sender, EventArgs e)
     {
       this.dgv_ManageProj.DataSource = (object) this.bs;
-      this.Proj_ID = ((Projects) this.frmHome.getCurForm()).getProjID();
+      this.Proj_ID = ((ProjectsOld) this.frmHome.getCurForm()).getProjID();
       this.loadExpenses();
     }
 

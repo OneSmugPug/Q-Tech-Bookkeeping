@@ -82,7 +82,7 @@ namespace Q_Tech_Bookkeeping
         if (row["Code"].ToString().Trim().Equals(this.ddb_PA_CCode.selectedValue))
           this.txt_PA_CName.Text = row["Name"].ToString().Trim();
       }
-      this.projDT = ((Projects) ((HomeOld) this.Owner).getCurForm()).getProjects();
+      this.projDT = ((ProjectsOld) ((HomeOld) this.Owner).getCurForm()).getProjects();
       int num1 = 0;
       foreach (DataRow row in (InternalDataCollectionBase) this.projDT.Rows)
       {
