@@ -137,14 +137,17 @@
     <Compile Include="Q_Tech_Bookkeeping\Inv_Rec.Designer.cs">
       <DependentUpon>Inv_Rec.cs</DependentUpon>
     </Compile>
-    <Compile Include="Q_Tech_Bookkeeping\Inv_RecOld.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Q_Tech_Bookkeeping\Inv_Rec_Add.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Q_Tech_Bookkeeping\Inv_Rec_Add.Designer.cs">
+      <DependentUpon>Inv_Rec_Add.cs</DependentUpon>
+    </Compile>
     <Compile Include="Q_Tech_Bookkeeping\Inv_Rec_Edit_Del.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Q_Tech_Bookkeeping\Inv_Rec_Edit_Del.Designer.cs">
+      <DependentUpon>Inv_Rec_Edit_Del.cs</DependentUpon>
     </Compile>
     <Compile Include="Q_Tech_Bookkeeping\Inv_Send_Add.cs">
       <SubType>Form</SubType>
@@ -224,6 +227,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Q_Tech_Bookkeeping\Inv_Rec.resx">
       <DependentUpon>Inv_Rec.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Q_Tech_Bookkeeping\Inv_Rec_Add.resx">
+      <DependentUpon>Inv_Rec_Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Q_Tech_Bookkeeping\Inv_Rec_Edit_Del.resx">
+      <DependentUpon>Inv_Rec_Edit_Del.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Q_Tech_Bookkeeping\Properties\Resources.resx" />
   </ItemGroup>
