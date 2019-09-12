@@ -44,7 +44,7 @@ namespace Q_Tech_Bookkeeping
         {
             if (isFiltered)
                 RemoveFilter();
-            using (Proj_Add projAdd = new Proj_Add())
+            using (Proj_AddOld projAdd = new Proj_AddOld())
             {
                 int num = (int)projAdd.ShowDialog((IWin32Window)this);
             }
