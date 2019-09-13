@@ -71,7 +71,7 @@ namespace Q_Tech_Bookkeeping
             if (isFiltered)
                 RemoveFilter();
             SELECTED_PROJECT = e.RowIndex;
-            using (Proj_Dialog projDialog = new Proj_Dialog())
+            using (Proj_DialogOld projDialog = new Proj_DialogOld())
             {
                 int num = (int)projDialog.ShowDialog((IWin32Window)this);
             }

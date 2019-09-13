@@ -17,30 +17,6 @@ namespace Q_Tech_Bookkeeping
         private DataTable dt;
         private DataTable projDT;
         private Point lastLocation;
-        //private BunifuCustomLabel bunifuCustomLabel10;
-        //private Button btn_PA_Close;
-        //private Button btn_PA_Cancel;
-        //private Button btn_PA_Done;
-        //private GroupBox gb_OA_ODetails;
-        //private Panel panel6;
-        //private TextBox txt_PA_QNum;
-        //private BunifuSeparator ln_PA_QNum;
-        //private Panel panel2;
-        //private TextBox txt_PA_Desc;
-        //private BunifuSeparator ln_PA_Desc;
-        //private Panel panel1;
-        //private TextBox txt_PA_ProjCode;
-        //private BunifuSeparator ln_PA_ProjCode;
-        //private BunifuCustomLabel bunifuCustomLabel8;
-        //private BunifuCustomLabel bunifuCustomLabel5;
-        //private BunifuDatepicker dtp_PA_Date;
-        //private BunifuCustomLabel bunifuCustomLabel2;
-        //private BunifuCustomLabel bunifuCustomLabel1;
-        //private GroupBox gb_OA_CDetails;
-        //private BunifuMaterialTextbox txt_PA_CName;
-        //private BunifuCustomLabel bunifuCustomLabel4;
-        //private BunifuCustomLabel bunifuCustomLabel3;
-        //private BunifuDropdown ddb_PA_CCode;
 
         public Proj_Add()
         {

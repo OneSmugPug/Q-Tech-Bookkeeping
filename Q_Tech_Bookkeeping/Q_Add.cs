@@ -55,7 +55,7 @@ namespace Q_Tech_Bookkeeping
       HomeOld owner = (HomeOld) this.Owner;
       if (owner.getCurPanel() == "pnl_L_Quotes")
       {
-        Quotes curForm = (Quotes) owner.getCurForm();
+        QuotesOld curForm = (QuotesOld) owner.getCurForm();
         this.txt_QA_CCode.Text = curForm.getCCode();
         this.txt_QA_CName.Text = curForm.getCName();
         this.dt = curForm.getQuotes();

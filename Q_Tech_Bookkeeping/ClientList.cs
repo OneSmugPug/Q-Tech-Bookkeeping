@@ -56,7 +56,7 @@ namespace Q_Tech_Bookkeeping
                 ((Orders)frmHome.GetCurForm()).setNewClient(e.RowIndex);
 
             if (curVisible == "pnl_L_Quotes")
-                ((Quotes)frmHome.GetCurForm()).setNewClient(e.RowIndex);
+                ((QuotesOld)frmHome.GetCurForm()).setNewClient(e.RowIndex);
 
             this.Close();
         }

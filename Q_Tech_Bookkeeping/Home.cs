@@ -41,15 +41,15 @@ namespace Q_Tech_Bookkeeping
         private DataTable iClientDT;
 
         private Orders frmOrder;
-        private Quotes frmQuote;
+        private QuotesOld frmQuote;
         private Invoices_Send frmInvSent;
-        private Inv_RecOld frmInvRec;
-        private Int_OrdersOld frmIntOrders;
-        private Int_QuotesOld frmIntQuotes;
+        private Inv_Rec frmInvRec;
+        private Int_Orders frmIntOrders;
+        private Int_Quotes frmIntQuotes;
         private Int_Invoices_SendOld frmIntInvSent;
-        private ContractorsOld frmContr;
+        private Contractors frmContr;
         private PettyCash frmPetty;
-        private ProjectsOld frmProj;
+        private Projects frmProj;
 
         public Home()
         {
@@ -810,7 +810,7 @@ namespace Q_Tech_Bookkeeping
             btn_L_Quotes.BackColor = Color.FromArgb(15, 91, 142);
             btn_L_Quotes.ForeColor = Color.White;
 
-            frmQuote = new Quotes();
+            frmQuote = new QuotesOld();
             curForm = frmQuote;
             frmQuote.TopLevel = false;
             frmQuote.TopMost = true;
@@ -909,7 +909,7 @@ namespace Q_Tech_Bookkeeping
             btn_L_InvRec.BackColor = Color.FromArgb(13, 77, 119);
             btn_L_InvRec.ForeColor = Color.White;
 
-            frmInvRec = new Inv_RecOld();
+            frmInvRec = new Inv_Rec();
             curForm = frmInvRec;
             frmInvRec.TopLevel = false;
             frmInvRec.TopMost = true;
@@ -1076,7 +1076,7 @@ namespace Q_Tech_Bookkeeping
             btn_I_Orders.BackColor = Color.FromArgb(15, 91, 142);
             btn_I_Orders.ForeColor = Color.White;
 
-            frmIntOrders = new Int_OrdersOld();
+            frmIntOrders = new Int_Orders();
             curForm = frmIntOrders;
             frmIntOrders.TopLevel = false;
             frmIntOrders.TopMost = true;
@@ -1118,7 +1118,7 @@ namespace Q_Tech_Bookkeeping
             btn_I_Quotes.BackColor = Color.FromArgb(15, 91, 142);
             btn_I_Quotes.ForeColor = Color.White;
 
-            frmIntQuotes = new Int_QuotesOld();
+            frmIntQuotes = new Int_Quotes();
             curForm = frmIntQuotes;
             frmIntQuotes.TopLevel = false;
             frmIntQuotes.TopMost = true;
@@ -1216,7 +1216,7 @@ namespace Q_Tech_Bookkeeping
             btn_C_Timesheets.BackColor = Color.FromArgb(13, 77, 119);
             btn_C_Timesheets.ForeColor = Color.White;
 
-            frmContr = new ContractorsOld();
+            frmContr = new Contractors();
             curForm = frmContr;
             frmContr.TopLevel = false;
             frmContr.TopMost = true;
@@ -1259,7 +1259,7 @@ namespace Q_Tech_Bookkeeping
 
             btn_C_Timesheets.BackColor = Color.FromArgb(13, 77, 119);
             btn_C_Timesheets.ForeColor = Color.White;
-            frmContr = new ContractorsOld();
+            frmContr = new Contractors();
             curForm = frmContr;
             frmContr.TopLevel = false;
             frmContr.TopMost = true;
@@ -1463,7 +1463,7 @@ namespace Q_Tech_Bookkeeping
             btn_Projects.ForeColor = Color.White;
             btn_Projects.Image = Resources.project_white;
 
-            frmProj = new ProjectsOld();
+            frmProj = new Projects();
             curForm = frmProj;
             frmProj.TopLevel = false;
             frmProj.TopMost = true;
