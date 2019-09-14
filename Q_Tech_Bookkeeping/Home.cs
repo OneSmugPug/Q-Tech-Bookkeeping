@@ -1491,13 +1491,13 @@ namespace Q_Tech_Bookkeeping
             }
         }
 
-        public void SetManageProjects(Manage_Proj frmMP, Home frmHome)
+        public void SetProjExpForm(Proj_AddExp frmAE, Home frmHome)
         {
-            frmMP.TopLevel = false;
-            frmMP.TopMost = true;
-            pnl_Projects.Controls.Add(frmMP);
-            frmMP.setHome(frmHome);
-            frmMP.Show();
+            frmAE.TopLevel = false;
+            frmAE.TopMost = true;
+            pnl_Projects.Controls.Add(frmAE);
+            frmAE.setHome(frmHome);
+            frmAE.Show();
         }
 
 

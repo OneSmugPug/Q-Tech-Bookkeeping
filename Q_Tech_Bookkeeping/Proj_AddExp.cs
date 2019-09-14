@@ -17,7 +17,7 @@ using System.Windows.Forms;
 
 namespace Q_Tech_Bookkeeping
 {
-  public class Manage_Proj : Form
+  public class Proj_AddExp : Form
   {
     private BindingSource bs = new BindingSource();
     private IContainer components = (IContainer) null;
@@ -42,7 +42,7 @@ namespace Q_Tech_Bookkeeping
     private TextBox txt_MP_TotDol;
     private Button btn_MP_RemoveLine;
 
-    public Manage_Proj()
+    public Proj_AddExp()
     {
       this.InitializeComponent();
     }
@@ -270,7 +270,7 @@ namespace Q_Tech_Bookkeeping
 
     private void InitializeComponent()
     {
-      ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof (Manage_Proj));
+      ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof (Proj_AddExp));
       DataGridViewCellStyle gridViewCellStyle1 = new DataGridViewCellStyle();
       DataGridViewCellStyle gridViewCellStyle2 = new DataGridViewCellStyle();
       DataGridViewCellStyle gridViewCellStyle3 = new DataGridViewCellStyle();
@@ -519,8 +519,8 @@ namespace Q_Tech_Bookkeeping
       this.Controls.Add((Control) this.bunifuCustomLabel6);
       this.Controls.Add((Control) this.bunifuCustomLabel5);
       this.FormBorderStyle = FormBorderStyle.None;
-      this.Name = nameof (Manage_Proj);
-      this.Text = nameof (Manage_Proj);
+      this.Name = nameof (Proj_AddExp);
+      this.Text = nameof (Proj_AddExp);
       this.WindowState = FormWindowState.Maximized;
       this.Load += new EventHandler(this.Manage_Proj_Load);
       ((ISupportInitialize) this.dgv_ManageProj).EndInit();

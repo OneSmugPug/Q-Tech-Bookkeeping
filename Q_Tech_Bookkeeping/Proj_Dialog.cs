@@ -17,25 +17,42 @@ namespace Q_Tech_Bookkeeping
             InitializeComponent();
         }
 
+
+        //================================================================================================================================================//
+        // CLOSE CLICKED                                                                                                                                  //
+        //================================================================================================================================================//
         private void Btn_PD_Close_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+
+        //================================================================================================================================================//
+        // EDIT PROJECT CLICKED                                                                                                                           //
+        //================================================================================================================================================//
         private void Btn_PD_EditProj_Click(object sender, EventArgs e)
         {
-            new Proj_Edit_DelOld().Show((IWin32Window)Owner);
+            Proj_Edit_Del frmPED = new Proj_Edit_Del();
+            frmPED.Show(this.Owner);
             this.Close();
         }
 
-        private void Btn_PD_ManProject_Click(object sender, EventArgs e)
+
+        //================================================================================================================================================//
+        // ADD EXPENSE CLICKED                                                                                                                            //
+        //================================================================================================================================================//
+        private void Btn_PD_AddExp_Click(object sender, EventArgs e)
         {
-            Home owner = (Home)Owner;
-            Manage_Proj frmMP = new Manage_Proj();
-            owner.SetManageProjects(frmMP, owner);
+            Home frmHome = (Home)this.Owner;
+            Proj_AddExp frmMP = new Proj_AddExp();
+            frmHome.SetProjExpForm(frmMP, frmHome);
             this.Close();
         }
 
+
+        //================================================================================================================================================//
+        // CLOSE BUTTON                                                                                                                                   //
+        //================================================================================================================================================//
         private void Btn_PD_Close_MouseEnter(object sender, EventArgs e)
         {
             btn_PD_Close.Image = Resources.close_white;
@@ -46,16 +63,24 @@ namespace Q_Tech_Bookkeeping
             btn_PD_Close.Image = Resources.close_black;
         }
 
-        private void Btn_PD_ManProject_MouseEnter(object sender, EventArgs e)
+
+        //================================================================================================================================================//
+        // ADD EXPENSE BUTTON                                                                                                                             //
+        //================================================================================================================================================//
+        private void Btn_PD_AddExp_MouseEnter(object sender, EventArgs e)
         {
-            btn_PD_ManProject.ForeColor = Color.White;
+            btn_PD_AddExp.ForeColor = Color.White;
         }
 
-        private void Btn_PD_ManProject_MouseLeave(object sender, EventArgs e)
+        private void Btn_PD_AddExp_MouseLeave(object sender, EventArgs e)
         {
-            btn_PD_ManProject.ForeColor = Color.FromArgb(64, 64, 64);
+            btn_PD_AddExp.ForeColor = Color.FromArgb(64, 64, 64);
         }
 
+
+        //================================================================================================================================================//
+        // EDIT PROJECT BUTTON                                                                                                                            //
+        //================================================================================================================================================//
         private void Btn_PD_EditProj_MouseEnter(object sender, EventArgs e)
         {
             btn_PD_EditProj.ForeColor = Color.White;
@@ -66,6 +91,10 @@ namespace Q_Tech_Bookkeeping
             btn_PD_EditProj.ForeColor = Color.FromArgb(64, 64, 64);
         }
 
+
+        //================================================================================================================================================//
+        // PROJECT DIALOG                                                                                                                                 //
+        //================================================================================================================================================//
         private void Proj_Dialog_MouseDown(object sender, MouseEventArgs e)
         {
             mouseDown = true;
@@ -74,14 +103,11 @@ namespace Q_Tech_Bookkeeping
 
         private void Proj_Dialog_MouseMove(object sender, MouseEventArgs e)
         {
-            if (!mouseDown)
-                return;
-            Point location = Location;
-            int x = location.X - lastLocation.X + e.X;
-            location = Location;
-            int y = location.Y - lastLocation.Y + e.Y;
-            Location = new Point(x, y);
-            this.Update();
+            if (mouseDown)
+            {
+                Location = new Point(this.Location.X - (lastLocation.X + e.X), this.Location.Y - (lastLocation.Y + e.Y));
+                this.Update();
+            }
         }
 
         private void Proj_Dialog_MouseUp(object sender, MouseEventArgs e)

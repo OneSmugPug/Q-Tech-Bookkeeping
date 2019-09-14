@@ -14,7 +14,6 @@ namespace Q_Tech_Bookkeeping
     public partial class Inv_Rec_Add : Form
     {
         private bool mouseDown = false;
-        private IContainer components = (IContainer)null;
         private StringBuilder sb;
         private Point lastLocation;
 
@@ -27,26 +26,35 @@ namespace Q_Tech_Bookkeeping
         {
             txt_IRA_Amt.Text = "R0.00";
             txt_IRA_Amt.SelectionStart = txt_IRA_Amt.Text.Length;
+
             txt_IRA_VAT.Text = "R0.00";
             txt_IRA_VAT.SelectionStart = txt_IRA_VAT.Text.Length;
+
             dtp_IRA_Date.Value = DateTime.Now;
         }
 
+
+        //================================================================================================================================================//
+        // FORMAT MONEY TEXTBOX                                                                                                                           //
+        //================================================================================================================================================//
         private void Txt_IRA_Amt_TextChanged(object sender, EventArgs e)
         {
-            Decimal result;
-            if (Decimal.TryParse(txt_IRA_Amt.Text.Replace(",", string.Empty).Replace("R", string.Empty).Replace(".", string.Empty).TrimStart('0'), out result))
+            if (Decimal.TryParse(txt_IRA_Amt.Text.Replace(",", string.Empty).Replace("R", string.Empty).Replace(".", string.Empty).TrimStart('0'), out decimal result))
             {
-                Decimal num = result / new Decimal(100);
-                txt_IRA_Amt.TextChanged -= new EventHandler(Txt_IRA_Amt_TextChanged);
-                txt_IRA_Amt.Text = string.Format((IFormatProvider)CultureInfo.CreateSpecificCulture("en-ZA"), "{0:C2}", num);
-                txt_IRA_Amt.TextChanged += new EventHandler(Txt_IRA_Amt_TextChanged);
+                result /= 100;
+
+                txt_IRA_Amt.TextChanged -= Txt_IRA_Amt_TextChanged;
+
+                txt_IRA_Amt.Text = string.Format(CultureInfo.CreateSpecificCulture("en-ZA"), "{0:C2}", result);
+                txt_IRA_Amt.TextChanged += Txt_IRA_Amt_TextChanged;
                 txt_IRA_Amt.Select(txt_IRA_Amt.Text.Length, 0);
             }
-            if (TextisValid(txt_IRA_Amt.Text))
-                return;
-            txt_IRA_Amt.Text = "R0.00";
-            txt_IRA_Amt.Select(txt_IRA_Amt.Text.Length, 0);
+
+            if (!TextisValid(txt_IRA_Amt.Text))
+            {
+                txt_IRA_Amt.Text = "R0.00";
+                txt_IRA_Amt.Select(txt_IRA_Amt.Text.Length, 0);
+            }
         }
 
         private bool TextisValid(string text)
@@ -56,78 +64,114 @@ namespace Q_Tech_Bookkeeping
 
         private void Txt_IRA_VAT_TextChanged(object sender, EventArgs e)
         {
-            Decimal result;
-            if (Decimal.TryParse(txt_IRA_VAT.Text.Replace(",", string.Empty).Replace("R", string.Empty).Replace(".", string.Empty).TrimStart('0'), out result))
+            if (Decimal.TryParse(txt_IRA_VAT.Text.Replace(",", string.Empty).Replace("R", string.Empty).Replace(".", string.Empty).TrimStart('0'), out decimal result))
             {
-                Decimal num = result / new Decimal(100);
-                txt_IRA_VAT.TextChanged -= new EventHandler(Txt_IRA_VAT_TextChanged);
-                txt_IRA_VAT.Text = string.Format((IFormatProvider)CultureInfo.CreateSpecificCulture("en-ZA"), "{0:C2}", num);
-                txt_IRA_VAT.TextChanged += new EventHandler(Txt_IRA_VAT_TextChanged);
+                result /= 100;
+
+                txt_IRA_VAT.TextChanged -= Txt_IRA_VAT_TextChanged;
+                txt_IRA_VAT.Text = string.Format(CultureInfo.CreateSpecificCulture("en-ZA"), "{0:C2}", result);
+                txt_IRA_VAT.TextChanged += Txt_IRA_VAT_TextChanged;
                 txt_IRA_VAT.Select(txt_IRA_VAT.Text.Length, 0);
             }
-            if (TextisValid(txt_IRA_VAT.Text))
-                return;
-            txt_IRA_VAT.Text = "R0.00";
-            txt_IRA_VAT.Select(txt_IRA_VAT.Text.Length, 0);
+
+            if (!TextisValid(txt_IRA_VAT.Text))
+            {
+                txt_IRA_VAT.Text = "R0.00";
+                txt_IRA_VAT.Select(txt_IRA_VAT.Text.Length, 0);
+            }
         }
 
         private void Txt_IRA_Amt_Leave(object sender, EventArgs e)
         {
-            Decimal result;
-            if (!Decimal.TryParse(txt_IRA_Amt.Text.Replace("R", string.Empty), out result))
-                return;
-            txt_IRA_VAT.Text = string.Format((IFormatProvider)CultureInfo.CreateSpecificCulture("en-ZA"), "{0:C2}", (result - result / new Decimal(115, 0, 0, false, (byte)2)));
+            if (Decimal.TryParse(txt_IRA_Amt.Text.Replace("R", string.Empty), out decimal result))
+            {
+                result *= 0.15m;
+                txt_IRA_VAT.Text = string.Format(CultureInfo.CreateSpecificCulture("en-ZA"), "{0:C2}", result);
+            }
         }
 
+
+        //================================================================================================================================================//
+        // BUTTON DONE CLICKED                                                                                                                            //
+        //================================================================================================================================================//
         private void Btn_IRA_Done_Click(object sender, EventArgs e)
         {
-            string text = txt_IRA_InvNum.Text;
-            sb = new StringBuilder().Append("Are you sure you want to add invoice with Invoice Number: ").Append(text).Append("?");
-            if (text != string.Empty)
+            string newINum = txt_IRA_InvNum.Text;
+
+            sb = new StringBuilder().Append("Are you sure you want to add invoice with Invoice Number: ").Append(newINum).Append("?");
+
+            if (newINum != string.Empty)
             {
-                if (MessageBox.Show(sb.ToString(), "Confirmation", MessageBoxButtons.YesNo) != DialogResult.Yes)
-                    return;
-                using (SqlConnection dbConnection = DBUtils.GetDBConnection())
+                if (MessageBox.Show(sb.ToString(), "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    dbConnection.Open();
-                    try
+                    using (SqlConnection conn = DBUtils.GetDBConnection())
                     {
-                        using (SqlCommand sqlCommand = new SqlCommand("INSERT INTO Invoices_Received VALUES (@Date, @InvNum, @Supp, @Desc, @Amt, @VAT, @Paid)", dbConnection))
+                        conn.Open();
+
+                        try
                         {
-                            Decimal num1 = !txt_IRA_Amt.Text.Contains("R") ? new Decimal(0, 0, 0, false, (byte)2) : (!(txt_IRA_Amt.Text.Replace("R", string.Empty) == "0.00") ? Decimal.Parse(txt_IRA_Amt.Text.Replace("R", string.Empty), (IFormatProvider)CultureInfo.GetCultureInfo("en-ZA")) : new Decimal(0, 0, 0, false, (byte)2));
-                            Decimal num2 = !txt_IRA_VAT.Text.Contains("R") ? new Decimal(0, 0, 0, false, (byte)2) : (!(txt_IRA_VAT.Text.Replace("R", string.Empty) == "0.00") ? Decimal.Parse(txt_IRA_VAT.Text.Replace("R", string.Empty), (IFormatProvider)CultureInfo.GetCultureInfo("en-ZA")) : new Decimal(0, 0, 0, false, (byte)2));
-                            sqlCommand.Parameters.AddWithValue("@Date", dtp_IRA_Date.Value);
-                            sqlCommand.Parameters.AddWithValue("@InvNum", txt_IRA_InvNum.Text.Trim());
-                            sqlCommand.Parameters.AddWithValue("@Supp", txt_IRA_SuppName.Text.Trim());
-                            sqlCommand.Parameters.AddWithValue("@Desc", txt_IRA_Desc.Text.Trim());
-                            sqlCommand.Parameters.AddWithValue("@Amt", num1);
-                            sqlCommand.Parameters.AddWithValue("@VAT", num2);
-                            if (cb_IRA_Paid.Checked)
-                                sqlCommand.Parameters.AddWithValue("@Paid", "Yes");
-                            else
-                                sqlCommand.Parameters.AddWithValue("@Paid", "No");
-                            sqlCommand.ExecuteNonQuery();
-                            int num3 = (int)MessageBox.Show("New invoice successfully added.", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                            this.Close();
+                            using (SqlCommand cmd = new SqlCommand("INSERT INTO Invoices_Received VALUES (@Date, @InvNum, @Supp, @Desc, @Amt, @VAT, @Paid)", conn))
+                            {
+                                decimal amt;
+                                if (txt_IRA_Amt.Text.Contains("R"))
+                                {
+                                    if (txt_IRA_Amt.Text.Replace("R", string.Empty) == "0.00")
+                                        amt = 0.00m;
+                                    else amt = Decimal.Parse(txt_IRA_Amt.Text.Replace("R", string.Empty), CultureInfo.GetCultureInfo("en-ZA"));
+                                }
+                                else amt = 0.00m;
+
+                                decimal VAT;
+                                if (txt_IRA_VAT.Text.Contains("R"))
+                                {
+                                    if (txt_IRA_VAT.Text.Replace("R", string.Empty) == "0.00")
+                                        VAT = 0.00m;
+                                    else VAT = Decimal.Parse(txt_IRA_VAT.Text.Replace("R", string.Empty), CultureInfo.GetCultureInfo("en-ZA"));
+                                }
+                                else VAT = 0.00m;
+
+                                cmd.Parameters.AddWithValue("@Date", dtp_IRA_Date.Value);
+                                cmd.Parameters.AddWithValue("@InvNum", txt_IRA_InvNum.Text.Trim());
+                                cmd.Parameters.AddWithValue("@Supp", txt_IRA_SuppName.Text.Trim());
+                                cmd.Parameters.AddWithValue("@Desc", txt_IRA_Desc.Text.Trim());
+                                cmd.Parameters.AddWithValue("@Amt", amt);
+                                cmd.Parameters.AddWithValue("@VAT", VAT);
+
+                                if (cb_IRA_Paid.Checked)
+                                    cmd.Parameters.AddWithValue("@Paid", "Yes");
+                                else
+                                    cmd.Parameters.AddWithValue("@Paid", "No");
+
+                                cmd.ExecuteNonQuery();
+
+                                MessageBox.Show("New invoice successfully added.", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                this.Close();
+                            }
                         }
-                    }
-                    catch (Exception ex)
-                    {
-                        int num = (int)MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                 }
             }
-            else
-            {
-                int num4 = (int)MessageBox.Show("Please enter an Invoice Number to continue.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
+            else MessageBox.Show("Please enter an Invoice Number to continue.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
+
+        //================================================================================================================================================//
+        // CANCEL CLICKED                                                                                                                            //
+        //================================================================================================================================================//
         private void Btn_IRA_Cancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+
+        //================================================================================================================================================//
+        // INVOICE NUMBER                                                                                                                           //
+        //================================================================================================================================================//
         private void Txt_IRA_InvNum_MouseEnter(object sender, EventArgs e)
         {
             ln_IRA_InvNum.LineColor = Color.FromArgb(19, 118, 188);
@@ -140,11 +184,14 @@ namespace Q_Tech_Bookkeeping
 
         private void Txt_IRA_InvNum_MouseLeave(object sender, EventArgs e)
         {
-            if (txt_IRA_InvNum.Focused)
-                return;
-            ln_IRA_InvNum.LineColor = Color.Gray;
+            if (!txt_IRA_InvNum.Focused)
+                ln_IRA_InvNum.LineColor = Color.Gray;
         }
 
+
+        //================================================================================================================================================//
+        // SUPPLIER NAME                                                                                                                            //
+        //================================================================================================================================================//
         private void Txt_IRA_SuppName_MouseEnter(object sender, EventArgs e)
         {
             ln_IRA_SuppName.LineColor = Color.FromArgb(19, 118, 188);
@@ -157,11 +204,14 @@ namespace Q_Tech_Bookkeeping
 
         private void Txt_IRA_SuppName_MouseLeave(object sender, EventArgs e)
         {
-            if (txt_IRA_SuppName.Focused)
-                return;
-            ln_IRA_SuppName.LineColor = Color.Gray;
+            if (!txt_IRA_SuppName.Focused)
+                ln_IRA_SuppName.LineColor = Color.Gray;
         }
 
+
+        //================================================================================================================================================//
+        // DESCRIPTION                                                                                                                        //
+        //================================================================================================================================================//
         private void Txt_IRA_Desc_Leave(object sender, EventArgs e)
         {
             ln_IRA_Desc.LineColor = Color.Gray;
@@ -174,11 +224,14 @@ namespace Q_Tech_Bookkeeping
 
         private void Txt_IRA_Desc_MouseLeave(object sender, EventArgs e)
         {
-            if (txt_IRA_Desc.Focused)
-                return;
-            ln_IRA_Desc.LineColor = Color.Gray;
+            if (!txt_IRA_Desc.Focused)
+                ln_IRA_Desc.LineColor = Color.Gray;
         }
 
+
+        //================================================================================================================================================//
+        // AMOUNT                                                                                                                            //
+        //================================================================================================================================================//
         private void Txt_IRA_Amt_MouseEnter(object sender, EventArgs e)
         {
             ln_IRA_Amt.LineColor = Color.FromArgb(19, 118, 188);
@@ -186,11 +239,14 @@ namespace Q_Tech_Bookkeeping
 
         private void Txt_IRA_Amt_MouseLeave(object sender, EventArgs e)
         {
-            if (txt_IRA_Amt.Focused)
-                return;
-            ln_IRA_Amt.LineColor = Color.Gray;
+            if (!txt_IRA_Amt.Focused)
+                ln_IRA_Amt.LineColor = Color.Gray;
         }
 
+
+        //================================================================================================================================================//
+        // VAT                                                                                                                           //
+        //================================================================================================================================================//
         private void Txt_IRA_VAT_Leave(object sender, EventArgs e)
         {
             ln_IRA_VAT.LineColor = Color.Gray;
@@ -203,11 +259,14 @@ namespace Q_Tech_Bookkeeping
 
         private void Txt_IRA_VAT_MouseLeave(object sender, EventArgs e)
         {
-            if (txt_IRA_VAT.Focused)
-                return;
-            ln_IRA_VAT.LineColor = Color.Gray;
+            if (!txt_IRA_VAT.Focused)
+                ln_IRA_VAT.LineColor = Color.Gray;
         }
 
+
+        //================================================================================================================================================//
+        // CLOSE BUTTON                                                                                                                        //
+        //================================================================================================================================================//
         private void Btn_IRA_Close_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -223,6 +282,10 @@ namespace Q_Tech_Bookkeeping
             btn_IRA_Close.Image = Resources.close_black;
         }
 
+
+        //================================================================================================================================================//
+        // DONE BUTTON                                                                                                                          //
+        //================================================================================================================================================//
         private void Btn_IRA_Done_MouseEnter(object sender, EventArgs e)
         {
             btn_IRA_Done.ForeColor = Color.White;
@@ -233,6 +296,10 @@ namespace Q_Tech_Bookkeeping
             btn_IRA_Done.ForeColor = Color.FromArgb(64, 64, 64);
         }
 
+
+        //================================================================================================================================================//
+        // CANCEL BUTTON                                                                                                                           //
+        //================================================================================================================================================//
         private void Btn_IRA_Cancel_MouseEnter(object sender, EventArgs e)
         {
             btn_IRA_Cancel.ForeColor = Color.White;
@@ -243,6 +310,10 @@ namespace Q_Tech_Bookkeeping
             btn_IRA_Cancel.ForeColor = Color.FromArgb(64, 64, 64);
         }
 
+
+        //================================================================================================================================================//
+        // INVOICE RECEIVE ADD                                                                                                                           //
+        //================================================================================================================================================//
         private void Inv_Rec_Add_MouseDown(object sender, MouseEventArgs e)
         {
             mouseDown = true;
@@ -251,14 +322,11 @@ namespace Q_Tech_Bookkeeping
 
         private void Inv_Rec_Add_MouseMove(object sender, MouseEventArgs e)
         {
-            if (!mouseDown)
-                return;
-            Point location = Location;
-            int x = location.X - lastLocation.X + e.X;
-            location = Location;
-            int y = location.Y - lastLocation.Y + e.Y;
-            Location = new Point(x, y);
-            this.Update();
+            if (mouseDown)
+            {
+                this.Location = new Point(this.Location.X - (lastLocation.X + e.X), this.Location.Y - (lastLocation.Y + e.Y));
+                this.Update();
+            }
         }
 
         private void Inv_REc_Add_MouseUp(object sender, MouseEventArgs e)

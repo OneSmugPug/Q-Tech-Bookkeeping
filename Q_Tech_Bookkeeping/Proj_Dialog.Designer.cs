@@ -28,30 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btn_PD_ManProject = new System.Windows.Forms.Button();
+            this.btn_PD_AddExp = new System.Windows.Forms.Button();
             this.btn_PD_EditProj = new System.Windows.Forms.Button();
             this.btn_PD_Close = new System.Windows.Forms.Button();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.SuspendLayout();
             // 
-            // btn_PD_ManProject
+            // btn_PD_AddExp
             // 
-            this.btn_PD_ManProject.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_PD_ManProject.FlatAppearance.BorderSize = 0;
-            this.btn_PD_ManProject.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.btn_PD_ManProject.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
-            this.btn_PD_ManProject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_PD_ManProject.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_PD_ManProject.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btn_PD_ManProject.Location = new System.Drawing.Point(12, 51);
-            this.btn_PD_ManProject.Name = "btn_PD_ManProject";
-            this.btn_PD_ManProject.Size = new System.Drawing.Size(122, 40);
-            this.btn_PD_ManProject.TabIndex = 0;
-            this.btn_PD_ManProject.Text = "Manage Project";
-            this.btn_PD_ManProject.UseVisualStyleBackColor = true;
-            this.btn_PD_ManProject.Click += new System.EventHandler(this.Btn_PD_ManProject_Click);
-            this.btn_PD_ManProject.MouseEnter += new System.EventHandler(this.Btn_PD_ManProject_MouseEnter);
-            this.btn_PD_ManProject.MouseLeave += new System.EventHandler(this.Btn_PD_ManProject_MouseLeave);
+            this.btn_PD_AddExp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_PD_AddExp.FlatAppearance.BorderSize = 0;
+            this.btn_PD_AddExp.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
+            this.btn_PD_AddExp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
+            this.btn_PD_AddExp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_PD_AddExp.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_PD_AddExp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btn_PD_AddExp.Location = new System.Drawing.Point(18, 51);
+            this.btn_PD_AddExp.Name = "btn_PD_AddExp";
+            this.btn_PD_AddExp.Size = new System.Drawing.Size(122, 40);
+            this.btn_PD_AddExp.TabIndex = 0;
+            this.btn_PD_AddExp.Text = "Add Expenses";
+            this.btn_PD_AddExp.UseVisualStyleBackColor = true;
+            this.btn_PD_AddExp.Click += new System.EventHandler(this.Btn_PD_AddExp_Click);
+            this.btn_PD_AddExp.MouseEnter += new System.EventHandler(this.Btn_PD_AddExp_MouseEnter);
+            this.btn_PD_AddExp.MouseLeave += new System.EventHandler(this.Btn_PD_AddExp_MouseLeave);
             // 
             // btn_PD_EditProj
             // 
@@ -62,11 +62,11 @@
             this.btn_PD_EditProj.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_PD_EditProj.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_PD_EditProj.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btn_PD_EditProj.Location = new System.Drawing.Point(149, 51);
+            this.btn_PD_EditProj.Location = new System.Drawing.Point(160, 51);
             this.btn_PD_EditProj.Name = "btn_PD_EditProj";
-            this.btn_PD_EditProj.Size = new System.Drawing.Size(122, 40);
+            this.btn_PD_EditProj.Size = new System.Drawing.Size(154, 40);
             this.btn_PD_EditProj.TabIndex = 2;
-            this.btn_PD_EditProj.Text = "Edit Project";
+            this.btn_PD_EditProj.Text = "Edit Project Details";
             this.btn_PD_EditProj.UseVisualStyleBackColor = true;
             this.btn_PD_EditProj.Click += new System.EventHandler(this.Btn_PD_EditProj_Click);
             this.btn_PD_EditProj.MouseEnter += new System.EventHandler(this.Btn_PD_EditProj_MouseEnter);
@@ -80,7 +80,7 @@
             this.btn_PD_Close.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btn_PD_Close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_PD_Close.Image = global::Properties.Resources.close_black;
-            this.btn_PD_Close.Location = new System.Drawing.Point(252, 0);
+            this.btn_PD_Close.Location = new System.Drawing.Point(295, 0);
             this.btn_PD_Close.Name = "btn_PD_Close";
             this.btn_PD_Close.Padding = new System.Windows.Forms.Padding(0, 0, 1, 0);
             this.btn_PD_Close.Size = new System.Drawing.Size(31, 29);
@@ -106,11 +106,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(283, 107);
+            this.ClientSize = new System.Drawing.Size(326, 107);
             this.Controls.Add(this.bunifuCustomLabel1);
             this.Controls.Add(this.btn_PD_EditProj);
             this.Controls.Add(this.btn_PD_Close);
-            this.Controls.Add(this.btn_PD_ManProject);
+            this.Controls.Add(this.btn_PD_AddExp);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Proj_Dialog";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
@@ -125,7 +125,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btn_PD_ManProject;
+        private System.Windows.Forms.Button btn_PD_AddExp;
         private System.Windows.Forms.Button btn_PD_Close;
         private System.Windows.Forms.Button btn_PD_EditProj;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;

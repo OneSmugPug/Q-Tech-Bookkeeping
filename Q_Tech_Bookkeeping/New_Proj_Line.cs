@@ -21,7 +21,7 @@ namespace Q_Tech_Bookkeeping
     private string Proj_ID;
     private bool mouseDown;
     private Point lastLocation;
-    private Manage_Proj parent;
+    private Proj_AddExp parent;
     private Button btn_NPL_Close;
     private BunifuCustomLabel bunifuCustomLabel1;
     private BunifuDropdown ddb_NPL_Column;
@@ -46,7 +46,7 @@ namespace Q_Tech_Bookkeeping
       this.InitializeComponent();
     }
 
-    public void setParent(Manage_Proj parent)
+    public void setParent(Proj_AddExp parent)
     {
       this.parent = parent;
     }

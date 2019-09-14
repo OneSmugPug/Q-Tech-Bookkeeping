@@ -155,7 +155,7 @@
     <Compile Include="Q_Tech_Bookkeeping\Inv_Send_Edit_Del.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Q_Tech_Bookkeeping\Manage_Proj.cs">
+    <Compile Include="Q_Tech_Bookkeeping\Proj_AddExp.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Q_Tech_Bookkeeping\New_Proj_Line.cs">
@@ -185,9 +185,6 @@
     </Compile>
     <Compile Include="Q_Tech_Bookkeeping\Proj_Add.Designer.cs">
       <DependentUpon>Proj_Add.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Q_Tech_Bookkeeping\Proj_AddOld.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Q_Tech_Bookkeeping\Proj_Dialog.cs">
       <SubType>Form</SubType>

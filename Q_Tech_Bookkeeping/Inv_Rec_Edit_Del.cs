@@ -14,7 +14,6 @@ namespace Q_Tech_Bookkeeping
     public partial class Inv_Rec_Edit_Del : Form
     {
         private bool mouseDown = false;
-        private IContainer components = (IContainer)null;
         private DataTable dt;
         private int SELECTED_INVOICE;
         private string oldINum;
@@ -25,13 +24,20 @@ namespace Q_Tech_Bookkeeping
             InitializeComponent();
         }
 
+
+        //================================================================================================================================================//
+        // LOAD EDIT/DELETE FORM                                                                                                                          //
+        //================================================================================================================================================//
         private void Inv_Rec_Edit_Del_Load(object sender, EventArgs e)
         {
             txt_IRED_SuppName.Focus();
-            Inv_RecOld curForm = (Inv_RecOld)((Home)Owner).GetCurForm();
-            dt = curForm.getInvRec();
-            SELECTED_INVOICE = curForm.getSelectedInv();
+
+            Inv_Rec curForm = (Inv_Rec)((Home)this.Owner).GetCurForm();
+            dt = curForm.GetInvRec();
+            SELECTED_INVOICE = curForm.GetSelectedInv();
+
             LoadInvRec();
+
             oldINum = txt_IRED_InvNum.Text.Trim();
         }
 
@@ -39,37 +45,45 @@ namespace Q_Tech_Bookkeeping
         {
             txt_IRED_SuppName.Text = dt.Rows[SELECTED_INVOICE]["Supplier"].ToString().Trim();
             txt_IRED_InvNum.Text = dt.Rows[SELECTED_INVOICE]["Invoice_Number"].ToString().Trim();
-            dtp_IRED_Date.Value = !(dt.Rows[SELECTED_INVOICE]["Date"].ToString() != string.Empty) ? DateTime.Now : Convert.ToDateTime(dt.Rows[SELECTED_INVOICE]["Date"].ToString());
+
+            dtp_IRED_Date.Value = (dt.Rows[SELECTED_INVOICE]["Date"].ToString() == string.Empty) ? DateTime.Now : Convert.ToDateTime(dt.Rows[SELECTED_INVOICE]["Date"].ToString());
+
             txt_IRED_Desc.Text = dt.Rows[SELECTED_INVOICE]["Description"].ToString().Trim();
+
             if (dt.Rows[SELECTED_INVOICE]["Total_Amount"].ToString() != string.Empty)
                 txt_IRED_Amt.Text = Convert.ToDecimal(dt.Rows[SELECTED_INVOICE]["Total_Amount"].ToString().Trim()).ToString("C");
-            else
-                txt_IRED_Amt.Text = "R0.00";
+            else txt_IRED_Amt.Text = "R0.00";
+
             if (dt.Rows[SELECTED_INVOICE]["VAT"].ToString() != string.Empty)
                 txt_IRED_VAT.Text = Convert.ToDecimal(dt.Rows[SELECTED_INVOICE]["VAT"].ToString().Trim()).ToString("C");
-            else
-                txt_IRED_VAT.Text = "R0.00";
+            else txt_IRED_VAT.Text = "R0.00";
+
             if (dt.Rows[SELECTED_INVOICE]["Paid"].ToString() == "Yes")
                 cb_IRED_Paid.Checked = true;
-            else
-                cb_IRED_Paid.Checked = false;
+            else cb_IRED_Paid.Checked = false;
         }
 
+
+        //================================================================================================================================================//
+        // FORMAT MONEY TEXTBOX                                                                                                                           //
+        //================================================================================================================================================//
         private void Txt_IRED_Amt_TextChanged(object sender, EventArgs e)
         {
-            Decimal result;
-            if (Decimal.TryParse(txt_IRED_Amt.Text.Replace(",", string.Empty).Replace("R", string.Empty).Replace(".", string.Empty).TrimStart('0'), out result))
+            if (Decimal.TryParse(txt_IRED_Amt.Text.Replace(",", string.Empty).Replace("R", string.Empty).Replace(".", string.Empty).TrimStart('0'), out decimal result))
             {
-                Decimal num = result / new Decimal(100);
-                txt_IRED_Amt.TextChanged -= new EventHandler(Txt_IRED_Amt_TextChanged);
-                txt_IRED_Amt.Text = string.Format((IFormatProvider)CultureInfo.CreateSpecificCulture("en-ZA"), "{0:C2}", num);
-                txt_IRED_Amt.TextChanged += new EventHandler(Txt_IRED_Amt_TextChanged);
+                result /= 100;
+
+                txt_IRED_Amt.TextChanged -= Txt_IRED_Amt_TextChanged;
+                txt_IRED_Amt.Text = string.Format(CultureInfo.CreateSpecificCulture("en-ZA"), "{0:C2}", result);
+                txt_IRED_Amt.TextChanged += Txt_IRED_Amt_TextChanged;
                 txt_IRED_Amt.Select(txt_IRED_Amt.Text.Length, 0);
             }
-            if (TextisValid(txt_IRED_Amt.Text))
-                return;
-            txt_IRED_Amt.Text = "R0.00";
-            txt_IRED_Amt.Select(txt_IRED_Amt.Text.Length, 0);
+
+            if (!TextisValid(txt_IRED_Amt.Text))
+            {
+                txt_IRED_Amt.Text = "R0.00";
+                txt_IRED_Amt.Select(txt_IRED_Amt.Text.Length, 0);
+            }
         }
 
         private bool TextisValid(string text)
@@ -79,96 +93,140 @@ namespace Q_Tech_Bookkeeping
 
         private void Txt_IRED_VAT_TextChanged(object sender, EventArgs e)
         {
-            Decimal result;
-            if (Decimal.TryParse(txt_IRED_VAT.Text.Replace(",", string.Empty).Replace("R", string.Empty).Replace(".", string.Empty).TrimStart('0'), out result))
+            if (Decimal.TryParse(txt_IRED_VAT.Text.Replace(",", string.Empty).Replace("R", string.Empty).Replace(".", string.Empty).TrimStart('0'), out decimal result))
             {
-                Decimal num = result / new Decimal(100);
-                txt_IRED_VAT.TextChanged -= new EventHandler(Txt_IRED_VAT_TextChanged);
-                txt_IRED_VAT.Text = string.Format((IFormatProvider)CultureInfo.CreateSpecificCulture("en-ZA"), "{0:C2}", num);
-                txt_IRED_VAT.TextChanged += new EventHandler(Txt_IRED_VAT_TextChanged);
+                result /= 100;
+
+                txt_IRED_VAT.TextChanged -= Txt_IRED_VAT_TextChanged;
+                txt_IRED_VAT.Text = string.Format(CultureInfo.CreateSpecificCulture("en-ZA"), "{0:C2}", result);
+                txt_IRED_VAT.TextChanged += Txt_IRED_VAT_TextChanged;
                 txt_IRED_VAT.Select(txt_IRED_VAT.Text.Length, 0);
             }
-            if (TextisValid(txt_IRED_VAT.Text))
-                return;
-            txt_IRED_VAT.Text = "R0.00";
-            txt_IRED_VAT.Select(txt_IRED_VAT.Text.Length, 0);
+
+            if (!TextisValid(txt_IRED_VAT.Text))
+            {
+                txt_IRED_VAT.Text = "R0.00";
+                txt_IRED_VAT.Select(txt_IRED_VAT.Text.Length, 0);
+            }
         }
 
+
+        //================================================================================================================================================//
+        // EDIT INVOICE DETAILS                                                                                                                           //
+        //================================================================================================================================================//
         private void Btn_IRED_Done_Click(object sender, EventArgs e)
         {
             if (txt_IRED_InvNum.Text != string.Empty)
             {
-                if (MessageBox.Show("Are you sure you want to update invoice?", "Confirmation", MessageBoxButtons.YesNo) != DialogResult.Yes)
-                    return;
-                if (txt_IRED_InvNum.Text == oldINum)
+                if (MessageBox.Show("Are you sure you want to update invoice?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    using (SqlConnection dbConnection = DBUtils.GetDBConnection())
+                    if (txt_IRED_InvNum.Text == oldINum)
                     {
-                        dbConnection.Open();
-                        try
+                        using (SqlConnection conn = DBUtils.GetDBConnection())
                         {
-                            using (SqlCommand sqlCommand = new SqlCommand("UPDATE Invoices_Received SET Date = @Date, Supplier = @Supp, Description = @Desc, Total_Amount = @Amt, VAT = @VAT, Paid = @Paid WHERE Invoice_Number = @INum", dbConnection))
+                            conn.Open();
+                            try
                             {
-                                Decimal num1 = !txt_IRED_Amt.Text.Contains("R") ? new Decimal(0, 0, 0, false, (byte)2) : (!(txt_IRED_Amt.Text.Replace("R", string.Empty) == "0.00") ? Decimal.Parse(txt_IRED_Amt.Text.Replace("R", string.Empty), (IFormatProvider)CultureInfo.GetCultureInfo("en-ZA")) : new Decimal(0, 0, 0, false, (byte)2));
-                                Decimal num2 = !txt_IRED_VAT.Text.Contains("R") ? new Decimal(0, 0, 0, false, (byte)2) : (!(txt_IRED_VAT.Text.Replace("R", string.Empty) == "0.00") ? Decimal.Parse(txt_IRED_VAT.Text.Replace("R", string.Empty), (IFormatProvider)CultureInfo.GetCultureInfo("en-ZA")) : new Decimal(0, 0, 0, false, (byte)2));
-                                sqlCommand.Parameters.AddWithValue("@Date", dtp_IRED_Date.Value);
-                                sqlCommand.Parameters.AddWithValue("@Supp", txt_IRED_SuppName.Text.Trim());
-                                sqlCommand.Parameters.AddWithValue("@Desc", txt_IRED_Desc.Text.Trim());
-                                sqlCommand.Parameters.AddWithValue("@Amt", num1);
-                                sqlCommand.Parameters.AddWithValue("@VAT", num2);
-                                if (cb_IRED_Paid.Checked)
-                                    sqlCommand.Parameters.AddWithValue("@Paid", "Yes");
-                                else
-                                    sqlCommand.Parameters.AddWithValue("@Paid", "No");
-                                sqlCommand.Parameters.AddWithValue("@INum", txt_IRED_InvNum.Text.Trim());
-                                sqlCommand.ExecuteNonQuery();
-                                int num3 = (int)MessageBox.Show("Invoice successfully updated.", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                                this.Close();
+                                using (SqlCommand cmd = new SqlCommand("UPDATE Invoices_Received SET Date = @Date, Supplier = @Supp, Description = @Desc, Total_Amount = @Amt, VAT = @VAT, Paid = @Paid WHERE Invoice_Number = @INum", conn))
+                                {
+                                    decimal amt;
+                                    if (txt_IRED_Amt.Text.Contains("R"))
+                                    {
+                                        if (txt_IRED_Amt.Text.Replace("R", string.Empty) == "0.00")
+                                            amt = 0.00m;
+                                        else amt = Decimal.Parse(txt_IRED_Amt.Text.Replace("R", string.Empty), CultureInfo.GetCultureInfo("en-ZA"));
+                                    } else amt = 0.00m;
+
+                                    decimal VAT;
+                                    if (txt_IRED_VAT.Text.Contains("R"))
+                                    {
+                                        if (txt_IRED_VAT.Text.Replace("R", string.Empty) == "0.00")
+                                            VAT = 0.00m;
+                                        else VAT = Decimal.Parse(txt_IRED_VAT.Text.Replace("R", string.Empty), CultureInfo.GetCultureInfo("en-ZA"));
+                                    } else VAT = 0.00m;
+
+                                    cmd.Parameters.AddWithValue("@Date", dtp_IRED_Date.Value);
+                                    cmd.Parameters.AddWithValue("@Supp", txt_IRED_SuppName.Text.Trim());
+                                    cmd.Parameters.AddWithValue("@Desc", txt_IRED_Desc.Text.Trim());
+                                    cmd.Parameters.AddWithValue("@Amt", amt);
+                                    cmd.Parameters.AddWithValue("@VAT", VAT);
+
+                                    if (cb_IRED_Paid.Checked)
+                                        cmd.Parameters.AddWithValue("@Paid", "Yes");
+                                    else cmd.Parameters.AddWithValue("@Paid", "No");
+
+                                    cmd.Parameters.AddWithValue("@INum", txt_IRED_InvNum.Text.Trim());
+
+                                    cmd.ExecuteNonQuery();
+
+                                    MessageBox.Show("Invoice successfully updated.", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                    this.Close();
+                                }
                             }
-                        }
-                        catch (Exception ex)
-                        {
-                            int num = (int)MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         }
                     }
-                }
-                else if (txt_IRED_InvNum.Text != oldINum)
-                {
-                    using (SqlConnection dbConnection = DBUtils.GetDBConnection())
+                    else if (txt_IRED_InvNum.Text != oldINum)
                     {
-                        dbConnection.Open();
-                        try
+                        using (SqlConnection conn = DBUtils.GetDBConnection())
                         {
-                            using (SqlCommand sqlCommand = new SqlCommand("UPDATE Invoices_Received SET Date = @Date, Invoice_Number = @oldINum, Supplier = @Supp, Description = @Desc, Total_Amount = @Amt, VAT = @VAT, Paid = @Paid WHERE Invoice_Number = @INum", dbConnection))
+                            conn.Open();
+                            try
                             {
-                                Decimal num1 = !txt_IRED_Amt.Text.Contains("R") ? new Decimal(0, 0, 0, false, (byte)2) : (!(txt_IRED_Amt.Text.Replace("R", string.Empty) == "0.00") ? Decimal.Parse(txt_IRED_Amt.Text.Replace("R", string.Empty), (IFormatProvider)CultureInfo.GetCultureInfo("en-ZA")) : new Decimal(0, 0, 0, false, (byte)2));
-                                Decimal num2 = !txt_IRED_VAT.Text.Contains("R") ? new Decimal(0, 0, 0, false, (byte)2) : (!(txt_IRED_VAT.Text.Replace("R", string.Empty) == "0.00") ? Decimal.Parse(txt_IRED_VAT.Text.Replace("R", string.Empty), (IFormatProvider)CultureInfo.GetCultureInfo("en-ZA")) : new Decimal(0, 0, 0, false, (byte)2));
-                                sqlCommand.Parameters.AddWithValue("@Date", dtp_IRED_Date.Value);
-                                sqlCommand.Parameters.AddWithValue("@oldINum", txt_IRED_InvNum.Text.Trim());
-                                sqlCommand.Parameters.AddWithValue("@Supp", txt_IRED_SuppName.Text.Trim());
-                                sqlCommand.Parameters.AddWithValue("@Desc", txt_IRED_Desc.Text.Trim());
-                                sqlCommand.Parameters.AddWithValue("@Amt", num1);
-                                sqlCommand.Parameters.AddWithValue("@VAT", num2);
-                                if (cb_IRED_Paid.Checked)
-                                    sqlCommand.Parameters.AddWithValue("@Paid", "Yes");
-                                else
-                                    sqlCommand.Parameters.AddWithValue("@Paid", "No");
-                                sqlCommand.Parameters.AddWithValue("@INum", oldINum);
-                                sqlCommand.ExecuteNonQuery();
-                                int num3 = (int)MessageBox.Show("Invoice successfully updated.", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                                this.Close();
+                                using (SqlCommand cmd = new SqlCommand("UPDATE Invoices_Received SET Date = @Date, Invoice_Number = @oldINum, Supplier = @Supp, Description = @Desc, Total_Amount = @Amt, VAT = @VAT, Paid = @Paid WHERE Invoice_Number = @INum", conn))
+                                {
+                                    decimal amt;
+                                    if (txt_IRED_Amt.Text.Contains("R"))
+                                    {
+                                        if (txt_IRED_Amt.Text.Replace("R", string.Empty) == "0.00")
+                                            amt = 0.00m;
+                                        else amt = Decimal.Parse(txt_IRED_Amt.Text.Replace("R", string.Empty), CultureInfo.GetCultureInfo("en-ZA"));
+                                    } else amt = 0.00m;
+
+                                    decimal VAT;
+                                    if (txt_IRED_VAT.Text.Contains("R"))
+                                    {
+                                        if (txt_IRED_VAT.Text.Replace("R", string.Empty) == "0.00")
+                                        {
+                                            VAT = 0.00m;
+                                        } else VAT = Decimal.Parse(txt_IRED_VAT.Text.Replace("R", string.Empty), CultureInfo.GetCultureInfo("en-ZA"));
+                                    } else VAT = 0.00m;
+
+                                    cmd.Parameters.AddWithValue("@Date", dtp_IRED_Date.Value);
+                                    cmd.Parameters.AddWithValue("@oldINum", txt_IRED_InvNum.Text.Trim());
+                                    cmd.Parameters.AddWithValue("@Supp", txt_IRED_SuppName.Text.Trim());
+                                    cmd.Parameters.AddWithValue("@Desc", txt_IRED_Desc.Text.Trim());
+                                    cmd.Parameters.AddWithValue("@Amt", amt);
+                                    cmd.Parameters.AddWithValue("@VAT", VAT);
+
+                                    if (cb_IRED_Paid.Checked)
+                                        cmd.Parameters.AddWithValue("@Paid", "Yes");
+                                    else cmd.Parameters.AddWithValue("@Paid", "No");
+
+                                    cmd.Parameters.AddWithValue("@INum", oldINum);
+
+                                    cmd.ExecuteNonQuery();
+
+                                    MessageBox.Show("Invoice successfully updated.", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                    this.Close();
+                                }
                             }
-                        }
-                        catch (Exception ex)
-                        {
-                            int num = (int)MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         }
                     }
                 }
             }
             else
             {
-                int num4 = (int)MessageBox.Show("Please enter an Invoice Number to continue.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Please enter an Invoice Number to continue.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -177,14 +235,23 @@ namespace Q_Tech_Bookkeeping
             this.Close();
         }
 
+
+        //================================================================================================================================================//
+        // CALCULATE VAT                                                                                                                                  //
+        //================================================================================================================================================//
         private void Txt_IRED_Amt_Leave(object sender, EventArgs e)
         {
-            Decimal result;
-            if (!Decimal.TryParse(txt_IRED_Amt.Text.Replace("R", string.Empty), out result))
-                return;
-            txt_IRED_VAT.Text = string.Format((IFormatProvider)CultureInfo.CreateSpecificCulture("en-ZA"), "{0:C2}", (result - result / new Decimal(115, 0, 0, false, (byte)2)));
+            if (Decimal.TryParse(txt_IRED_Amt.Text.Replace("R", string.Empty), out decimal result))
+            {
+                result *= 0.15m;
+                txt_IRED_VAT.Text = string.Format(CultureInfo.CreateSpecificCulture("en-ZA"), "{0:C2}", result);
+            }
         }
 
+
+        //================================================================================================================================================//
+        // INVOICE NUMBER                                                                                                                         //
+        //================================================================================================================================================//
         private void Txt_IRED_InvNum_MouseEnter(object sender, EventArgs e)
         {
             ln_IRED_InvNum.LineColor = Color.FromArgb(19, 118, 188);
@@ -197,11 +264,14 @@ namespace Q_Tech_Bookkeeping
 
         private void Txt_IRA_InvNum_MouseLeave(object sender, EventArgs e)
         {
-            if (txt_IRED_InvNum.Focused)
-                return;
-            ln_IRED_InvNum.LineColor = Color.Gray;
+            if (!txt_IRED_InvNum.Focused)
+                ln_IRED_InvNum.LineColor = Color.Gray;
         }
 
+
+        //================================================================================================================================================//
+        // SUPPLIER NAME                                                                                                                       //
+        //================================================================================================================================================//
         private void Txt_IRED_SuppName_MouseEnter(object sender, EventArgs e)
         {
             ln_IRED_SuppName.LineColor = Color.FromArgb(19, 118, 188);
@@ -214,11 +284,14 @@ namespace Q_Tech_Bookkeeping
 
         private void Txt_IRED_SuppName_MouseLeave(object sender, EventArgs e)
         {
-            if (txt_IRED_SuppName.Focused)
-                return;
-            ln_IRED_SuppName.LineColor = Color.Gray;
+            if (!txt_IRED_SuppName.Focused)
+                ln_IRED_SuppName.LineColor = Color.Gray;
         }
 
+
+        //================================================================================================================================================//
+        // DESCRIPTION                                                                                                                       //
+        //================================================================================================================================================//
         private void Txt_IRED_Desc_Leave(object sender, EventArgs e)
         {
             ln_IRED_Desc.LineColor = Color.Gray;
@@ -231,11 +304,14 @@ namespace Q_Tech_Bookkeeping
 
         private void Txt_IRED_Desc_MouseLeave(object sender, EventArgs e)
         {
-            if (txt_IRED_Desc.Focused)
-                return;
-            ln_IRED_Desc.LineColor = Color.Gray;
+            if (!txt_IRED_Desc.Focused)
+                ln_IRED_Desc.LineColor = Color.Gray;
         }
 
+
+        //================================================================================================================================================//
+        // AMOUNT                                                                                                                         //
+        //================================================================================================================================================//
         private void Txt_IRED_Amt_MouseEnter(object sender, EventArgs e)
         {
             ln_IRED_Amt.LineColor = Color.FromArgb(19, 118, 188);
@@ -243,11 +319,14 @@ namespace Q_Tech_Bookkeeping
 
         private void Txt_IRED_Amt_MouseLeave(object sender, EventArgs e)
         {
-            if (txt_IRED_Amt.Focused)
-                return;
-            ln_IRED_Amt.LineColor = Color.Gray;
+            if (!txt_IRED_Amt.Focused)
+                ln_IRED_Amt.LineColor = Color.Gray;
         }
 
+
+        //================================================================================================================================================//
+        // VAT                                                                                                                        //
+        //================================================================================================================================================//
         private void Txt_IRED_VAT_Leave(object sender, EventArgs e)
         {
             ln_IRED_VAT.LineColor = Color.Gray;
@@ -260,11 +339,14 @@ namespace Q_Tech_Bookkeeping
 
         private void Txt_IRED_VAT_MouseLeave(object sender, EventArgs e)
         {
-            if (txt_IRED_VAT.Focused)
-                return;
-            ln_IRED_VAT.LineColor = Color.Gray;
+            if (!txt_IRED_VAT.Focused)
+                ln_IRED_VAT.LineColor = Color.Gray;
         }
 
+
+        //================================================================================================================================================//
+        // CLOSE BUTTON                                                                                                                       //
+        //================================================================================================================================================//
         private void Btn_IRED_Close_MouseEnter(object sender, EventArgs e)
         {
             btn_IRED_Close.Image = Resources.close_white;
@@ -275,6 +357,10 @@ namespace Q_Tech_Bookkeeping
             btn_IRED_Close.Image = Resources.close_black;
         }
 
+
+        //================================================================================================================================================//
+        // DONE BUTTON                                                                                                                        //
+        //================================================================================================================================================//
         private void Btn_IRED_Done_MouseEnter(object sender, EventArgs e)
         {
             btn_IRED_Done.ForeColor = Color.White;
@@ -285,6 +371,10 @@ namespace Q_Tech_Bookkeeping
             btn_IRED_Done.ForeColor = Color.FromArgb(64, 64, 64);
         }
 
+
+        //================================================================================================================================================//
+        // CANCEL BUTTON                                                                                                                       //
+        //================================================================================================================================================//
         private void Btn_IRED_Cancel_MouseEnter(object sender, EventArgs e)
         {
             btn_IRED_Cancel.ForeColor = Color.White;
@@ -295,6 +385,10 @@ namespace Q_Tech_Bookkeeping
             btn_IRED_Cancel.ForeColor = Color.FromArgb(64, 64, 64);
         }
 
+
+        //================================================================================================================================================//
+        // INVOICE RECEIVE EDIT DELETE                                                                                                                        //
+        //================================================================================================================================================//
         private void Inv_Rec_Edit_Del_MouseDown(object sender, MouseEventArgs e)
         {
             mouseDown = true;
@@ -303,14 +397,11 @@ namespace Q_Tech_Bookkeeping
 
         private void Inv_Rec_Edit_Del_MouseMove(object sender, MouseEventArgs e)
         {
-            if (!mouseDown)
-                return;
-            Point location = Location;
-            int x = location.X - lastLocation.X + e.X;
-            location = Location;
-            int y = location.Y - lastLocation.Y + e.Y;
-            Location = new Point(x, y);
-            this.Update();
+            if (mouseDown)
+            {
+                this.Location = new Point(this.Location.X - (lastLocation.X + e.X), this.Location.Y - (lastLocation.Y + e.Y));
+                this.Update();
+            }
         }
 
         private void Inv_Rec_Edit_Del_MouseUp(object sender, MouseEventArgs e)
@@ -318,6 +409,10 @@ namespace Q_Tech_Bookkeeping
             mouseDown = false;
         }
 
+
+        //================================================================================================================================================//
+        // INVOICE RECEIVE EDIT DELETE                                                                                                                        //
+        //================================================================================================================================================//
         private void Btn_IRED_Cancel_Click(object sender, EventArgs e)
         {
             this.Close();
