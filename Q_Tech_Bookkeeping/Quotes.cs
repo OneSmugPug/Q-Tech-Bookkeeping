@@ -155,7 +155,7 @@ namespace Q_Tech_Bookkeeping
         {
             if (isFiltered)
                 RemoveFilter();
-            using (Q_Add qAdd = new Q_Add())
+            using (Q_AddOld qAdd = new Q_AddOld())
             {
                 int num = (int)qAdd.ShowDialog((IWin32Window)this);
             }
@@ -226,7 +226,7 @@ namespace Q_Tech_Bookkeeping
             if (isFiltered)
                 RemoveFilter();
             SELECTED_QUOTE = e.RowIndex;
-            using (Q_Edit_Del qEditDel = new Q_Edit_Del())
+            using (Q_Edit_DelOld qEditDel = new Q_Edit_DelOld())
             {
                 int num = (int)qEditDel.ShowDialog((IWin32Window)this);
             }
