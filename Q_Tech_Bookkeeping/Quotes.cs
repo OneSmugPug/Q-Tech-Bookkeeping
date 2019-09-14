@@ -155,7 +155,7 @@ namespace Q_Tech_Bookkeeping
         {
             if (isFiltered)
                 RemoveFilter();
-            using (Q_Add qAdd = new Q_Add())
+            using (Q_AddOld qAdd = new Q_AddOld())
             {
                 int num = (int)qAdd.ShowDialog((IWin32Window)this);
             }
