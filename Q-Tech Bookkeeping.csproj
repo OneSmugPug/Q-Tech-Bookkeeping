@@ -125,9 +125,6 @@
     <Compile Include="Q_Tech_Bookkeeping\ImageResize.cs" />
     <Compile Include="Q_Tech_Bookkeeping\DBUtils.cs" />
     <Compile Include="Q_Tech_Bookkeeping\DBConnection.cs" />
-    <Compile Include="Q_Tech_Bookkeeping\Int_Invoices_SendOld.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Q_Tech_Bookkeeping\Int_Quotes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,9 +168,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Q_Tech_Bookkeeping\New_Proj_Line.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Q_Tech_Bookkeeping\OrdersOld.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Q_Tech_Bookkeeping\O_Add.cs">
