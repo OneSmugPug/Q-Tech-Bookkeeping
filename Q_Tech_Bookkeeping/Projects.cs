@@ -28,29 +28,42 @@ namespace Q_Tech_Bookkeeping
             LoadProjects();
         }
 
+
+        //================================================================================================================================================//
+        // PROJECT DETAILS LOAD                                                                                                                           //
+        //================================================================================================================================================//
         private void LoadProjects()
         {
-            using (SqlConnection dbConnection = DBUtils.GetDBConnection())
+            using (SqlConnection conn = DBUtils.GetDBConnection())
             {
-                dbConnection.Open();
-                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT * FROM Projects", dbConnection);
+                conn.Open();
+
+                SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Projects", conn);
                 dt = new DataTable();
-                sqlDataAdapter.Fill(dt);
+                da.Fill(dt);
             }
             bs.DataSource = dt;
         }
 
+
+        //================================================================================================================================================//
+        // NEW PROJECT CLICKED                                                                                                                            //
+        //================================================================================================================================================//
         private void Btn_P_NewProject_Click(object sender, EventArgs e)
         {
             if (isFiltered)
                 RemoveFilter();
-            using (Proj_AddOld projAdd = new Proj_AddOld())
-            {
-                int num = (int)projAdd.ShowDialog((IWin32Window)this);
-            }
+
+            using (Proj_Add frmPAdd = new Proj_Add())
+                frmPAdd.ShowDialog(this);
+
             LoadProjects();
         }
 
+
+        //================================================================================================================================================//
+        // GETTERS                                                                                                                                        //
+        //================================================================================================================================================//
         public int GetSelectedProj()
         {
             return SELECTED_PROJECT;
@@ -66,18 +79,27 @@ namespace Q_Tech_Bookkeeping
             return dgv_Projects[0, SELECTED_PROJECT].Value.ToString();
         }
 
+
+        //================================================================================================================================================//
+        // DATAGRIDVIEW CELL DOUBLECLICK                                                                                                                  //
+        //================================================================================================================================================//
         private void Dgv_Projects_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (isFiltered)
                 RemoveFilter();
+
             SELECTED_PROJECT = e.RowIndex;
-            using (Proj_DialogOld projDialog = new Proj_DialogOld())
-            {
-                int num = (int)projDialog.ShowDialog((IWin32Window)this);
-            }
+
+            using (Proj_Dialog frmPD = new Proj_Dialog())
+               frmPD.ShowDialog(this);
+
             LoadProjects();
         }
 
+
+        //================================================================================================================================================//
+        // FILTERS                                                                                                                                        //
+        //================================================================================================================================================//
         private void Dgv_Projects_FilterStringChanged(object sender, EventArgs e)
         {
             bs.Filter = dgv_Projects.FilterString;
@@ -92,14 +114,18 @@ namespace Q_Tech_Bookkeeping
         {
             bs.Filter = string.Empty;
             bs.Sort = string.Empty;
+
             isFiltered = true;
-            using (SqlConnection dbConnection = DBUtils.GetDBConnection())
+
+            using (SqlConnection conn = DBUtils.GetDBConnection())
             {
-                dbConnection.Open();
-                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT * FROM Projects WHERE Date BETWEEN '" + dtp_P_From.Value + "' AND '" + dtp_P_To.Value + "'", dbConnection);
+                conn.Open();
+
+                SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Projects WHERE Date BETWEEN '" + dtp_P_From.Value + "' AND '" + dtp_P_To.Value + "'", conn);
                 dt = new DataTable();
-                sqlDataAdapter.Fill(dt);
+                da.Fill(dt);
             }
+
             bs.DataSource = dt;
             btn_P_Filter.Visible = false;
             btn_P_ClearFilter.Visible = true;
@@ -117,6 +143,10 @@ namespace Q_Tech_Bookkeeping
             btn_P_ClearFilter.Visible = false;
         }
 
+
+        //================================================================================================================================================//
+        // NEW PROJECT BUTTON                                                                                                                             //
+        //================================================================================================================================================//
         private void Btn_P_NewProject_MouseEnter(object sender, EventArgs e)
         {
             btn_P_NewProject.Image = Resources.add_white;
@@ -129,6 +159,10 @@ namespace Q_Tech_Bookkeeping
             btn_P_NewProject.ForeColor = Color.FromArgb(64, 64, 64);
         }
 
+
+        //================================================================================================================================================//
+        // FILTER BUTTON                                                                                                                                  //
+        //================================================================================================================================================//
         private void Btn_P_Filter_MouseEnter(object sender, EventArgs e)
         {
             btn_P_Filter.Image = Resources.filter_white;
@@ -141,6 +175,10 @@ namespace Q_Tech_Bookkeeping
             btn_P_Filter.ForeColor = Color.FromArgb(64, 64, 64);
         }
 
+
+        //================================================================================================================================================//
+        // CLEAR FILTER BUTTON                                                                                                                            //
+        //================================================================================================================================================//
         private void Btn_P_ClearFilter_MouseEnter(object sender, EventArgs e)
         {
             btn_P_ClearFilter.ForeColor = Color.White;

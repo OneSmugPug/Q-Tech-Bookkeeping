@@ -29,23 +29,32 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnl_Menu = new System.Windows.Forms.Panel();
+            this.btn_Projects = new System.Windows.Forms.Button();
             this.pnl_Con = new System.Windows.Forms.Panel();
             this.btn_C_NoInv = new System.Windows.Forms.Button();
             this.btn_C_NoRem = new System.Windows.Forms.Button();
             this.btn_C_Timesheets = new System.Windows.Forms.Button();
+            this.btn_Contractors = new System.Windows.Forms.Button();
             this.pnl_Int = new System.Windows.Forms.Panel();
             this.btn_I_InvSent = new System.Windows.Forms.Button();
             this.btn_I_Quotes = new System.Windows.Forms.Button();
             this.btn_I_Orders = new System.Windows.Forms.Button();
             this.btn_I_Clients = new System.Windows.Forms.Button();
+            this.btn_Int = new System.Windows.Forms.Button();
             this.pnl_Local = new System.Windows.Forms.Panel();
             this.btn_L_Orders = new System.Windows.Forms.Button();
             this.btn_L_Quotes = new System.Windows.Forms.Button();
@@ -54,13 +63,19 @@
             this.btn_L_InvRec = new System.Windows.Forms.Button();
             this.btn_L_InvSent = new System.Windows.Forms.Button();
             this.btn_L_Invoices = new System.Windows.Forms.Button();
+            this.btn_Local = new System.Windows.Forms.Button();
+            this.btn_Home = new System.Windows.Forms.Button();
             this.tmr_Local = new System.Windows.Forms.Timer(this.components);
             this.tmr_Int = new System.Windows.Forms.Timer(this.components);
             this.tmr_L_Inv = new System.Windows.Forms.Timer(this.components);
             this.tmr_Con = new System.Windows.Forms.Timer(this.components);
             this.pnl_L_CDet = new System.Windows.Forms.Panel();
+            this.btn_LC_Prev = new System.Windows.Forms.Button();
             this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.btn_LC_Next = new System.Windows.Forms.Button();
+            this.btn_LC_Add = new System.Windows.Forms.Button();
+            this.btn_LC_Edit = new System.Windows.Forms.Button();
             this.dgv_LClients = new ADGV.AdvancedDataGridView();
             this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
             this.txt_LC_CCode = new Bunifu.Framework.UI.BunifuMaterialTextbox();
@@ -71,6 +86,10 @@
             this.pnl_I_Clients = new System.Windows.Forms.Panel();
             this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.btn_IC_Prev = new System.Windows.Forms.Button();
+            this.btn_IC_Next = new System.Windows.Forms.Button();
+            this.btn_IC_Add = new System.Windows.Forms.Button();
+            this.btn_IC_Edit = new System.Windows.Forms.Button();
             this.dgv_IClients = new ADGV.AdvancedDataGridView();
             this.bunifuSeparator2 = new Bunifu.Framework.UI.BunifuSeparator();
             this.txt_IC_CCode = new Bunifu.Framework.UI.BunifuMaterialTextbox();
@@ -95,20 +114,11 @@
             this.btn_Home_Max = new System.Windows.Forms.Button();
             this.btn_Home_Nor = new System.Windows.Forms.Button();
             this.btn_Home_Min = new System.Windows.Forms.Button();
-            this.btn_IC_Prev = new System.Windows.Forms.Button();
-            this.btn_IC_Next = new System.Windows.Forms.Button();
-            this.btn_IC_Add = new System.Windows.Forms.Button();
-            this.btn_IC_Edit = new System.Windows.Forms.Button();
-            this.btn_LC_Prev = new System.Windows.Forms.Button();
-            this.btn_LC_Next = new System.Windows.Forms.Button();
-            this.btn_LC_Add = new System.Windows.Forms.Button();
-            this.btn_LC_Edit = new System.Windows.Forms.Button();
             this.QTLogo = new System.Windows.Forms.PictureBox();
-            this.btn_Projects = new System.Windows.Forms.Button();
-            this.btn_Contractors = new System.Windows.Forms.Button();
-            this.btn_Int = new System.Windows.Forms.Button();
-            this.btn_Local = new System.Windows.Forms.Button();
-            this.btn_Home = new System.Windows.Forms.Button();
+            this.lblComing = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.btn_L_PettyCash = new System.Windows.Forms.Button();
+            this.dgv_NoRem = new ADGV.AdvancedDataGridView();
+            this.dgv_NoInv = new ADGV.AdvancedDataGridView();
             this.pnl_Menu.SuspendLayout();
             this.pnl_Con.SuspendLayout();
             this.pnl_Int.SuspendLayout();
@@ -118,7 +128,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_LClients)).BeginInit();
             this.pnl_I_Clients.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_IClients)).BeginInit();
+            this.pnl_C_NoInv.SuspendLayout();
+            this.pnl_C_NoRem.SuspendLayout();
+            this.pnl_Home.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.QTLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_NoRem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_NoInv)).BeginInit();
             this.SuspendLayout();
             // 
             // pnl_Menu
@@ -127,14 +142,34 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.pnl_Menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.pnl_Menu.Controls.Add(this.btn_Projects);
+            this.pnl_Menu.Controls.Add(this.pnl_Local);
             this.pnl_Menu.Controls.Add(this.pnl_Con);
             this.pnl_Menu.Controls.Add(this.pnl_Int);
-            this.pnl_Menu.Controls.Add(this.pnl_Local);
             this.pnl_Menu.Controls.Add(this.btn_Home);
             this.pnl_Menu.Location = new System.Drawing.Point(0, -1);
             this.pnl_Menu.Name = "pnl_Menu";
             this.pnl_Menu.Size = new System.Drawing.Size(230, 556);
             this.pnl_Menu.TabIndex = 0;
+            // 
+            // btn_Projects
+            // 
+            this.btn_Projects.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_Projects.FlatAppearance.BorderSize = 0;
+            this.btn_Projects.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Projects.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Projects.ForeColor = System.Drawing.Color.White;
+            this.btn_Projects.Image = ((System.Drawing.Image)(resources.GetObject("btn_Projects.Image")));
+            this.btn_Projects.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_Projects.Location = new System.Drawing.Point(0, 192);
+            this.btn_Projects.Name = "btn_Projects";
+            this.btn_Projects.Padding = new System.Windows.Forms.Padding(0, 0, 48, 0);
+            this.btn_Projects.Size = new System.Drawing.Size(230, 48);
+            this.btn_Projects.TabIndex = 15;
+            this.btn_Projects.Text = "Projects";
+            this.btn_Projects.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Projects.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_Projects.UseVisualStyleBackColor = false;
             // 
             // pnl_Con
             // 
@@ -206,6 +241,29 @@
             this.btn_C_Timesheets.Click += new System.EventHandler(this.Btn_C_Timesheets_Click);
             this.btn_C_Timesheets.MouseEnter += new System.EventHandler(this.Btn_C_Timesheets_MouseEnter);
             this.btn_C_Timesheets.MouseLeave += new System.EventHandler(this.Btn_C_Timesheets_MouseLeave);
+            // 
+            // btn_Contractors
+            // 
+            this.btn_Contractors.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_Contractors.FlatAppearance.BorderSize = 0;
+            this.btn_Contractors.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Contractors.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Contractors.ForeColor = System.Drawing.Color.White;
+            this.btn_Contractors.Image = ((System.Drawing.Image)(resources.GetObject("btn_Contractors.Image")));
+            this.btn_Contractors.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_Contractors.Location = new System.Drawing.Point(0, 0);
+            this.btn_Contractors.Name = "btn_Contractors";
+            this.btn_Contractors.Padding = new System.Windows.Forms.Padding(0, 0, 22, 0);
+            this.btn_Contractors.Size = new System.Drawing.Size(230, 48);
+            this.btn_Contractors.TabIndex = 14;
+            this.btn_Contractors.Text = "Contractors";
+            this.btn_Contractors.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Contractors.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_Contractors.UseVisualStyleBackColor = false;
+            this.btn_Contractors.Click += new System.EventHandler(this.Btn_Contractors_Click);
+            this.btn_Contractors.MouseEnter += new System.EventHandler(this.Btn_Contractors_MouseEnter);
+            this.btn_Contractors.MouseLeave += new System.EventHandler(this.Btn_Contractors_MouseLeave);
             // 
             // pnl_Int
             // 
@@ -299,15 +357,39 @@
             this.btn_I_Clients.MouseEnter += new System.EventHandler(this.Btn_I_Clients_MouseEnter);
             this.btn_I_Clients.MouseLeave += new System.EventHandler(this.Btn_I_Clients_MouseLeave);
             // 
+            // btn_Int
+            // 
+            this.btn_Int.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_Int.FlatAppearance.BorderSize = 0;
+            this.btn_Int.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Int.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Int.ForeColor = System.Drawing.Color.White;
+            this.btn_Int.Image = ((System.Drawing.Image)(resources.GetObject("btn_Int.Image")));
+            this.btn_Int.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_Int.Location = new System.Drawing.Point(0, 0);
+            this.btn_Int.Name = "btn_Int";
+            this.btn_Int.Padding = new System.Windows.Forms.Padding(0, 0, 15, 0);
+            this.btn_Int.Size = new System.Drawing.Size(230, 48);
+            this.btn_Int.TabIndex = 9;
+            this.btn_Int.Text = "International";
+            this.btn_Int.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Int.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_Int.UseVisualStyleBackColor = false;
+            this.btn_Int.Click += new System.EventHandler(this.Btn_Int_Click);
+            this.btn_Int.MouseEnter += new System.EventHandler(this.Btn_Int_MouseEnter);
+            this.btn_Int.MouseLeave += new System.EventHandler(this.Btn_Int_MouseLeave);
+            // 
             // pnl_Local
             // 
             this.pnl_Local.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnl_Local.Controls.Add(this.btn_L_PettyCash);
             this.pnl_Local.Controls.Add(this.btn_L_Orders);
             this.pnl_Local.Controls.Add(this.btn_L_Quotes);
             this.pnl_Local.Controls.Add(this.btn_L_Clients);
             this.pnl_Local.Controls.Add(this.pnl_L_Inv);
             this.pnl_Local.Controls.Add(this.btn_Local);
-            this.pnl_Local.Location = new System.Drawing.Point(0, 48);
+            this.pnl_Local.Location = new System.Drawing.Point(0, 49);
             this.pnl_Local.Name = "pnl_Local";
             this.pnl_Local.Size = new System.Drawing.Size(230, 48);
             this.pnl_Local.TabIndex = 3;
@@ -442,6 +524,51 @@
             this.btn_L_Invoices.MouseEnter += new System.EventHandler(this.Btn_L_Invoices_MouseEnter);
             this.btn_L_Invoices.MouseLeave += new System.EventHandler(this.Btn_L_Invoices_MouseLeave);
             // 
+            // btn_Local
+            // 
+            this.btn_Local.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_Local.FlatAppearance.BorderSize = 0;
+            this.btn_Local.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Local.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Local.ForeColor = System.Drawing.Color.White;
+            this.btn_Local.Image = ((System.Drawing.Image)(resources.GetObject("btn_Local.Image")));
+            this.btn_Local.Location = new System.Drawing.Point(0, 0);
+            this.btn_Local.Name = "btn_Local";
+            this.btn_Local.Padding = new System.Windows.Forms.Padding(1, 0, 0, 0);
+            this.btn_Local.Size = new System.Drawing.Size(230, 48);
+            this.btn_Local.TabIndex = 4;
+            this.btn_Local.Text = "Local";
+            this.btn_Local.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Local.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_Local.UseVisualStyleBackColor = false;
+            this.btn_Local.Click += new System.EventHandler(this.Btn_Local_Click);
+            this.btn_Local.MouseEnter += new System.EventHandler(this.Btn_Local_MouseEnter);
+            this.btn_Local.MouseLeave += new System.EventHandler(this.Btn_Local_MouseLeave);
+            // 
+            // btn_Home
+            // 
+            this.btn_Home.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_Home.FlatAppearance.BorderSize = 0;
+            this.btn_Home.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Home.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Home.ForeColor = System.Drawing.Color.White;
+            this.btn_Home.Image = ((System.Drawing.Image)(resources.GetObject("btn_Home.Image")));
+            this.btn_Home.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_Home.Location = new System.Drawing.Point(0, 0);
+            this.btn_Home.Name = "btn_Home";
+            this.btn_Home.Padding = new System.Windows.Forms.Padding(0, 0, 28, 0);
+            this.btn_Home.Size = new System.Drawing.Size(230, 48);
+            this.btn_Home.TabIndex = 2;
+            this.btn_Home.Text = "Dashboard";
+            this.btn_Home.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Home.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_Home.UseVisualStyleBackColor = false;
+            this.btn_Home.Click += new System.EventHandler(this.Btn_Home_Click);
+            this.btn_Home.MouseEnter += new System.EventHandler(this.Btn_Home_MouseEnter);
+            this.btn_Home.MouseLeave += new System.EventHandler(this.Btn_Home_MouseLeave);
+            // 
             // tmr_Local
             // 
             this.tmr_Local.Interval = 1;
@@ -487,6 +614,25 @@
             this.pnl_L_CDet.Visible = false;
             this.pnl_L_CDet.VisibleChanged += new System.EventHandler(this.Pnl_L_CDet_VisibleChanged);
             // 
+            // btn_LC_Prev
+            // 
+            this.btn_LC_Prev.Enabled = false;
+            this.btn_LC_Prev.FlatAppearance.BorderSize = 0;
+            this.btn_LC_Prev.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
+            this.btn_LC_Prev.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
+            this.btn_LC_Prev.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_LC_Prev.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_LC_Prev.ForeColor = System.Drawing.Color.White;
+            this.btn_LC_Prev.Image = global::Properties.Resources.back_black;
+            this.btn_LC_Prev.Location = new System.Drawing.Point(18, 19);
+            this.btn_LC_Prev.Name = "btn_LC_Prev";
+            this.btn_LC_Prev.Size = new System.Drawing.Size(49, 149);
+            this.btn_LC_Prev.TabIndex = 12;
+            this.btn_LC_Prev.UseVisualStyleBackColor = true;
+            this.btn_LC_Prev.Click += new System.EventHandler(this.Btn_LC_Prev_Click);
+            this.btn_LC_Prev.MouseEnter += new System.EventHandler(this.Btn_LC_Prev_MouseEnter);
+            this.btn_LC_Prev.MouseLeave += new System.EventHandler(this.Btn_LC_Prev_MouseLeave);
+            // 
             // bunifuCustomLabel2
             // 
             this.bunifuCustomLabel2.AutoSize = true;
@@ -507,13 +653,72 @@
             this.bunifuCustomLabel1.TabIndex = 10;
             this.bunifuCustomLabel1.Text = "Client Name:";
             // 
+            // btn_LC_Next
+            // 
+            this.btn_LC_Next.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_LC_Next.FlatAppearance.BorderSize = 0;
+            this.btn_LC_Next.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
+            this.btn_LC_Next.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
+            this.btn_LC_Next.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_LC_Next.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_LC_Next.ForeColor = System.Drawing.Color.White;
+            this.btn_LC_Next.Image = global::Properties.Resources.forawrd_black;
+            this.btn_LC_Next.Location = new System.Drawing.Point(974, 19);
+            this.btn_LC_Next.Name = "btn_LC_Next";
+            this.btn_LC_Next.Size = new System.Drawing.Size(49, 149);
+            this.btn_LC_Next.TabIndex = 9;
+            this.btn_LC_Next.UseVisualStyleBackColor = true;
+            this.btn_LC_Next.Click += new System.EventHandler(this.Btn_LC_Next_Click);
+            this.btn_LC_Next.MouseEnter += new System.EventHandler(this.Btn_LC_Next_MouseEnter);
+            this.btn_LC_Next.MouseLeave += new System.EventHandler(this.Btn_LC_Next_MouseLeave);
+            // 
+            // btn_LC_Add
+            // 
+            this.btn_LC_Add.FlatAppearance.BorderSize = 0;
+            this.btn_LC_Add.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
+            this.btn_LC_Add.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
+            this.btn_LC_Add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_LC_Add.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_LC_Add.Image = global::Properties.Resources.add_grey;
+            this.btn_LC_Add.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_LC_Add.Location = new System.Drawing.Point(131, 168);
+            this.btn_LC_Add.Name = "btn_LC_Add";
+            this.btn_LC_Add.Size = new System.Drawing.Size(114, 40);
+            this.btn_LC_Add.TabIndex = 8;
+            this.btn_LC_Add.Text = "Add";
+            this.btn_LC_Add.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_LC_Add.UseVisualStyleBackColor = true;
+            this.btn_LC_Add.Click += new System.EventHandler(this.Btn_LC_Add_Click);
+            this.btn_LC_Add.MouseEnter += new System.EventHandler(this.Btn_LC_Add_MouseEnter);
+            this.btn_LC_Add.MouseLeave += new System.EventHandler(this.Btn_LC_Add_MouseLeave);
+            // 
+            // btn_LC_Edit
+            // 
+            this.btn_LC_Edit.FlatAppearance.BorderSize = 0;
+            this.btn_LC_Edit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
+            this.btn_LC_Edit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
+            this.btn_LC_Edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_LC_Edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_LC_Edit.Image = global::Properties.Resources.edit_grey;
+            this.btn_LC_Edit.Location = new System.Drawing.Point(251, 168);
+            this.btn_LC_Edit.Name = "btn_LC_Edit";
+            this.btn_LC_Edit.Size = new System.Drawing.Size(114, 40);
+            this.btn_LC_Edit.TabIndex = 7;
+            this.btn_LC_Edit.Text = "Edit";
+            this.btn_LC_Edit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_LC_Edit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_LC_Edit.UseVisualStyleBackColor = true;
+            this.btn_LC_Edit.Click += new System.EventHandler(this.Btn_LC_Edit_Click);
+            this.btn_LC_Edit.MouseEnter += new System.EventHandler(this.Btn_LC_Edit_MouseEnter);
+            this.btn_LC_Edit.MouseLeave += new System.EventHandler(this.Btn_LC_Edit_MouseLeave);
+            // 
             // dgv_LClients
             // 
             this.dgv_LClients.AllowUserToAddRows = false;
             this.dgv_LClients.AllowUserToDeleteRows = false;
             this.dgv_LClients.AllowUserToResizeRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.LightGray;
-            this.dgv_LClients.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGray;
+            this.dgv_LClients.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_LClients.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -522,14 +727,14 @@
             this.dgv_LClients.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv_LClients.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.dgv_LClients.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_LClients.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_LClients.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_LClients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_LClients.DateWithTime = false;
             this.dgv_LClients.EnableHeadersVisualStyles = false;
@@ -538,10 +743,10 @@
             this.dgv_LClients.ReadOnly = true;
             this.dgv_LClients.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgv_LClients.RowHeadersVisible = false;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.dgv_LClients.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
+            this.dgv_LClients.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_LClients.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_LClients.Size = new System.Drawing.Size(1039, 339);
+            this.dgv_LClients.Size = new System.Drawing.Size(1039, 370);
             this.dgv_LClients.TabIndex = 6;
             this.dgv_LClients.TimeFilter = false;
             this.dgv_LClients.SortStringChanged += new System.EventHandler(this.DGV_LClients_SortStringChanged);
@@ -703,13 +908,89 @@
             this.bunifuCustomLabel3.TabIndex = 11;
             this.bunifuCustomLabel3.Text = "Client Name:";
             // 
+            // btn_IC_Prev
+            // 
+            this.btn_IC_Prev.Enabled = false;
+            this.btn_IC_Prev.FlatAppearance.BorderSize = 0;
+            this.btn_IC_Prev.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
+            this.btn_IC_Prev.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
+            this.btn_IC_Prev.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_IC_Prev.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_IC_Prev.Image = global::Properties.Resources.back_black;
+            this.btn_IC_Prev.Location = new System.Drawing.Point(18, 19);
+            this.btn_IC_Prev.Name = "btn_IC_Prev";
+            this.btn_IC_Prev.Size = new System.Drawing.Size(49, 149);
+            this.btn_IC_Prev.TabIndex = 10;
+            this.btn_IC_Prev.UseVisualStyleBackColor = true;
+            this.btn_IC_Prev.Click += new System.EventHandler(this.Btn_IC_Prev_Click);
+            this.btn_IC_Prev.MouseEnter += new System.EventHandler(this.Btn_IC_Prev_MouseEnter);
+            this.btn_IC_Prev.MouseLeave += new System.EventHandler(this.Btn_IC_Prev_MouseLeave);
+            // 
+            // btn_IC_Next
+            // 
+            this.btn_IC_Next.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_IC_Next.FlatAppearance.BorderSize = 0;
+            this.btn_IC_Next.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
+            this.btn_IC_Next.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
+            this.btn_IC_Next.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_IC_Next.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_IC_Next.Image = global::Properties.Resources.forawrd_black;
+            this.btn_IC_Next.Location = new System.Drawing.Point(974, 19);
+            this.btn_IC_Next.Name = "btn_IC_Next";
+            this.btn_IC_Next.Size = new System.Drawing.Size(49, 149);
+            this.btn_IC_Next.TabIndex = 9;
+            this.btn_IC_Next.UseVisualStyleBackColor = true;
+            this.btn_IC_Next.Click += new System.EventHandler(this.Btn_IC_Next_Click);
+            this.btn_IC_Next.MouseEnter += new System.EventHandler(this.Btn_IC_Next_MouseEnter);
+            this.btn_IC_Next.MouseLeave += new System.EventHandler(this.Btn_IC_Next_MouseLeave);
+            // 
+            // btn_IC_Add
+            // 
+            this.btn_IC_Add.FlatAppearance.BorderSize = 0;
+            this.btn_IC_Add.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
+            this.btn_IC_Add.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
+            this.btn_IC_Add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_IC_Add.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_IC_Add.Image = global::Properties.Resources.add_grey;
+            this.btn_IC_Add.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_IC_Add.Location = new System.Drawing.Point(131, 168);
+            this.btn_IC_Add.Name = "btn_IC_Add";
+            this.btn_IC_Add.Size = new System.Drawing.Size(114, 40);
+            this.btn_IC_Add.TabIndex = 8;
+            this.btn_IC_Add.Text = "Add";
+            this.btn_IC_Add.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_IC_Add.UseVisualStyleBackColor = true;
+            this.btn_IC_Add.Click += new System.EventHandler(this.Btn_IC_Add_Click);
+            this.btn_IC_Add.MouseEnter += new System.EventHandler(this.Btn_IC_Add_MouseEnter);
+            this.btn_IC_Add.MouseLeave += new System.EventHandler(this.Btn_IC_Add_MouseLeave);
+            // 
+            // btn_IC_Edit
+            // 
+            this.btn_IC_Edit.FlatAppearance.BorderSize = 0;
+            this.btn_IC_Edit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
+            this.btn_IC_Edit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
+            this.btn_IC_Edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_IC_Edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_IC_Edit.Image = global::Properties.Resources.edit_grey;
+            this.btn_IC_Edit.Location = new System.Drawing.Point(251, 168);
+            this.btn_IC_Edit.Name = "btn_IC_Edit";
+            this.btn_IC_Edit.Size = new System.Drawing.Size(114, 40);
+            this.btn_IC_Edit.TabIndex = 7;
+            this.btn_IC_Edit.Text = "Edit";
+            this.btn_IC_Edit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_IC_Edit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_IC_Edit.UseVisualStyleBackColor = true;
+            this.btn_IC_Edit.Click += new System.EventHandler(this.Btn_IC_Edit_Click);
+            this.btn_IC_Edit.MouseEnter += new System.EventHandler(this.Btn_IC_Edit_MouseEnter);
+            this.btn_IC_Edit.MouseLeave += new System.EventHandler(this.Btn_IC_Edit_MouseLeave);
+            // 
             // dgv_IClients
             // 
             this.dgv_IClients.AllowUserToAddRows = false;
             this.dgv_IClients.AllowUserToDeleteRows = false;
             this.dgv_IClients.AllowUserToResizeRows = false;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.LightGray;
-            this.dgv_IClients.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.LightGray;
+            this.dgv_IClients.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgv_IClients.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -718,14 +999,14 @@
             this.dgv_IClients.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv_IClients.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.dgv_IClients.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_IClients.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_IClients.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgv_IClients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_IClients.DateWithTime = false;
             this.dgv_IClients.EnableHeadersVisualStyles = false;
@@ -734,10 +1015,10 @@
             this.dgv_IClients.ReadOnly = true;
             this.dgv_IClients.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgv_IClients.RowHeadersVisible = false;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.dgv_IClients.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
+            this.dgv_IClients.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgv_IClients.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_IClients.Size = new System.Drawing.Size(1039, 339);
+            this.dgv_IClients.Size = new System.Drawing.Size(1039, 385);
             this.dgv_IClients.TabIndex = 6;
             this.dgv_IClients.TimeFilter = false;
             this.dgv_IClients.SortStringChanged += new System.EventHandler(this.DGV_IClients_SortStringChanged);
@@ -881,6 +1162,7 @@
             this.pnl_C_NoInv.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnl_C_NoInv.Controls.Add(this.dgv_NoInv);
             this.pnl_C_NoInv.Location = new System.Drawing.Point(236, 48);
             this.pnl_C_NoInv.Name = "pnl_C_NoInv";
             this.pnl_C_NoInv.Size = new System.Drawing.Size(1039, 585);
@@ -892,6 +1174,7 @@
             this.pnl_C_NoRem.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnl_C_NoRem.Controls.Add(this.dgv_NoRem);
             this.pnl_C_NoRem.Location = new System.Drawing.Point(236, 48);
             this.pnl_C_NoRem.Name = "pnl_C_NoRem";
             this.pnl_C_NoRem.Size = new System.Drawing.Size(1039, 585);
@@ -903,6 +1186,7 @@
             this.pnl_Home.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnl_Home.Controls.Add(this.lblComing);
             this.pnl_Home.Location = new System.Drawing.Point(236, 48);
             this.pnl_Home.Name = "pnl_Home";
             this.pnl_Home.Size = new System.Drawing.Size(1039, 585);
@@ -1022,7 +1306,7 @@
             this.btn_Home_Max.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
             this.btn_Home_Max.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
             this.btn_Home_Max.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Home_Max.Image = global::Q_Tech_Bookkeeping.Properties.Resources.maximize_black;
+            this.btn_Home_Max.Image = ((System.Drawing.Image)(resources.GetObject("btn_Home_Max.Image")));
             this.btn_Home_Max.Location = new System.Drawing.Point(1224, -1);
             this.btn_Home_Max.Name = "btn_Home_Max";
             this.btn_Home_Max.Padding = new System.Windows.Forms.Padding(0, 0, 1, 0);
@@ -1040,7 +1324,7 @@
             this.btn_Home_Nor.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
             this.btn_Home_Nor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
             this.btn_Home_Nor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Home_Nor.Image = global::Q_Tech_Bookkeeping.Properties.Resources.restore_black2;
+            this.btn_Home_Nor.Image = ((System.Drawing.Image)(resources.GetObject("btn_Home_Nor.Image")));
             this.btn_Home_Nor.Location = new System.Drawing.Point(1222, -1);
             this.btn_Home_Nor.Name = "btn_Home_Nor";
             this.btn_Home_Nor.Padding = new System.Windows.Forms.Padding(0, 0, 1, 0);
@@ -1059,7 +1343,7 @@
             this.btn_Home_Min.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
             this.btn_Home_Min.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
             this.btn_Home_Min.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Home_Min.Image = global::Q_Tech_Bookkeeping.Properties.Resources.minimize_grey;
+            this.btn_Home_Min.Image = ((System.Drawing.Image)(resources.GetObject("btn_Home_Min.Image")));
             this.btn_Home_Min.Location = new System.Drawing.Point(1191, -1);
             this.btn_Home_Min.Name = "btn_Home_Min";
             this.btn_Home_Min.Padding = new System.Windows.Forms.Padding(0, 0, 1, 0);
@@ -1069,160 +1353,6 @@
             this.btn_Home_Min.Click += new System.EventHandler(this.Btn_Home_Min_Click);
             this.btn_Home_Min.MouseEnter += new System.EventHandler(this.Btn_Home_Min_MouseEnter);
             this.btn_Home_Min.MouseLeave += new System.EventHandler(this.Btn_Home_Min_MouseLeave);
-            // 
-            // btn_IC_Prev
-            // 
-            this.btn_IC_Prev.Enabled = false;
-            this.btn_IC_Prev.FlatAppearance.BorderSize = 0;
-            this.btn_IC_Prev.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.btn_IC_Prev.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
-            this.btn_IC_Prev.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_IC_Prev.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_IC_Prev.Image = global::Properties.Resources.back_black;
-            this.btn_IC_Prev.Location = new System.Drawing.Point(18, 19);
-            this.btn_IC_Prev.Name = "btn_IC_Prev";
-            this.btn_IC_Prev.Size = new System.Drawing.Size(49, 149);
-            this.btn_IC_Prev.TabIndex = 10;
-            this.btn_IC_Prev.UseVisualStyleBackColor = true;
-            this.btn_IC_Prev.Click += new System.EventHandler(this.Btn_IC_Prev_Click);
-            this.btn_IC_Prev.MouseEnter += new System.EventHandler(this.Btn_IC_Prev_MouseEnter);
-            this.btn_IC_Prev.MouseLeave += new System.EventHandler(this.Btn_IC_Prev_MouseLeave);
-            // 
-            // btn_IC_Next
-            // 
-            this.btn_IC_Next.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_IC_Next.FlatAppearance.BorderSize = 0;
-            this.btn_IC_Next.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.btn_IC_Next.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
-            this.btn_IC_Next.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_IC_Next.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_IC_Next.Image = global::Properties.Resources.forawrd_black;
-            this.btn_IC_Next.Location = new System.Drawing.Point(974, 19);
-            this.btn_IC_Next.Name = "btn_IC_Next";
-            this.btn_IC_Next.Size = new System.Drawing.Size(49, 149);
-            this.btn_IC_Next.TabIndex = 9;
-            this.btn_IC_Next.UseVisualStyleBackColor = true;
-            this.btn_IC_Next.Click += new System.EventHandler(this.Btn_IC_Next_Click);
-            this.btn_IC_Next.MouseEnter += new System.EventHandler(this.Btn_IC_Next_MouseEnter);
-            this.btn_IC_Next.MouseLeave += new System.EventHandler(this.Btn_IC_Next_MouseLeave);
-            // 
-            // btn_IC_Add
-            // 
-            this.btn_IC_Add.FlatAppearance.BorderSize = 0;
-            this.btn_IC_Add.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.btn_IC_Add.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
-            this.btn_IC_Add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_IC_Add.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_IC_Add.Image = global::Properties.Resources.add_grey;
-            this.btn_IC_Add.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_IC_Add.Location = new System.Drawing.Point(131, 168);
-            this.btn_IC_Add.Name = "btn_IC_Add";
-            this.btn_IC_Add.Size = new System.Drawing.Size(114, 40);
-            this.btn_IC_Add.TabIndex = 8;
-            this.btn_IC_Add.Text = "Add";
-            this.btn_IC_Add.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btn_IC_Add.UseVisualStyleBackColor = true;
-            this.btn_IC_Add.Click += new System.EventHandler(this.Btn_IC_Add_Click);
-            this.btn_IC_Add.MouseEnter += new System.EventHandler(this.Btn_IC_Add_MouseEnter);
-            this.btn_IC_Add.MouseLeave += new System.EventHandler(this.Btn_IC_Add_MouseLeave);
-            // 
-            // btn_IC_Edit
-            // 
-            this.btn_IC_Edit.FlatAppearance.BorderSize = 0;
-            this.btn_IC_Edit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.btn_IC_Edit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
-            this.btn_IC_Edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_IC_Edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_IC_Edit.Image = global::Properties.Resources.edit_grey;
-            this.btn_IC_Edit.Location = new System.Drawing.Point(251, 168);
-            this.btn_IC_Edit.Name = "btn_IC_Edit";
-            this.btn_IC_Edit.Size = new System.Drawing.Size(114, 40);
-            this.btn_IC_Edit.TabIndex = 7;
-            this.btn_IC_Edit.Text = "Edit";
-            this.btn_IC_Edit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_IC_Edit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btn_IC_Edit.UseVisualStyleBackColor = true;
-            this.btn_IC_Edit.Click += new System.EventHandler(this.Btn_IC_Edit_Click);
-            this.btn_IC_Edit.MouseEnter += new System.EventHandler(this.Btn_IC_Edit_MouseEnter);
-            this.btn_IC_Edit.MouseLeave += new System.EventHandler(this.Btn_IC_Edit_MouseLeave);
-            // 
-            // btn_LC_Prev
-            // 
-            this.btn_LC_Prev.Enabled = false;
-            this.btn_LC_Prev.FlatAppearance.BorderSize = 0;
-            this.btn_LC_Prev.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.btn_LC_Prev.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
-            this.btn_LC_Prev.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_LC_Prev.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_LC_Prev.ForeColor = System.Drawing.Color.White;
-            this.btn_LC_Prev.Image = global::Properties.Resources.back_black;
-            this.btn_LC_Prev.Location = new System.Drawing.Point(18, 19);
-            this.btn_LC_Prev.Name = "btn_LC_Prev";
-            this.btn_LC_Prev.Size = new System.Drawing.Size(49, 149);
-            this.btn_LC_Prev.TabIndex = 12;
-            this.btn_LC_Prev.UseVisualStyleBackColor = true;
-            this.btn_LC_Prev.Click += new System.EventHandler(this.Btn_LC_Prev_Click);
-            this.btn_LC_Prev.MouseEnter += new System.EventHandler(this.Btn_LC_Prev_MouseEnter);
-            this.btn_LC_Prev.MouseLeave += new System.EventHandler(this.Btn_LC_Prev_MouseLeave);
-            // 
-            // btn_LC_Next
-            // 
-            this.btn_LC_Next.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_LC_Next.FlatAppearance.BorderSize = 0;
-            this.btn_LC_Next.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.btn_LC_Next.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
-            this.btn_LC_Next.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_LC_Next.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_LC_Next.ForeColor = System.Drawing.Color.White;
-            this.btn_LC_Next.Image = global::Properties.Resources.forawrd_black;
-            this.btn_LC_Next.Location = new System.Drawing.Point(974, 19);
-            this.btn_LC_Next.Name = "btn_LC_Next";
-            this.btn_LC_Next.Size = new System.Drawing.Size(49, 149);
-            this.btn_LC_Next.TabIndex = 9;
-            this.btn_LC_Next.UseVisualStyleBackColor = true;
-            this.btn_LC_Next.Click += new System.EventHandler(this.Btn_LC_Next_Click);
-            this.btn_LC_Next.MouseEnter += new System.EventHandler(this.Btn_LC_Next_MouseEnter);
-            this.btn_LC_Next.MouseLeave += new System.EventHandler(this.Btn_LC_Next_MouseLeave);
-            // 
-            // btn_LC_Add
-            // 
-            this.btn_LC_Add.FlatAppearance.BorderSize = 0;
-            this.btn_LC_Add.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.btn_LC_Add.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
-            this.btn_LC_Add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_LC_Add.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_LC_Add.Image = global::Properties.Resources.add_grey;
-            this.btn_LC_Add.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_LC_Add.Location = new System.Drawing.Point(131, 168);
-            this.btn_LC_Add.Name = "btn_LC_Add";
-            this.btn_LC_Add.Size = new System.Drawing.Size(114, 40);
-            this.btn_LC_Add.TabIndex = 8;
-            this.btn_LC_Add.Text = "Add";
-            this.btn_LC_Add.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btn_LC_Add.UseVisualStyleBackColor = true;
-            this.btn_LC_Add.Click += new System.EventHandler(this.Btn_LC_Add_Click);
-            this.btn_LC_Add.MouseEnter += new System.EventHandler(this.Btn_LC_Add_MouseEnter);
-            this.btn_LC_Add.MouseLeave += new System.EventHandler(this.Btn_LC_Add_MouseLeave);
-            // 
-            // btn_LC_Edit
-            // 
-            this.btn_LC_Edit.FlatAppearance.BorderSize = 0;
-            this.btn_LC_Edit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.btn_LC_Edit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
-            this.btn_LC_Edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_LC_Edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_LC_Edit.Image = global::Properties.Resources.edit_grey;
-            this.btn_LC_Edit.Location = new System.Drawing.Point(251, 168);
-            this.btn_LC_Edit.Name = "btn_LC_Edit";
-            this.btn_LC_Edit.Size = new System.Drawing.Size(114, 40);
-            this.btn_LC_Edit.TabIndex = 7;
-            this.btn_LC_Edit.Text = "Edit";
-            this.btn_LC_Edit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_LC_Edit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btn_LC_Edit.UseVisualStyleBackColor = true;
-            this.btn_LC_Edit.Click += new System.EventHandler(this.Btn_LC_Edit_Click);
-            this.btn_LC_Edit.MouseEnter += new System.EventHandler(this.Btn_LC_Edit_MouseEnter);
-            this.btn_LC_Edit.MouseLeave += new System.EventHandler(this.Btn_LC_Edit_MouseLeave);
             // 
             // QTLogo
             // 
@@ -1236,116 +1366,117 @@
             this.QTLogo.TabIndex = 1;
             this.QTLogo.TabStop = false;
             // 
-            // btn_Projects
+            // lblComing
             // 
-            this.btn_Projects.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.lblComing.AutoSize = true;
+            this.lblComing.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblComing.ForeColor = System.Drawing.Color.DarkGray;
+            this.lblComing.Location = new System.Drawing.Point(450, 297);
+            this.lblComing.Name = "lblComing";
+            this.lblComing.Size = new System.Drawing.Size(138, 25);
+            this.lblComing.TabIndex = 21;
+            this.lblComing.Text = "Coming Soon!";
+            // 
+            // btn_L_PettyCash
+            // 
+            this.btn_L_PettyCash.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Projects.FlatAppearance.BorderSize = 0;
-            this.btn_Projects.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Projects.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Projects.ForeColor = System.Drawing.Color.White;
-            this.btn_Projects.Image = ((System.Drawing.Image)(resources.GetObject("btn_Projects.Image")));
-            this.btn_Projects.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_Projects.Location = new System.Drawing.Point(0, 192);
-            this.btn_Projects.Name = "btn_Projects";
-            this.btn_Projects.Padding = new System.Windows.Forms.Padding(0, 0, 48, 0);
-            this.btn_Projects.Size = new System.Drawing.Size(230, 48);
-            this.btn_Projects.TabIndex = 15;
-            this.btn_Projects.Text = "Projects";
-            this.btn_Projects.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Projects.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btn_Projects.UseVisualStyleBackColor = false;
+            this.btn_L_PettyCash.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.btn_L_PettyCash.FlatAppearance.BorderSize = 0;
+            this.btn_L_PettyCash.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_L_PettyCash.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_L_PettyCash.ForeColor = System.Drawing.Color.White;
+            this.btn_L_PettyCash.Location = new System.Drawing.Point(0, 240);
+            this.btn_L_PettyCash.Name = "btn_L_PettyCash";
+            this.btn_L_PettyCash.Size = new System.Drawing.Size(230, 48);
+            this.btn_L_PettyCash.TabIndex = 12;
+            this.btn_L_PettyCash.Text = "Petty Cash";
+            this.btn_L_PettyCash.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_L_PettyCash.UseVisualStyleBackColor = false;
+            this.btn_L_PettyCash.Click += new System.EventHandler(this.Btn_L_PettyCash_Click);
+            this.btn_L_PettyCash.MouseEnter += new System.EventHandler(this.Btn_L_PettyCash_MouseEnter);
+            this.btn_L_PettyCash.MouseLeave += new System.EventHandler(this.Btn_L_PettyCash_MouseLeave);
             // 
-            // btn_Contractors
+            // dgv_NoRem
             // 
-            this.btn_Contractors.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.dgv_NoRem.AllowUserToAddRows = false;
+            this.dgv_NoRem.AllowUserToDeleteRows = false;
+            this.dgv_NoRem.AllowUserToResizeRows = false;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.LightGray;
+            this.dgv_NoRem.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            this.dgv_NoRem.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Contractors.FlatAppearance.BorderSize = 0;
-            this.btn_Contractors.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Contractors.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Contractors.ForeColor = System.Drawing.Color.White;
-            this.btn_Contractors.Image = ((System.Drawing.Image)(resources.GetObject("btn_Contractors.Image")));
-            this.btn_Contractors.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_Contractors.Location = new System.Drawing.Point(0, 0);
-            this.btn_Contractors.Name = "btn_Contractors";
-            this.btn_Contractors.Padding = new System.Windows.Forms.Padding(0, 0, 22, 0);
-            this.btn_Contractors.Size = new System.Drawing.Size(230, 48);
-            this.btn_Contractors.TabIndex = 14;
-            this.btn_Contractors.Text = "Contractors";
-            this.btn_Contractors.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Contractors.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btn_Contractors.UseVisualStyleBackColor = false;
-            this.btn_Contractors.Click += new System.EventHandler(this.Btn_Contractors_Click);
-            this.btn_Contractors.MouseEnter += new System.EventHandler(this.Btn_Contractors_MouseEnter);
-            this.btn_Contractors.MouseLeave += new System.EventHandler(this.Btn_Contractors_MouseLeave);
+            this.dgv_NoRem.AutoGenerateContextFilters = true;
+            this.dgv_NoRem.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_NoRem.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgv_NoRem.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
+            this.dgv_NoRem.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_NoRem.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            this.dgv_NoRem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_NoRem.DateWithTime = false;
+            this.dgv_NoRem.EnableHeadersVisualStyles = false;
+            this.dgv_NoRem.Location = new System.Drawing.Point(0, 0);
+            this.dgv_NoRem.Name = "dgv_NoRem";
+            this.dgv_NoRem.ReadOnly = true;
+            this.dgv_NoRem.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_NoRem.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            this.dgv_NoRem.RowHeadersVisible = false;
+            this.dgv_NoRem.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_NoRem.Size = new System.Drawing.Size(1039, 585);
+            this.dgv_NoRem.TabIndex = 0;
+            this.dgv_NoRem.TimeFilter = false;
             // 
-            // btn_Int
+            // dgv_NoInv
             // 
-            this.btn_Int.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.dgv_NoInv.AllowUserToAddRows = false;
+            this.dgv_NoInv.AllowUserToDeleteRows = false;
+            this.dgv_NoInv.AllowUserToResizeRows = false;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.LightGray;
+            this.dgv_NoInv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            this.dgv_NoInv.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Int.FlatAppearance.BorderSize = 0;
-            this.btn_Int.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Int.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Int.ForeColor = System.Drawing.Color.White;
-            this.btn_Int.Image = ((System.Drawing.Image)(resources.GetObject("btn_Int.Image")));
-            this.btn_Int.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_Int.Location = new System.Drawing.Point(0, 0);
-            this.btn_Int.Name = "btn_Int";
-            this.btn_Int.Padding = new System.Windows.Forms.Padding(0, 0, 15, 0);
-            this.btn_Int.Size = new System.Drawing.Size(230, 48);
-            this.btn_Int.TabIndex = 9;
-            this.btn_Int.Text = "International";
-            this.btn_Int.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Int.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btn_Int.UseVisualStyleBackColor = false;
-            this.btn_Int.Click += new System.EventHandler(this.Btn_Int_Click);
-            this.btn_Int.MouseEnter += new System.EventHandler(this.Btn_Int_MouseEnter);
-            this.btn_Int.MouseLeave += new System.EventHandler(this.Btn_Int_MouseLeave);
-            // 
-            // btn_Local
-            // 
-            this.btn_Local.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Local.FlatAppearance.BorderSize = 0;
-            this.btn_Local.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Local.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Local.ForeColor = System.Drawing.Color.White;
-            this.btn_Local.Image = ((System.Drawing.Image)(resources.GetObject("btn_Local.Image")));
-            this.btn_Local.Location = new System.Drawing.Point(0, 0);
-            this.btn_Local.Name = "btn_Local";
-            this.btn_Local.Padding = new System.Windows.Forms.Padding(1, 0, 0, 0);
-            this.btn_Local.Size = new System.Drawing.Size(230, 48);
-            this.btn_Local.TabIndex = 4;
-            this.btn_Local.Text = "Local";
-            this.btn_Local.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Local.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btn_Local.UseVisualStyleBackColor = false;
-            this.btn_Local.Click += new System.EventHandler(this.Btn_Local_Click);
-            this.btn_Local.MouseEnter += new System.EventHandler(this.Btn_Local_MouseEnter);
-            this.btn_Local.MouseLeave += new System.EventHandler(this.Btn_Local_MouseLeave);
-            // 
-            // btn_Home
-            // 
-            this.btn_Home.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Home.FlatAppearance.BorderSize = 0;
-            this.btn_Home.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Home.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Home.ForeColor = System.Drawing.Color.White;
-            this.btn_Home.Image = ((System.Drawing.Image)(resources.GetObject("btn_Home.Image")));
-            this.btn_Home.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_Home.Location = new System.Drawing.Point(0, 0);
-            this.btn_Home.Name = "btn_Home";
-            this.btn_Home.Padding = new System.Windows.Forms.Padding(0, 0, 28, 0);
-            this.btn_Home.Size = new System.Drawing.Size(230, 48);
-            this.btn_Home.TabIndex = 2;
-            this.btn_Home.Text = "Dashboard";
-            this.btn_Home.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Home.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btn_Home.UseVisualStyleBackColor = false;
-            this.btn_Home.Click += new System.EventHandler(this.Btn_Home_Click);
-            this.btn_Home.MouseEnter += new System.EventHandler(this.Btn_Home_MouseEnter);
-            this.btn_Home.MouseLeave += new System.EventHandler(this.Btn_Home_MouseLeave);
+            this.dgv_NoInv.AutoGenerateContextFilters = true;
+            this.dgv_NoInv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_NoInv.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgv_NoInv.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
+            this.dgv_NoInv.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_NoInv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.dgv_NoInv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_NoInv.DateWithTime = false;
+            this.dgv_NoInv.EnableHeadersVisualStyles = false;
+            this.dgv_NoInv.Location = new System.Drawing.Point(0, 0);
+            this.dgv_NoInv.Name = "dgv_NoInv";
+            this.dgv_NoInv.ReadOnly = true;
+            this.dgv_NoInv.RowHeadersVisible = false;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
+            this.dgv_NoInv.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            this.dgv_NoInv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_NoInv.Size = new System.Drawing.Size(1039, 585);
+            this.dgv_NoInv.TabIndex = 0;
+            this.dgv_NoInv.TimeFilter = false;
             // 
             // Home
             // 
@@ -1397,7 +1528,13 @@
             this.pnl_I_Clients.ResumeLayout(false);
             this.pnl_I_Clients.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_IClients)).EndInit();
+            this.pnl_C_NoInv.ResumeLayout(false);
+            this.pnl_C_NoRem.ResumeLayout(false);
+            this.pnl_Home.ResumeLayout(false);
+            this.pnl_Home.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.QTLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_NoRem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_NoInv)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1477,5 +1614,9 @@
         private System.Windows.Forms.Button btn_Home_Nor;
         private System.Windows.Forms.Button btn_Home_Max;
         private System.Windows.Forms.Button btn_Home_Close;
+        private Bunifu.Framework.UI.BunifuCustomLabel lblComing;
+        private System.Windows.Forms.Button btn_L_PettyCash;
+        private ADGV.AdvancedDataGridView dgv_NoRem;
+        private ADGV.AdvancedDataGridView dgv_NoInv;
     }
 }

@@ -12,7 +12,6 @@ namespace Q_Tech_Bookkeeping
     public partial class Q_Edit_Del : Form
     {
         private bool mouseDown = false;
-        private IContainer components = (IContainer)null;
         private DataTable dt;
         private int SELECTED_QUOTE;
         private Point lastLocation;
@@ -22,12 +21,17 @@ namespace Q_Tech_Bookkeeping
             InitializeComponent();
         }
 
+
+        //================================================================================================================================================//
+        // QUOTE EDIT DELETE FORM                                                                                                                         //
+        //================================================================================================================================================//
         private void Q_Edit_Del_Load(object sender, EventArgs e)
         {
-            Home owner = (Home)Owner;
-            if (owner.GetCurPanel() == "pnl_L_Quotes")
+            Home frmHome = (Home)this.Owner;
+
+            if (frmHome.GetCurPanel() == "pnl_L_Quotes")
             {
-                Quotes curForm = (Quotes)owner.GetCurForm();
+                Quotes curForm = (Quotes)frmHome.GetCurForm();
                 dt = curForm.GetQuotes();
                 SELECTED_QUOTE = curForm.GetSelectedQuote();
                 txt_QED_CCode.Text = curForm.GetCCode();
@@ -35,7 +39,7 @@ namespace Q_Tech_Bookkeeping
             }
             else
             {
-                Int_Quotes curForm = (Int_Quotes)owner.GetCurForm();
+                Int_Quotes curForm = (Int_Quotes)frmHome.GetCurForm();
                 dt = curForm.GetQuotes();
                 SELECTED_QUOTE = curForm.GetSelectedQuote();
                 txt_QED_CCode.Text = curForm.GetCCode();
@@ -44,58 +48,85 @@ namespace Q_Tech_Bookkeeping
             LoadQuote();
         }
 
+
+        //================================================================================================================================================//
+        // LOAD QUOTE DETAILS                                                                                                                             //
+        //================================================================================================================================================//
         private void LoadQuote()
         {
             txt_QED_QNum.Text = dt.Rows[SELECTED_QUOTE]["Quote_Number"].ToString().Trim();
-            dtp_QED_Date.Value = !(dt.Rows[SELECTED_QUOTE]["Date_Send"].ToString() != string.Empty) ? DateTime.Now : Convert.ToDateTime(dt.Rows[SELECTED_QUOTE]["Date_Send"].ToString());
+
+            dtp_QED_Date.Value = (dt.Rows[SELECTED_QUOTE]["Date_Send"].ToString() == string.Empty) ? DateTime.Now : Convert.ToDateTime(dt.Rows[SELECTED_QUOTE]["Date_Send"].ToString());
+
             txt_QED_Desc.Text = dt.Rows[SELECTED_QUOTE]["Quote_Description"].ToString().Trim();
+
             if (dt.Rows[SELECTED_QUOTE]["Order_Placed"].ToString() == "Yes")
                 cb_QED_OrderPlaced.Checked = true;
-            else
-                cb_QED_OrderPlaced.Checked = false;
+            else cb_QED_OrderPlaced.Checked = false;
         }
 
+
+        //================================================================================================================================================//
+        // DONE CLICKED                                                                                                                                   //
+        //================================================================================================================================================//
         private void Btn_QED_Done_Click(object sender, EventArgs e)
         {
-            string text = txt_QED_QNum.Text;
-            if (MessageBox.Show("Are you sure you want to update quote?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
-                return;
-            using (SqlConnection dbConnection = DBUtils.GetDBConnection())
+            string qNum = txt_QED_QNum.Text;
+
+            if (MessageBox.Show("Are you sure you want to update quote?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                dbConnection.Open();
-                try
+                using (SqlConnection conn = DBUtils.GetDBConnection())
                 {
-                    using (SqlCommand sqlCommand = new SqlCommand("UPDATE Quotes_Send SET Date_Send = @Date, Quote_Description = @Desc, Order_Placed = @OPlaced WHERE Quote_Number = @QNum", dbConnection))
+                    conn.Open();
+
+                    try
                     {
-                        sqlCommand.Parameters.AddWithValue("@Date", dtp_QED_Date.Value);
-                        sqlCommand.Parameters.AddWithValue("@Desc", txt_QED_Desc.Text.Trim());
-                        if (cb_QED_OrderPlaced.Checked)
-                            sqlCommand.Parameters.AddWithValue("@OPlaced", "Yes");
-                        else
-                            sqlCommand.Parameters.AddWithValue("@OPlaced", "No");
-                        sqlCommand.Parameters.AddWithValue("@QNum", text);
-                        sqlCommand.ExecuteNonQuery();
-                        int num = (int)MessageBox.Show("Quote successfully updated.", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                        this.Close();
+                        using (SqlCommand sqlCommand = new SqlCommand("UPDATE Quotes_Send SET Date_Send = @Date, Quote_Description = @Desc, Order_Placed = @OPlaced WHERE Quote_Number = @QNum", conn))
+                        {
+                            sqlCommand.Parameters.AddWithValue("@Date", dtp_QED_Date.Value);
+                            sqlCommand.Parameters.AddWithValue("@Desc", txt_QED_Desc.Text.Trim());
+
+                            if (cb_QED_OrderPlaced.Checked)
+                                sqlCommand.Parameters.AddWithValue("@OPlaced", "Yes");
+                            else sqlCommand.Parameters.AddWithValue("@OPlaced", "No");
+
+                            sqlCommand.Parameters.AddWithValue("@QNum", qNum);
+                            sqlCommand.ExecuteNonQuery();
+
+                            MessageBox.Show("Quote successfully updated.", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.Close();
+                        }
                     }
-                }
-                catch (Exception ex)
-                {
-                    int num = (int)MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }
 
+
+        //================================================================================================================================================//
+        // CLOSE CLICKED                                                                                                                                  //
+        //================================================================================================================================================//
         private void Btn_QED_Close_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+
+        //================================================================================================================================================//
+        // CANCEL CLICKED                                                                                                                                 //
+        //================================================================================================================================================//
         private void Btn_QED_Cancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+
+        //================================================================================================================================================//
+        // ORDER NUMBER                                                                                                                                   //
+        //================================================================================================================================================//
         private void Txt_QED_ONum_MouseEnter(object sender, EventArgs e)
         {
             ln_QED_CONum.LineColor = Color.FromArgb(19, 118, 188);
@@ -108,11 +139,14 @@ namespace Q_Tech_Bookkeeping
 
         private void Txt_QED_ONum_MouseLeave(object sender, EventArgs e)
         {
-            if (txt_QED_QNum.Focused)
-                return;
-            ln_QED_CONum.LineColor = Color.Gray;
+            if (!txt_QED_QNum.Focused)
+                ln_QED_CONum.LineColor = Color.Gray;
         }
 
+
+        //================================================================================================================================================//
+        // DESCRIPTION                                                                                                                                    //
+        //================================================================================================================================================//
         private void Txt_QED_Desc_Leave(object sender, EventArgs e)
         {
             ln_QED_Desc.LineColor = Color.Gray;
@@ -125,11 +159,14 @@ namespace Q_Tech_Bookkeeping
 
         private void Txt_QED_Desc_MouseLeave(object sender, EventArgs e)
         {
-            if (txt_QED_Desc.Focused)
-                return;
-            ln_QED_Desc.LineColor = Color.Gray;
+            if (!txt_QED_Desc.Focused)
+                ln_QED_Desc.LineColor = Color.Gray;
         }
 
+
+        //================================================================================================================================================//
+        // CLOSE BUTTON                                                                                                                                   //
+        //================================================================================================================================================//
         private void Btn_QED_Close_MouseEnter(object sender, EventArgs e)
         {
             btn_QED_Close.Image = Resources.close_white;
@@ -140,6 +177,10 @@ namespace Q_Tech_Bookkeeping
             btn_QED_Close.Image = Resources.close_black;
         }
 
+
+        //================================================================================================================================================//
+        // DONE BUTTON                                                                                                                                    //
+        //================================================================================================================================================//
         private void Btn_QED_Done_MouseEnter(object sender, EventArgs e)
         {
             btn_QED_Done.ForeColor = Color.White;
@@ -150,6 +191,10 @@ namespace Q_Tech_Bookkeeping
             btn_QED_Done.ForeColor = Color.FromArgb(64, 64, 64);
         }
 
+
+        //================================================================================================================================================//
+        // CANCEL BUTTON                                                                                                                                  //
+        //================================================================================================================================================//
         private void Btn_QED_Cancel_MouseEnter(object sender, EventArgs e)
         {
             btn_QED_Cancel.ForeColor = Color.White;
@@ -160,6 +205,10 @@ namespace Q_Tech_Bookkeeping
             btn_QED_Cancel.ForeColor = Color.FromArgb(64, 64, 64);
         }
 
+
+        //================================================================================================================================================//
+        // ENFORCE READ ONLY                                                                                                                              //
+        //================================================================================================================================================//
         private void Txt_QED_CCode_KeyDown(object sender, KeyEventArgs e)
         {
             e.SuppressKeyPress = true;
@@ -170,6 +219,10 @@ namespace Q_Tech_Bookkeeping
             e.SuppressKeyPress = true;
         }
 
+
+        //================================================================================================================================================//
+        // QUOTE EDIT DELETE                                                                                                                              //
+        //================================================================================================================================================//
         private void Q_Edit_Del_MouseDown(object sender, MouseEventArgs e)
         {
             mouseDown = true;
@@ -178,14 +231,11 @@ namespace Q_Tech_Bookkeeping
 
         private void Q_Edit_Del_MouseMove(object sender, MouseEventArgs e)
         {
-            if (!mouseDown)
-                return;
-            Point location = Location;
-            int x = location.X - lastLocation.X + e.X;
-            location = Location;
-            int y = location.Y - lastLocation.Y + e.Y;
-            Location = new Point(x, y);
-            this.Update();
+            if (mouseDown)
+            {
+                Location = new Point(this.Location.X - (lastLocation.X + e.X), this.Location.Y - (lastLocation.Y + e.Y));
+                this.Update();
+            }
         }
 
         private void Q_Edit_Del_MouseUp(object sender, MouseEventArgs e)
