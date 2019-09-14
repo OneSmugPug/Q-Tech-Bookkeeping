@@ -215,7 +215,7 @@ namespace Q_Tech_Bookkeeping
             if (isFiltered)
                 RemoveFilter();
 
-            using (O_Add frmOAdd = new O_Add())
+            using (O_AddOld frmOAdd = new O_AddOld())
                 frmOAdd.ShowDialog(this);
 
             LoadOrders();

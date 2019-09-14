@@ -182,7 +182,7 @@ namespace Q_Tech_Bookkeeping
     {
       if (this.isFiltered)
         this.removeFilter();
-      using (O_Add oAdd = new O_Add())
+      using (O_AddOld oAdd = new O_AddOld())
       {
         int num = (int) oAdd.ShowDialog((IWin32Window) this);
       }

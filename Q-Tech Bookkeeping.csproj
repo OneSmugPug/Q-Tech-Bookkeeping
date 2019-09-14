@@ -167,6 +167,12 @@
     <Compile Include="Q_Tech_Bookkeeping\Orders.Designer.cs">
       <DependentUpon>Orders.cs</DependentUpon>
     </Compile>
+    <Compile Include="Q_Tech_Bookkeeping\O_Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Q_Tech_Bookkeeping\O_Add.Designer.cs">
+      <DependentUpon>O_Add.cs</DependentUpon>
+    </Compile>
     <Compile Include="Q_Tech_Bookkeeping\Proj_AddExp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -176,7 +182,7 @@
     <Compile Include="Q_Tech_Bookkeeping\OrdersOld.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Q_Tech_Bookkeeping\O_Add.cs">
+    <Compile Include="Q_Tech_Bookkeeping\O_AddOld.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Q_Tech_Bookkeeping\O_Edit_Del.cs">
@@ -272,6 +278,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Q_Tech_Bookkeeping\Orders.resx">
       <DependentUpon>Orders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Q_Tech_Bookkeeping\O_Add.resx">
+      <DependentUpon>O_Add.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Q_Tech_Bookkeeping\Projects.resx">
       <DependentUpon>Projects.cs</DependentUpon>
