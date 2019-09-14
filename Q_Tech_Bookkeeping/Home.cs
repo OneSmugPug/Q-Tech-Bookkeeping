@@ -40,7 +40,7 @@ namespace Q_Tech_Bookkeeping
 
         private DataTable iClientDT;
 
-        private Orders frmOrder;
+        private OrdersOld frmOrder;
         private Quotes frmQuote;
         private Invoices_Send frmInvSent;
         private Inv_Rec frmInvRec;
@@ -768,7 +768,7 @@ namespace Q_Tech_Bookkeeping
             btn_L_Orders.BackColor = Color.FromArgb(15, 91, 142);
             btn_L_Orders.ForeColor = Color.White;
 
-            frmOrder = new Orders();
+            frmOrder = new OrdersOld();
             curForm = frmOrder;
             frmOrder.TopLevel = false;
             frmOrder.TopMost = true;

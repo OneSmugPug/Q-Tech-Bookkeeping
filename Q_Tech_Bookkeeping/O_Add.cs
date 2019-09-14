@@ -118,7 +118,7 @@ namespace Q_Tech_Bookkeeping
       this.txt_OA_PercRec.Text = "0%";
       if (owner.getCurPanel() == "pnl_L_Orders")
       {
-        Orders curForm = (Orders) owner.getCurForm();
+        OrdersOld curForm = (OrdersOld) owner.getCurForm();
         this.txt_OA_CCode.Text = curForm.getCCode();
         this.txt_OA_CName.Text = curForm.getCName();
         this.txt_OA_Amt.Text = "R0.00";

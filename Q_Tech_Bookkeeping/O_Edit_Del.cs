@@ -75,7 +75,7 @@ namespace Q_Tech_Bookkeeping
       HomeOld owner = (HomeOld) this.Owner;
       if (owner.getCurPanel() == "pnl_L_Orders")
       {
-        Orders curForm = (Orders) owner.getCurForm();
+        OrdersOld curForm = (OrdersOld) owner.getCurForm();
         this.dt = curForm.getOrders();
         this.SELECTED_ORDER = curForm.getSelectedOrder();
         this.txt_OED_CCode.Text = curForm.getCCode();

@@ -53,7 +53,7 @@ namespace Q_Tech_Bookkeeping
         private void DGV_CL_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (curVisible == "pnl_L_Orders")
-                ((Orders)frmHome.GetCurForm()).setNewClient(e.RowIndex);
+                ((OrdersOld)frmHome.GetCurForm()).setNewClient(e.RowIndex);
 
             if (curVisible == "pnl_L_Quotes")
                 ((QuotesOld)frmHome.GetCurForm()).setNewClient(e.RowIndex);

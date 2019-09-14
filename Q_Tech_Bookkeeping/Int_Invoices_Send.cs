@@ -25,22 +25,6 @@ namespace Q_Tech_Bookkeeping
         private string NEW_INVOICE;
         private DataTable clientsDT;
         private DataTable dt;
-        //private Button btn_IIS_ClearFilter;
-        //private BunifuDatepicker dtp_IIS_From;
-        //private AdvancedDataGridView dgv_IInvSent;
-        //private Button btn_IIS_NewIS;
-        //private Button btn_IIS_Filter;
-        //private BunifuDatepicker dtp_IIS_To;
-        //private BunifuCustomLabel bunifuCustomLabel6;
-        //private BunifuCustomLabel bunifuCustomLabel5;
-        //private Button btn_IIS_SelCli;
-        //private BunifuSeparator bunifuSeparator2;
-        //private BunifuMaterialTextbox txt_IIS_CName;
-        //private BunifuMaterialTextbox txt_IIS_CCode;
-        //private Button btn_IIS_Next;
-        //private BunifuCustomLabel bunifuCustomLabel3;
-        //private BunifuCustomLabel bunifuCustomLabel4;
-        //private Button btn_IIS_Prev;
 
         public Int_Invoices_Send()
         {
