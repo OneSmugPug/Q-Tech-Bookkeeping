@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Q_Tech_Bookkeeping\Int_Invoices_Send.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Q_Tech_Bookkeeping\Int_Invoices_Send.Designer.cs">
+      <DependentUpon>Int_Invoices_Send.cs</DependentUpon>
+    </Compile>
     <Compile Include="Q_Tech_Bookkeeping\Int_Orders.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,11 +228,20 @@
     <Compile Include="Q_Tech_Bookkeeping\Q_Edit_Del.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Q_Tech_Bookkeeping\Q_Edit_Del.Designer.cs">
+      <DependentUpon>Q_Edit_Del.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Q_Tech_Bookkeeping\Q_Edit_DelOld.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Q_Tech_Bookkeeping\Properties\Resources.cs" />
     <Compile Include="Q_Tech_Bookkeeping\Properties\Settings.cs" />
     <Compile Include="AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Q_Tech_Bookkeeping\Int_Invoices_Send.resx">
+      <DependentUpon>Int_Invoices_Send.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Q_Tech_Bookkeeping\Int_Orders.resx">
       <DependentUpon>Int_Orders.cs</DependentUpon>
     </EmbeddedResource>
@@ -279,6 +294,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Q_Tech_Bookkeeping\Q_Add.resx">
       <DependentUpon>Q_Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Q_Tech_Bookkeeping\Q_Edit_Del.resx">
+      <DependentUpon>Q_Edit_Del.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

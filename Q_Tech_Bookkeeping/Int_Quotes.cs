@@ -224,7 +224,7 @@ namespace Q_Tech_Bookkeeping
             if (isFiltered)
                 RemoveFilter();
             SELECTED_QUOTE = e.RowIndex;
-            using (Q_Edit_Del qEditDel = new Q_Edit_Del())
+            using (Q_Edit_DelOld qEditDel = new Q_Edit_DelOld())
             {
                 int num = (int)qEditDel.ShowDialog((IWin32Window)this);
             }

@@ -14,30 +14,7 @@ namespace Q_Tech_Bookkeeping
     {
         private DataTable dt = (DataTable)null;
         private bool mouseDown = false;
-        //private IContainer components = (IContainer)null;
         private Point lastLocation;
-        //private BunifuCustomLabel bunifuCustomLabel10;
-        //private Button btn_QA_Close;
-        //private GroupBox gb_OA_CDetails;
-        //private BunifuMaterialTextbox txt_QA_CName;
-        //private BunifuCustomLabel bunifuCustomLabel4;
-        //private BunifuCustomLabel bunifuCustomLabel3;
-        //private BunifuMaterialTextbox txt_QA_CCode;
-        //private Button btn_QA_Cancel;
-        //private Button btn_QA_Done;
-        //private GroupBox gb_OA_ODetails;
-        //private BunifuCustomLabel bunifuCustomLabel6;
-        //private BunifuCheckbox cb_QA_OrderPlaced;
-        //private Panel panel2;
-        //private TextBox txt_QA_Desc;
-        //private BunifuSeparator ln_QA_Desc;
-        //private Panel panel1;
-        //private TextBox txt_QA_QNum;
-        //private BunifuSeparator ln_QA_CONum;
-        //private BunifuCustomLabel bunifuCustomLabel5;
-        //private BunifuDatepicker dtp_QA_Date;
-        //private BunifuCustomLabel bunifuCustomLabel2;
-        //private BunifuCustomLabel bunifuCustomLabel1;
 
         public Q_Add()
         {
