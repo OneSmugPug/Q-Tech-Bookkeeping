@@ -46,6 +46,8 @@
             this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.txt_LO_CName = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.txt_LO_CCode = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_LOrders)).BeginInit();
             this.SuspendLayout();
             // 
@@ -290,14 +292,50 @@
             this.txt_LO_CName.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
             this.txt_LO_CName.LineIdleColor = System.Drawing.Color.Gray;
             this.txt_LO_CName.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
-            this.txt_LO_CName.LineThickness = 3;
-            this.txt_LO_CName.Location = new System.Drawing.Point(358, 69);
+            this.txt_LO_CName.LineThickness = 1;
+            this.txt_LO_CName.Location = new System.Drawing.Point(254, 115);
             this.txt_LO_CName.Margin = new System.Windows.Forms.Padding(4);
             this.txt_LO_CName.Name = "txt_LO_CName";
-            this.txt_LO_CName.Size = new System.Drawing.Size(379, 31);
+            this.txt_LO_CName.Size = new System.Drawing.Size(379, 33);
             this.txt_LO_CName.TabIndex = 13;
             this.txt_LO_CName.Text = "bunifuMaterialTextbox1";
             this.txt_LO_CName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txt_LO_CName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Txt_LO_CName_KeyDown);
+            // 
+            // txt_LO_CCode
+            // 
+            this.txt_LO_CCode.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_LO_CCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.txt_LO_CCode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
+            this.txt_LO_CCode.HintForeColor = System.Drawing.Color.Empty;
+            this.txt_LO_CCode.HintText = "";
+            this.txt_LO_CCode.isPassword = false;
+            this.txt_LO_CCode.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
+            this.txt_LO_CCode.LineIdleColor = System.Drawing.Color.Gray;
+            this.txt_LO_CCode.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(118)))), ((int)(((byte)(188)))));
+            this.txt_LO_CCode.LineThickness = 1;
+            this.txt_LO_CCode.Location = new System.Drawing.Point(253, 53);
+            this.txt_LO_CCode.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_LO_CCode.Name = "txt_LO_CCode";
+            this.txt_LO_CCode.Size = new System.Drawing.Size(379, 33);
+            this.txt_LO_CCode.TabIndex = 14;
+            this.txt_LO_CCode.Text = "bunifuMaterialTextbox1";
+            this.txt_LO_CCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txt_LO_CCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Txt_LO_CCode_KeyDown);
+            // 
+            // bunifuSeparator1
+            // 
+            this.bunifuSeparator1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.bunifuSeparator1.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuSeparator1.LineColor = System.Drawing.Color.DimGray;
+            this.bunifuSeparator1.LineThickness = 1;
+            this.bunifuSeparator1.Location = new System.Drawing.Point(17, 207);
+            this.bunifuSeparator1.Name = "bunifuSeparator1";
+            this.bunifuSeparator1.Size = new System.Drawing.Size(929, 35);
+            this.bunifuSeparator1.TabIndex = 15;
+            this.bunifuSeparator1.Transparency = 255;
+            this.bunifuSeparator1.Vertical = false;
             // 
             // Orders
             // 
@@ -305,6 +343,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(963, 618);
+            this.Controls.Add(this.bunifuSeparator1);
+            this.Controls.Add(this.txt_LO_CCode);
             this.Controls.Add(this.txt_LO_CName);
             this.Controls.Add(this.bunifuCustomLabel4);
             this.Controls.Add(this.bunifuCustomLabel3);
@@ -348,5 +388,7 @@
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel3;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel4;
         private Bunifu.Framework.UI.BunifuMaterialTextbox txt_LO_CName;
+        private Bunifu.Framework.UI.BunifuMaterialTextbox txt_LO_CCode;
+        private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator1;
     }
 }
