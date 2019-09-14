@@ -21,83 +21,107 @@ namespace Q_Tech_Bookkeeping
             InitializeComponent();
         }
 
+
+        //================================================================================================================================================//
+        // QUOTE ADD LOAD FORM                                                                                                                            //
+        //================================================================================================================================================//
         private void Q_Add_Load(object sender, EventArgs e)
         {
-            Home owner = (Home)Owner;
-            if (owner.GetCurPanel() == "pnl_L_Quotes")
+            Home frmHome = (Home)this.Owner;
+
+            if (frmHome.GetCurPanel() == "pnl_L_Quotes")
             {
-                Quotes curForm = (Quotes)owner.GetCurForm();
+                Quotes curForm = (Quotes)frmHome.GetCurForm();
                 txt_QA_CCode.Text = curForm.GetCCode();
                 txt_QA_CName.Text = curForm.GetCName();
                 dt = curForm.GetQuotes();
             }
             else
             {
-                Int_Quotes curForm = (Int_Quotes)owner.GetCurForm();
+                Int_Quotes curForm = (Int_Quotes)frmHome.GetCurForm();
                 txt_QA_CCode.Text = curForm.GetCCode();
                 txt_QA_CName.Text = curForm.GetCName();
                 dt = curForm.GetQuotes();
             }
-            int num1 = 0;
-            foreach (DataRow row in (InternalDataCollectionBase)dt.Rows)
+
+            int qNum = 0;
+            foreach (DataRow dr in dt.Rows)
             {
-                if (row.RowState == DataRowState.Deleted)
+                if (dr.RowState == DataRowState.Deleted)
                 {
-                    string str = row["Quote_Number", DataRowVersion.Original].ToString().Trim();
-                    int num2 = str.IndexOf("_");
-                    int int32 = Convert.ToInt32(str.Remove(0, num2 + 2));
-                    if (int32 > num1)
-                        num1 = int32;
+                    string str = dr["Quote_Number", DataRowVersion.Original].ToString().Trim();
+                    int pos = str.IndexOf("_");
+                    int x = Convert.ToInt32(str.Remove(0, pos + 2));
+
+                    if (x > qNum)
+                        qNum = x;
                 }
                 else
                 {
-                    string str = row["Quote_Number"].ToString().Trim();
-                    int num2 = str.IndexOf("_");
-                    int int32 = Convert.ToInt32(str.Remove(0, num2 + 2));
-                    if (int32 > num1)
-                        num1 = int32;
+                    string str = dr["Quote_Number"].ToString().Trim();
+                    int pos = str.IndexOf("_");
+                    int x = Convert.ToInt32(str.Remove(0, pos + 2));
+                    if (x > qNum)
+                        qNum = x;
                 }
             }
-            txt_QA_QNum.Text = txt_QA_CCode.Text + "_Q" + (num1 + 1).ToString("000");
+            txt_QA_QNum.Text = txt_QA_CCode.Text + "_Q" + (qNum + 1).ToString("000");
             txt_QA_Desc.Focus();
         }
 
+
+        //================================================================================================================================================//
+        // DONE CLICKED                                                                                                                                   //
+        //================================================================================================================================================//
         private void Btn_QA_Done_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show(new StringBuilder().Append("Are you sure you want to add quote with Quote Number: ").Append(txt_QA_QNum.Text).Append("?").ToString(), "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
-                return;
-            using (SqlConnection dbConnection = DBUtils.GetDBConnection())
+            StringBuilder sb = new StringBuilder().Append("Are you sure you want to add quote with Quote Number: ").Append(txt_QA_QNum.Text).Append("?");
+
+            if (MessageBox.Show(sb.ToString(), "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                dbConnection.Open();
-                try
+                using (SqlConnection conn = DBUtils.GetDBConnection())
                 {
-                    using (SqlCommand sqlCommand = new SqlCommand("INSERT INTO Quotes_Send VALUES (@QNum, @Date, @Client, @Desc, @OPlaced)", dbConnection))
+                    conn.Open();
+                    try
                     {
-                        sqlCommand.Parameters.AddWithValue("@QNum", txt_QA_QNum.Text.Trim());
-                        sqlCommand.Parameters.AddWithValue("@Date", dtp_QA_Date.Value);
-                        sqlCommand.Parameters.AddWithValue("@Client", txt_QA_CName.Text.Trim());
-                        sqlCommand.Parameters.AddWithValue("@Desc", txt_QA_Desc.Text.Trim());
-                        if (cb_QA_OrderPlaced.Checked)
-                            sqlCommand.Parameters.AddWithValue("@OPlaced", "Yes");
-                        else
-                            sqlCommand.Parameters.AddWithValue("@OPlaced", "No");
-                        sqlCommand.ExecuteNonQuery();
-                        int num = (int)MessageBox.Show("New quote successfully added.", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                        this.Close();
+                        using (SqlCommand cmd = new SqlCommand("INSERT INTO Quotes_Send VALUES (@QNum, @Date, @Client, @Desc, @OPlaced)", conn))
+                        {
+                            cmd.Parameters.AddWithValue("@QNum", txt_QA_QNum.Text.Trim());
+                            cmd.Parameters.AddWithValue("@Date", dtp_QA_Date.Value);
+                            cmd.Parameters.AddWithValue("@Client", txt_QA_CName.Text.Trim());
+                            cmd.Parameters.AddWithValue("@Desc", txt_QA_Desc.Text.Trim());
+
+                            if (cb_QA_OrderPlaced.Checked)
+                                cmd.Parameters.AddWithValue("@OPlaced", "Yes");
+                            else cmd.Parameters.AddWithValue("@OPlaced", "No");
+
+                            cmd.ExecuteNonQuery();
+
+                            MessageBox.Show("New quote successfully added.", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.Close();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-                catch (Exception ex)
-                {
-                    int num = (int)MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-                }
-            }
+            }            
         }
 
+
+        //================================================================================================================================================//
+        // CANCEL CLICKED                                                                                                                                 //
+        //================================================================================================================================================//
         private void Btn_QA_Cancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+
+        //================================================================================================================================================//
+        // ORDER NUMBER                                                                                                                                   //
+        //================================================================================================================================================//
         private void Txt_QA_ONum_MouseEnter(object sender, EventArgs e)
         {
             ln_QA_CONum.LineColor = Color.FromArgb(19, 118, 188);
@@ -110,11 +134,14 @@ namespace Q_Tech_Bookkeeping
 
         private void Txt_QA_ONum_MouseLeave(object sender, EventArgs e)
         {
-            if (txt_QA_QNum.Focused)
-                return;
-            ln_QA_CONum.LineColor = Color.Gray;
+            if (!txt_QA_QNum.Focused)
+                ln_QA_CONum.LineColor = Color.Gray;
         }
 
+
+        //================================================================================================================================================//
+        // DESCRIPTION                                                                                                                                    //
+        //================================================================================================================================================//
         private void Txt_QA_Desc_Leave(object sender, EventArgs e)
         {
             ln_QA_Desc.LineColor = Color.Gray;
@@ -127,16 +154,23 @@ namespace Q_Tech_Bookkeeping
 
         private void Txt_QA_Desc_MouseLeave(object sender, EventArgs e)
         {
-            if (txt_QA_Desc.Focused)
-                return;
-            ln_QA_Desc.LineColor = Color.Gray;
+            if (!txt_QA_Desc.Focused)
+                ln_QA_Desc.LineColor = Color.Gray;
         }
 
+
+        //================================================================================================================================================//
+        // CLOSE CLICKED                                                                                                                                  //
+        //================================================================================================================================================//
         private void Btn_QA_Close_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+
+        //================================================================================================================================================//
+        // CLOSE BUTTON                                                                                                                                   //
+        //================================================================================================================================================//
         private void Btn_QA_Close_MouseEnter(object sender, EventArgs e)
         {
             btn_QA_Close.Image = Resources.close_white;
@@ -147,6 +181,10 @@ namespace Q_Tech_Bookkeeping
             btn_QA_Close.Image = Resources.close_black;
         }
 
+
+        //================================================================================================================================================//
+        // DONE BUTTON                                                                                                                                    //
+        //================================================================================================================================================//
         private void Btn_QA_Done_MouseEnter(object sender, EventArgs e)
         {
             btn_QA_Done.ForeColor = Color.White;
@@ -157,6 +195,10 @@ namespace Q_Tech_Bookkeeping
             btn_QA_Done.ForeColor = Color.FromArgb(64, 64, 64);
         }
 
+
+        //================================================================================================================================================//
+        // CANCEL BUTTON                                                                                                                                  //
+        //================================================================================================================================================//
         private void Btn_QA_Cancel_MouseEnter(object sender, EventArgs e)
         {
             btn_QA_Cancel.ForeColor = Color.White;
@@ -167,6 +209,10 @@ namespace Q_Tech_Bookkeeping
             btn_QA_Cancel.ForeColor = Color.FromArgb(64, 64, 64);
         }
 
+
+        //================================================================================================================================================//
+        // ENFORCE READONLY                                                                                                                               //
+        //================================================================================================================================================//
         private void Txt_QA_CCode_KeyDown(object sender, KeyEventArgs e)
         {
             e.SuppressKeyPress = true;
@@ -177,6 +223,10 @@ namespace Q_Tech_Bookkeeping
             e.SuppressKeyPress = true;
         }
 
+
+        //================================================================================================================================================//
+        // QUOTE ADD                                                                                                                                      //
+        //================================================================================================================================================//
         private void Q_Add_MouseDown(object sender, MouseEventArgs e)
         {
             mouseDown = true;
@@ -185,14 +235,11 @@ namespace Q_Tech_Bookkeeping
 
         private void Q_Add_MouseMove(object sender, MouseEventArgs e)
         {
-            if (!mouseDown)
-                return;
-            Point location = Location;
-            int x = location.X - lastLocation.X + e.X;
-            location = Location;
-            int y = location.Y - lastLocation.Y + e.Y;
-            Location = new Point(x, y);
-            this.Update();
+            if (mouseDown)
+            {
+                Location = new Point(this.Location.X - (lastLocation.X + e.X), this.Location.Y - (lastLocation.Y + e.Y));
+                this.Update();
+            }
         }
 
         private void Q_Add_MouseUp(object sender, MouseEventArgs e)
