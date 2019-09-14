@@ -15,28 +15,11 @@ namespace Q_Tech_Bookkeeping
         private int CUR_CLIENT = 0;
         private BindingSource bs = new BindingSource();
         private bool isFiltered = false;
-        //private IContainer components = (IContainer)null;
         private int NUM_OF_CLIENTS;
         private int SELECTED_ORDER;
         private string CNAME;
         private DataTable clientsDT;
         private DataTable dt;
-        //private BunifuDatepicker dtp_LO_From;
-        //private AdvancedDataGridView dgv_LOrders;
-        //private Button btn_LO_NewOrder;
-        //private Button btn_LO_Filter;
-        //private BunifuDatepicker dtp_LO_To;
-        //private BunifuCustomLabel bunifuCustomLabel6;
-        //private BunifuCustomLabel bunifuCustomLabel5;
-        //private Button btn_LO_SelCli;
-        //private BunifuSeparator bunifuSeparator2;
-        //private BunifuMaterialTextbox txt_LO_CName;
-        //private BunifuMaterialTextbox txt_LO_CCode;
-        //private Button btn_LO_Next;
-        //private BunifuCustomLabel bunifuCustomLabel3;
-        //private BunifuCustomLabel bunifuCustomLabel4;
-        //private Button btn_LO_Prev;
-        //private Button btn_LO_ClearFilter;
 
         public Orders()
         {
