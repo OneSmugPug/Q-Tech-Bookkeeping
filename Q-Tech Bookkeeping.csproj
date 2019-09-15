@@ -173,21 +173,18 @@
     </Compile>
     <Compile Include="Q_Tech_Bookkeeping\Inv_Send_Add.Designer.cs">
       <DependentUpon>Inv_Send_Add.cs</DependentUpon>
-    </Compile>  
+    </Compile>
     <Compile Include="Q_Tech_Bookkeeping\New_Expense.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Q_Tech_Bookkeeping\New_Expense.Designer.cs">
       <DependentUpon>New_Expense.cs</DependentUpon>
     </Compile>
-	<Compile Include="Q_Tech_Bookkeeping\Inv_Send_Edit_Del.cs">
+    <Compile Include="Q_Tech_Bookkeeping\Inv_Send_Edit_Del.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Q_Tech_Bookkeeping\Inv_Send_Edit_Del.Designer.cs">
       <DependentUpon>Inv_Send_Edit_Del.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Q_Tech_Bookkeeping\Inv_Send_Edit_DelOld.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Q_Tech_Bookkeeping\Orders.cs">
       <SubType>Form</SubType>
@@ -206,8 +203,8 @@
     </Compile>
     <Compile Include="Q_Tech_Bookkeeping\Proj_AddExp.Designer.cs">
       <DependentUpon>Proj_AddExp.cs</DependentUpon>
-	</Compile>
-	<Compile Include="Q_Tech_Bookkeeping\O_Add.cs">
+    </Compile>
+    <Compile Include="Q_Tech_Bookkeeping\O_Add.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Q_Tech_Bookkeeping\O_Add.Designer.cs">
