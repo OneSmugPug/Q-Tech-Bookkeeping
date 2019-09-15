@@ -158,22 +158,34 @@
     <Compile Include="Q_Tech_Bookkeeping\Inv_Send_Edit_Del.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Q_Tech_Bookkeeping\Inv_Send_Edit_Del.Designer.cs">
+      <DependentUpon>Inv_Send_Edit_Del.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Q_Tech_Bookkeeping\Inv_Send_Edit_DelOld.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Q_Tech_Bookkeeping\Orders.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Q_Tech_Bookkeeping\Orders.Designer.cs">
       <DependentUpon>Orders.cs</DependentUpon>
     </Compile>
+    <Compile Include="Q_Tech_Bookkeeping\O_Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Q_Tech_Bookkeeping\O_Add.Designer.cs">
+      <DependentUpon>O_Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Q_Tech_Bookkeeping\O_Edit_Del.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Q_Tech_Bookkeeping\O_Edit_Del.Designer.cs">
+      <DependentUpon>O_Edit_Del.cs</DependentUpon>
+    </Compile>
     <Compile Include="Q_Tech_Bookkeeping\Proj_AddExp.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Q_Tech_Bookkeeping\New_Proj_Line.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Q_Tech_Bookkeeping\O_Add.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Q_Tech_Bookkeeping\O_Edit_Del.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Q_Tech_Bookkeeping\PettyCash.cs">
@@ -264,8 +276,17 @@
     <EmbeddedResource Include="Q_Tech_Bookkeeping\Inv_Rec_Edit_Del.resx">
       <DependentUpon>Inv_Rec_Edit_Del.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Q_Tech_Bookkeeping\Inv_Send_Edit_Del.resx">
+      <DependentUpon>Inv_Send_Edit_Del.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Q_Tech_Bookkeeping\Orders.resx">
       <DependentUpon>Orders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Q_Tech_Bookkeeping\O_Add.resx">
+      <DependentUpon>O_Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Q_Tech_Bookkeeping\O_Edit_Del.resx">
+      <DependentUpon>O_Edit_Del.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Q_Tech_Bookkeeping\Projects.resx">
       <DependentUpon>Projects.cs</DependentUpon>

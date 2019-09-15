@@ -228,7 +228,7 @@ namespace Q_Tech_Bookkeeping
       if (this.isFiltered)
         this.removeFilter();
       this.SELECTED_INVSEND = e.RowIndex;
-      using (Inv_Send_Edit_Del invSendEditDel = new Inv_Send_Edit_Del())
+      using (Inv_Send_Edit_DelOld invSendEditDel = new Inv_Send_Edit_DelOld())
       {
         int num = (int) invSendEditDel.ShowDialog((IWin32Window) this);
       }

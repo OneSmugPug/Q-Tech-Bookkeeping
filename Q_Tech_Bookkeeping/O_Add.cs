@@ -20,43 +20,6 @@ namespace Q_Tech_Bookkeeping
         private Decimal pRec;
         private StringBuilder sb;
         private Point lastLocation;
-        //private GroupBox gb_OA_ODetails;
-        //private GroupBox gb_OA_CDetails;
-        //private BunifuCustomLabel bunifuCustomLabel8;
-        //private BunifuCustomLabel bunifuCustomLabel9;
-        //private BunifuCustomLabel bunifuCustomLabel7;
-        //private BunifuCustomLabel bunifuCustomLabel6;
-        //private BunifuCustomLabel bunifuCustomLabel5;
-        //private BunifuDatepicker dtp_OA_Date;
-        //private BunifuCustomLabel bunifuCustomLabel2;
-        //private BunifuCustomLabel bunifuCustomLabel1;
-        //private BunifuMaterialTextbox txt_OA_CName;
-        //private BunifuCustomLabel bunifuCustomLabel4;
-        //private BunifuCustomLabel bunifuCustomLabel3;
-        //private BunifuMaterialTextbox txt_OA_CCode;
-        //private Button btn_OA_Done;
-        //private BackgroundWorker backgroundWorker1;
-        //private Panel panel6;
-        //private TextBox txt_OA_QNum;
-        //private BunifuSeparator ln_OA_QNum;
-        //private Panel panel5;
-        //private TextBox txt_OA_PercRec;
-        //private BunifuSeparator ln_OA_PercRec;
-        //private Panel panel4;
-        //private TextBox txt_OA_PercInv;
-        //private BunifuSeparator ln_OA_PercInv;
-        //private Panel panel3;
-        //private TextBox txt_OA_Amt;
-        //private BunifuSeparator ln_OA_Amt;
-        //private Panel panel2;
-        //private TextBox txt_OA_Desc;
-        //private BunifuSeparator ln_OA_Desc;
-        //private Panel panel1;
-        //private TextBox txt_OA_CONum;
-        //private BunifuSeparator ln_OA_CONum;
-        //private Button btn_OA_Close;
-        //private BunifuCustomLabel bunifuCustomLabel10;
-        //private Button btn_OA_Cancel;
 
         public O_Add()
         {
@@ -71,9 +34,9 @@ namespace Q_Tech_Bookkeeping
                 if (Decimal.TryParse(txt_OA_Amt.Text.Replace(",", "").Replace("$", "").Replace(".", "").TrimStart('0'), out result))
                 {
                     Decimal num = result / new Decimal(100);
-                    txt_OA_Amt.TextChanged -= new EventHandler(txt_OA_Amt_TextChanged);
+                    txt_OA_Amt.TextChanged -= new EventHandler(Txt_OA_Amt_TextChanged);
                     txt_OA_Amt.Text = string.Format((IFormatProvider)CultureInfo.CreateSpecificCulture("en-US"), "{0:C2}", num);
-                    txt_OA_Amt.TextChanged += new EventHandler(txt_OA_Amt_TextChanged);
+                    txt_OA_Amt.TextChanged += new EventHandler(Txt_OA_Amt_TextChanged);
                     txt_OA_Amt.Select(txt_OA_Amt.Text.Length, 0);
                 }
                 if (TextisValid(txt_OA_Amt.Text))
@@ -87,9 +50,9 @@ namespace Q_Tech_Bookkeeping
                 if (Decimal.TryParse(txt_OA_Amt.Text.Replace(",", "").Replace("R", "").Replace(".", "").TrimStart('0'), out result))
                 {
                     Decimal num = result / new Decimal(100);
-                    txt_OA_Amt.TextChanged -= new EventHandler(txt_OA_Amt_TextChanged);
+                    txt_OA_Amt.TextChanged -= new EventHandler(Txt_OA_Amt_TextChanged);
                     txt_OA_Amt.Text = string.Format((IFormatProvider)CultureInfo.CreateSpecificCulture("en-ZA"), "{0:C2}", num);
-                    txt_OA_Amt.TextChanged += new EventHandler(txt_OA_Amt_TextChanged);
+                    txt_OA_Amt.TextChanged += new EventHandler(Txt_OA_Amt_TextChanged);
                     txt_OA_Amt.Select(txt_OA_Amt.Text.Length, 0);
                 }
                 if (!TextisValid(txt_OA_Amt.Text))

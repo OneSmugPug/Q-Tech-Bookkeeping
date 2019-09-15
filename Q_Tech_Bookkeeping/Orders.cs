@@ -230,7 +230,7 @@ namespace Q_Tech_Bookkeeping
             if (isFiltered)
                 RemoveFilter();
             SELECTED_ORDER = e.RowIndex;
-            using (O_Edit_Del oEditDel = new O_Edit_Del())
+            using (O_Edit_DelOld oEditDel = new O_Edit_DelOld())
             {
                 int num = (int)oEditDel.ShowDialog((IWin32Window)this);
             }

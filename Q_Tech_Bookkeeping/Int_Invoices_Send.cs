@@ -217,7 +217,7 @@ namespace Q_Tech_Bookkeeping
                         break;
                     }
                 }
-                using (Inv_Send_Edit_Del frmISED = new Inv_Send_Edit_Del())
+                using (Inv_Send_Edit_DelOld frmISED = new Inv_Send_Edit_DelOld())
                 {
                     frmISED.ShowDialog(this);
                 }
@@ -275,7 +275,7 @@ namespace Q_Tech_Bookkeeping
 
             SELECTED_INVSEND = e.RowIndex;
 
-            using (Inv_Send_Edit_Del frmISED = new Inv_Send_Edit_Del())
+            using (Inv_Send_Edit_DelOld frmISED = new Inv_Send_Edit_DelOld())
                 frmISED.ShowDialog(this);
 
             LoadInvSend();
