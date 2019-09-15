@@ -13,11 +13,8 @@ namespace Q_Tech_Bookkeeping
 {
     public partial class O_Add : Form
     {
-        private bool isInter = false;
-        private bool mouseDown = false;
-        private IContainer components = (IContainer)null;
-        private Decimal pInv;
-        private Decimal pRec;
+        private bool isInter = false, mouseDown = false;
+        private Decimal pInv, pRec;
         private StringBuilder sb;
         private Point lastLocation;
 
@@ -26,35 +23,44 @@ namespace Q_Tech_Bookkeeping
             InitializeComponent();
         }
 
+
+        //================================================================================================================================================//
+        // FORMAT MONEY TEXTBOX                                                                                                                           //
+        //================================================================================================================================================//
         private void Txt_OA_Amt_TextChanged(object sender, EventArgs e)
         {
             if (isInter)
             {
-                Decimal result;
-                if (Decimal.TryParse(txt_OA_Amt.Text.Replace(",", "").Replace("$", "").Replace(".", "").TrimStart('0'), out result))
+                if (Decimal.TryParse(txt_OA_Amt.Text.Replace(",", "").Replace("$", "").Replace(".", "").TrimStart('0'), out decimal ul))
                 {
-                    Decimal num = result / new Decimal(100);
-                    txt_OA_Amt.TextChanged -= new EventHandler(Txt_OA_Amt_TextChanged);
-                    txt_OA_Amt.Text = string.Format((IFormatProvider)CultureInfo.CreateSpecificCulture("en-US"), "{0:C2}", num);
-                    txt_OA_Amt.TextChanged += new EventHandler(Txt_OA_Amt_TextChanged);
+                    ul /= 100;
+
+                    txt_OA_Amt.TextChanged -= Txt_OA_Amt_TextChanged;
+
+                    txt_OA_Amt.Text = string.Format(CultureInfo.CreateSpecificCulture("en-US"), "{0:C2}", ul);
+                    txt_OA_Amt.TextChanged += Txt_OA_Amt_TextChanged;
                     txt_OA_Amt.Select(txt_OA_Amt.Text.Length, 0);
                 }
-                if (TextisValid(txt_OA_Amt.Text))
-                    return;
-                txt_OA_Amt.Text = "$0.00";
-                txt_OA_Amt.Select(txt_OA_Amt.Text.Length, 0);
+
+                if (!TextisValid(txt_OA_Amt.Text))
+                {
+                    txt_OA_Amt.Text = "$0.00";
+                    txt_OA_Amt.Select(txt_OA_Amt.Text.Length, 0);
+                }
             }
             else
             {
-                Decimal result;
-                if (Decimal.TryParse(txt_OA_Amt.Text.Replace(",", "").Replace("R", "").Replace(".", "").TrimStart('0'), out result))
+                if (Decimal.TryParse(txt_OA_Amt.Text.Replace(",", "").Replace("R", "").Replace(".", "").TrimStart('0'), out decimal ul))
                 {
-                    Decimal num = result / new Decimal(100);
-                    txt_OA_Amt.TextChanged -= new EventHandler(Txt_OA_Amt_TextChanged);
-                    txt_OA_Amt.Text = string.Format((IFormatProvider)CultureInfo.CreateSpecificCulture("en-ZA"), "{0:C2}", num);
-                    txt_OA_Amt.TextChanged += new EventHandler(Txt_OA_Amt_TextChanged);
+                    ul /= 100;
+
+                    txt_OA_Amt.TextChanged -= Txt_OA_Amt_TextChanged;
+
+                    txt_OA_Amt.Text = string.Format(CultureInfo.CreateSpecificCulture("en-ZA"), "{0:C2}", ul);
+                    txt_OA_Amt.TextChanged += Txt_OA_Amt_TextChanged;
                     txt_OA_Amt.Select(txt_OA_Amt.Text.Length, 0);
                 }
+
                 if (!TextisValid(txt_OA_Amt.Text))
                 {
                     txt_OA_Amt.Text = "R0.00";
@@ -68,64 +74,76 @@ namespace Q_Tech_Bookkeeping
             return new Regex("[^0-9]").IsMatch(text);
         }
 
+
+        //================================================================================================================================================//
+        // ORDERS ADD FORM LOAD                                                                                                                         //
+        //================================================================================================================================================//
         private void O_Add_Load(object sender, EventArgs e)
         {
-            Home owner = (Home)Owner;
+            Home frmHome = (Home)this.Owner;
+
             txt_OA_PercInv.Text = "0%";
             txt_OA_PercRec.Text = "0%";
-            if (owner.GetCurPanel() == "pnl_L_Orders")
+
+            if (frmHome.GetCurPanel() == "pnl_L_Orders")
             {
-                Orders curForm = (Orders)owner.GetCurForm();
+                Orders curForm = (Orders)frmHome.GetCurForm();
+
                 txt_OA_CCode.Text = curForm.GetCCode();
                 txt_OA_CName.Text = curForm.GetCName();
+
                 txt_OA_Amt.Text = "R0.00";
             }
             else
             {
                 isInter = true;
-                Int_Orders curForm = (Int_Orders)owner.GetCurForm();
+                Int_Orders curForm = (Int_Orders)frmHome.GetCurForm();
+
                 txt_OA_CCode.Text = curForm.GetCCode();
                 txt_OA_CName.Text = curForm.GetCName();
+
                 txt_OA_Amt.Text = "$0.00";
             }
             txt_OA_Amt.SelectionStart = txt_OA_Amt.Text.Length;
         }
 
+
+        //================================================================================================================================================//
+        // FORMAT PERCENTAGE INVOICED TEXTBOX                                                                                                                         //
+        //================================================================================================================================================//
         private void Txt_OA_Perc_Inv_Validating(object sender, CancelEventArgs e)
         {
-            double result;
-            if (double.TryParse(txt_OA_PercInv.Text, out result) && Convert.ToDouble(txt_OA_PercInv.Text) >= 0.0 && Convert.ToDouble(txt_OA_PercInv.Text) <= 100.0)
+            if (double.TryParse(txt_OA_PercInv.Text, out double ul) && Convert.ToDouble(txt_OA_PercInv.Text) >= 0 && Convert.ToDouble(txt_OA_PercInv.Text) <= 1)
             {
                 pInv = Convert.ToDecimal(txt_OA_PercInv.Text.ToString());
-                txt_OA_PercInv.Text = result.ToString() + "%";
+                txt_OA_PercInv.Text = ul.ToString("p0");
             }
             else if (txt_OA_PercInv.Text == string.Empty)
-            {
                 txt_OA_PercInv.Text = "0%";
-            }
             else
             {
                 e.Cancel = true;
-                int num = (int)MessageBox.Show("Invalid value entered. Please enter a value between 0 and 100.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                MessageBox.Show("Invalid value entered. Please enter a value between 0 and 100.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
+
+        //================================================================================================================================================//
+        // FORMAT PERCENTAGE RECIEVED TEXTBOX                                                                                                             //
+        //================================================================================================================================================//
         private void Txt_OA_Perc_Rec_Validating(object sender, CancelEventArgs e)
         {
-            double result;
-            if (double.TryParse(txt_OA_PercRec.Text, out result) && Convert.ToDouble(txt_OA_PercRec.Text) >= 0.0 && Convert.ToDouble(txt_OA_PercRec.Text) <= 100.0)
+            if (double.TryParse(txt_OA_PercRec.Text, out double result) && Convert.ToDouble(txt_OA_PercRec.Text) >= 0 && Convert.ToDouble(txt_OA_PercRec.Text) <= 1)
             {
                 pRec = Convert.ToDecimal(txt_OA_PercRec.Text.ToString());
-                txt_OA_PercRec.Text = result.ToString() + "%";
+                txt_OA_PercRec.Text = result.ToString("p0");
             }
             else if (txt_OA_PercRec.Text == string.Empty)
-            {
                 txt_OA_PercRec.Text = "0%";
-            }
             else
             {
                 e.Cancel = true;
-                int num = (int)MessageBox.Show("Invalid value entered. Please enter a value between 0 and 100.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                MessageBox.Show("Invalid value entered. Please enter a value between 0 and 100.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -139,52 +157,96 @@ namespace Q_Tech_Bookkeeping
             txt_OA_PercRec.Clear();
         }
 
+
+        //================================================================================================================================================//
+        // BUTTON DONE CLICKED                                                                                                                            //
+        //================================================================================================================================================//
         private void Btn_OA_Done_Click(object sender, EventArgs e)
         {
-            string text = txt_OA_CONum.Text;
-            sb = new StringBuilder().Append("Are you sure you want to add order with Client Order Number: ").Append(text).Append("?");
-            if (text != string.Empty)
+            string newCONum = txt_OA_CONum.Text;
+
+            sb = new StringBuilder().Append("Are you sure you want to add order with Client Order Number: ").Append(newCONum).Append("?");
+
+            if (newCONum != string.Empty)
             {
-                if (MessageBox.Show(sb.ToString(), "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
-                    return;
-                using (SqlConnection dbConnection = DBUtils.GetDBConnection())
+                if (MessageBox.Show(sb.ToString(), "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    dbConnection.Open();
-                    try
+                    using (SqlConnection conn = DBUtils.GetDBConnection())
                     {
-                        using (SqlCommand sqlCommand = new SqlCommand("INSERT INTO Orders_Received VALUES (@Date, @Client, @CONum, @Desc, @Amt, @PercInv, @PercRec, @QNum)", dbConnection))
+                        conn.Open();
+                        try
                         {
-                            Decimal num1 = !isInter ? (!txt_OA_Amt.Text.Contains("R") ? new Decimal(0, 0, 0, false, (byte)2) : (!(txt_OA_Amt.Text.Replace("R", string.Empty) == "0.00") ? Decimal.Parse(txt_OA_Amt.Text.Replace("R", string.Empty), (IFormatProvider)CultureInfo.GetCultureInfo("en-ZA")) : new Decimal(0, 0, 0, false, (byte)2))) : (!txt_OA_Amt.Text.Contains("$") ? new Decimal(0, 0, 0, false, (byte)2) : (!(txt_OA_Amt.Text.Replace("$", string.Empty) == "0.00") ? Decimal.Parse(txt_OA_Amt.Text.Replace("$", string.Empty), (IFormatProvider)CultureInfo.GetCultureInfo("en-US")) : new Decimal(0, 0, 0, false, (byte)2)));
-                            sqlCommand.Parameters.AddWithValue("@Date", dtp_OA_Date.Value);
-                            sqlCommand.Parameters.AddWithValue("@Client", txt_OA_CName.Text.Trim());
-                            sqlCommand.Parameters.AddWithValue("@CONum", txt_OA_CONum.Text.Trim());
-                            sqlCommand.Parameters.AddWithValue("@Desc", txt_OA_Desc.Text.Trim());
-                            sqlCommand.Parameters.AddWithValue("@Amt", num1);
-                            sqlCommand.Parameters.AddWithValue("@PercInv", pInv);
-                            sqlCommand.Parameters.AddWithValue("@PercRec", pRec);
-                            sqlCommand.Parameters.AddWithValue("@QNum", txt_OA_QNum.Text.Trim());
-                            sqlCommand.ExecuteNonQuery();
-                            int num2 = (int)MessageBox.Show("New order successfully added.", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                            this.Close();
+                            using (SqlCommand cmd = new SqlCommand("INSERT INTO Orders_Received VALUES (@Date, @Client, @CONum, @Desc, @Amt, @PercInv, @PercRec, @QNum)", conn))
+                            {
+                                decimal amt;
+
+                                if (isInter)
+                                {
+                                    if (txt_OA_Amt.Text.Contains("$"))
+                                    {
+                                        if (txt_OA_Amt.Text.Replace("$", string.Empty) == "0.00")
+                                        {
+                                            amt = 0.00m;
+                                        }
+                                        else amt = Decimal.Parse(txt_OA_Amt.Text.Replace("$", string.Empty), CultureInfo.GetCultureInfo("en-US"));
+                                    }
+                                    else amt = 0.00m;
+                                }
+                                else
+                                {
+                                    if (txt_OA_Amt.Text.Contains("R"))
+                                    {
+                                        if (txt_OA_Amt.Text.Replace("R", string.Empty) == "0.00")
+                                        {
+                                            amt = 0.00m;
+                                        }
+                                        else amt = Decimal.Parse(txt_OA_Amt.Text.Replace("R", string.Empty), CultureInfo.GetCultureInfo("en-ZA"));
+                                    }
+                                    else amt = 0.00m;
+                                }
+
+                                cmd.Parameters.AddWithValue("@Date", dtp_OA_Date.Value);
+                                cmd.Parameters.AddWithValue("@Client", txt_OA_CName.Text.Trim());
+                                cmd.Parameters.AddWithValue("@CONum", txt_OA_CONum.Text.Trim());
+                                cmd.Parameters.AddWithValue("@Desc", txt_OA_Desc.Text.Trim());
+                                cmd.Parameters.AddWithValue("@Amt", amt);
+                                cmd.Parameters.AddWithValue("@PercInv", pInv);
+                                cmd.Parameters.AddWithValue("@PercRec", pRec);
+                                cmd.Parameters.AddWithValue("@QNum", txt_OA_QNum.Text.Trim());
+
+                                cmd.ExecuteNonQuery();
+
+                                MessageBox.Show("New order successfully added.", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                this.Close();
+                            }
                         }
-                    }
-                    catch (Exception ex)
-                    {
-                        int num = (int)MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                 }
             }
             else
             {
-                int num3 = (int)MessageBox.Show("Please enter a Client Order Number to continue.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Please enter a Client Order Number to continue.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
+
+        //================================================================================================================================================//
+        // CANCEL CLICKED                                                                                                                                 //
+        //================================================================================================================================================//
         private void Btn_OA_Cancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+
+        //================================================================================================================================================//
+        // CLIENT ORDER NUMBER                                                                                                                            //
+        //================================================================================================================================================//
         private void Txt_OA_CONum_MouseEnter(object sender, EventArgs e)
         {
             ln_OA_CONum.LineColor = Color.FromArgb(19, 118, 188);
@@ -197,11 +259,14 @@ namespace Q_Tech_Bookkeeping
 
         private void Txt_OA_CONum_MouseLeave(object sender, EventArgs e)
         {
-            if (txt_OA_CONum.Focused)
-                return;
-            ln_OA_CONum.LineColor = Color.Gray;
+            if (!txt_OA_CONum.Focused)
+                ln_OA_CONum.LineColor = Color.Gray;
         }
 
+
+        //================================================================================================================================================//
+        // DESCRIPTION                                                                                                                                    //
+        //================================================================================================================================================//
         private void Txt_OA_Desc_Leave(object sender, EventArgs e)
         {
             ln_OA_Desc.LineColor = Color.Gray;
@@ -214,11 +279,14 @@ namespace Q_Tech_Bookkeeping
 
         private void Txt_OA_Desc_MouseLeave(object sender, EventArgs e)
         {
-            if (txt_OA_Desc.Focused)
-                return;
-            ln_OA_Desc.LineColor = Color.Gray;
+            if (!txt_OA_Desc.Focused)
+                ln_OA_Desc.LineColor = Color.Gray;
         }
 
+
+        //================================================================================================================================================//
+        // AMOUNT                                                                                                                                         //
+        //================================================================================================================================================//
         private void Txt_OA_Amt_Leave(object sender, EventArgs e)
         {
             ln_OA_Amt.LineColor = Color.Gray;
@@ -231,11 +299,14 @@ namespace Q_Tech_Bookkeeping
 
         private void Txt_OA_Amt_MouseLeave(object sender, EventArgs e)
         {
-            if (txt_OA_Amt.Focused)
-                return;
-            ln_OA_Amt.LineColor = Color.Gray;
+            if (!txt_OA_Amt.Focused)
+                ln_OA_Amt.LineColor = Color.Gray;
         }
 
+
+        //================================================================================================================================================//
+        // PERCENTAGE INVOICED                                                                                                                            //
+        //================================================================================================================================================//
         private void Txt_OA_PercInv_Leave(object sender, EventArgs e)
         {
             ln_OA_PercInv.LineColor = Color.Gray;
@@ -248,11 +319,14 @@ namespace Q_Tech_Bookkeeping
 
         private void Txt_OA_PercInv_MouseLeave(object sender, EventArgs e)
         {
-            if (txt_OA_PercInv.Focused)
-                return;
-            ln_OA_PercInv.LineColor = Color.Gray;
+            if (!txt_OA_PercInv.Focused)
+                ln_OA_PercInv.LineColor = Color.Gray;
         }
 
+
+        //================================================================================================================================================//
+        // PERCENTAGE RECEIVED                                                                                                                            //
+        //================================================================================================================================================//
         private void Txt_OA_PercRec_Leave(object sender, EventArgs e)
         {
             ln_OA_PercRec.LineColor = Color.Gray;
@@ -265,11 +339,14 @@ namespace Q_Tech_Bookkeeping
 
         private void Txt_OA_PercRec_MouseLeave(object sender, EventArgs e)
         {
-            if (txt_OA_PercRec.Focused)
-                return;
-            ln_OA_PercRec.LineColor = Color.Gray;
+            if (!txt_OA_PercRec.Focused)
+                ln_OA_PercRec.LineColor = Color.Gray;
         }
 
+
+        //================================================================================================================================================//
+        // QUOTE NUMBER                                                                                                                                   //
+        //================================================================================================================================================//
         private void Txt_OA_QNum_Leave(object sender, EventArgs e)
         {
             ln_OA_QNum.LineColor = Color.Gray;
@@ -282,16 +359,23 @@ namespace Q_Tech_Bookkeeping
 
         private void Txt_OA_QNum_MouseLeave(object sender, EventArgs e)
         {
-            if (txt_OA_QNum.Focused)
-                return;
-            ln_OA_QNum.LineColor = Color.Gray;
+            if (!txt_OA_QNum.Focused)
+                ln_OA_QNum.LineColor = Color.Gray;
         }
 
+
+        //================================================================================================================================================//
+        // CLOSE CLICKED                                                                                                                                  //
+        //================================================================================================================================================//
         private void Btn_OA_Close_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+
+        //================================================================================================================================================//
+        // CLOSE BUTTON                                                                                                                                   //
+        //================================================================================================================================================//
         private void Btn_OA_Close_MouseEnter(object sender, EventArgs e)
         {
             btn_OA_Close.Image = Resources.close_white;
@@ -302,6 +386,10 @@ namespace Q_Tech_Bookkeeping
             btn_OA_Close.Image = Resources.close_black;
         }
 
+
+        //================================================================================================================================================//
+        // DONE BUTTON                                                                                                                                    //
+        //================================================================================================================================================//
         private void Btn_OA_Done_MouseEnter(object sender, EventArgs e)
         {
             btn_OA_Done.ForeColor = Color.White;
@@ -312,6 +400,10 @@ namespace Q_Tech_Bookkeeping
             btn_OA_Done.ForeColor = Color.FromArgb(64, 64, 64);
         }
 
+
+        //================================================================================================================================================//
+        // CANCEL BUTTON                                                                                                                                  //
+        //================================================================================================================================================//
         private void Btn_OA_Cancel_MouseEnter(object sender, EventArgs e)
         {
             btn_OA_Cancel.ForeColor = Color.White;
@@ -322,6 +414,10 @@ namespace Q_Tech_Bookkeeping
             btn_OA_Cancel.ForeColor = Color.FromArgb(64, 64, 64);
         }
 
+
+        //================================================================================================================================================//
+        // ENFORCE READONLY                                                                                                                               //
+        //================================================================================================================================================//
         private void Txt_OA_CCode_KeyDown(object sender, KeyEventArgs e)
         {
             e.SuppressKeyPress = true;
@@ -332,22 +428,26 @@ namespace Q_Tech_Bookkeeping
             e.SuppressKeyPress = true;
         }
 
+
+        //================================================================================================================================================//
+        // ORDER ADD                                                                                                                                      //
+        //================================================================================================================================================//
         private void O_Add_MouseDown(object sender, MouseEventArgs e)
         {
-            mouseDown = true;
-            lastLocation = e.Location;
+            mouseDown = true; //If user clicks on main form mouseDown is set to true
+            lastLocation = e.Location; //The last location of the mouse click is captured
         }
 
         private void O_Add_MouseMove(object sender, MouseEventArgs e)
         {
-            if (!mouseDown)
-                return;
-            Point location = Location;
-            int x = location.X - lastLocation.X + e.X;
-            location = Location;
-            int y = location.Y - lastLocation.Y + e.Y;
-            Location = new Point(x, y);
-            this.Update();
+            if (mouseDown)
+            {
+                //Moves the form to a new location as long as user has mouse click down
+                this.Location = new Point((this.Location.X - lastLocation.X) + e.X, (this.Location.Y - lastLocation.Y) + e.Y);
+
+                //Updates the main form with the new position
+                this.Update();
+            }
         }
 
         private void O_Add_MouseUp(object sender, MouseEventArgs e)

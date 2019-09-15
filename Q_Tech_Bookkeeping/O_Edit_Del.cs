@@ -13,14 +13,11 @@ namespace Q_Tech_Bookkeeping
 {
     public partial class O_Edit_Del : Form
     {
-        private bool isInter = false;
-        private bool mouseDown = false;
-        private IContainer components = (IContainer)null;
+        private bool isInter = false, mouseDown = false;
         private DataTable dt;
         private int SELECTED_ORDER;
         private string oldCONum;
-        private Decimal pInv;
-        private Decimal pRec;
+        private Decimal pInv, pRec;
         private Point lastLocation;
         
 
@@ -29,81 +26,115 @@ namespace Q_Tech_Bookkeeping
             InitializeComponent();
         }
 
+        //================================================================================================================================================//
+        // LOAD EDIT/DELETE FORM                                                                                                                          //
+        //================================================================================================================================================//
         private void O_Edit_Del_Load(object sender, EventArgs e)
         {
-            Home owner = (Home)Owner;
-            if (owner.GetCurPanel() == "pnl_L_Orders")
+            Home frmHome = (Home)this.Owner;
+
+            if (frmHome.GetCurPanel() == "pnl_L_Orders")
             {
-                Orders curForm = (Orders)owner.GetCurForm();
-                dt = curForm.GetOrders();
-                SELECTED_ORDER = curForm.GetSelectedOrder();
-                txt_OED_CCode.Text = curForm.GetCCode();
-                txt_OED_CName.Text = curForm.GetCName();
+                Orders parent = (Orders)frmHome.GetCurForm();
+
+                dt = parent.GetOrders();
+                SELECTED_ORDER = parent.GetSelectedOrder();
+
+                txt_OED_CCode.Text = parent.GetCCode();
+                txt_OED_CName.Text = parent.GetCName();
             }
             else
             {
                 isInter = true;
-                Int_Orders curForm = (Int_Orders)owner.GetCurForm();
-                dt = curForm.GetOrders();
-                SELECTED_ORDER = curForm.GetSelectedOrder();
-                txt_OED_CCode.Text = curForm.GetCCode();
-                txt_OED_CName.Text = curForm.GetCName();
+
+                Int_Orders parent = (Int_Orders)frmHome.GetCurForm();
+
+                dt = parent.GetOrders();
+                SELECTED_ORDER = parent.GetSelectedOrder();
+
+                txt_OED_CCode.Text = parent.GetCCode();
+                txt_OED_CName.Text = parent.GetCName();
             }
+
             LoadOrder();
+
             oldCONum = txt_OED_CONum.Text.Trim();
         }
 
         private void LoadOrder()
         {
+            double percInv, percRec;
+
             txt_OED_CONum.Text = dt.Rows[SELECTED_ORDER]["Client_Order_Number"].ToString().Trim();
-            dtp_OED_Date.Value = !(dt.Rows[SELECTED_ORDER]["Date"].ToString() != string.Empty) ? DateTime.Now : Convert.ToDateTime(dt.Rows[SELECTED_ORDER]["Date"].ToString());
+
+            if (dt.Rows[SELECTED_ORDER]["Date"].ToString() != string.Empty)
+                dtp_OED_Date.Value = Convert.ToDateTime(dt.Rows[SELECTED_ORDER]["Date"].ToString());
+            else dtp_OED_Date.Value = DateTime.Now;
+
             if (isInter)
             {
                 if (dt.Rows[SELECTED_ORDER]["Amount"].ToString() != string.Empty)
-                    txt_OED_Amt.Text = Convert.ToDecimal(dt.Rows[SELECTED_ORDER]["Amount"].ToString().Trim()).ToString("c", (IFormatProvider)CultureInfo.GetCultureInfo("en-US"));
-                else
-                    txt_OED_Amt.Text = "$0.00";
+                    txt_OED_Amt.Text = Convert.ToDecimal(dt.Rows[SELECTED_ORDER]["Amount"].ToString().Trim()).ToString("c", CultureInfo.GetCultureInfo("en-US"));
+                else txt_OED_Amt.Text = "$0.00";
             }
             else if (dt.Rows[SELECTED_ORDER]["Amount"].ToString() != string.Empty)
                 txt_OED_Amt.Text = Convert.ToDecimal(dt.Rows[SELECTED_ORDER]["Amount"].ToString().Trim()).ToString("c");
-            else
-                txt_OED_Amt.Text = "R0.00";
+            else txt_OED_Amt.Text = "R0.00";
+
             txt_OED_Amt.SelectionStart = txt_OED_Amt.Text.Length;
             txt_OED_Desc.Text = dt.Rows[SELECTED_ORDER]["Description"].ToString().Trim();
-            txt_OED_PercInv.Text = (!(dt.Rows[SELECTED_ORDER]["Percentage_Invoiced"].ToString() != string.Empty) ? 0.0 : Convert.ToDouble(dt.Rows[SELECTED_ORDER]["Percentage_Invoiced"].ToString().Trim())).ToString("p0");
-            txt_OED_PercRec.Text = (!(dt.Rows[SELECTED_ORDER]["Percentage_Received"].ToString() != string.Empty) ? 0.0 : Convert.ToDouble(dt.Rows[SELECTED_ORDER]["Percentage_Received"].ToString().Trim())).ToString("p0");
+
+            if (dt.Rows[SELECTED_ORDER]["Percentage_Invoiced"].ToString() != string.Empty)
+                percInv = Convert.ToDouble(dt.Rows[SELECTED_ORDER]["Percentage_Invoiced"].ToString().Trim());
+            else percInv = 0;
+            txt_OED_PercInv.Text = percInv.ToString("p0");
+
+            if (dt.Rows[SELECTED_ORDER]["Percentage_Received"].ToString() != string.Empty)
+                percRec = Convert.ToDouble(dt.Rows[SELECTED_ORDER]["Percentage_Received"].ToString().Trim());
+            else percRec = 0;
+            txt_OED_PercRec.Text = percRec.ToString("p0");
+
             txt_OED_QNum.Text = dt.Rows[SELECTED_ORDER]["Quote_Number"].ToString().Trim();
         }
 
+
+        //================================================================================================================================================//
+        // FORMAT AMOUNT TEXTBOX                                                                                                                          //
+        //================================================================================================================================================//
         private void Txt_OED_Amt_TextChanged(object sender, EventArgs e)
         {
             if (isInter)
             {
-                Decimal result;
-                if (Decimal.TryParse(txt_OED_Amt.Text.Replace(",", string.Empty).Replace("$", string.Empty).Replace(".", string.Empty).TrimStart('0'), out result))
+                if (Decimal.TryParse(txt_OED_Amt.Text.Replace(",", string.Empty).Replace("$", string.Empty).Replace(".", string.Empty).TrimStart('0'), out decimal ul))
                 {
-                    Decimal num = result / new Decimal(100);
-                    txt_OED_Amt.TextChanged -= new EventHandler(Txt_OED_Amt_TextChanged);
-                    txt_OED_Amt.Text = string.Format((IFormatProvider)CultureInfo.CreateSpecificCulture("en-US"), "{0:C2}", num);
-                    txt_OED_Amt.TextChanged += new EventHandler(Txt_OED_Amt_TextChanged);
+                    ul /= 100;
+
+                    txt_OED_Amt.TextChanged -= Txt_OED_Amt_TextChanged;
+
+                    txt_OED_Amt.Text = string.Format(CultureInfo.CreateSpecificCulture("en-US"), "{0:C2}", ul);
+                    txt_OED_Amt.TextChanged += Txt_OED_Amt_TextChanged;
                     txt_OED_Amt.Select(txt_OED_Amt.Text.Length, 0);
                 }
-                if (TextisValid(txt_OED_Amt.Text))
-                    return;
-                txt_OED_Amt.Text = "$0.00";
-                txt_OED_Amt.Select(txt_OED_Amt.Text.Length, 0);
+
+                if (!TextisValid(txt_OED_Amt.Text))
+                {
+                    txt_OED_Amt.Text = "$0.00";
+                    txt_OED_Amt.Select(txt_OED_Amt.Text.Length, 0);
+                }
             }
             else
             {
-                Decimal result;
-                if (Decimal.TryParse(txt_OED_Amt.Text.Replace(",", string.Empty).Replace("R", string.Empty).Replace(".", string.Empty).TrimStart('0'), out result))
+                if (Decimal.TryParse(txt_OED_Amt.Text.Replace(",", string.Empty).Replace("R", string.Empty).Replace(".", string.Empty).TrimStart('0'), out decimal ul))
                 {
-                    Decimal num = result / new Decimal(100);
-                    txt_OED_Amt.TextChanged -= new EventHandler(Txt_OED_Amt_TextChanged);
-                    txt_OED_Amt.Text = string.Format((IFormatProvider)CultureInfo.CreateSpecificCulture("en-ZA"), "{0:C2}", num);
-                    txt_OED_Amt.TextChanged += new EventHandler(Txt_OED_Amt_TextChanged);
+                    ul /= 100;
+
+                    txt_OED_Amt.TextChanged -= Txt_OED_Amt_TextChanged;
+
+                    txt_OED_Amt.Text = string.Format(CultureInfo.CreateSpecificCulture("en-ZA"), "{0:C2}", ul);
+                    txt_OED_Amt.TextChanged += Txt_OED_Amt_TextChanged;
                     txt_OED_Amt.Select(txt_OED_Amt.Text.Length, 0);
                 }
+
                 if (!TextisValid(txt_OED_Amt.Text))
                 {
                     txt_OED_Amt.Text = "R0.00";
@@ -117,112 +148,184 @@ namespace Q_Tech_Bookkeeping
             return new Regex("[^0-9]").IsMatch(text);
         }
 
+        //================================================================================================================================================//
+        // FORMAT PERCENTAGE RECIEVED TEXTBOX                                                                                                             //
+        //================================================================================================================================================//
         private void Txt_OED_Perc_Rec_Validating(object sender, CancelEventArgs e)
         {
-            double result;
-            if (double.TryParse(txt_OED_PercRec.Text, out result) && Convert.ToDouble(txt_OED_PercRec.Text) >= 0.0 && Convert.ToDouble(txt_OED_PercRec.Text) <= 100.0)
+            double temp;
+
+            if (Double.TryParse(txt_OED_PercRec.Text, out temp) && Convert.ToDouble(txt_OED_PercRec.Text) >= 0 && Convert.ToDouble(txt_OED_PercRec.Text) <= 1)
             {
                 pRec = Convert.ToDecimal(txt_OED_PercRec.Text.ToString());
-                txt_OED_PercRec.Text = result.ToString() + "%";
+                txt_OED_PercRec.Text = temp.ToString("p0");
             }
-            else if (txt_OED_PercRec.Text == string.Empty)
-            {
+            else if (txt_OED_PercRec.Text == String.Empty)
                 txt_OED_PercRec.Text = "0%";
-            }
             else
             {
                 e.Cancel = true;
-                int num = (int)MessageBox.Show("Invalid value entered. Please enter a value between 0 and 100.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                MessageBox.Show("Invalid value entered. Please enter a value between 0 and 1. Make use of \",\" instead of \".\"", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
+        //================================================================================================================================================//
+        // FORMAT PERCENTAGE INVOICED TEXTBOX                                                                                                             //
+        //================================================================================================================================================//
         private void Txt_OED_Perc_Inv_Validating(object sender, CancelEventArgs e)
         {
-            double result;
-            if (double.TryParse(txt_OED_PercInv.Text, out result) && Convert.ToDouble(txt_OED_PercInv.Text) >= 0.0 && Convert.ToDouble(txt_OED_PercInv.Text) <= 100.0)
+            double temp;
+
+            if (Double.TryParse(txt_OED_PercInv.Text, out temp) && Convert.ToDouble(txt_OED_PercInv.Text) >= 0 && Convert.ToDouble(txt_OED_PercInv.Text) <= 1)
             {
                 pInv = Convert.ToDecimal(txt_OED_PercInv.Text.ToString());
-                txt_OED_PercInv.Text = result.ToString() + "%";
+                txt_OED_PercInv.Text = temp.ToString("p0");
             }
-            else if (txt_OED_PercInv.Text == string.Empty)
-            {
+
+            else if (txt_OED_PercInv.Text == String.Empty)
                 txt_OED_PercInv.Text = "0%";
-            }
             else
             {
                 e.Cancel = true;
-                int num = (int)MessageBox.Show("Invalid value entered. Please enter a value between 0 and 100.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                MessageBox.Show("Invalid value entered. Please enter a value between 0 and 1. Make use of \",\" instead of \".\"", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
+        //================================================================================================================================================//
+        // EDIT ORDER DETAILS                                                                                                                             //
+        //================================================================================================================================================//
         private void Btn_OED_Done_Click(object sender, EventArgs e)
         {
             if (txt_OED_CONum.Text != string.Empty)
             {
-                if (MessageBox.Show("Are you sure you want to update order?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
-                    return;
-                if (txt_OED_CONum.Text.Trim() == oldCONum)
+                if (MessageBox.Show("Are you sure you want to update order?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    using (SqlConnection dbConnection = DBUtils.GetDBConnection())
+                    if (txt_OED_CONum.Text.Trim() == oldCONum)
                     {
-                        dbConnection.Open();
-                        try
+                        using (SqlConnection conn = DBUtils.GetDBConnection())
                         {
-                            using (SqlCommand sqlCommand = new SqlCommand("UPDATE Orders_Received SET Date = @Date, Description = @Desc, Amount = @Amt, Percentage_Invoiced = @PercInv, Percentage_Received = @PercRec, Quote_Number = @QNum WHERE Client_Order_Number = @CONum", dbConnection))
+                            conn.Open();
+
+                            try
                             {
-                                Decimal num1 = !isInter ? (!txt_OED_Amt.Text.Contains("R") ? new Decimal(0, 0, 0, false, (byte)2) : (!(txt_OED_Amt.Text.Replace("R", string.Empty) == "0.00") ? Decimal.Parse(txt_OED_Amt.Text.Replace("R", string.Empty), (IFormatProvider)CultureInfo.GetCultureInfo("en-ZA")) : new Decimal(0, 0, 0, false, (byte)2))) : (!txt_OED_Amt.Text.Contains("$") ? new Decimal(0, 0, 0, false, (byte)2) : (!(txt_OED_Amt.Text.Replace("$", string.Empty) == "0.00") ? Decimal.Parse(txt_OED_Amt.Text.Replace("$", string.Empty), (IFormatProvider)CultureInfo.GetCultureInfo("en-US")) : new Decimal(0, 0, 0, false, (byte)2)));
-                                sqlCommand.Parameters.AddWithValue("@Date", dtp_OED_Date.Value);
-                                sqlCommand.Parameters.AddWithValue("@Desc", txt_OED_Desc.Text.Trim());
-                                sqlCommand.Parameters.AddWithValue("@Amt", num1);
-                                sqlCommand.Parameters.AddWithValue("@PercInv", pInv);
-                                sqlCommand.Parameters.AddWithValue("@PercRec", pRec);
-                                sqlCommand.Parameters.AddWithValue("@QNum", txt_OED_QNum.Text.Trim());
-                                sqlCommand.Parameters.AddWithValue("@CONum", oldCONum);
-                                sqlCommand.ExecuteNonQuery();
-                                int num2 = (int)MessageBox.Show("Order successfully updated.", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                                this.Close();
+                                string sql = "UPDATE Orders_Received SET Date = @Date, Description = @Desc, Amount = @Amt, Percentage_Invoiced = @PercInv, " +
+                                    "Percentage_Received = @PercRec, Quote_Number = @QNum WHERE Client_Order_Number = @CONum";
+
+                                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                                {
+                                    decimal amt;
+
+                                    if (isInter)
+                                    {
+                                        if (txt_OED_Amt.Text.Contains("$"))
+                                        {
+                                            if (txt_OED_Amt.Text.Replace("$", string.Empty) == "0.00")
+                                            {
+                                                amt = 0.00m;
+                                            }
+                                            else amt = Decimal.Parse(txt_OED_Amt.Text.Replace("$", string.Empty), CultureInfo.GetCultureInfo("en-US"));
+                                        }
+                                        else amt = 0.00m;
+                                    }
+                                    else
+                                    {
+                                        if (txt_OED_Amt.Text.Contains("R"))
+                                        {
+                                            if (txt_OED_Amt.Text.Replace("R", string.Empty) == "0.00")
+                                            {
+                                                amt = 0.00m;
+                                            }
+                                            else amt = Decimal.Parse(txt_OED_Amt.Text.Replace("R", string.Empty), CultureInfo.GetCultureInfo("en-ZA"));
+                                        }
+                                        else amt = 0.00m;
+                                    }
+
+                                    cmd.Parameters.AddWithValue("@Date", dtp_OED_Date.Value);
+                                    cmd.Parameters.AddWithValue("@Desc", txt_OED_Desc.Text.Trim());
+                                    cmd.Parameters.AddWithValue("@Amt", amt);
+                                    cmd.Parameters.AddWithValue("@PercInv", pInv);
+                                    cmd.Parameters.AddWithValue("@PercRec", pRec);
+                                    cmd.Parameters.AddWithValue("@QNum", txt_OED_QNum.Text.Trim());
+                                    cmd.Parameters.AddWithValue("@CONum", oldCONum);
+
+                                    cmd.ExecuteNonQuery();
+
+                                    MessageBox.Show("Order successfully updated.", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                    this.Close();
+                                }
                             }
-                        }
-                        catch (Exception ex)
-                        {
-                            int num = (int)MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         }
                     }
-                }
-                else if (txt_OED_CONum.Text.Trim() != oldCONum)
-                {
-                    using (SqlConnection dbConnection = DBUtils.GetDBConnection())
+                    else if (txt_OED_CONum.Text.Trim() != oldCONum)
                     {
-                        dbConnection.Open();
-                        try
+                        using (SqlConnection conn = DBUtils.GetDBConnection())
                         {
-                            using (SqlCommand sqlCommand = new SqlCommand("UPDATE Orders_Received SET Client_Order_Number = @CONum, Date = @Date, Description = @Desc, Amount = @Amt, Percentage_Invoiced = @PercInv, Percentage_Received = @PercRec, Quote_Number = @QNum WHERE Client_Order_Number = @oldCONum", dbConnection))
+                            conn.Open();
+
+                            try
                             {
-                                Decimal num1 = !isInter ? (!txt_OED_Amt.Text.Contains("R") ? new Decimal(0, 0, 0, false, (byte)2) : (!(txt_OED_Amt.Text.Replace("R", string.Empty) == "0.00") ? Decimal.Parse(txt_OED_Amt.Text.Replace("R", string.Empty), (IFormatProvider)CultureInfo.GetCultureInfo("en-ZA")) : new Decimal(0, 0, 0, false, (byte)2))) : (!txt_OED_Amt.Text.Contains("$") ? new Decimal(0, 0, 0, false, (byte)2) : (!(txt_OED_Amt.Text.Replace("$", string.Empty) == "0.00") ? Decimal.Parse(txt_OED_Amt.Text.Replace("$", string.Empty), (IFormatProvider)CultureInfo.GetCultureInfo("en-US")) : new Decimal(0, 0, 0, false, (byte)2)));
-                                sqlCommand.Parameters.AddWithValue("@CONum", txt_OED_CONum.Text.Trim());
-                                sqlCommand.Parameters.AddWithValue("@Date", dtp_OED_Date.Value);
-                                sqlCommand.Parameters.AddWithValue("@Desc", txt_OED_Desc.Text.Trim());
-                                sqlCommand.Parameters.AddWithValue("@Amt", num1);
-                                sqlCommand.Parameters.AddWithValue("@PercInv", pInv);
-                                sqlCommand.Parameters.AddWithValue("@PercRec", pRec);
-                                sqlCommand.Parameters.AddWithValue("@QNum", txt_OED_QNum.Text.Trim());
-                                sqlCommand.Parameters.AddWithValue("@oldCONum", oldCONum);
-                                sqlCommand.ExecuteNonQuery();
-                                int num2 = (int)MessageBox.Show("Order successfully updated.", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                                this.Close();
+                                string sql = "UPDATE Orders_Received SET Client_Order_Number = @CONum, Date = @Date, Description = @Desc, Amount = @Amt, Percentage_Invoiced = @PercInv, " +
+                                    "Percentage_Received = @PercRec, Quote_Number = @QNum WHERE Client_Order_Number = @oldCONum";
+
+                                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                                {
+                                    decimal amt;
+
+                                    if (isInter)
+                                    {
+                                        if (txt_OED_Amt.Text.Contains("$"))
+                                        {
+                                            if (txt_OED_Amt.Text.Replace("$", string.Empty) == "0.00")
+                                            {
+                                                amt = 0.00m;
+                                            }
+                                            else amt = Decimal.Parse(txt_OED_Amt.Text.Replace("$", string.Empty), CultureInfo.GetCultureInfo("en-US"));
+                                        }
+                                        else amt = 0.00m;
+                                    }
+                                    else
+                                    {
+                                        if (txt_OED_Amt.Text.Contains("R"))
+                                        {
+                                            if (txt_OED_Amt.Text.Replace("R", string.Empty) == "0.00")
+                                            {
+                                                amt = 0.00m;
+                                            }
+                                            else amt = Decimal.Parse(txt_OED_Amt.Text.Replace("R", string.Empty), CultureInfo.GetCultureInfo("en-ZA"));
+                                        }
+                                        else amt = 0.00m;
+                                    }
+
+                                    cmd.Parameters.AddWithValue("@CONum", txt_OED_CONum.Text.Trim());
+                                    cmd.Parameters.AddWithValue("@Date", dtp_OED_Date.Value);
+                                    cmd.Parameters.AddWithValue("@Desc", txt_OED_Desc.Text.Trim());
+                                    cmd.Parameters.AddWithValue("@Amt", amt);
+                                    cmd.Parameters.AddWithValue("@PercInv", pInv);
+                                    cmd.Parameters.AddWithValue("@PercRec", pRec);
+                                    cmd.Parameters.AddWithValue("@QNum", txt_OED_QNum.Text.Trim());
+                                    cmd.Parameters.AddWithValue("@oldCONum", oldCONum);
+
+                                    cmd.ExecuteNonQuery();
+
+                                    MessageBox.Show("Order successfully updated.", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                    this.Close();
+                                }
                             }
-                        }
-                        catch (Exception ex)
-                        {
-                            int num = (int)MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         }
                     }
                 }
             }
-            else
-            {
-                int num3 = (int)MessageBox.Show("Please enter a Client Order Number to continue.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
+            else MessageBox.Show("Please enter a Client Order Number to continue.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void Btn_OED_Close_Click(object sender, EventArgs e)
@@ -257,9 +360,8 @@ namespace Q_Tech_Bookkeeping
 
         private void Txt_OED_CONum_MouseLeave(object sender, EventArgs e)
         {
-            if (txt_OED_CONum.Focused)
-                return;
-            ln_OED_CONum.LineColor = Color.Gray;
+            if (!txt_OED_CONum.Focused)
+                ln_OED_CONum.LineColor = Color.Gray;
         }
 
         private void Txt_OED_Desc_Leave(object sender, EventArgs e)
@@ -274,9 +376,8 @@ namespace Q_Tech_Bookkeeping
 
         private void Txt_OED_Desc_MouseLeave(object sender, EventArgs e)
         {
-            if (txt_OED_Desc.Focused)
-                return;
-            ln_OED_Desc.LineColor = Color.Gray;
+            if (!txt_OED_Desc.Focused)
+                ln_OED_Desc.LineColor = Color.Gray;
         }
 
         private void Txt_OED_Amt_Leave(object sender, EventArgs e)
@@ -291,9 +392,8 @@ namespace Q_Tech_Bookkeeping
 
         private void Txt_OED_Amt_MouseLeave(object sender, EventArgs e)
         {
-            if (txt_OED_Amt.Focused)
-                return;
-            ln_OED_Amt.LineColor = Color.Gray;
+            if (!txt_OED_Amt.Focused)
+                ln_OED_Amt.LineColor = Color.Gray;
         }
 
         private void Txt_OED_PercInv_Leave(object sender, EventArgs e)
@@ -308,9 +408,8 @@ namespace Q_Tech_Bookkeeping
 
         private void Txt_OED_PercInv_MouseLeave(object sender, EventArgs e)
         {
-            if (txt_OED_PercInv.Focused)
-                return;
-            ln_OED_PercInv.LineColor = Color.Gray;
+            if (!txt_OED_PercInv.Focused)
+                ln_OED_PercInv.LineColor = Color.Gray;
         }
 
         private void Txt_OED_PercRec_Leave(object sender, EventArgs e)
@@ -325,9 +424,8 @@ namespace Q_Tech_Bookkeeping
 
         private void Txt_OED_PercRec_MouseLeave(object sender, EventArgs e)
         {
-            if (txt_OED_PercRec.Focused)
-                return;
-            ln_OED_PercRec.LineColor = Color.Gray;
+            if (!txt_OED_PercRec.Focused)
+                ln_OED_PercRec.LineColor = Color.Gray;
         }
 
         private void Txt_OED_QNum_Leave(object sender, EventArgs e)
@@ -342,9 +440,8 @@ namespace Q_Tech_Bookkeeping
 
         private void Txt_OED_QNum_MouseLeave(object sender, EventArgs e)
         {
-            if (txt_OED_QNum.Focused)
-                return;
-            ln_OED_QNum.LineColor = Color.Gray;
+            if (!txt_OED_QNum.Focused)
+                ln_OED_QNum.LineColor = Color.Gray;
         }
 
         private void Btn_OED_Close_MouseEnter(object sender, EventArgs e)
@@ -389,25 +486,25 @@ namespace Q_Tech_Bookkeeping
 
         private void O_Edit_MouseDown(object sender, MouseEventArgs e)
         {
-            mouseDown = true;
-            lastLocation = e.Location;
+            mouseDown = true; //If user clicks on main form mouseDown is set to true
+            lastLocation = e.Location; //The last location of the mouse click is captured
         }
 
         private void O_Edit_MouseMove(object sender, MouseEventArgs e)
         {
-            if (!mouseDown)
-                return;
-            Point location = Location;
-            int x = location.X - lastLocation.X + e.X;
-            location = Location;
-            int y = location.Y - lastLocation.Y + e.Y;
-            Location = new Point(x, y);
-            this.Update();
+            if (mouseDown)
+            {
+                //Moves the form to a new location as long as user has mouse click down
+                this.Location = new Point((this.Location.X - lastLocation.X) + e.X, (this.Location.Y - lastLocation.Y) + e.Y);
+
+                //Updates the main form with the new position
+                this.Update();
+            }
         }
 
         private void O_Edit_MouseUp(object sender, MouseEventArgs e)
         {
-            mouseDown = false;
+            mouseDown = false; //Sets mouseDown to false when user stops clicking
         }
 
         private void Txt_OED_PercInv_Enter(object sender, EventArgs e)

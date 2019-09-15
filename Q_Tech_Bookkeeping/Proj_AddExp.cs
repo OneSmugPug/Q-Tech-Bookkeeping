@@ -123,10 +123,10 @@ namespace Q_Tech_Bookkeeping
             if (isFiltered)
                 removeFilter();
 
-            using (New_Proj_LineOld frmNPL = new New_Proj_LineOld())
+            using (New_Expense frmNE = new New_Expense())
             {
-                frmNPL.setParent(this);
-                frmNPL.ShowDialog();
+                frmNE.SetParent(this);
+                frmNE.ShowDialog();
             }
 
             LoadExpenses();

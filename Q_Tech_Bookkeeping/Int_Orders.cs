@@ -215,7 +215,7 @@ namespace Q_Tech_Bookkeeping
             if (isFiltered)
                 RemoveFilter();
 
-            using (O_AddOld frmOAdd = new O_AddOld())
+            using (O_Add frmOAdd = new O_Add())
                 frmOAdd.ShowDialog(this);
 
             LoadOrders();
@@ -291,7 +291,7 @@ namespace Q_Tech_Bookkeeping
 
             SELECTED_ORDER = e.RowIndex;
 
-            using (O_Edit_DelOld frmOED = new O_Edit_DelOld())
+            using (O_Edit_Del frmOED = new O_Edit_Del())
                 frmOED.ShowDialog(this);
 
             LoadOrders();

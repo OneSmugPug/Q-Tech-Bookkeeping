@@ -228,7 +228,7 @@ namespace Q_Tech_Bookkeeping
         {
             if (mouseDown)
             {
-                this.Location = new Point(this.Location.X - (lastLocation.X + e.X), this.Location.Y - (lastLocation.Y + e.Y));
+                this.Location = new Point((this.Location.X - lastLocation.X) + e.X, (this.Location.Y - lastLocation.Y) + e.Y);
                 this.Update();
             }
         }

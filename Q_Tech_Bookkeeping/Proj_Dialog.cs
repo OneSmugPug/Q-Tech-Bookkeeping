@@ -44,7 +44,7 @@ namespace Q_Tech_Bookkeeping
         private void Btn_PD_AddExp_Click(object sender, EventArgs e)
         {
             Home frmHome = (Home)this.Owner;
-            Proj_AddExpOld frmMP = new Proj_AddExpOld();
+            Proj_AddExp frmMP = new Proj_AddExp();
             frmHome.SetProjExpForm(frmMP, frmHome);
             this.Close();
         }
@@ -105,7 +105,7 @@ namespace Q_Tech_Bookkeeping
         {
             if (mouseDown)
             {
-                Location = new Point(this.Location.X - (lastLocation.X + e.X), this.Location.Y - (lastLocation.Y + e.Y));
+                Location = new Point((this.Location.X - lastLocation.X) + e.X, (this.Location.Y - lastLocation.Y) + e.Y);
                 this.Update();
             }
         }

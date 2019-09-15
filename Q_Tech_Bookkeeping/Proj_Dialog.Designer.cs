@@ -115,7 +115,6 @@
             this.Name = "Proj_Dialog";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Load += new System.EventHandler(this.Proj_Dialog_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Proj_Dialog_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Proj_Dialog_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Proj_Dialog_MouseUp);

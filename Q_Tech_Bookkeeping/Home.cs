@@ -40,15 +40,15 @@ namespace Q_Tech_Bookkeeping
 
         private DataTable iClientDT;
 
-        private OrdersOld frmOrder;
+        private Orders frmOrder;
         private Quotes frmQuote;
-        private Invoices_SendOld frmInvSent;
+        private Invoices_Send frmInvSent;
         private Inv_Rec frmInvRec;
         private Int_Orders frmIntOrders;
         private Int_Quotes frmIntQuotes;
-        private Int_Invoices_SendOld frmIntInvSent;
+        private Int_Invoices_Send frmIntInvSent;
         private Contractors frmContr;
-        private PettyCashOld frmPetty;
+        private PettyCash frmPetty;
         private Projects frmProj;
 
         public Home()
@@ -768,7 +768,7 @@ namespace Q_Tech_Bookkeeping
             btn_L_Orders.BackColor = Color.FromArgb(15, 91, 142);
             btn_L_Orders.ForeColor = Color.White;
 
-            frmOrder = new OrdersOld();
+            frmOrder = new Orders();
             curForm = frmOrder;
             frmOrder.TopLevel = false;
             frmOrder.TopMost = true;
@@ -867,7 +867,7 @@ namespace Q_Tech_Bookkeeping
             btn_L_InvSent.BackColor = Color.FromArgb(13, 77, 119);
             btn_L_InvSent.ForeColor = Color.White;
 
-            frmInvSent = new Invoices_SendOld();
+            frmInvSent = new Invoices_Send();
             curForm = frmInvSent;
             frmInvSent.TopLevel = false;
             frmInvSent.TopMost = true;
@@ -1491,12 +1491,12 @@ namespace Q_Tech_Bookkeeping
             }
         }
 
-        public void SetProjExpForm(Proj_AddExpOld frmAE, Home frmHome)
+        public void SetProjExpForm(Proj_AddExp frmAE, Home frmHome)
         {
             frmAE.TopLevel = false;
             frmAE.TopMost = true;
             pnl_Projects.Controls.Add(frmAE);
-            frmAE.setHome(frmHome);
+            frmAE.SetHome(frmHome);
             frmAE.Show();
         }
 
