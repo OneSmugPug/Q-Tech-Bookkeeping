@@ -31,9 +31,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inv_Send_Add));
             this.bunifuCustomLabel8 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.gb_ISA_ISDetails = new System.Windows.Forms.GroupBox();
+            this.dtp_ISA_Date = new Bunifu.Framework.UI.BunifuDatepicker();
+            this.bunifuCustomLabel11 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.pnl_ISA_INInst = new System.Windows.Forms.Panel();
+            this.ln_ISA_INInst = new Bunifu.Framework.UI.BunifuSeparator();
+            this.txt_ISA_INInst = new System.Windows.Forms.TextBox();
+            this.bunifuCustomLabel9 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.dtp_ISA_DatePaid = new Bunifu.Framework.UI.BunifuDatepicker();
             this.cb_ISA_Paid = new Bunifu.Framework.UI.BunifuCheckbox();
             this.bunifuCustomLabel7 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.bunifuCustomLabel6 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel5 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -58,20 +65,13 @@
             this.txt_ISA_CName = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.bunifuCustomLabel10 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel12 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.bunifuCustomLabel9 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.pnl_ISA_INInst = new System.Windows.Forms.Panel();
-            this.ln_ISA_INInst = new Bunifu.Framework.UI.BunifuSeparator();
-            this.txt_ISA_INInst = new System.Windows.Forms.TextBox();
-            this.bunifuCustomLabel6 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.bunifuCustomLabel11 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.dtp_ISA_Date = new Bunifu.Framework.UI.BunifuDatepicker();
             this.gb_ISA_ISDetails.SuspendLayout();
+            this.pnl_ISA_INInst.SuspendLayout();
             this.pnl_ISA_VAT.SuspendLayout();
             this.pnl_ISA_InvNum.SuspendLayout();
             this.pnl_ISA_Amt.SuspendLayout();
             this.pnl_ISA_Desc.SuspendLayout();
             this.gb_ISA_CDetails.SuspendLayout();
-            this.pnl_ISA_INInst.SuspendLayout();
             this.SuspendLayout();
             // 
             // bunifuCustomLabel8
@@ -111,6 +111,81 @@
             this.gb_ISA_ISDetails.TabStop = false;
             this.gb_ISA_ISDetails.Text = "Invoice Details";
             // 
+            // dtp_ISA_Date
+            // 
+            this.dtp_ISA_Date.BackColor = System.Drawing.Color.Silver;
+            this.dtp_ISA_Date.BorderRadius = 0;
+            this.dtp_ISA_Date.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
+            this.dtp_ISA_Date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtp_ISA_Date.FormatCustom = null;
+            this.dtp_ISA_Date.Location = new System.Drawing.Point(428, 23);
+            this.dtp_ISA_Date.Name = "dtp_ISA_Date";
+            this.dtp_ISA_Date.Size = new System.Drawing.Size(238, 25);
+            this.dtp_ISA_Date.TabIndex = 17;
+            this.dtp_ISA_Date.Value = new System.DateTime(2019, 9, 12, 9, 14, 42, 891);
+            // 
+            // bunifuCustomLabel11
+            // 
+            this.bunifuCustomLabel11.AutoSize = true;
+            this.bunifuCustomLabel11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.bunifuCustomLabel11.Location = new System.Drawing.Point(353, 132);
+            this.bunifuCustomLabel11.Name = "bunifuCustomLabel11";
+            this.bunifuCustomLabel11.Size = new System.Drawing.Size(74, 17);
+            this.bunifuCustomLabel11.TabIndex = 16;
+            this.bunifuCustomLabel11.Text = "Date Paid:";
+            // 
+            // pnl_ISA_INInst
+            // 
+            this.pnl_ISA_INInst.Controls.Add(this.ln_ISA_INInst);
+            this.pnl_ISA_INInst.Controls.Add(this.txt_ISA_INInst);
+            this.pnl_ISA_INInst.Location = new System.Drawing.Point(283, 23);
+            this.pnl_ISA_INInst.Name = "pnl_ISA_INInst";
+            this.pnl_ISA_INInst.Size = new System.Drawing.Size(37, 27);
+            this.pnl_ISA_INInst.TabIndex = 15;
+            // 
+            // ln_ISA_INInst
+            // 
+            this.ln_ISA_INInst.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ln_ISA_INInst.BackColor = System.Drawing.Color.Transparent;
+            this.ln_ISA_INInst.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.ln_ISA_INInst.LineThickness = 1;
+            this.ln_ISA_INInst.Location = new System.Drawing.Point(-1, 18);
+            this.ln_ISA_INInst.Name = "ln_ISA_INInst";
+            this.ln_ISA_INInst.Size = new System.Drawing.Size(38, 10);
+            this.ln_ISA_INInst.TabIndex = 1;
+            this.ln_ISA_INInst.TabStop = false;
+            this.ln_ISA_INInst.Transparency = 255;
+            this.ln_ISA_INInst.Vertical = false;
+            // 
+            // txt_ISA_INInst
+            // 
+            this.txt_ISA_INInst.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_ISA_INInst.BackColor = System.Drawing.Color.Silver;
+            this.txt_ISA_INInst.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_ISA_INInst.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_ISA_INInst.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
+            this.txt_ISA_INInst.Location = new System.Drawing.Point(2, 4);
+            this.txt_ISA_INInst.Name = "txt_ISA_INInst";
+            this.txt_ISA_INInst.Size = new System.Drawing.Size(35, 16);
+            this.txt_ISA_INInst.TabIndex = 0;
+            this.txt_ISA_INInst.Leave += new System.EventHandler(this.Txt_ISA_INInst_Leave);
+            this.txt_ISA_INInst.MouseEnter += new System.EventHandler(this.Txt_ISA_INInst_MouseEnter);
+            this.txt_ISA_INInst.MouseLeave += new System.EventHandler(this.Txt_ISA_INInst_MouseLeave);
+            // 
+            // bunifuCustomLabel9
+            // 
+            this.bunifuCustomLabel9.AutoSize = true;
+            this.bunifuCustomLabel9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.bunifuCustomLabel9.Location = new System.Drawing.Point(265, 26);
+            this.bunifuCustomLabel9.Name = "bunifuCustomLabel9";
+            this.bunifuCustomLabel9.Size = new System.Drawing.Size(12, 17);
+            this.bunifuCustomLabel9.TabIndex = 14;
+            this.bunifuCustomLabel9.Text = ".";
+            // 
             // dtp_ISA_DatePaid
             // 
             this.dtp_ISA_DatePaid.BackColor = System.Drawing.Color.Silver;
@@ -147,6 +222,17 @@
             this.bunifuCustomLabel7.Size = new System.Drawing.Size(110, 17);
             this.bunifuCustomLabel7.TabIndex = 11;
             this.bunifuCustomLabel7.Text = "Invoice Number:";
+            // 
+            // bunifuCustomLabel6
+            // 
+            this.bunifuCustomLabel6.AutoSize = true;
+            this.bunifuCustomLabel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.bunifuCustomLabel6.Location = new System.Drawing.Point(381, 26);
+            this.bunifuCustomLabel6.Name = "bunifuCustomLabel6";
+            this.bunifuCustomLabel6.Size = new System.Drawing.Size(42, 17);
+            this.bunifuCustomLabel6.TabIndex = 10;
+            this.bunifuCustomLabel6.Text = "Date:";
             // 
             // bunifuCustomLabel5
             // 
@@ -460,7 +546,7 @@
             this.txt_ISA_CName.Location = new System.Drawing.Point(469, 15);
             this.txt_ISA_CName.Margin = new System.Windows.Forms.Padding(4);
             this.txt_ISA_CName.Name = "txt_ISA_CName";
-            this.txt_ISA_CName.Size = new System.Drawing.Size(379, 35);
+            this.txt_ISA_CName.Size = new System.Drawing.Size(198, 30);
             this.txt_ISA_CName.TabIndex = 6;
             this.txt_ISA_CName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txt_ISA_CName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Txt_ISA_CName_KeyDown);
@@ -486,92 +572,6 @@
             this.bunifuCustomLabel12.Size = new System.Drawing.Size(88, 17);
             this.bunifuCustomLabel12.TabIndex = 1;
             this.bunifuCustomLabel12.Text = "Client Name:";
-            // 
-            // bunifuCustomLabel9
-            // 
-            this.bunifuCustomLabel9.AutoSize = true;
-            this.bunifuCustomLabel9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuCustomLabel9.Location = new System.Drawing.Point(265, 26);
-            this.bunifuCustomLabel9.Name = "bunifuCustomLabel9";
-            this.bunifuCustomLabel9.Size = new System.Drawing.Size(12, 17);
-            this.bunifuCustomLabel9.TabIndex = 14;
-            this.bunifuCustomLabel9.Text = ".";
-            // 
-            // pnl_ISA_INInst
-            // 
-            this.pnl_ISA_INInst.Controls.Add(this.ln_ISA_INInst);
-            this.pnl_ISA_INInst.Controls.Add(this.txt_ISA_INInst);
-            this.pnl_ISA_INInst.Location = new System.Drawing.Point(283, 23);
-            this.pnl_ISA_INInst.Name = "pnl_ISA_INInst";
-            this.pnl_ISA_INInst.Size = new System.Drawing.Size(37, 27);
-            this.pnl_ISA_INInst.TabIndex = 15;
-            // 
-            // ln_ISA_INInst
-            // 
-            this.ln_ISA_INInst.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ln_ISA_INInst.BackColor = System.Drawing.Color.Transparent;
-            this.ln_ISA_INInst.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.ln_ISA_INInst.LineThickness = 1;
-            this.ln_ISA_INInst.Location = new System.Drawing.Point(-1, 18);
-            this.ln_ISA_INInst.Name = "ln_ISA_INInst";
-            this.ln_ISA_INInst.Size = new System.Drawing.Size(38, 10);
-            this.ln_ISA_INInst.TabIndex = 1;
-            this.ln_ISA_INInst.TabStop = false;
-            this.ln_ISA_INInst.Transparency = 255;
-            this.ln_ISA_INInst.Vertical = false;
-            // 
-            // txt_ISA_INInst
-            // 
-            this.txt_ISA_INInst.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_ISA_INInst.BackColor = System.Drawing.Color.Silver;
-            this.txt_ISA_INInst.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_ISA_INInst.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_ISA_INInst.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_ISA_INInst.Location = new System.Drawing.Point(2, 4);
-            this.txt_ISA_INInst.Name = "txt_ISA_INInst";
-            this.txt_ISA_INInst.Size = new System.Drawing.Size(35, 16);
-            this.txt_ISA_INInst.TabIndex = 0;
-            this.txt_ISA_INInst.Leave += new System.EventHandler(this.Txt_ISA_INInst_Leave);
-            this.txt_ISA_INInst.MouseEnter += new System.EventHandler(this.Txt_ISA_INInst_MouseEnter);
-            this.txt_ISA_INInst.MouseLeave += new System.EventHandler(this.Txt_ISA_INInst_MouseLeave);
-            // 
-            // bunifuCustomLabel6
-            // 
-            this.bunifuCustomLabel6.AutoSize = true;
-            this.bunifuCustomLabel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuCustomLabel6.Location = new System.Drawing.Point(381, 26);
-            this.bunifuCustomLabel6.Name = "bunifuCustomLabel6";
-            this.bunifuCustomLabel6.Size = new System.Drawing.Size(42, 17);
-            this.bunifuCustomLabel6.TabIndex = 10;
-            this.bunifuCustomLabel6.Text = "Date:";
-            // 
-            // bunifuCustomLabel11
-            // 
-            this.bunifuCustomLabel11.AutoSize = true;
-            this.bunifuCustomLabel11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuCustomLabel11.Location = new System.Drawing.Point(353, 132);
-            this.bunifuCustomLabel11.Name = "bunifuCustomLabel11";
-            this.bunifuCustomLabel11.Size = new System.Drawing.Size(74, 17);
-            this.bunifuCustomLabel11.TabIndex = 16;
-            this.bunifuCustomLabel11.Text = "Date Paid:";
-            // 
-            // dtp_ISA_Date
-            // 
-            this.dtp_ISA_Date.BackColor = System.Drawing.Color.Silver;
-            this.dtp_ISA_Date.BorderRadius = 0;
-            this.dtp_ISA_Date.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.dtp_ISA_Date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_ISA_Date.FormatCustom = null;
-            this.dtp_ISA_Date.Location = new System.Drawing.Point(428, 23);
-            this.dtp_ISA_Date.Name = "dtp_ISA_Date";
-            this.dtp_ISA_Date.Size = new System.Drawing.Size(238, 25);
-            this.dtp_ISA_Date.TabIndex = 17;
-            this.dtp_ISA_Date.Value = new System.DateTime(2019, 9, 12, 9, 14, 42, 891);
             // 
             // Inv_Send_Add
             // 
@@ -600,6 +600,8 @@
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Inv_Sent_Add_MouseUp);
             this.gb_ISA_ISDetails.ResumeLayout(false);
             this.gb_ISA_ISDetails.PerformLayout();
+            this.pnl_ISA_INInst.ResumeLayout(false);
+            this.pnl_ISA_INInst.PerformLayout();
             this.pnl_ISA_VAT.ResumeLayout(false);
             this.pnl_ISA_VAT.PerformLayout();
             this.pnl_ISA_InvNum.ResumeLayout(false);
@@ -610,8 +612,6 @@
             this.pnl_ISA_Desc.PerformLayout();
             this.gb_ISA_CDetails.ResumeLayout(false);
             this.gb_ISA_CDetails.PerformLayout();
-            this.pnl_ISA_INInst.ResumeLayout(false);
-            this.pnl_ISA_INInst.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

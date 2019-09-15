@@ -33,10 +33,10 @@ namespace Q_Tech_Bookkeeping
             if (owner.GetCurPanel() == "pnl_L_InvSent")
             {
                 Invoices_Send curForm = (Invoices_Send)owner.GetCurForm();
-                dt = curForm.getInvoices();
-                txt_ISED_CCode.Text = curForm.getCCode();
-                txt_ISED_CName.Text = curForm.getCName();
-                SELECTED_INVOICE = curForm.getSelectedInvSend();
+                dt = curForm.GetInvoices();
+                txt_ISED_CCode.Text = curForm.GetCCode();
+                txt_ISED_CName.Text = curForm.GetCName();
+                SELECTED_INVOICE = curForm.GetSelectedInvSend();
             }
             else
             {
@@ -109,9 +109,9 @@ namespace Q_Tech_Bookkeeping
                 if (Decimal.TryParse(txt_ISED_Amt.Text.Replace(",", string.Empty).Replace("R", string.Empty).Replace(".", string.Empty).TrimStart('0'), out result))
                 {
                     result /= new Decimal(100);
-                    txt_ISED_Amt.TextChanged -= new EventHandler(txt_ISED_Amt_TextChanged);
+                    txt_ISED_Amt.TextChanged -= new EventHandler(Txt_ISED_Amt_TextChanged);
                     txt_ISED_Amt.Text = string.Format((IFormatProvider)CultureInfo.CreateSpecificCulture("en-ZA"), "{0:C2}", result);
-                    txt_ISED_Amt.TextChanged += new EventHandler(txt_ISED_Amt_TextChanged);
+                    txt_ISED_Amt.TextChanged += new EventHandler(Txt_ISED_Amt_TextChanged);
                     txt_ISED_Amt.Select(txt_ISED_Amt.Text.Length, 0);
                 }
                 if (TextisValid(txt_ISED_Amt.Text))
@@ -125,9 +125,9 @@ namespace Q_Tech_Bookkeeping
                 if (Decimal.TryParse(txt_ISED_Amt.Text.Replace(",", string.Empty).Replace("$", string.Empty).Replace(".", string.Empty).TrimStart('0'), out result))
                 {
                     result /= new Decimal(100);
-                    txt_ISED_Amt.TextChanged -= new EventHandler(txt_ISED_Amt_TextChanged);
+                    txt_ISED_Amt.TextChanged -= new EventHandler(Txt_ISED_Amt_TextChanged);
                     txt_ISED_Amt.Text = string.Format((IFormatProvider)CultureInfo.CreateSpecificCulture("en-US"), "{0:C2}", result);
-                    txt_ISED_Amt.TextChanged += new EventHandler(txt_ISED_Amt_TextChanged);
+                    txt_ISED_Amt.TextChanged += new EventHandler(Txt_ISED_Amt_TextChanged);
                     txt_ISED_Amt.Select(txt_ISED_Amt.Text.Length, 0);
                 }
                 if (!TextisValid(txt_ISED_Amt.Text))
@@ -151,9 +151,9 @@ namespace Q_Tech_Bookkeeping
                 if (Decimal.TryParse(txt_ISED_VAT.Text.Replace(",", string.Empty).Replace("R", string.Empty).Replace(".", string.Empty).TrimStart('0'), out result))
                 {
                     result /= new Decimal(100);
-                    txt_ISED_VAT.TextChanged -= new EventHandler(txt_ISED_VAT_TextChanged);
+                    txt_ISED_VAT.TextChanged -= new EventHandler(Txt_ISED_VAT_TextChanged);
                     txt_ISED_VAT.Text = string.Format((IFormatProvider)CultureInfo.CreateSpecificCulture("en-ZA"), "{0:C2}", result);
-                    txt_ISED_VAT.TextChanged += new EventHandler(txt_ISED_VAT_TextChanged);
+                    txt_ISED_VAT.TextChanged += new EventHandler(Txt_ISED_VAT_TextChanged);
                     txt_ISED_VAT.Select(txt_ISED_VAT.Text.Length, 0);
                 }
                 if (TextisValid(txt_ISED_VAT.Text))
@@ -167,9 +167,9 @@ namespace Q_Tech_Bookkeeping
                 if (Decimal.TryParse(txt_ISED_VAT.Text.Replace(",", string.Empty).Replace("$", string.Empty).Replace(".", string.Empty).TrimStart('0'), out result))
                 {
                     result /= new Decimal(100);
-                    txt_ISED_VAT.TextChanged -= new EventHandler(txt_ISED_VAT_TextChanged);
+                    txt_ISED_VAT.TextChanged -= new EventHandler(Txt_ISED_VAT_TextChanged);
                     txt_ISED_VAT.Text = string.Format((IFormatProvider)CultureInfo.CreateSpecificCulture("en-US"), "{0:C2}", result);
-                    txt_ISED_VAT.TextChanged += new EventHandler(txt_ISED_VAT_TextChanged);
+                    txt_ISED_VAT.TextChanged += new EventHandler(Txt_ISED_VAT_TextChanged);
                     txt_ISED_VAT.Select(txt_ISED_VAT.Text.Length, 0);
                 }
                 if (!TextisValid(txt_ISED_VAT.Text))
