@@ -133,6 +133,16 @@ namespace Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap doc_grey {
+            get {
+                object obj = ResourceManager.GetObject("doc_grey", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap edit_grey {
             get {
                 object obj = ResourceManager.GetObject("edit_grey", resourceCulture);

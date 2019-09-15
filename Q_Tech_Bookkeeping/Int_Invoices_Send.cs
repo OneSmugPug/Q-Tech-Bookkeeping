@@ -202,7 +202,7 @@ namespace Q_Tech_Bookkeeping
             if (isFiltered)
                 RemoveFilter();
 
-            using (Inv_Send_Add frmISA = new Inv_Send_Add())
+            using (Inv_Send_AddOld frmISA = new Inv_Send_AddOld())
                 frmISA.ShowDialog(this);
 
             LoadInvSend();

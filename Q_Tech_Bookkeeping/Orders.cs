@@ -26,41 +26,60 @@ namespace Q_Tech_Bookkeeping
             InitializeComponent();
         }
 
+
+        //================================================================================================================================================//
+        // ORDERS FORM LOAD                                                                                                                               //
+        //================================================================================================================================================//
         private void Orders_Load(object sender, EventArgs e)
         {
             clientsDT = new DataTable();
             dt = new DataTable();
+
             dt.Columns.Add(string.Empty);
             dt.Rows.Add();
+
             bs.DataSource = dt;
             dgv_LOrders.DataSource = bs;
+
             LoadClients();
             LoadOrders();
+
             dgv_LOrders.Columns[4].DefaultCellStyle.Format = "c";
             dgv_LOrders.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
             dgv_LOrders.Columns[5].DefaultCellStyle.Format = "p0";
             dgv_LOrders.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
             dgv_LOrders.Columns[6].DefaultCellStyle.Format = "p0";
             dgv_LOrders.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
         }
 
+
+        //================================================================================================================================================//
+        // LOAD CLIENT DETAILS                                                                                                                            //
+        //================================================================================================================================================//
         private void LoadClients()
         {
-            using (SqlConnection dbConnection = DBUtils.GetDBConnection())
+            using (SqlConnection conn = DBUtils.GetDBConnection())
             {
-                dbConnection.Open();
-                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT * FROM Clients", dbConnection);
+                conn.Open();
+
+                SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Clients", conn);
                 clientsDT = new DataTable();
-                sqlDataAdapter.Fill(clientsDT);
+                da.Fill(clientsDT);
             }
-            if ((uint)clientsDT.Rows.Count > 0U)
+
+            if (clientsDT.Rows.Count > 0)
             {
                 if (!btn_LO_SelCli.Enabled)
                     btn_LO_SelCli.Enabled = true;
+
                 if (!dgv_LOrders.Enabled)
                     dgv_LOrders.Enabled = true;
+
                 if (!btn_LO_NewOrder.Enabled)
                     btn_LO_NewOrder.Enabled = true;
+
                 NUM_OF_CLIENTS = clientsDT.Rows.Count - 1;
                 txt_LO_CCode.Text = clientsDT.Rows[CUR_CLIENT]["Code"].ToString().Trim();
                 CNAME = clientsDT.Rows[CUR_CLIENT]["Name"].ToString().Trim();
@@ -74,23 +93,31 @@ namespace Q_Tech_Bookkeeping
             }
         }
 
+
+        //================================================================================================================================================//
+        // LOAD ORDER DETAILS                                                                                                                             //
+        //================================================================================================================================================//
         private void LoadOrders()
         {
-            using (SqlConnection dbConnection = DBUtils.GetDBConnection())
+            using (SqlConnection conn = DBUtils.GetDBConnection())
             {
-                dbConnection.Open();
-                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT * FROM Orders_Received WHERE Client = '" + CNAME + "'", dbConnection);
+                conn.Open();
+                SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Orders_Received WHERE Client = '" + CNAME + "'", conn);
                 dt = new DataTable();
-                sqlDataAdapter.Fill(dt);
+                da.Fill(dt);
             }
             bs.DataSource = dt;
         }
 
+
+        //================================================================================================================================================//
+        //NEXT CLICKED                                                                                                                                    //
+        //================================================================================================================================================//
         private void Btn_Order_CNext_Click(object sender, EventArgs e)
         {
             if (CUR_CLIENT + 1 < NUM_OF_CLIENTS)
             {
-                ++CUR_CLIENT;
+                CUR_CLIENT++;
                 txt_LO_CCode.Text = clientsDT.Rows[CUR_CLIENT]["Code"].ToString().Trim();
                 CNAME = clientsDT.Rows[CUR_CLIENT]["Name"].ToString().Trim();
                 txt_LO_CName.Text = CNAME;
@@ -99,22 +126,25 @@ namespace Q_Tech_Bookkeeping
             else if (CUR_CLIENT + 1 == NUM_OF_CLIENTS)
             {
                 btn_LO_Next.Enabled = false;
-                ++CUR_CLIENT;
+                CUR_CLIENT++;
                 txt_LO_CCode.Text = clientsDT.Rows[CUR_CLIENT]["Code"].ToString();
                 CNAME = clientsDT.Rows[CUR_CLIENT]["Name"].ToString();
                 txt_LO_CName.Text = CNAME;
                 LoadOrders();
             }
-            if (CUR_CLIENT == 0 || btn_LO_Prev.Enabled)
-                return;
-            btn_LO_Prev.Enabled = true;
+            if (CUR_CLIENT != 0 && !btn_LO_Prev.Enabled)
+                btn_LO_Prev.Enabled = true;
         }
 
+
+        //================================================================================================================================================//
+        // PREVIOUS CLICKED                                                                                                                               //
+        //================================================================================================================================================//
         private void Btn_Order_CPrev_Click(object sender, EventArgs e)
         {
             if (CUR_CLIENT - 1 > 0)
             {
-                --CUR_CLIENT;
+                CUR_CLIENT--;
                 txt_LO_CCode.Text = clientsDT.Rows[CUR_CLIENT]["Code"].ToString().Trim();
                 CNAME = clientsDT.Rows[CUR_CLIENT]["Name"].ToString().Trim();
                 txt_LO_CName.Text = CNAME;
@@ -123,49 +153,67 @@ namespace Q_Tech_Bookkeeping
             else if (CUR_CLIENT - 1 == 0)
             {
                 btn_LO_Prev.Enabled = false;
-                --CUR_CLIENT;
+                CUR_CLIENT--;
                 txt_LO_CCode.Text = clientsDT.Rows[CUR_CLIENT]["Code"].ToString();
                 CNAME = clientsDT.Rows[CUR_CLIENT]["Name"].ToString();
                 txt_LO_CName.Text = CNAME;
                 LoadOrders();
             }
-            if (CUR_CLIENT == NUM_OF_CLIENTS || btn_LO_Next.Enabled)
-                return;
-            btn_LO_Next.Enabled = true;
+            if (CUR_CLIENT != NUM_OF_CLIENTS && !btn_LO_Next.Enabled)
+                btn_LO_Next.Enabled = true;
         }
 
+
+        //================================================================================================================================================//
+        // CLIENT SELECT CLICKED                                                                                                                          //
+        //================================================================================================================================================//
         private void Btn_Order_CBrowse_Click(object sender, EventArgs e)
         {
-            int num = (int)new ClientList().ShowDialog((IWin32Window)this);
+            using (ClientList frmCList = new ClientList())
+                frmCList.ShowDialog(this);
         }
 
+
+        //================================================================================================================================================//
+        // SET NEW CLIENT                                                                                                                                 //
+        //================================================================================================================================================//
         public void SetNewClient(int rowIdx)
         {
             CUR_CLIENT = rowIdx;
             LoadClients();
             LoadOrders();
+
             if (CUR_CLIENT != 0 && !btn_LO_Prev.Enabled)
                 btn_LO_Prev.Enabled = true;
+
             if (CUR_CLIENT == 0 && btn_LO_Prev.Enabled)
                 btn_LO_Prev.Enabled = false;
+
             if (CUR_CLIENT != NUM_OF_CLIENTS && !btn_LO_Next.Enabled)
                 btn_LO_Next.Enabled = true;
-            if (CUR_CLIENT != NUM_OF_CLIENTS || !btn_LO_Next.Enabled)
-                return;
-            btn_LO_Next.Enabled = false;
+
+            if (CUR_CLIENT == NUM_OF_CLIENTS && btn_LO_Next.Enabled)
+                btn_LO_Next.Enabled = false;
         }
 
-        private void Tsb_AddOrder_Click(object sender, EventArgs e)
+        //================================================================================================================================================//
+        // NEW ORDER ADD CLICKED                                                                                                                          //
+        //================================================================================================================================================//
+        private void Btn_AddOrder_Click(object sender, EventArgs e)
         {
             if (isFiltered)
                 RemoveFilter();
-            using (O_AddOld oAdd = new O_AddOld())
-            {
-                int num = (int)oAdd.ShowDialog((IWin32Window)this);
-            }
+
+            using (O_Add frmOA = new O_Add())
+                frmOA.ShowDialog(this);
+
             LoadOrders();
         }
 
+
+        //================================================================================================================================================//
+        // GETTERS                                                                                                                                        //
+        //================================================================================================================================================//
         public string GetCCode()
         {
             return txt_LO_CCode.Text;
@@ -186,6 +234,10 @@ namespace Q_Tech_Bookkeeping
             return dt;
         }
 
+
+        //================================================================================================================================================//
+        // FILTERS                                                                                                                                        //
+        //================================================================================================================================================//
         private void Dgv_Order_FilterStringChanged(object sender, EventArgs e)
         {
             bs.Filter = dgv_LOrders.FilterString;
@@ -201,13 +253,15 @@ namespace Q_Tech_Bookkeeping
             bs.Filter = string.Empty;
             bs.Sort = string.Empty;
             isFiltered = true;
-            using (SqlConnection dbConnection = DBUtils.GetDBConnection())
+
+            using (SqlConnection conn = DBUtils.GetDBConnection())
             {
-                dbConnection.Open();
-                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT * FROM Orders_Received WHERE Client = '" + CNAME + "' AND Date BETWEEN '" + dtp_LO_From.Value + "' AND '" + dtp_LO_To.Value + "'", dbConnection);
+                conn.Open();
+                SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Orders_Received WHERE Client = '" + CNAME + "' AND Date BETWEEN '" + dtp_LO_From.Value + "' AND '" + dtp_LO_To.Value + "'", conn);
                 dt = new DataTable();
-                sqlDataAdapter.Fill(dt);
+                da.Fill(dt);
             }
+
             bs.DataSource = dt;
             btn_LO_Filter.Visible = false;
             btn_LO_ClearFilter.Visible = true;
@@ -229,14 +283,19 @@ namespace Q_Tech_Bookkeeping
         {
             if (isFiltered)
                 RemoveFilter();
+
             SELECTED_ORDER = e.RowIndex;
-            using (O_Edit_Del oEditDel = new O_Edit_Del())
-            {
-                int num = (int)oEditDel.ShowDialog((IWin32Window)this);
-            }
+
+            using (O_Edit_Del frmOED = new O_Edit_Del())
+                frmOED.ShowDialog(this);
+
             LoadOrders();
         }
 
+
+        //================================================================================================================================================//
+        //  PREVIOUS BUTTON                                                                                                                               //
+        //================================================================================================================================================//
         private void Btn_LO_Prev_MouseEnter(object sender, EventArgs e)
         {
             btn_LO_Prev.Image = Resources.back_white;
@@ -247,6 +306,10 @@ namespace Q_Tech_Bookkeeping
             btn_LO_Prev.Image = Resources.back_black;
         }
 
+
+        //================================================================================================================================================//
+        // NEXT BUTTON                                                                                                                                    //
+        //================================================================================================================================================//
         private void Btn_LO_Next_MouseEnter(object sender, EventArgs e)
         {
             btn_LO_Next.Image = Resources.forward_white;
@@ -257,6 +320,10 @@ namespace Q_Tech_Bookkeeping
             btn_LO_Next.Image = Resources.forawrd_black;
         }
 
+
+        //================================================================================================================================================//
+        // SELECT CLIENT BUTTON                                                                                                                           //
+        //================================================================================================================================================//
         private void Btn_LO_SelCli_MouseEnter(object sender, EventArgs e)
         {
             btn_LO_SelCli.Image = Resources.client_list_white;
@@ -269,6 +336,10 @@ namespace Q_Tech_Bookkeeping
             btn_LO_SelCli.ForeColor = Color.FromArgb(64, 64, 64);
         }
 
+
+        //================================================================================================================================================//
+        // NEW ORDER ADD BUTTON                                                                                                                           //
+        //================================================================================================================================================//
         private void Btn_LO_NewOrder_MouseEnter(object sender, EventArgs e)
         {
             btn_LO_NewOrder.Image = Resources.add_white;
@@ -281,6 +352,10 @@ namespace Q_Tech_Bookkeeping
             btn_LO_NewOrder.ForeColor = Color.FromArgb(64, 64, 64);
         }
 
+
+        //================================================================================================================================================//
+        // FILTER BUTTON                                                                                                                                  //
+        //================================================================================================================================================//
         private void Btn_LO_Filter_MouseEnter(object sender, EventArgs e)
         {
             btn_LO_Filter.Image = Resources.filter_white;
@@ -293,6 +368,10 @@ namespace Q_Tech_Bookkeeping
             btn_LO_Filter.ForeColor = Color.FromArgb(64, 64, 64);
         }
 
+
+        //================================================================================================================================================//
+        // CLEAR FILTER BUTTON                                                                                                                            //
+        //================================================================================================================================================//
         private void Btn_LO_ClearFilter_MouseEnter(object sender, EventArgs e)
         {
             btn_LO_ClearFilter.ForeColor = Color.White;
@@ -303,6 +382,10 @@ namespace Q_Tech_Bookkeeping
             btn_LO_ClearFilter.ForeColor = Color.FromArgb(64, 64, 64);
         }
 
+
+        //================================================================================================================================================//
+        // ENFORCE READONLY                                                                                                                               //
+        //================================================================================================================================================//
         private void Txt_LO_CCode_KeyDown(object sender, KeyEventArgs e)
         {
             e.SuppressKeyPress = true;

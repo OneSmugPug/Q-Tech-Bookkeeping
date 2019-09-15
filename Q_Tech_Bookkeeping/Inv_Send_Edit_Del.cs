@@ -73,7 +73,7 @@ namespace Q_Tech_Bookkeeping
       HomeOld owner = (HomeOld) this.Owner;
       if (owner.getCurPanel() == "pnl_L_InvSent")
       {
-        Invoices_Send curForm = (Invoices_Send) owner.getCurForm();
+        Invoices_SendOld curForm = (Invoices_SendOld) owner.getCurForm();
         this.dt = curForm.getInvoices();
         this.txt_ISED_CCode.Text = curForm.getCCode();
         this.txt_ISED_CName.Text = curForm.getCName();
