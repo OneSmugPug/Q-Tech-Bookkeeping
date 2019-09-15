@@ -44,7 +44,7 @@ namespace Q_Tech_Bookkeeping
         private void Btn_PD_AddExp_Click(object sender, EventArgs e)
         {
             Home frmHome = (Home)this.Owner;
-            Proj_AddExp frmMP = new Proj_AddExp();
+            Proj_AddExpOld frmMP = new Proj_AddExpOld();
             frmHome.SetProjExpForm(frmMP, frmHome);
             this.Close();
         }

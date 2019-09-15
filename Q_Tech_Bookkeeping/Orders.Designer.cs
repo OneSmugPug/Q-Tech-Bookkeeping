@@ -166,7 +166,7 @@
             this.btn_LO_NewOrder.Text = "New Order";
             this.btn_LO_NewOrder.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_LO_NewOrder.UseVisualStyleBackColor = true;
-            this.btn_LO_NewOrder.Click += new System.EventHandler(this.Tsb_AddOrder_Click);
+            this.btn_LO_NewOrder.Click += new System.EventHandler(this.Btn_AddOrder_Click);
             this.btn_LO_NewOrder.MouseEnter += new System.EventHandler(this.Btn_LO_NewOrder_MouseEnter);
             this.btn_LO_NewOrder.MouseLeave += new System.EventHandler(this.Btn_LO_NewOrder_MouseLeave);
             // 

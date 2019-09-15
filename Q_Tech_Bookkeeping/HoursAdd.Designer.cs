@@ -49,46 +49,46 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.pb_CreateRem = new System.Windows.Forms.ProgressBar();
             this.gb_OA_ODetails = new System.Windows.Forms.GroupBox();
-            this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.cb_HA_Paid = new Bunifu.Framework.UI.BunifuCheckbox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.txt_HA_FTotal = new System.Windows.Forms.TextBox();
-            this.ln_HA_FTotal = new Bunifu.Framework.UI.BunifuSeparator();
-            this.bunifuCustomLabel5 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.txt_HA_QTCut = new System.Windows.Forms.TextBox();
-            this.ln_HA_QTCut = new Bunifu.Framework.UI.BunifuSeparator();
-            this.bunifuCustomLabel6 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.dtp_HA_To = new Bunifu.Framework.UI.BunifuDatepicker();
-            this.bunifuCustomLabel7 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.dtp_HA_From = new Bunifu.Framework.UI.BunifuDatepicker();
-            this.bunifuCustomLabel8 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.txt_HA_TotAE = new System.Windows.Forms.TextBox();
-            this.ln_HA_TotAE = new Bunifu.Framework.UI.BunifuSeparator();
-            this.txt_HA_ExcRate = new System.Windows.Forms.TextBox();
-            this.ln_HA_ExcRate = new Bunifu.Framework.UI.BunifuSeparator();
-            this.txt_HA_TotBE = new System.Windows.Forms.TextBox();
-            this.ln_HA_TotBE = new Bunifu.Framework.UI.BunifuSeparator();
-            this.ln_HA_DolPH = new Bunifu.Framework.UI.BunifuSeparator();
-            this.txt_HA_DolPH = new System.Windows.Forms.TextBox();
-            this.txt_HA_HW = new System.Windows.Forms.TextBox();
-            this.ln_HA_HW = new Bunifu.Framework.UI.BunifuSeparator();
-            this.txt_HA_Code = new System.Windows.Forms.TextBox();
-            this.ln_HA_Code = new Bunifu.Framework.UI.BunifuSeparator();
-            this.bunifuCustomLabel9 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.bunifuCustomLabel11 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.bunifuCustomLabel12 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.bunifuCustomLabel13 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.bunifuCustomLabel14 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.dtp_HA_DatePaid = new Bunifu.Framework.UI.BunifuDatepicker();
-            this.bunifuCustomLabel15 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel16 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.bunifuCustomLabel15 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.dtp_HA_DatePaid = new Bunifu.Framework.UI.BunifuDatepicker();
+            this.bunifuCustomLabel14 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.bunifuCustomLabel13 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.bunifuCustomLabel12 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.bunifuCustomLabel11 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.bunifuCustomLabel9 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.txt_HA_DolPH = new System.Windows.Forms.TextBox();
+            this.ln_HA_DolPH = new Bunifu.Framework.UI.BunifuSeparator();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.ln_HA_Code = new Bunifu.Framework.UI.BunifuSeparator();
+            this.txt_HA_Code = new System.Windows.Forms.TextBox();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.ln_HA_HW = new Bunifu.Framework.UI.BunifuSeparator();
+            this.txt_HA_HW = new System.Windows.Forms.TextBox();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.ln_HA_TotBE = new Bunifu.Framework.UI.BunifuSeparator();
+            this.txt_HA_TotBE = new System.Windows.Forms.TextBox();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.ln_HA_ExcRate = new Bunifu.Framework.UI.BunifuSeparator();
+            this.txt_HA_ExcRate = new System.Windows.Forms.TextBox();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.ln_HA_TotAE = new Bunifu.Framework.UI.BunifuSeparator();
+            this.txt_HA_TotAE = new System.Windows.Forms.TextBox();
+            this.bunifuCustomLabel8 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.dtp_HA_From = new Bunifu.Framework.UI.BunifuDatepicker();
+            this.bunifuCustomLabel7 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.dtp_HA_To = new Bunifu.Framework.UI.BunifuDatepicker();
+            this.bunifuCustomLabel6 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.ln_HA_QTCut = new Bunifu.Framework.UI.BunifuSeparator();
+            this.txt_HA_QTCut = new System.Windows.Forms.TextBox();
+            this.bunifuCustomLabel5 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.ln_HA_FTotal = new Bunifu.Framework.UI.BunifuSeparator();
+            this.txt_HA_FTotal = new System.Windows.Forms.TextBox();
+            this.cb_HA_Paid = new Bunifu.Framework.UI.BunifuCheckbox();
+            this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.btn_HA_Cancel = new System.Windows.Forms.Button();
             this.btn_HA_Done = new System.Windows.Forms.Button();
             this.btn_HA_CreateRem = new System.Windows.Forms.Button();
@@ -100,14 +100,14 @@
             this.panel14.SuspendLayout();
             this.panel13.SuspendLayout();
             this.gb_OA_ODetails.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.panel7.SuspendLayout();
-            this.panel8.SuspendLayout();
-            this.panel9.SuspendLayout();
             this.panel10.SuspendLayout();
+            this.panel9.SuspendLayout();
+            this.panel8.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -377,220 +377,136 @@
             this.gb_OA_ODetails.TabStop = false;
             this.gb_OA_ODetails.Text = "Work Week";
             // 
-            // bunifuCustomLabel4
+            // bunifuCustomLabel16
             // 
-            this.bunifuCustomLabel4.AutoSize = true;
-            this.bunifuCustomLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuCustomLabel4.Location = new System.Drawing.Point(146, 233);
-            this.bunifuCustomLabel4.Name = "bunifuCustomLabel4";
-            this.bunifuCustomLabel4.Size = new System.Drawing.Size(36, 17);
-            this.bunifuCustomLabel4.TabIndex = 0;
-            this.bunifuCustomLabel4.Text = "Paid";
+            this.bunifuCustomLabel16.AutoSize = true;
+            this.bunifuCustomLabel16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.bunifuCustomLabel16.Location = new System.Drawing.Point(69, 67);
+            this.bunifuCustomLabel16.Name = "bunifuCustomLabel16";
+            this.bunifuCustomLabel16.Size = new System.Drawing.Size(45, 17);
+            this.bunifuCustomLabel16.TabIndex = 23;
+            this.bunifuCustomLabel16.Text = "Code:";
             // 
-            // cb_HA_Paid
+            // bunifuCustomLabel15
             // 
-            this.cb_HA_Paid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.cb_HA_Paid.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
-            this.cb_HA_Paid.Checked = false;
-            this.cb_HA_Paid.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.cb_HA_Paid.ForeColor = System.Drawing.Color.White;
-            this.cb_HA_Paid.Location = new System.Drawing.Point(120, 233);
-            this.cb_HA_Paid.Name = "cb_HA_Paid";
-            this.cb_HA_Paid.Size = new System.Drawing.Size(20, 20);
-            this.cb_HA_Paid.TabIndex = 1;
-            this.cb_HA_Paid.OnChange += new System.EventHandler(this.Cb_HA_Paid_CheckedChanged);
+            this.bunifuCustomLabel15.AutoSize = true;
+            this.bunifuCustomLabel15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.bunifuCustomLabel15.Location = new System.Drawing.Point(283, 234);
+            this.bunifuCustomLabel15.Name = "bunifuCustomLabel15";
+            this.bunifuCustomLabel15.Size = new System.Drawing.Size(74, 17);
+            this.bunifuCustomLabel15.TabIndex = 22;
+            this.bunifuCustomLabel15.Text = "Date Paid:";
             // 
-            // panel3
+            // dtp_HA_DatePaid
             // 
-            this.panel3.Controls.Add(this.ln_HA_FTotal);
-            this.panel3.Controls.Add(this.txt_HA_FTotal);
-            this.panel3.Location = new System.Drawing.Point(421, 186);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(143, 26);
-            this.panel3.TabIndex = 2;
+            this.dtp_HA_DatePaid.BackColor = System.Drawing.Color.Silver;
+            this.dtp_HA_DatePaid.BorderRadius = 0;
+            this.dtp_HA_DatePaid.Enabled = false;
+            this.dtp_HA_DatePaid.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
+            this.dtp_HA_DatePaid.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtp_HA_DatePaid.FormatCustom = "null";
+            this.dtp_HA_DatePaid.Location = new System.Drawing.Point(356, 233);
+            this.dtp_HA_DatePaid.Name = "dtp_HA_DatePaid";
+            this.dtp_HA_DatePaid.Size = new System.Drawing.Size(208, 19);
+            this.dtp_HA_DatePaid.TabIndex = 21;
+            this.dtp_HA_DatePaid.Value = new System.DateTime(2019, 9, 11, 11, 47, 47, 635);
             // 
-            // txt_HA_FTotal
+            // bunifuCustomLabel14
             // 
-            this.txt_HA_FTotal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.bunifuCustomLabel14.AutoSize = true;
+            this.bunifuCustomLabel14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.bunifuCustomLabel14.Location = new System.Drawing.Point(373, 67);
+            this.bunifuCustomLabel14.Name = "bunifuCustomLabel14";
+            this.bunifuCustomLabel14.Size = new System.Drawing.Size(103, 17);
+            this.bunifuCustomLabel14.TabIndex = 20;
+            this.bunifuCustomLabel14.Text = "Hours Worked:";
+            // 
+            // bunifuCustomLabel13
+            // 
+            this.bunifuCustomLabel13.AutoSize = true;
+            this.bunifuCustomLabel13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.bunifuCustomLabel13.Location = new System.Drawing.Point(60, 109);
+            this.bunifuCustomLabel13.Name = "bunifuCustomLabel13";
+            this.bunifuCustomLabel13.Size = new System.Drawing.Size(55, 17);
+            this.bunifuCustomLabel13.TabIndex = 19;
+            this.bunifuCustomLabel13.Text = "$/Hour:";
+            // 
+            // bunifuCustomLabel12
+            // 
+            this.bunifuCustomLabel12.AutoSize = true;
+            this.bunifuCustomLabel12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.bunifuCustomLabel12.Location = new System.Drawing.Point(352, 109);
+            this.bunifuCustomLabel12.Name = "bunifuCustomLabel12";
+            this.bunifuCustomLabel12.Size = new System.Drawing.Size(66, 17);
+            this.bunifuCustomLabel12.TabIndex = 18;
+            this.bunifuCustomLabel12.Text = "Total ($):";
+            // 
+            // bunifuCustomLabel11
+            // 
+            this.bunifuCustomLabel11.AutoSize = true;
+            this.bunifuCustomLabel11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.bunifuCustomLabel11.Location = new System.Drawing.Point(13, 151);
+            this.bunifuCustomLabel11.Name = "bunifuCustomLabel11";
+            this.bunifuCustomLabel11.Size = new System.Drawing.Size(108, 17);
+            this.bunifuCustomLabel11.TabIndex = 17;
+            this.bunifuCustomLabel11.Text = "Exchange Rate:";
+            // 
+            // bunifuCustomLabel9
+            // 
+            this.bunifuCustomLabel9.AutoSize = true;
+            this.bunifuCustomLabel9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.bunifuCustomLabel9.Location = new System.Drawing.Point(352, 150);
+            this.bunifuCustomLabel9.Name = "bunifuCustomLabel9";
+            this.bunifuCustomLabel9.Size = new System.Drawing.Size(68, 17);
+            this.bunifuCustomLabel9.TabIndex = 16;
+            this.bunifuCustomLabel9.Text = "Total (R):";
+            // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.txt_HA_DolPH);
+            this.panel10.Controls.Add(this.ln_HA_DolPH);
+            this.panel10.Location = new System.Drawing.Point(121, 106);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(142, 26);
+            this.panel10.TabIndex = 15;
+            // 
+            // txt_HA_DolPH
+            // 
+            this.txt_HA_DolPH.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_HA_FTotal.BackColor = System.Drawing.Color.Silver;
-            this.txt_HA_FTotal.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_HA_FTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_HA_FTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_HA_FTotal.Location = new System.Drawing.Point(2, 6);
-            this.txt_HA_FTotal.Name = "txt_HA_FTotal";
-            this.txt_HA_FTotal.ReadOnly = true;
-            this.txt_HA_FTotal.Size = new System.Drawing.Size(140, 16);
-            this.txt_HA_FTotal.TabIndex = 0;
-            this.txt_HA_FTotal.TextChanged += new System.EventHandler(this.Txt_HA_FTotal_TextChanged);
-            this.txt_HA_FTotal.Leave += new System.EventHandler(this.Txt_HA_FTotal_Leave);
-            this.txt_HA_FTotal.MouseEnter += new System.EventHandler(this.Txt_HA_FTotal_MouseEnter);
-            this.txt_HA_FTotal.MouseLeave += new System.EventHandler(this.Txt_HA_FTotal_MouseLeave);
+            this.txt_HA_DolPH.BackColor = System.Drawing.Color.Silver;
+            this.txt_HA_DolPH.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_HA_DolPH.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_HA_DolPH.Location = new System.Drawing.Point(3, 6);
+            this.txt_HA_DolPH.Name = "txt_HA_DolPH";
+            this.txt_HA_DolPH.Size = new System.Drawing.Size(140, 16);
+            this.txt_HA_DolPH.TabIndex = 1;
+            this.txt_HA_DolPH.TextChanged += new System.EventHandler(this.Txt_HA_PerHour_TextChanged);
+            this.txt_HA_DolPH.Leave += new System.EventHandler(this.Txt_HA_DolPH_Leave);
+            this.txt_HA_DolPH.MouseEnter += new System.EventHandler(this.Txt_HA_DolPH_MouseEnter);
+            this.txt_HA_DolPH.MouseLeave += new System.EventHandler(this.Txt_HA_DolPH_MouseLeave);
             // 
-            // ln_HA_FTotal
+            // ln_HA_DolPH
             // 
-            this.ln_HA_FTotal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.ln_HA_DolPH.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ln_HA_FTotal.BackColor = System.Drawing.Color.Transparent;
-            this.ln_HA_FTotal.LineColor = System.Drawing.Color.Gray;
-            this.ln_HA_FTotal.LineThickness = 1;
-            this.ln_HA_FTotal.Location = new System.Drawing.Point(-1, 18);
-            this.ln_HA_FTotal.Name = "ln_HA_FTotal";
-            this.ln_HA_FTotal.Size = new System.Drawing.Size(145, 10);
-            this.ln_HA_FTotal.TabIndex = 1;
-            this.ln_HA_FTotal.TabStop = false;
-            this.ln_HA_FTotal.Transparency = 255;
-            this.ln_HA_FTotal.Vertical = false;
-            // 
-            // bunifuCustomLabel5
-            // 
-            this.bunifuCustomLabel5.AutoSize = true;
-            this.bunifuCustomLabel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuCustomLabel5.Location = new System.Drawing.Point(340, 191);
-            this.bunifuCustomLabel5.Name = "bunifuCustomLabel5";
-            this.bunifuCustomLabel5.Size = new System.Drawing.Size(78, 17);
-            this.bunifuCustomLabel5.TabIndex = 3;
-            this.bunifuCustomLabel5.Text = "Final Total:";
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.ln_HA_QTCut);
-            this.panel4.Controls.Add(this.txt_HA_QTCut);
-            this.panel4.Location = new System.Drawing.Point(120, 186);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(143, 26);
-            this.panel4.TabIndex = 4;
-            // 
-            // txt_HA_QTCut
-            // 
-            this.txt_HA_QTCut.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_HA_QTCut.BackColor = System.Drawing.Color.Silver;
-            this.txt_HA_QTCut.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_HA_QTCut.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_HA_QTCut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_HA_QTCut.Location = new System.Drawing.Point(2, 6);
-            this.txt_HA_QTCut.Name = "txt_HA_QTCut";
-            this.txt_HA_QTCut.Size = new System.Drawing.Size(140, 16);
-            this.txt_HA_QTCut.TabIndex = 0;
-            this.txt_HA_QTCut.TextChanged += new System.EventHandler(this.Txt_HA_QTCut_TextChanged);
-            this.txt_HA_QTCut.Leave += new System.EventHandler(this.Txt_HA_QTCut_Leave);
-            this.txt_HA_QTCut.MouseEnter += new System.EventHandler(this.Txt_HA_QTCut_MouseEnter);
-            this.txt_HA_QTCut.MouseLeave += new System.EventHandler(this.Txt_HA_QTCut_MouseLeave);
-            // 
-            // ln_HA_QTCut
-            // 
-            this.ln_HA_QTCut.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ln_HA_QTCut.BackColor = System.Drawing.Color.Transparent;
-            this.ln_HA_QTCut.LineColor = System.Drawing.Color.Gray;
-            this.ln_HA_QTCut.LineThickness = 1;
-            this.ln_HA_QTCut.Location = new System.Drawing.Point(-1, 18);
-            this.ln_HA_QTCut.Name = "ln_HA_QTCut";
-            this.ln_HA_QTCut.Size = new System.Drawing.Size(145, 10);
-            this.ln_HA_QTCut.TabIndex = 1;
-            this.ln_HA_QTCut.TabStop = false;
-            this.ln_HA_QTCut.Transparency = 255;
-            this.ln_HA_QTCut.Vertical = false;
-            // 
-            // bunifuCustomLabel6
-            // 
-            this.bunifuCustomLabel6.AutoSize = true;
-            this.bunifuCustomLabel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuCustomLabel6.Location = new System.Drawing.Point(36, 191);
-            this.bunifuCustomLabel6.Name = "bunifuCustomLabel6";
-            this.bunifuCustomLabel6.Size = new System.Drawing.Size(80, 17);
-            this.bunifuCustomLabel6.TabIndex = 5;
-            this.bunifuCustomLabel6.Text = "QTech Cut:";
-            // 
-            // dtp_HA_To
-            // 
-            this.dtp_HA_To.BackColor = System.Drawing.Color.Silver;
-            this.dtp_HA_To.BorderRadius = 0;
-            this.dtp_HA_To.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtp_HA_To.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.dtp_HA_To.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_HA_To.FormatCustom = "null";
-            this.dtp_HA_To.Location = new System.Drawing.Point(352, 28);
-            this.dtp_HA_To.Name = "dtp_HA_To";
-            this.dtp_HA_To.Size = new System.Drawing.Size(212, 25);
-            this.dtp_HA_To.TabIndex = 6;
-            this.dtp_HA_To.Value = new System.DateTime(2019, 9, 11, 10, 40, 46, 293);
-            // 
-            // bunifuCustomLabel7
-            // 
-            this.bunifuCustomLabel7.AutoSize = true;
-            this.bunifuCustomLabel7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuCustomLabel7.Location = new System.Drawing.Point(317, 29);
-            this.bunifuCustomLabel7.Name = "bunifuCustomLabel7";
-            this.bunifuCustomLabel7.Size = new System.Drawing.Size(29, 17);
-            this.bunifuCustomLabel7.TabIndex = 7;
-            this.bunifuCustomLabel7.Text = "To:";
-            // 
-            // dtp_HA_From
-            // 
-            this.dtp_HA_From.BackColor = System.Drawing.Color.Silver;
-            this.dtp_HA_From.BorderRadius = 0;
-            this.dtp_HA_From.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtp_HA_From.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.dtp_HA_From.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_HA_From.FormatCustom = "null";
-            this.dtp_HA_From.Location = new System.Drawing.Point(63, 28);
-            this.dtp_HA_From.Name = "dtp_HA_From";
-            this.dtp_HA_From.Size = new System.Drawing.Size(200, 25);
-            this.dtp_HA_From.TabIndex = 8;
-            this.dtp_HA_From.Value = new System.DateTime(2019, 9, 11, 10, 45, 7, 799);
-            // 
-            // bunifuCustomLabel8
-            // 
-            this.bunifuCustomLabel8.AutoSize = true;
-            this.bunifuCustomLabel8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuCustomLabel8.Location = new System.Drawing.Point(14, 29);
-            this.bunifuCustomLabel8.Name = "bunifuCustomLabel8";
-            this.bunifuCustomLabel8.Size = new System.Drawing.Size(44, 17);
-            this.bunifuCustomLabel8.TabIndex = 9;
-            this.bunifuCustomLabel8.Text = "From:";
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.ln_HA_TotAE);
-            this.panel5.Controls.Add(this.txt_HA_TotAE);
-            this.panel5.Location = new System.Drawing.Point(421, 146);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(143, 26);
-            this.panel5.TabIndex = 10;
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.ln_HA_ExcRate);
-            this.panel6.Controls.Add(this.txt_HA_ExcRate);
-            this.panel6.Location = new System.Drawing.Point(121, 146);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(142, 26);
-            this.panel6.TabIndex = 11;
-            // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.ln_HA_TotBE);
-            this.panel7.Controls.Add(this.txt_HA_TotBE);
-            this.panel7.Location = new System.Drawing.Point(421, 106);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(143, 26);
-            this.panel7.TabIndex = 12;
-            // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.ln_HA_HW);
-            this.panel8.Controls.Add(this.txt_HA_HW);
-            this.panel8.Location = new System.Drawing.Point(482, 64);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(82, 27);
-            this.panel8.TabIndex = 13;
+            this.ln_HA_DolPH.BackColor = System.Drawing.Color.Transparent;
+            this.ln_HA_DolPH.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.ln_HA_DolPH.LineThickness = 1;
+            this.ln_HA_DolPH.Location = new System.Drawing.Point(-1, 18);
+            this.ln_HA_DolPH.Name = "ln_HA_DolPH";
+            this.ln_HA_DolPH.Size = new System.Drawing.Size(168, 10);
+            this.ln_HA_DolPH.TabIndex = 0;
+            this.ln_HA_DolPH.TabStop = false;
+            this.ln_HA_DolPH.Transparency = 255;
+            this.ln_HA_DolPH.Vertical = false;
             // 
             // panel9
             // 
@@ -601,14 +517,179 @@
             this.panel9.Size = new System.Drawing.Size(144, 27);
             this.panel9.TabIndex = 14;
             // 
-            // panel10
+            // ln_HA_Code
             // 
-            this.panel10.Controls.Add(this.txt_HA_DolPH);
-            this.panel10.Controls.Add(this.ln_HA_DolPH);
-            this.panel10.Location = new System.Drawing.Point(121, 106);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(142, 26);
-            this.panel10.TabIndex = 15;
+            this.ln_HA_Code.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ln_HA_Code.BackColor = System.Drawing.Color.Transparent;
+            this.ln_HA_Code.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.ln_HA_Code.LineThickness = 1;
+            this.ln_HA_Code.Location = new System.Drawing.Point(-1, 18);
+            this.ln_HA_Code.Name = "ln_HA_Code";
+            this.ln_HA_Code.Size = new System.Drawing.Size(167, 10);
+            this.ln_HA_Code.TabIndex = 1;
+            this.ln_HA_Code.TabStop = false;
+            this.ln_HA_Code.Transparency = 255;
+            this.ln_HA_Code.Vertical = false;
+            // 
+            // txt_HA_Code
+            // 
+            this.txt_HA_Code.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_HA_Code.BackColor = System.Drawing.Color.Silver;
+            this.txt_HA_Code.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_HA_Code.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_HA_Code.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
+            this.txt_HA_Code.Location = new System.Drawing.Point(2, 6);
+            this.txt_HA_Code.Name = "txt_HA_Code";
+            this.txt_HA_Code.Size = new System.Drawing.Size(142, 16);
+            this.txt_HA_Code.TabIndex = 0;
+            this.txt_HA_Code.Leave += new System.EventHandler(this.Txt_HA_Code_Leave);
+            this.txt_HA_Code.MouseEnter += new System.EventHandler(this.Txt_HA_Code_MouseEnter);
+            this.txt_HA_Code.MouseLeave += new System.EventHandler(this.Txt_HA_Code_MouseLeave);
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.ln_HA_HW);
+            this.panel8.Controls.Add(this.txt_HA_HW);
+            this.panel8.Location = new System.Drawing.Point(482, 64);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(82, 27);
+            this.panel8.TabIndex = 13;
+            // 
+            // ln_HA_HW
+            // 
+            this.ln_HA_HW.BackColor = System.Drawing.Color.Transparent;
+            this.ln_HA_HW.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.ln_HA_HW.LineThickness = 1;
+            this.ln_HA_HW.Location = new System.Drawing.Point(-1, 18);
+            this.ln_HA_HW.Name = "ln_HA_HW";
+            this.ln_HA_HW.Size = new System.Drawing.Size(84, 10);
+            this.ln_HA_HW.TabIndex = 1;
+            this.ln_HA_HW.TabStop = false;
+            this.ln_HA_HW.Transparency = 255;
+            this.ln_HA_HW.Vertical = false;
+            // 
+            // txt_HA_HW
+            // 
+            this.txt_HA_HW.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_HA_HW.BackColor = System.Drawing.Color.Silver;
+            this.txt_HA_HW.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_HA_HW.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_HA_HW.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
+            this.txt_HA_HW.Location = new System.Drawing.Point(2, 7);
+            this.txt_HA_HW.Name = "txt_HA_HW";
+            this.txt_HA_HW.Size = new System.Drawing.Size(79, 16);
+            this.txt_HA_HW.TabIndex = 0;
+            this.txt_HA_HW.Leave += new System.EventHandler(this.Txt_HA_HW_Leave);
+            this.txt_HA_HW.MouseEnter += new System.EventHandler(this.Txt_HA_HW_MouseEnter);
+            this.txt_HA_HW.MouseLeave += new System.EventHandler(this.Txt_HA_HW_MouseLeave);
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.ln_HA_TotBE);
+            this.panel7.Controls.Add(this.txt_HA_TotBE);
+            this.panel7.Location = new System.Drawing.Point(421, 106);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(143, 26);
+            this.panel7.TabIndex = 12;
+            // 
+            // ln_HA_TotBE
+            // 
+            this.ln_HA_TotBE.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ln_HA_TotBE.BackColor = System.Drawing.Color.Transparent;
+            this.ln_HA_TotBE.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.ln_HA_TotBE.LineThickness = 1;
+            this.ln_HA_TotBE.Location = new System.Drawing.Point(-1, 18);
+            this.ln_HA_TotBE.Name = "ln_HA_TotBE";
+            this.ln_HA_TotBE.Size = new System.Drawing.Size(173, 10);
+            this.ln_HA_TotBE.TabIndex = 1;
+            this.ln_HA_TotBE.TabStop = false;
+            this.ln_HA_TotBE.Transparency = 255;
+            this.ln_HA_TotBE.Vertical = false;
+            // 
+            // txt_HA_TotBE
+            // 
+            this.txt_HA_TotBE.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_HA_TotBE.BackColor = System.Drawing.Color.Silver;
+            this.txt_HA_TotBE.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_HA_TotBE.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_HA_TotBE.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
+            this.txt_HA_TotBE.Location = new System.Drawing.Point(3, 7);
+            this.txt_HA_TotBE.Name = "txt_HA_TotBE";
+            this.txt_HA_TotBE.Size = new System.Drawing.Size(140, 16);
+            this.txt_HA_TotBE.TabIndex = 0;
+            this.txt_HA_TotBE.TextChanged += new System.EventHandler(this.Txt_HA_TotalBE_TextChanged);
+            this.txt_HA_TotBE.Leave += new System.EventHandler(this.Txt_HA_TotBE_Leave);
+            this.txt_HA_TotBE.MouseEnter += new System.EventHandler(this.Txt_HA_TotBE_MouseEnter);
+            this.txt_HA_TotBE.MouseLeave += new System.EventHandler(this.Txt_HA_TotBE_MouseLeave);
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.ln_HA_ExcRate);
+            this.panel6.Controls.Add(this.txt_HA_ExcRate);
+            this.panel6.Location = new System.Drawing.Point(121, 146);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(142, 26);
+            this.panel6.TabIndex = 11;
+            // 
+            // ln_HA_ExcRate
+            // 
+            this.ln_HA_ExcRate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ln_HA_ExcRate.BackColor = System.Drawing.Color.Transparent;
+            this.ln_HA_ExcRate.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.ln_HA_ExcRate.LineThickness = 1;
+            this.ln_HA_ExcRate.Location = new System.Drawing.Point(-1, 18);
+            this.ln_HA_ExcRate.Name = "ln_HA_ExcRate";
+            this.ln_HA_ExcRate.Size = new System.Drawing.Size(172, 10);
+            this.ln_HA_ExcRate.TabIndex = 1;
+            this.ln_HA_ExcRate.TabStop = false;
+            this.ln_HA_ExcRate.Transparency = 255;
+            this.ln_HA_ExcRate.Vertical = false;
+            // 
+            // txt_HA_ExcRate
+            // 
+            this.txt_HA_ExcRate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_HA_ExcRate.BackColor = System.Drawing.Color.Silver;
+            this.txt_HA_ExcRate.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_HA_ExcRate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_HA_ExcRate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
+            this.txt_HA_ExcRate.Location = new System.Drawing.Point(3, 7);
+            this.txt_HA_ExcRate.Name = "txt_HA_ExcRate";
+            this.txt_HA_ExcRate.Size = new System.Drawing.Size(139, 16);
+            this.txt_HA_ExcRate.TabIndex = 0;
+            this.txt_HA_ExcRate.Leave += new System.EventHandler(this.Txt_HA_ExcRate_Leave);
+            this.txt_HA_ExcRate.MouseEnter += new System.EventHandler(this.Txt_HA_ExcRate_MouseEnter);
+            this.txt_HA_ExcRate.MouseLeave += new System.EventHandler(this.Txt_HA_ExcRate_MouseLeave);
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.ln_HA_TotAE);
+            this.panel5.Controls.Add(this.txt_HA_TotAE);
+            this.panel5.Location = new System.Drawing.Point(421, 146);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(143, 26);
+            this.panel5.TabIndex = 10;
+            // 
+            // ln_HA_TotAE
+            // 
+            this.ln_HA_TotAE.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ln_HA_TotAE.BackColor = System.Drawing.Color.Transparent;
+            this.ln_HA_TotAE.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.ln_HA_TotAE.LineThickness = 1;
+            this.ln_HA_TotAE.Location = new System.Drawing.Point(-1, 18);
+            this.ln_HA_TotAE.Name = "ln_HA_TotAE";
+            this.ln_HA_TotAE.Size = new System.Drawing.Size(145, 10);
+            this.ln_HA_TotAE.TabIndex = 1;
+            this.ln_HA_TotAE.TabStop = false;
+            this.ln_HA_TotAE.Transparency = 255;
+            this.ln_HA_TotAE.Vertical = false;
             // 
             // txt_HA_TotAE
             // 
@@ -628,265 +709,184 @@
             this.txt_HA_TotAE.MouseEnter += new System.EventHandler(this.Txt_HA_TotAE_MouseEnter);
             this.txt_HA_TotAE.MouseLeave += new System.EventHandler(this.Txt_HA_TotAE_MouseLeave);
             // 
-            // ln_HA_TotAE
+            // bunifuCustomLabel8
             // 
-            this.ln_HA_TotAE.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.bunifuCustomLabel8.AutoSize = true;
+            this.bunifuCustomLabel8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.bunifuCustomLabel8.Location = new System.Drawing.Point(14, 29);
+            this.bunifuCustomLabel8.Name = "bunifuCustomLabel8";
+            this.bunifuCustomLabel8.Size = new System.Drawing.Size(44, 17);
+            this.bunifuCustomLabel8.TabIndex = 9;
+            this.bunifuCustomLabel8.Text = "From:";
+            // 
+            // dtp_HA_From
+            // 
+            this.dtp_HA_From.BackColor = System.Drawing.Color.Silver;
+            this.dtp_HA_From.BorderRadius = 0;
+            this.dtp_HA_From.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtp_HA_From.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
+            this.dtp_HA_From.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtp_HA_From.FormatCustom = "null";
+            this.dtp_HA_From.Location = new System.Drawing.Point(63, 28);
+            this.dtp_HA_From.Name = "dtp_HA_From";
+            this.dtp_HA_From.Size = new System.Drawing.Size(200, 25);
+            this.dtp_HA_From.TabIndex = 8;
+            this.dtp_HA_From.Value = new System.DateTime(2019, 9, 11, 10, 45, 7, 799);
+            // 
+            // bunifuCustomLabel7
+            // 
+            this.bunifuCustomLabel7.AutoSize = true;
+            this.bunifuCustomLabel7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.bunifuCustomLabel7.Location = new System.Drawing.Point(317, 29);
+            this.bunifuCustomLabel7.Name = "bunifuCustomLabel7";
+            this.bunifuCustomLabel7.Size = new System.Drawing.Size(29, 17);
+            this.bunifuCustomLabel7.TabIndex = 7;
+            this.bunifuCustomLabel7.Text = "To:";
+            // 
+            // dtp_HA_To
+            // 
+            this.dtp_HA_To.BackColor = System.Drawing.Color.Silver;
+            this.dtp_HA_To.BorderRadius = 0;
+            this.dtp_HA_To.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtp_HA_To.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
+            this.dtp_HA_To.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtp_HA_To.FormatCustom = "null";
+            this.dtp_HA_To.Location = new System.Drawing.Point(352, 28);
+            this.dtp_HA_To.Name = "dtp_HA_To";
+            this.dtp_HA_To.Size = new System.Drawing.Size(212, 25);
+            this.dtp_HA_To.TabIndex = 6;
+            this.dtp_HA_To.Value = new System.DateTime(2019, 9, 11, 10, 40, 46, 293);
+            // 
+            // bunifuCustomLabel6
+            // 
+            this.bunifuCustomLabel6.AutoSize = true;
+            this.bunifuCustomLabel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.bunifuCustomLabel6.Location = new System.Drawing.Point(36, 191);
+            this.bunifuCustomLabel6.Name = "bunifuCustomLabel6";
+            this.bunifuCustomLabel6.Size = new System.Drawing.Size(80, 17);
+            this.bunifuCustomLabel6.TabIndex = 5;
+            this.bunifuCustomLabel6.Text = "QTech Cut:";
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.ln_HA_QTCut);
+            this.panel4.Controls.Add(this.txt_HA_QTCut);
+            this.panel4.Location = new System.Drawing.Point(120, 186);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(143, 26);
+            this.panel4.TabIndex = 4;
+            // 
+            // ln_HA_QTCut
+            // 
+            this.ln_HA_QTCut.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ln_HA_TotAE.BackColor = System.Drawing.Color.Transparent;
-            this.ln_HA_TotAE.LineColor = System.Drawing.Color.Gray;
-            this.ln_HA_TotAE.LineThickness = 1;
-            this.ln_HA_TotAE.Location = new System.Drawing.Point(-1, 18);
-            this.ln_HA_TotAE.Name = "ln_HA_TotAE";
-            this.ln_HA_TotAE.Size = new System.Drawing.Size(145, 10);
-            this.ln_HA_TotAE.TabIndex = 1;
-            this.ln_HA_TotAE.TabStop = false;
-            this.ln_HA_TotAE.Transparency = 255;
-            this.ln_HA_TotAE.Vertical = false;
+            this.ln_HA_QTCut.BackColor = System.Drawing.Color.Transparent;
+            this.ln_HA_QTCut.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.ln_HA_QTCut.LineThickness = 1;
+            this.ln_HA_QTCut.Location = new System.Drawing.Point(-1, 18);
+            this.ln_HA_QTCut.Name = "ln_HA_QTCut";
+            this.ln_HA_QTCut.Size = new System.Drawing.Size(145, 10);
+            this.ln_HA_QTCut.TabIndex = 1;
+            this.ln_HA_QTCut.TabStop = false;
+            this.ln_HA_QTCut.Transparency = 255;
+            this.ln_HA_QTCut.Vertical = false;
             // 
-            // txt_HA_ExcRate
+            // txt_HA_QTCut
             // 
-            this.txt_HA_ExcRate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txt_HA_QTCut.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_HA_ExcRate.BackColor = System.Drawing.Color.Silver;
-            this.txt_HA_ExcRate.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_HA_ExcRate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_HA_ExcRate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_HA_ExcRate.Location = new System.Drawing.Point(3, 7);
-            this.txt_HA_ExcRate.Name = "txt_HA_ExcRate";
-            this.txt_HA_ExcRate.Size = new System.Drawing.Size(139, 16);
-            this.txt_HA_ExcRate.TabIndex = 0;
-            this.txt_HA_ExcRate.Leave += new System.EventHandler(this.Txt_HA_ExcRate_Leave);
-            this.txt_HA_ExcRate.MouseEnter += new System.EventHandler(this.Txt_HA_ExcRate_MouseEnter);
-            this.txt_HA_ExcRate.MouseLeave += new System.EventHandler(this.Txt_HA_ExcRate_MouseLeave);
+            this.txt_HA_QTCut.BackColor = System.Drawing.Color.Silver;
+            this.txt_HA_QTCut.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_HA_QTCut.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_HA_QTCut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
+            this.txt_HA_QTCut.Location = new System.Drawing.Point(2, 6);
+            this.txt_HA_QTCut.Name = "txt_HA_QTCut";
+            this.txt_HA_QTCut.Size = new System.Drawing.Size(140, 16);
+            this.txt_HA_QTCut.TabIndex = 0;
+            this.txt_HA_QTCut.TextChanged += new System.EventHandler(this.Txt_HA_QTCut_TextChanged);
+            this.txt_HA_QTCut.Leave += new System.EventHandler(this.Txt_HA_QTCut_Leave);
+            this.txt_HA_QTCut.MouseEnter += new System.EventHandler(this.Txt_HA_QTCut_MouseEnter);
+            this.txt_HA_QTCut.MouseLeave += new System.EventHandler(this.Txt_HA_QTCut_MouseLeave);
             // 
-            // ln_HA_ExcRate
+            // bunifuCustomLabel5
             // 
-            this.ln_HA_ExcRate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.bunifuCustomLabel5.AutoSize = true;
+            this.bunifuCustomLabel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.bunifuCustomLabel5.Location = new System.Drawing.Point(340, 191);
+            this.bunifuCustomLabel5.Name = "bunifuCustomLabel5";
+            this.bunifuCustomLabel5.Size = new System.Drawing.Size(78, 17);
+            this.bunifuCustomLabel5.TabIndex = 3;
+            this.bunifuCustomLabel5.Text = "Final Total:";
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.ln_HA_FTotal);
+            this.panel3.Controls.Add(this.txt_HA_FTotal);
+            this.panel3.Location = new System.Drawing.Point(421, 186);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(143, 26);
+            this.panel3.TabIndex = 2;
+            // 
+            // ln_HA_FTotal
+            // 
+            this.ln_HA_FTotal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ln_HA_ExcRate.BackColor = System.Drawing.Color.Transparent;
-            this.ln_HA_ExcRate.LineColor = System.Drawing.Color.Gray;
-            this.ln_HA_ExcRate.LineThickness = 1;
-            this.ln_HA_ExcRate.Location = new System.Drawing.Point(-1, 18);
-            this.ln_HA_ExcRate.Name = "ln_HA_ExcRate";
-            this.ln_HA_ExcRate.Size = new System.Drawing.Size(172, 10);
-            this.ln_HA_ExcRate.TabIndex = 1;
-            this.ln_HA_ExcRate.TabStop = false;
-            this.ln_HA_ExcRate.Transparency = 255;
-            this.ln_HA_ExcRate.Vertical = false;
+            this.ln_HA_FTotal.BackColor = System.Drawing.Color.Transparent;
+            this.ln_HA_FTotal.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.ln_HA_FTotal.LineThickness = 1;
+            this.ln_HA_FTotal.Location = new System.Drawing.Point(-1, 18);
+            this.ln_HA_FTotal.Name = "ln_HA_FTotal";
+            this.ln_HA_FTotal.Size = new System.Drawing.Size(145, 10);
+            this.ln_HA_FTotal.TabIndex = 1;
+            this.ln_HA_FTotal.TabStop = false;
+            this.ln_HA_FTotal.Transparency = 255;
+            this.ln_HA_FTotal.Vertical = false;
             // 
-            // txt_HA_TotBE
+            // txt_HA_FTotal
             // 
-            this.txt_HA_TotBE.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txt_HA_FTotal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_HA_TotBE.BackColor = System.Drawing.Color.Silver;
-            this.txt_HA_TotBE.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_HA_TotBE.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_HA_TotBE.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_HA_TotBE.Location = new System.Drawing.Point(3, 7);
-            this.txt_HA_TotBE.Name = "txt_HA_TotBE";
-            this.txt_HA_TotBE.Size = new System.Drawing.Size(140, 16);
-            this.txt_HA_TotBE.TabIndex = 0;
-            this.txt_HA_TotBE.TextChanged += new System.EventHandler(this.Txt_HA_TotalBE_TextChanged);
-            this.txt_HA_TotBE.Leave += new System.EventHandler(this.Txt_HA_TotBE_Leave);
-            this.txt_HA_TotBE.MouseEnter += new System.EventHandler(this.Txt_HA_TotBE_MouseEnter);
-            this.txt_HA_TotBE.MouseLeave += new System.EventHandler(this.Txt_HA_TotBE_MouseLeave);
+            this.txt_HA_FTotal.BackColor = System.Drawing.Color.Silver;
+            this.txt_HA_FTotal.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_HA_FTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_HA_FTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
+            this.txt_HA_FTotal.Location = new System.Drawing.Point(2, 6);
+            this.txt_HA_FTotal.Name = "txt_HA_FTotal";
+            this.txt_HA_FTotal.ReadOnly = true;
+            this.txt_HA_FTotal.Size = new System.Drawing.Size(140, 16);
+            this.txt_HA_FTotal.TabIndex = 0;
+            this.txt_HA_FTotal.TextChanged += new System.EventHandler(this.Txt_HA_FTotal_TextChanged);
+            this.txt_HA_FTotal.Leave += new System.EventHandler(this.Txt_HA_FTotal_Leave);
+            this.txt_HA_FTotal.MouseEnter += new System.EventHandler(this.Txt_HA_FTotal_MouseEnter);
+            this.txt_HA_FTotal.MouseLeave += new System.EventHandler(this.Txt_HA_FTotal_MouseLeave);
             // 
-            // ln_HA_TotBE
+            // cb_HA_Paid
             // 
-            this.ln_HA_TotBE.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ln_HA_TotBE.BackColor = System.Drawing.Color.Transparent;
-            this.ln_HA_TotBE.LineColor = System.Drawing.Color.Gray;
-            this.ln_HA_TotBE.LineThickness = 1;
-            this.ln_HA_TotBE.Location = new System.Drawing.Point(-1, 18);
-            this.ln_HA_TotBE.Name = "ln_HA_TotBE";
-            this.ln_HA_TotBE.Size = new System.Drawing.Size(173, 10);
-            this.ln_HA_TotBE.TabIndex = 1;
-            this.ln_HA_TotBE.TabStop = false;
-            this.ln_HA_TotBE.Transparency = 255;
-            this.ln_HA_TotBE.Vertical = false;
+            this.cb_HA_Paid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
+            this.cb_HA_Paid.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
+            this.cb_HA_Paid.Checked = false;
+            this.cb_HA_Paid.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
+            this.cb_HA_Paid.ForeColor = System.Drawing.Color.White;
+            this.cb_HA_Paid.Location = new System.Drawing.Point(120, 233);
+            this.cb_HA_Paid.Name = "cb_HA_Paid";
+            this.cb_HA_Paid.Size = new System.Drawing.Size(20, 20);
+            this.cb_HA_Paid.TabIndex = 1;
+            this.cb_HA_Paid.OnChange += new System.EventHandler(this.Cb_HA_Paid_CheckedChanged);
             // 
-            // ln_HA_DolPH
+            // bunifuCustomLabel4
             // 
-            this.ln_HA_DolPH.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ln_HA_DolPH.BackColor = System.Drawing.Color.Transparent;
-            this.ln_HA_DolPH.LineColor = System.Drawing.Color.Gray;
-            this.ln_HA_DolPH.LineThickness = 1;
-            this.ln_HA_DolPH.Location = new System.Drawing.Point(-1, 18);
-            this.ln_HA_DolPH.Name = "ln_HA_DolPH";
-            this.ln_HA_DolPH.Size = new System.Drawing.Size(168, 10);
-            this.ln_HA_DolPH.TabIndex = 0;
-            this.ln_HA_DolPH.TabStop = false;
-            this.ln_HA_DolPH.Transparency = 255;
-            this.ln_HA_DolPH.Vertical = false;
-            // 
-            // txt_HA_DolPH
-            // 
-            this.txt_HA_DolPH.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_HA_DolPH.BackColor = System.Drawing.Color.Silver;
-            this.txt_HA_DolPH.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_HA_DolPH.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_HA_DolPH.Location = new System.Drawing.Point(3, 6);
-            this.txt_HA_DolPH.Name = "txt_HA_DolPH";
-            this.txt_HA_DolPH.Size = new System.Drawing.Size(163, 16);
-            this.txt_HA_DolPH.TabIndex = 1;
-            this.txt_HA_DolPH.TextChanged += new System.EventHandler(this.Txt_HA_PerHour_TextChanged);
-            this.txt_HA_DolPH.Leave += new System.EventHandler(this.Txt_HA_DolPH_Leave);
-            this.txt_HA_DolPH.MouseEnter += new System.EventHandler(this.Txt_HA_DolPH_MouseEnter);
-            this.txt_HA_DolPH.MouseLeave += new System.EventHandler(this.Txt_HA_DolPH_MouseLeave);
-            // 
-            // txt_HA_HW
-            // 
-            this.txt_HA_HW.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_HA_HW.BackColor = System.Drawing.Color.Silver;
-            this.txt_HA_HW.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_HA_HW.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_HA_HW.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_HA_HW.Location = new System.Drawing.Point(2, 7);
-            this.txt_HA_HW.Name = "txt_HA_HW";
-            this.txt_HA_HW.Size = new System.Drawing.Size(16, 16);
-            this.txt_HA_HW.TabIndex = 0;
-            this.txt_HA_HW.Leave += new System.EventHandler(this.Txt_HA_HW_Leave);
-            this.txt_HA_HW.MouseEnter += new System.EventHandler(this.Txt_HA_HW_MouseEnter);
-            this.txt_HA_HW.MouseLeave += new System.EventHandler(this.Txt_HA_HW_MouseLeave);
-            // 
-            // ln_HA_HW
-            // 
-            this.ln_HA_HW.BackColor = System.Drawing.Color.Transparent;
-            this.ln_HA_HW.LineColor = System.Drawing.Color.Gray;
-            this.ln_HA_HW.LineThickness = 1;
-            this.ln_HA_HW.Location = new System.Drawing.Point(-1, 18);
-            this.ln_HA_HW.Name = "ln_HA_HW";
-            this.ln_HA_HW.Size = new System.Drawing.Size(84, 10);
-            this.ln_HA_HW.TabIndex = 1;
-            this.ln_HA_HW.TabStop = false;
-            this.ln_HA_HW.Transparency = 255;
-            this.ln_HA_HW.Vertical = false;
-            // 
-            // txt_HA_Code
-            // 
-            this.txt_HA_Code.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_HA_Code.BackColor = System.Drawing.Color.Silver;
-            this.txt_HA_Code.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_HA_Code.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_HA_Code.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.txt_HA_Code.Location = new System.Drawing.Point(2, 6);
-            this.txt_HA_Code.Name = "txt_HA_Code";
-            this.txt_HA_Code.Size = new System.Drawing.Size(163, 16);
-            this.txt_HA_Code.TabIndex = 0;
-            this.txt_HA_Code.Leave += new System.EventHandler(this.Txt_HA_Code_Leave);
-            this.txt_HA_Code.MouseEnter += new System.EventHandler(this.Txt_HA_Code_MouseEnter);
-            this.txt_HA_Code.MouseLeave += new System.EventHandler(this.Txt_HA_Code_MouseLeave);
-            // 
-            // ln_HA_Code
-            // 
-            this.ln_HA_Code.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ln_HA_Code.BackColor = System.Drawing.Color.Transparent;
-            this.ln_HA_Code.LineColor = System.Drawing.Color.Gray;
-            this.ln_HA_Code.LineThickness = 1;
-            this.ln_HA_Code.Location = new System.Drawing.Point(-1, 18);
-            this.ln_HA_Code.Name = "ln_HA_Code";
-            this.ln_HA_Code.Size = new System.Drawing.Size(167, 10);
-            this.ln_HA_Code.TabIndex = 1;
-            this.ln_HA_Code.TabStop = false;
-            this.ln_HA_Code.Transparency = 255;
-            this.ln_HA_Code.Vertical = false;
-            // 
-            // bunifuCustomLabel9
-            // 
-            this.bunifuCustomLabel9.AutoSize = true;
-            this.bunifuCustomLabel9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuCustomLabel9.Location = new System.Drawing.Point(352, 150);
-            this.bunifuCustomLabel9.Name = "bunifuCustomLabel9";
-            this.bunifuCustomLabel9.Size = new System.Drawing.Size(68, 17);
-            this.bunifuCustomLabel9.TabIndex = 16;
-            this.bunifuCustomLabel9.Text = "Total (R):";
-            // 
-            // bunifuCustomLabel11
-            // 
-            this.bunifuCustomLabel11.AutoSize = true;
-            this.bunifuCustomLabel11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuCustomLabel11.Location = new System.Drawing.Point(13, 151);
-            this.bunifuCustomLabel11.Name = "bunifuCustomLabel11";
-            this.bunifuCustomLabel11.Size = new System.Drawing.Size(108, 17);
-            this.bunifuCustomLabel11.TabIndex = 17;
-            this.bunifuCustomLabel11.Text = "Exchange Rate:";
-            // 
-            // bunifuCustomLabel12
-            // 
-            this.bunifuCustomLabel12.AutoSize = true;
-            this.bunifuCustomLabel12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuCustomLabel12.Location = new System.Drawing.Point(352, 109);
-            this.bunifuCustomLabel12.Name = "bunifuCustomLabel12";
-            this.bunifuCustomLabel12.Size = new System.Drawing.Size(66, 17);
-            this.bunifuCustomLabel12.TabIndex = 18;
-            this.bunifuCustomLabel12.Text = "Total ($):";
-            // 
-            // bunifuCustomLabel13
-            // 
-            this.bunifuCustomLabel13.AutoSize = true;
-            this.bunifuCustomLabel13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuCustomLabel13.Location = new System.Drawing.Point(60, 109);
-            this.bunifuCustomLabel13.Name = "bunifuCustomLabel13";
-            this.bunifuCustomLabel13.Size = new System.Drawing.Size(55, 17);
-            this.bunifuCustomLabel13.TabIndex = 19;
-            this.bunifuCustomLabel13.Text = "$/Hour:";
-            // 
-            // bunifuCustomLabel14
-            // 
-            this.bunifuCustomLabel14.AutoSize = true;
-            this.bunifuCustomLabel14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuCustomLabel14.Location = new System.Drawing.Point(373, 67);
-            this.bunifuCustomLabel14.Name = "bunifuCustomLabel14";
-            this.bunifuCustomLabel14.Size = new System.Drawing.Size(103, 17);
-            this.bunifuCustomLabel14.TabIndex = 20;
-            this.bunifuCustomLabel14.Text = "Hours Worked:";
-            // 
-            // dtp_HA_DatePaid
-            // 
-            this.dtp_HA_DatePaid.BackColor = System.Drawing.Color.Silver;
-            this.dtp_HA_DatePaid.BorderRadius = 0;
-            this.dtp_HA_DatePaid.Enabled = false;
-            this.dtp_HA_DatePaid.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.dtp_HA_DatePaid.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_HA_DatePaid.FormatCustom = "null";
-            this.dtp_HA_DatePaid.Location = new System.Drawing.Point(356, 233);
-            this.dtp_HA_DatePaid.Name = "dtp_HA_DatePaid";
-            this.dtp_HA_DatePaid.Size = new System.Drawing.Size(208, 19);
-            this.dtp_HA_DatePaid.TabIndex = 21;
-            this.dtp_HA_DatePaid.Value = new System.DateTime(2019, 9, 11, 11, 47, 47, 635);
-            // 
-            // bunifuCustomLabel15
-            // 
-            this.bunifuCustomLabel15.AutoSize = true;
-            this.bunifuCustomLabel15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuCustomLabel15.Location = new System.Drawing.Point(283, 234);
-            this.bunifuCustomLabel15.Name = "bunifuCustomLabel15";
-            this.bunifuCustomLabel15.Size = new System.Drawing.Size(74, 17);
-            this.bunifuCustomLabel15.TabIndex = 22;
-            this.bunifuCustomLabel15.Text = "Date Paid:";
-            // 
-            // bunifuCustomLabel16
-            // 
-            this.bunifuCustomLabel16.AutoSize = true;
-            this.bunifuCustomLabel16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuCustomLabel16.Location = new System.Drawing.Point(69, 67);
-            this.bunifuCustomLabel16.Name = "bunifuCustomLabel16";
-            this.bunifuCustomLabel16.Size = new System.Drawing.Size(45, 17);
-            this.bunifuCustomLabel16.TabIndex = 23;
-            this.bunifuCustomLabel16.Text = "Code:";
+            this.bunifuCustomLabel4.AutoSize = true;
+            this.bunifuCustomLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.bunifuCustomLabel4.Location = new System.Drawing.Point(146, 233);
+            this.bunifuCustomLabel4.Name = "bunifuCustomLabel4";
+            this.bunifuCustomLabel4.Size = new System.Drawing.Size(36, 17);
+            this.bunifuCustomLabel4.TabIndex = 0;
+            this.bunifuCustomLabel4.Text = "Paid";
             // 
             // btn_HA_Cancel
             // 
@@ -1011,22 +1011,22 @@
             this.panel13.PerformLayout();
             this.gb_OA_ODetails.ResumeLayout(false);
             this.gb_OA_ODetails.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
